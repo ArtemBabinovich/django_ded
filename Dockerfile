@@ -5,4 +5,4 @@ COPY . .
 RUN pip install --upgrade pip
 RUN pip install gunicorn
 RUN pip install -r requirements.txt
-CMD ["gunicorn", "--bind", ":8000", "--workers", "2", "constproject.wsgi:application"]
+CMD ["gunicorn", "--bind", ":8000", "--workers", "2", "ded.wsgi:application"]
