@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  django_ded:
+    build:
+      context: .
+    container_name: django_ded
+    ports:
+      - "8060:8000"
+    volumes:
+      - static_volume:/django_ded/static
+      - media_volume:/django_ded/media
+
+volumes:
+  static_volume:
+  media_volume:
