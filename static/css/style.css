@@ -13,7 +13,7 @@ body {
   margin: 0 auto;
 }
 
-@media (max-width: 1920px) {
+@media (max-width: 1919px) {
   .container {
     max-width: 1366px;
   }
@@ -21,7 +21,7 @@ body {
     max-width: 1366px;
   }
 }
-@media (max-width: 1366px) {
+@media (max-width: 1365px) {
   .container {
     max-width: 1140px;
   }
@@ -29,7 +29,7 @@ body {
     max-width: 1140px;
   }
 }
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
   .container {
     max-width: 850px;
   }
@@ -37,7 +37,7 @@ body {
     max-width: 850px;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .container {
     max-width: 540px;
   }
@@ -192,7 +192,7 @@ header {
   display: none;
 }
 
-@media (max-width: 1920px) {
+@media (max-width: 1919px) {
   header {
     border: none;
   }
@@ -236,7 +236,7 @@ header {
     flex-direction: row;
   }
 }
-@media (max-width: 1366px) {
+@media (max-width: 1365px) {
   header {
     border-bottom: 1px solid white;
   }
@@ -277,7 +277,7 @@ header {
     margin-bottom: 30px;
   }
 }
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
   .header__about-wrapper {
     column-gap: 15px;
   }
@@ -322,7 +322,7 @@ header {
     flex: 1 1 auto;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   header {
     border: none;
   }
@@ -360,12 +360,20 @@ header {
   .header__about-item {
     gap: 5px;
   }
+  .btn__image-wrapper {
+    border: 8px solid transparent;
+    border-top: 12px solid #fbf0c9;
+    position: absolute;
+    right: 10px;
+    top: 7px;
+  }
   .header__nav-phone-btn {
     display: flex;
     justify-content: center;
     height: 25px;
     background: linear-gradient(to bottom, #d20300, #710909);
     align-items: center;
+    position: relative;
   }
   .btn__text {
     font-family: Tahoma;
@@ -401,9 +409,6 @@ header {
   .header__nav-list-item:hover {
     background: #3c0000;
   }
-  .header__nav-service-btn {
-    display: block;
-  }
   .header__image-wrapper {
     display: block;
   }
@@ -418,6 +423,7 @@ header {
     background: linear-gradient(to bottom, #d20300, #710909);
     align-items: center;
     padding-left: 10px;
+    position: relative;
   }
   .header__nav-discount-btn {
     padding-left: 10px;
@@ -426,9 +432,10 @@ header {
     height: 25px;
     background: linear-gradient(to bottom, #d20300, #710909);
     align-items: center;
+    position: relative;
   }
 }
-@media (max-width: 480px) {
+@media (max-width: 479px) {
   .header__about-item {
     flex-wrap: wrap;
   }
