@@ -102,7 +102,7 @@ header {
 
 .header__about-item {
   display: flex;
-  gap: 10px;
+  gap: 9px;
   font-family: Cambria;
   font-style: normal;
   font-weight: 700;
@@ -319,7 +319,8 @@ header {
     font-size: 18px;
   }
   .header__btn-wrapper {
-    flex: 1 1 auto;
+    flex-basis: 245px;
+    justify-content: flex-start;
   }
 }
 @media (max-width: 767px) {
@@ -331,6 +332,9 @@ header {
   }
   .header__about-work {
     display: flex;
+  }
+  .header__btn-wrapper {
+    flex-basis: 0;
   }
   .header__about-wrapper {
     flex-direction: column;

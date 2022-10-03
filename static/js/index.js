@@ -8,7 +8,6 @@ btn.addEventListener('click', () => {
 window.addEventListener('scroll', () => {
     if (Math.ceil(pageYOffset) >= header.offsetHeight){
         if (window.innerWidth <= 1024){
-            console.log(11111)
             mainHeader.style.display = 'none';
         }else {
             mainHeader.style.display = 'flex';
