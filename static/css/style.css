@@ -230,7 +230,7 @@ header {
     gap: 10px;
   }
   .header__about-wrapper {
-    margin-bottom: 20px;
+    margin-bottom: 0px;
   }
   .header__phone {
     flex-direction: row;
@@ -466,6 +466,12 @@ header {
   }
   .header__phone a {
     font-size: 13px;
+  }
+}
+@media (max-width: 340px) {
+  .header__phone {
+    width: 100%;
+    justify-content: space-between;
   }
 }
 .main__wrapper {

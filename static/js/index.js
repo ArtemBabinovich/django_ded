@@ -17,4 +17,4 @@ window.addEventListener('scroll', () => {
     }
 })
 
-// console.log(header.offsetHeight)
+
