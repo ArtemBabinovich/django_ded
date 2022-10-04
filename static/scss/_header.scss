@@ -42,6 +42,9 @@ header{
   margin-bottom: 30px;
   gap: 40px;
   justify-content: space-between;
+  & .header__logo{
+    display: none;
+  }
 }
 .header__about-item {
   display: flex;
@@ -139,9 +142,22 @@ header{
   .header__about-work{
     display: none;
   }
+  .header__logo{
+    display: none;
+  }
   .header__about-works-wrapper{
     gap: 20px;
     align-items: center;
+    margin-bottom: 0;
+    & .header__logo{
+      display: block;
+    }
+  }
+  .header__btn-wrapper{
+    margin-bottom: 30px;
+  }
+  .header__phone{
+    margin-bottom: 30px;
   }
   .header__nav-list{
     column-gap: 50px;
@@ -209,6 +225,16 @@ header{
     justify-content: center;
     align-items: center;
   }
+  .header__logo{
+    display: none;
+  }
+  .header__about-works-wrapper{
+    margin-bottom: 0px;
+    & .header__logo{
+      display: block;
+      max-width: 310px;
+    }
+  }
   .header__about-work-mini-wrapper{
     margin-bottom: 30px;
   }
@@ -217,8 +243,12 @@ header{
   .header__about-wrapper{
     column-gap: 15px;
   }
+  .header__logo{
+    display: none;
+  }
   .header__about-works-wrapper{
     column-gap: 15px;
+    margin-bottom: 0px;
   }
   .header__about-wrapper{
     margin-bottom: 0;
@@ -243,6 +273,7 @@ header{
     flex: 1 1 auto;
   }
   .header__phone{
+    margin-bottom: 30px;
     & a {
       font-size: 14px;
     }
@@ -259,11 +290,21 @@ header{
   .header__btn-wrapper{
     flex-basis: 245px;
     justify-content: flex-start;
+    margin-bottom: 30px;
   }
 }
 @media (max-width: 767px) {
   header{
     border: none;
+  }
+  .header__about-works-wrapper{
+    & .header__logo{
+      display: none;
+      max-width: 310px;
+    }
+  }
+  .header__logo{
+    display: block;
   }
   .header__about-work-mini-wrapper{
     display: none;
