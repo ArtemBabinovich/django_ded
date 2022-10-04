@@ -1,7 +1,3 @@
-header{
-  border-top: 1px solid white;
-  border-bottom: 1px solid white;
-}
 .header__wrapper {
   padding: 15px 0;
 }
@@ -132,9 +128,6 @@ header{
   display: none;
 }
 @media (max-width: 1919px) {
-  header{
-    border: none;
-  }
   .header__about-wrapper{
     padding: 0 20px;
     gap: 20px;
@@ -189,9 +182,6 @@ header{
   }
 }
 @media (max-width: 1365px) {
-  header{
-    border-bottom: 1px solid white;
-  }
   .header__phone{
     gap: 20px;
     flex-direction: column;
@@ -309,6 +299,9 @@ header{
   .header__about-work-mini-wrapper{
     display: none;
   }
+  .header__btn-wrapper{
+    margin-bottom: 15px;
+  }
   .header__about-work{
     display: flex;
   }
@@ -322,9 +315,11 @@ header{
   .header__about-works-wrapper{
     flex-direction: column;
     align-items: flex-start;
+    row-gap: 10px;
   }
   .header__phone{
     flex-direction: row;
+    margin: 0;
   }
   .header__discounts-button{
     display: flex;
@@ -333,7 +328,7 @@ header{
     width: 100%;
     display: flex;
     justify-content: space-between;
-    gap: 20px;
+    gap: 15px;
   }
   .header__discounts-button{
     flex: 1 1 auto;
