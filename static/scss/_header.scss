@@ -276,6 +276,7 @@ header{
   }
   .header__about-wrapper{
     flex-direction: column;
+    gap: 0;
   }
   .header__about-works-wrapper{
     flex-direction: column;
@@ -398,7 +399,7 @@ header{
     gap: 15px;
   }
   .header__about-work{
-    gap: 0px;
+    gap: 5px;
   }
   .header__phone{
     gap: 5px;
