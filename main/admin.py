@@ -1,3 +1,5 @@
 from django.contrib import admin
+from main.models import FotoSliderBase, TimeSlideBase
 
-# Register your models here.
+admin.site.register(FotoSliderBase)
+admin.site.register(TimeSlideBase)
