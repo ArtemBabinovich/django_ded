@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
-
 from main.models import FotoSliderBase, TimeSlideBase, Service, CatalogService, Image, Position
+from adminsortable.admin import NonSortableParentAdmin, SortableStackedInline
 
 admin.site.register(FotoSliderBase)
 admin.site.register(TimeSlideBase)
@@ -15,18 +15,6 @@ class PositionAdmin(admin.ModelAdmin):
         return False
 
 
-class ImageInline(admin.TabularInline):
-    """Фотографии"""
-    model = Image
-    extra = 2
-    readonly_fields = 'preview',
-
-    def preview(self, obj):
-        return mark_safe(f'<img src="{obj.image.url}" width="80" height="80">')
-
-    preview.short_description = 'Превью Фотографии'
-
-
 @admin.register(Service)
 class ServicAdmin(admin.ModelAdmin):
     """Раздел"""
@@ -35,14 +23,88 @@ class ServicAdmin(admin.ModelAdmin):
     list_filter = 'is_active',
     search_fields = 'name',
 
+    def has_module_permission(self, request):
+        return False
+
+
+class ImageInline(SortableStackedInline):
+    """Фотографии"""
+    model = Image
+    extra = 1
+    readonly_fields = 'preview',
+
+    def preview(self, obj):
+        return mark_safe(f'<img src="{obj.image.url}" width="80" height="80">')
+
+    preview.short_description = 'Превью Фотографии'
+
 
 @admin.register(CatalogService)
-class CatalogServiceAdmin(admin.ModelAdmin):
+class CatalogServiceAdmin(NonSortableParentAdmin):
     """Услуги"""
     list_display = 'name', 'marker', 'position', 'service', 'is_active',
     list_editable = 'marker', 'is_active', 'position', 'service', 'is_active',
     list_filter = 'marker', 'service', 'is_active',
     search_fields = 'name',
-    inlines = ImageInline,
+    inlines = [ImageInline]
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# @admin.register(CatalogService)
+# class CatalogServiceAdmin(admin.ModelAdmin):
+#     """Услуги"""
+#     list_display = 'name', 'marker', 'position', 'service', 'is_active',
+#     list_editable = 'marker', 'is_active', 'position', 'service', 'is_active',
+#     list_filter = 'marker', 'service', 'is_active',
+#     search_fields = 'name',
+#     inlines = ImageInline,
+
+
+# class ImageInline(admin.TabularInline):
+#     """Фотографии"""
+#     model = Image
+#     extra = 2
+#     readonly_fields = 'preview',
+#
+#     def preview(self, obj):
+#         return mark_safe(f'<img src="{obj.image.url}" width="80" height="80">')
+#
+#     preview.short_description = 'Превью Фотографии'
