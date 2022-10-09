@@ -27,6 +27,8 @@ class TimeSlideBase(models.Model):
 
 
 """ЛЕВАЯ ПАНЕЛЬ"""
+
+
 class Position(models.Model):
     """Номер очереди"""
     number = models.PositiveIntegerField(verbose_name='Номер очереди', unique=True)
@@ -102,38 +104,64 @@ class CatalogService(models.Model):
 
 
 """СЕРЕДИНА"""
-# class CatalogService(models.Model):
-#     """Услуги"""
-#     MARKER_CHOICES = (
-#         ('ХИТ', 'ХИТ',),
-#         ('ТОП', 'ТОП',),
-#         ('NEW', 'NEW',),
-#         ('АКЦИЯ', 'АКЦИЯ'),
-#     )
-#     name = models.CharField(verbose_name='Название', max_length=200, unique=True)
-#     marker = models.CharField(verbose_name='Маркер', max_length=200, choices=MARKER_CHOICES, blank=True, null=True)
-#     service = models.ForeignKey('Service', verbose_name='Раздел', on_delete=models.CASCADE)
-#     description = models.TextField(verbose_name='Описание', null=True, blank=True)
-#     price = models.DecimalField(verbose_name='Цена', max_digits=8, decimal_places=2)
-#     position = models.OneToOneField(Position, verbose_name='Номер', on_delete=models.CASCADE)
-#     is_active = models.BooleanField(verbose_name='Активен', default=True)
-#
-#     class Meta:
-#         verbose_name = 'Услуги'
-#         verbose_name_plural = 'Услуги'
-#         ordering = ['position']
-#
-#     def __str__(self):
-#         return self.name
 
-# class Image(models.Model):
-#     """Фотографии"""
-#     image = models.ImageField(verbose_name='Фотографии', null=True, blank=True, upload_to='photos/')
-#     catalog_service = models.ForeignKey('CatalogService', verbose_name='Фотографии', on_delete=models.CASCADE)
-#
-#     class Meta:
-#         verbose_name = 'Фотографии'
-#         verbose_name_plural = 'Фотографии'
-#
-#     def __str__(self):
-#         return ''
+
+class MidServices(models.Model):
+    """Раздел середина"""
+    title = models.CharField(verbose_name='Раздел', max_length=250, unique=True)
+    info = models.CharField(verbose_name='Информация', max_length=250, unique=True)
+    tips = models.TextField(verbose_name='Читать советы')
+    position = models.OneToOneField(Position, verbose_name='Номер очереди', on_delete=models.CASCADE)
+    is_active = models.BooleanField(verbose_name='Активен', default=True)
+
+    class Meta:
+        verbose_name = 'Раздел середина'
+        verbose_name_plural = 'Раздел середина'
+        ordering = ['position']
+
+    def __str__(self):
+        return self.title
+
+    def save(self, *args):
+        limits = 10
+        if Service.objects.count() < limits:
+            super().save(*args)
+        else:
+            raise ValidationError('Слишком много записей в Разделе!')
+
+
+class MidImage(SortableMixin):
+    """Фотографии середина"""
+    category = SortableForeignKey('MidCatalogService', on_delete=models.CASCADE)
+    image = models.ImageField(verbose_name='Фотографии', null=True, blank=True, upload_to='photos/')
+    project_order = models.PositiveIntegerField(default=0, editable=False, db_index=True)
+
+    class Meta:
+        verbose_name = 'Фотографии середина'
+        verbose_name_plural = 'Фотографии середина'
+        ordering = ['project_order']
+
+    def __str__(self):
+        return ''
+
+
+class MidCatalogService(models.Model):
+    """Услуги середина"""
+    name = models.CharField(verbose_name='Название', max_length=200, unique=True)
+    service = models.ForeignKey('MidServices', verbose_name='Раздел середина', on_delete=models.CASCADE)
+    description = models.TextField(verbose_name='Описание', null=True, blank=True)
+    price = models.DecimalField(verbose_name='Цена', max_digits=8, decimal_places=2)
+    position = models.OneToOneField('Position', verbose_name='Номер очереди', on_delete=models.CASCADE)
+    is_active = models.BooleanField(verbose_name='Активен', default=True)
+
+    class Meta:
+        verbose_name = 'Услуги середина'
+        verbose_name_plural = 'Услуги середина'
+        ordering = ['position']
+
+    def __str__(self):
+        return self.name
+
+
+
+
