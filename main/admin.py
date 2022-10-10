@@ -1,9 +1,9 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
-from main.models import Image, Position, FotoSliderBase, TimeSlideBase, Section, CatalogService
+from main.models import Image, Position, FotoSliderBase, TimeSlideBase, CatalogService
 from adminsortable.admin import NonSortableParentAdmin, SortableStackedInline
-from adminsortable.admin import (SortableTabularInline)
-from .models import (Gallery, GalleryImageRelation)
+from adminsortable.admin import SortableTabularInline
+from .models import Gallery, GalleryImageRelation
 
 admin.site.register(FotoSliderBase)
 admin.site.register(TimeSlideBase)
@@ -12,14 +12,6 @@ admin.site.register(TimeSlideBase)
 @admin.register(Position)
 class PositionAdmin(admin.ModelAdmin):
     """Позиция в списке"""
-
-    def has_module_permission(self, request):
-        return False
-
-
-@admin.register(Section)
-class SectionAdmin(admin.ModelAdmin):
-    """Раздел"""
 
     def has_module_permission(self, request):
         return False
@@ -41,6 +33,9 @@ class ImageInline(SortableStackedInline):
 @admin.register(CatalogService)
 class CatalogServiceAdmin(NonSortableParentAdmin):
     """Услуги"""
+    list_display = 'name', 'marker', 'price', 'is_active'
+    list_editable = 'marker', 'price', 'is_active'
+    list_filter = 'marker', 'is_active'
     inlines = [ImageInline]
 
     def has_module_permission(self, request):
@@ -56,4 +51,7 @@ class GalleryImageRelationInlineAdmin(SortableTabularInline):
 @admin.register(Gallery)
 class GalleryAdmin(NonSortableParentAdmin):
     """Левая панель"""
+    list_display = 'name', 'position', 'is_active',
+    list_editable = 'position', 'is_active'
+    list_filter = 'is_active',
     inlines = (GalleryImageRelationInlineAdmin,)
