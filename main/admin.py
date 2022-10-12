@@ -1,12 +1,15 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
-from main.models import Image, Position, FotoSliderBase, TimeSlideBase, CatalogService
+from main.models import Image, Position, FotoSliderBase, TimeSlideBase, CatalogService, MiniFotoSlider, \
+    TimeForMiniSlider
 from adminsortable.admin import NonSortableParentAdmin, SortableStackedInline
 from adminsortable.admin import SortableTabularInline
 from .models import Gallery, GalleryImageRelation
 
 admin.site.register(FotoSliderBase)
 admin.site.register(TimeSlideBase)
+admin.site.register(MiniFotoSlider)
+admin.site.register(TimeForMiniSlider)
 
 
 @admin.register(Position)

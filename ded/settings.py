@@ -23,10 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-ig0+ok91o9i0c3b9bmj-ghj07)e_gb331g$myn1yy#fupir4&3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['developer.itec.by', '194.62.19.66', '127.0.0.1', ]
-# ALLOWED_HOSTS = []
+
 
 # Application definition
 
@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'adminsortable',
-
+    'colorfield',
     'corsheaders',
     'rest_framework',
     'main',

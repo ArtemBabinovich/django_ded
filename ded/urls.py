@@ -23,6 +23,9 @@ from main import viewsAPI
 router = routers.DefaultRouter()
 router.register(r'foto_slider_base', viewsAPI.FotoSliderBaseViewSet)
 router.register(r'time_slider_base', viewsAPI.TimeSlideBaseViewSet)
+router.register(r'mini-slider', viewsAPI.MiniFotoSliderViewSet)
+router.register(r'time_mini-slider', viewsAPI.TimeForMiniSliderViewSet)
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),

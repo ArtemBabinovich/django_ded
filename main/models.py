@@ -1,3 +1,4 @@
+from colorfield.fields import ColorField
 from django.core.exceptions import ValidationError
 from django.db import models
 from adminsortable.models import SortableMixin
@@ -8,6 +9,9 @@ class FotoSliderBase(models.Model):
     """Фотослайдер большой"""
     image = models.ImageField('Фотография для слайдера', upload_to='Base_slider/image/')
     text = models.CharField('Заголовок', max_length=34)
+    color = ColorField('Цвет заголовка', format="hexa")
+    text_2 = models.CharField('Заголовок_2', max_length=34, blank=True, null=True)
+    color_2 = ColorField('Цвет заголовка_2', format="hexa", blank=True, null=True)
 
     class Meta:
         verbose_name = 'Главный Фотослайдер'
@@ -24,6 +28,32 @@ class TimeSlideBase(models.Model):
     class Meta:
         verbose_name = 'Таймер времени паузы для фотослайдера'
         verbose_name_plural = 'Таймер времени паузы для фотослайдеров'
+
+
+class MiniFotoSlider(models.Model):
+    image = models.ImageField('Фотография для слайдера', upload_to='MiniSlider/image/')
+    text_1 = models.CharField('Заголовок_1', max_length=34)
+    color_1 = ColorField('Цвет заголовка_1', format="hexa")
+    text_2 = models.CharField('Заголовок_2', max_length=34, blank=True, null=True)
+    color_2 = ColorField('Цвет заголовка_2', format="hexa", blank=True, null=True)
+    text_3 = models.CharField('Заголовок_3', max_length=34, blank=True, null=True)
+    color_3 = ColorField('Цвет заголовка_3', format="hexa", blank=True, null=True)
+
+    class Meta:
+        verbose_name = 'Мини-фотослайдер'
+        verbose_name_plural = 'Мини-фотослайдер'
+
+    def __str__(self):
+        return self.text_1
+
+
+class TimeForMiniSlider(models.Model):
+    """Таймер времени паузы для мини-фотослайдера"""
+    time_pause = models.IntegerField('Таймер времени в секундах', default=4)
+
+    class Meta:
+        verbose_name = 'Таймер времени паузы для мини-фотослайдера'
+        verbose_name_plural = 'Таймер времени паузы для мини-фотослайдеров'
 
 
 """ЛЕВАЯ ПАНЕЛЬ"""
