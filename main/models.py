@@ -31,7 +31,7 @@ class TimeSlideBase(models.Model):
 
 class Position(models.Model):
     """Номер очереди"""
-    number = models.PositiveIntegerField(verbose_name='Номер очереди', unique=True, default=1)
+    number = models.PositiveIntegerField(verbose_name='Номер очереди', unique=True)
 
     class Meta:
         verbose_name = 'Номер очереди'
