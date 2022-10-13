@@ -1,12 +1,31 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
-from main.models import Image, Position, FotoSliderBase, TimeSlideBase, CatalogService
+from main.models import Image, Position, FotoSliderBase, TimeSlideBase, CatalogService, Contact
 from adminsortable.admin import NonSortableParentAdmin, SortableStackedInline
 from adminsortable.admin import SortableTabularInline
 from .models import Gallery, GalleryImageRelation
 
 admin.site.register(FotoSliderBase)
 admin.site.register(TimeSlideBase)
+
+
+@admin.register(Contact)
+class ContactAdmin(admin.ModelAdmin):
+    """Контакты"""
+    list_display = '__str__',  'phone1', 'phone2', 'phone3'
+    fields = 'maps', 'attention_info', 'photo_map', 'preview1', 'info_photo_map', 'photo_st', 'preview2', 'info_photo_st', 'address', 'website', 'email', 'skype', 'phone1', 'phone2', 'phone3'
+    list_editable = 'phone1', 'phone2', 'phone3'
+    readonly_fields = 'preview1', 'preview2',
+
+    def preview1(self, obj):
+        return mark_safe(f'<img src="{obj.photo_map.url}" width="200" height="200">')
+
+    preview1.short_description = 'Превью Фотографии (КАК ДОБРАТЬСЯ)'
+
+    def preview2(self, obj):
+        return mark_safe(f'<img src="{obj.photo_st.url}" width="200" height="200">')
+
+    preview2.short_description = 'Превью Фотографии (ВХОД В СТУДИЮ)'
 
 
 @admin.register(Position)

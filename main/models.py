@@ -3,6 +3,32 @@ from django.db import models
 from adminsortable.models import SortableMixin
 from adminsortable.fields import SortableForeignKey
 
+"""КОНТАКТЫ"""
+
+
+class Contact(models.Model):
+    """Контакты"""
+    maps = models.TextField(verbose_name='Расположение на карте', help_text='Ссылка с яндекс карты')
+    attention_info = models.TextField(verbose_name='Опиание информации (ВНИМАНИЕ!)')
+    photo_map = models.ImageField(verbose_name='Фотография (КАК ДОБРАТЬСЯ)', upload_to='contacts/')
+    info_photo_map = models.TextField(verbose_name='Описание (КАК ДОБРАТЬСЯ)')
+    photo_st = models.ImageField(verbose_name='Фотография (ВХОД В СТУДИЮ)', upload_to='contacts/')
+    info_photo_st = models.TextField(verbose_name='Описание (ВХОД В СТУДИЮ)')
+    address = models.CharField(verbose_name='Адрес', max_length=100, blank=True, null=True)
+    website = models.CharField(verbose_name='Сайт', max_length=100, blank=True, null=True)
+    email = models.CharField(verbose_name='E-mail', max_length=100, blank=True, null=True)
+    skype = models.CharField(verbose_name='Skype', max_length=100, blank=True, null=True)
+    phone1 = models.CharField(verbose_name='Телефон (Офис стационарный)', max_length=33, blank=True, null=True)
+    phone2 = models.CharField(verbose_name='Телефон (Офис мобильный)', max_length=33, blank=True, null=True)
+    phone3 = models.CharField(verbose_name='Телефон (Мобильный)', max_length=33, blank=True, null=True)
+
+    class Meta:
+        verbose_name = 'Контакты'
+        verbose_name_plural = 'Контакты'
+
+    def __str__(self):
+        return f'{self.address}'
+
 
 class FotoSliderBase(models.Model):
     """Фотослайдер большой"""
