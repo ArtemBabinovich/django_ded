@@ -15,7 +15,7 @@ function get__sliderItem(url) {
                                                 </div>
                                                 <div class="container">
                                                     <a href="#" class="slider__item-link" style="color: ${i.color}">
-                                                        <p>${i.text}</p>
+                                                        <p style="color: ${i.color ? i.color:''}">${i.text}</p>
                                                         ${i.text_2 ? `<span style="color: ${i.color_2}">${i.text_2}</span>`:''}
                                                     </a>
                                                 </div>

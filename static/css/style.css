@@ -151,7 +151,7 @@ body {
 .btn__drop-down-present {
   position: absolute;
   bottom: -961px;
-  z-index: 2;
+  z-index: 5;
   width: 100%;
   display: none;
 }
@@ -188,8 +188,9 @@ body {
 
 .present__firstBlock-image {
   position: absolute;
-  bottom: -98px;
+  bottom: -88px;
   width: 100%;
+  padding: 0 20px;
 }
 .present__firstBlock-image img {
   width: 100%;
@@ -224,7 +225,7 @@ body {
   width: 100%;
   position: absolute;
   max-width: 300px;
-  bottom: -91px;
+  bottom: -94px;
   padding: 0 10px;
 }
 .firstBlock__image img {
@@ -714,6 +715,7 @@ body {
   }
   .header__about-works-wrapper .header__logo {
     display: block;
+    flex: 1 1 auto;
   }
   .header__btn-wrapper {
     margin-bottom: 30px;

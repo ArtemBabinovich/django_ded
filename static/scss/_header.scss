@@ -91,7 +91,7 @@
 .btn__drop-down-present{
   position: absolute;
   bottom: -961px;
-  z-index: 2;
+  z-index: 5;
   width: 100%;
   display: none;
 }
@@ -122,8 +122,9 @@
 }
 .present__firstBlock-image{
   position: absolute;
-  bottom: -98px;
+  bottom: -88px;
   width: 100%;
+  padding: 0 20px;
   & img {
     width: 100%;
     height: 100%;
@@ -155,7 +156,7 @@
   width: 100%;
   position: absolute;
   max-width: 300px;
-  bottom: -91px;
+  bottom: -94px;
   padding: 0 10px;
   & img {
     width: 100%;
@@ -626,6 +627,7 @@
     margin-bottom: 0;
     & .header__logo{
       display: block;
+      flex:  1 1 auto;
     }
   }
   .btn__drop-down-present{
