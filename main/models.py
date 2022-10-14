@@ -3,8 +3,6 @@ from django.db import models
 from adminsortable.models import SortableMixin
 from adminsortable.fields import SortableForeignKey
 
-"""КОНТАКТЫ"""
-
 
 class Contact(models.Model):
     """Контакты"""
@@ -28,6 +26,25 @@ class Contact(models.Model):
 
     def __str__(self):
         return f'{self.address}'
+
+
+class Politics(models.Model):
+    """Политика конфиденциальности"""
+    title = models.CharField(verbose_name='Заголовок', max_length=250, unique=True)
+    description = models.TextField(verbose_name='Описание пунктов')
+    is_active = models.BooleanField(verbose_name='Активен', default=True)
+
+    class Meta:
+        verbose_name = 'Политика конфиденциальности'
+        verbose_name_plural = 'Политика конфиденциальности'
+
+    def __str__(self):
+        return self.title
+
+    def body_description(self):
+        return f"%s..." % (self.description[:400],)
+
+    body_description.short_description = 'Описание'
 
 
 class FotoSliderBase(models.Model):
