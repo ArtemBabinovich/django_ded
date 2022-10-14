@@ -13,12 +13,36 @@
 @font-face {
 	font-family: Tahoma;
 	src: url(../fonts/Tahoma/Tahoma.ttf);
-	font-weight: 500;
+	font-weight: 400;
 	font-style: normal;
+}
+@font-face {
+	font-family: Arial;
+	src: url(../fonts/Arial/arialmt.ttf);
+	font-weight: 400;
+	font-style: normal;
+}
+@font-face {
+	font-family: Arial;
+	src: url(../fonts/Arial/Arial-BoldMT.ttf);
+	font-weight: 700;
+	font-style: normal;
+}
+@font-face {
+	font-family: Arial;
+	src: url(../fonts/Arial/Arial-ItalicMT.ttf);
+	font-weight: 400;
+	font-style: italic;
 }
 @font-face {
 	font-family: Tahoma;
 	src: url(../fonts/Tahoma/Tahoma-Bold.ttf);
+	font-weight: 700;
+	font-style: normal;
+}
+@font-face {
+	font-family: Verdana;
+	src: url(../fonts/Verdana/Verdana-Bold.ttf);
 	font-weight: 700;
 	font-style: normal;
 }
