@@ -44,7 +44,7 @@ class Politics(models.Model):
     def body_description(self):
         return f"%s..." % (self.description[:400],)
 
-    body_description.short_description = 'Описание'
+    body_description.short_description = 'Описание пунктов'
 
 
 class FotoSliderBase(models.Model):
