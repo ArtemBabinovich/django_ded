@@ -41,7 +41,10 @@ INSTALLED_APPS = [
     'colorfield',
     'corsheaders',
     'rest_framework',
+
     'main',
+    'contacts',
+    'api_routers',
 ]
 
 MIDDLEWARE = [
@@ -56,7 +59,7 @@ MIDDLEWARE = [
 ]
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_METHODS = [
-    'GET',
+    'GET', 'POST',
 ]
 ROOT_URLCONF = 'ded.urls'
 
