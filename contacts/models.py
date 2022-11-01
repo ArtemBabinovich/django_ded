@@ -18,18 +18,18 @@ class SocialNetworks(models.Model):
 
 class Phone(models.Model):
     "Телефонный номер"
-    code = models.CharField('Код страны', max_length=2, default='+7',
+    country_code = models.CharField('Код страны', max_length=2, default='+7',
                             validators=[RegexValidator(regex=r'\+7', message='Код должен быть равен "+7"')])
     number_operator = models.CharField('Код оператора', max_length=3,
-                                          validators=[RegexValidator(regex=r'^\d{3}$', message='Код оператора должен состоять из 3 цифр')])
+                                       validators=[RegexValidator(regex=r'^\d{3}$', message='Код оператора должен состоять из 3 цифр')])
     number = models.CharField('Номер телефона', max_length=9,
-                                          validators=[RegexValidator(regex=r'^\d{3}[-]?\d{2}[-]?\d{2}$',
-                                                                     message='Код оператора должен состоять из 7 цифр')])
-    color_number = ColorField(default='#FF0000', verbose_name='Цвет номера')
+                              validators=[RegexValidator(regex=r'^\d{3}[-]?\d{2}[-]?\d{2}$',
+                                                         message='Номер должен соответствовать одному из видов: \n7776655\n777-44-55')])
+    color_number = ColorField(default='#7FB7FF', verbose_name='Цвет номера')
 
     class Meta:
         verbose_name = 'Телефонный номер'
         verbose_name_plural = 'Телефонные номера'
 
     def __str__(self):
-        return (self.code + " " + str(self.number_operator) + " " + str(self.number))
+        return (self.country_code + " (" + self.number_operator + ") " + self.number)

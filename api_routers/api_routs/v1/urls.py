@@ -10,6 +10,7 @@ router.register(r'time_slider_base', viewsAPI.TimeSlideBaseViewSet)
 router.register(r'mini-slider', viewsAPI.MiniFotoSliderViewSet)
 router.register(r'time_mini-slider', viewsAPI.TimeForMiniSliderViewSet)
 router.register(r'social_networks', APIviews.SocialNetworksViewSet)
+router.register(r'phone', APIviews.PhoneViewSet)
 
 urlpatterns = [
     path('api/', include(router.urls)),
