@@ -18,13 +18,13 @@ class SocialNetworks(models.Model):
 
 class Phone(models.Model):
     "Телефонный номер"
-    country_code = models.CharField('Код страны', max_length=2, default='+7',
-                            validators=[RegexValidator(regex=r'\+7', message='Код должен быть равен "+7"')])
+    country_code = models.CharField('Код страны', max_length=4, default='+7',
+                            validators=[RegexValidator(regex=r'^\+\d{1,3}$', message='Код страны должен быть в формате "+7" или "+375"')])
     number_operator = models.CharField('Код оператора', max_length=3,
-                                       validators=[RegexValidator(regex=r'^\d{3}$', message='Код оператора должен состоять из 3 цифр')])
+                                       validators=[RegexValidator(regex=r'^\d{2,3}$', message='Код оператора должен состоять из 2 или 3 цифр')])
     number_phone = models.CharField('Номер телефона', max_length=9,
                               validators=[RegexValidator(regex=r'^\d{3}[-]?\d{2}[-]?\d{2}$',
-                                                         message='Номер должен соответствовать одному из видов: \n7776655\n777-44-55')])
+                                                         message='Номер должен соответствовать одному из видов: 7776655 или 777-44-55')])
     color_number = ColorField(default='#7FB7FF', verbose_name='Цвет номера')
 
     class Meta:
