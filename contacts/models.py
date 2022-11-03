@@ -32,4 +32,4 @@ class Phone(models.Model):
         verbose_name_plural = 'Телефонные номера'
 
     def __str__(self):
-        return (self.country_code + " (" + self.number_operator + ") " + self.number)
+        return (self.country_code + " (" + self.number_operator + ") " + self.number_phone)
