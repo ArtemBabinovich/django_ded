@@ -1,22 +1,32 @@
 from django.contrib import admin
+from django import forms
 
-from services.models import ServiceCatalog, Service, ImageForServices
+from services.models import ServiceCatalog, Service, ImageForTextDetailService, CountServicesCatalog, \
+    ServiceCatalogPosition, ChapterCatalog, ChapterPosition, PositionServices, DetailServer, PositionDetailService, \
+    TextDetailService, PromotionsDiscounts, AuthorText
 
+admin.site.register(CountServicesCatalog)
 admin.site.register(ServiceCatalog)
+admin.site.register(ServiceCatalogPosition)
+admin.site.register(ChapterCatalog)
+admin.site.register(ChapterPosition)
+admin.site.register(Service)
+admin.site.register(PositionServices)
+admin.site.register(DetailServer)
+admin.site.register(PositionDetailService)
+admin.site.register(TextDetailService)
+admin.site.register(PromotionsDiscounts)
+admin.site.register(AuthorText)
+admin.site.register(ImageForTextDetailService)
 
 
-class ImageForServicesAdmin(admin.StackedInline):
-    model = ImageForServices
+#
+# class ImageForTextDetailServiceAdmin(admin.StackedInline):
+#     model = ImageForTextDetailService
+#
+# @admin.register(Service)
+# class ServicesAdmin(admin.ModelAdmin):
+#     inlines = [ImageForTextDetailServiceAdmin]
 
 
-@admin.register(Service)
-class ImageForServicesAdmin(admin.ModelAdmin):
-    inlines = [ImageForServicesAdmin]
-    ordering = ('sort_service',)
-    list_display = ['title', 'image_title']
-    list_display_links = ['title', 'image_title']
 
-
-# @admin.register(ImageForServices)
-# class ImageForServicesAdmin(admin.ModelAdmin):
-#     pass
