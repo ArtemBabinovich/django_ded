@@ -36,7 +36,6 @@ class Service(models.Model):
     services_catalog = models.ForeignKey(ServiceCatalog, on_delete=models.CASCADE, verbose_name='Каталог')
     active = models.BooleanField('Активная', default=True)
     sort_service = models.PositiveIntegerField('Сортировка по номеру',
-                                               max_length=4,
                                                blank=True,
                                                default=1,
                                                help_text='необязательное поле')
@@ -44,7 +43,7 @@ class Service(models.Model):
     class Meta:
         verbose_name = 'УСЛУГА'
         verbose_name_plural = 'УСЛУГИ'
-        ordering = ['sort_service', 'title', 'marker']
+        ordering = ('sort_service', 'title', 'marker',)
 
     def __str__(self):
         return self.title
@@ -58,9 +57,13 @@ class FullDescriptionsService(models.Model):
 class ImageForServices(models.Model):
     """Фотогалерея"""
     image = models.ImageField('Фотографии для услуги', upload_to='services/static/services/other_photo/')
-    image_title = models.CharField('Заголовок фотографии', blank=True, null=False, default='')
+    image_title = models.CharField('Заголовок фотографии', blank=True, null=False, default='', max_length=128)
     services = models.ForeignKey(Service, on_delete=models.CASCADE, verbose_name='Дополнительное фото')
     is_active = models.BooleanField('Активная', default=False)
+
+    class Meta:
+        verbose_name = 'Фотографии'
+        verbose_name_plural = 'Фотографии'
 
     def __str__(self):
         return ''
