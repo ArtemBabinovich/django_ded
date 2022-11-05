@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
 
+    'ckeditor',
+
     'main',
     'contacts',
     'api_routers',
