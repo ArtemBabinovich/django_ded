@@ -20,7 +20,7 @@ class FotoForBanner(models.Model):
     item_number = models.IntegerField('Номер позиции в слайдере')
     foto = models.ImageField(verbose_name='Изображение для баннера',
                              upload_to='static/img/banner1', null=True, blank=True)
-    text = tinymce_models.HTMLField(verbose_name='Текст', null=True, blank=True)
+    text = tinymce_models.HTMLField(verbose_name='Текст', null=True, blank=True, default=None)
 
     class Meta:
         verbose_name = 'Наполнение слайдеров для баннеров'
