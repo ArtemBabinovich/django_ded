@@ -21,6 +21,7 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('api_routers.api_routs.v1.urls')),
+    path('tinymce/', include('tinymce.urls')),
 ]
 
 if settings.DEBUG:

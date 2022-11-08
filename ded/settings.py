@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-ig0+ok91o9i0c3b9bmj-ghj07)e_gb331g$myn1yy#fupir4&3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['developer.itec.by', '194.62.19.66', '127.0.0.1', ]
 
@@ -41,10 +41,12 @@ INSTALLED_APPS = [
     'colorfield',
     'corsheaders',
     'rest_framework',
+    'tinymce',
 
     'main',
     'contacts',
     'api_routers',
+    'modules',
 ]
 
 MIDDLEWARE = [
@@ -149,3 +151,13 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CSRF_COOKIE_HTTPONLY = True
+
+TINYMCE_DEFAULT_CONFIG = {
+    "height": "320px",
+    "width": "960px",
+    "menubar": "False",
+    "plugins": "advlist autolink lists link image charmap print preview anchor searchreplace visualblocks code "
+    "fullscreen insertdatetime media table paste code help wordcount spellchecker",
+    "toolbar": "bold italic underline strikethrough | fontselect fontsizeselect | forecolor ",
+    "language": "ru_RU",
+}
