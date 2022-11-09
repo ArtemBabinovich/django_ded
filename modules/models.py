@@ -75,7 +75,6 @@ class Banner(models.Model):
     slider_type = models.CharField('Тип слайдера',max_length=50, choices=slider_type_choice)
     slider_fotos = models.ManyToManyField('FotoForBanner', verbose_name='Выбрать фото для слайдера')
     slider_speed = models.IntegerField('Скорость переключения слайдера в сек.', default=2)
-    foto_count = models.IntegerField('Счетчик фото', default=10, null=True, blank=True)
     timer = models.ForeignKey(Timer, verbose_name='Таймер', on_delete=models.SET_NULL, null=True, blank=True)
     url = models.CharField('Внутренняя ссылка', max_length=50)
     text = tinymce_models.HTMLField(verbose_name='Текст', null=True, blank=True)
