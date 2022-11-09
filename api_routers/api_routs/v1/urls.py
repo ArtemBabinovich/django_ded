@@ -1,10 +1,10 @@
 from rest_framework import routers
-from main import viewsAPI
 from django.urls import path, include
+
+from main import viewsAPI
 from contacts import APIviews
 from modules.APIviews import FotoForBannerViewSet, CalendarViewSet, TimerViewSet, \
-    BannerViewSet
-
+    BannerViewSet, ModuleViewSet
 
 
 router = routers.DefaultRouter()
@@ -18,6 +18,7 @@ router.register(r'banners/fotos', FotoForBannerViewSet)
 router.register(r'banners/calendar', CalendarViewSet)
 router.register(r'banners/timer', TimerViewSet)
 router.register(r'banners', BannerViewSet)
+router.register(r'modules', ModuleViewSet)
 
 urlpatterns = [
     path('api/', include(router.urls)),
