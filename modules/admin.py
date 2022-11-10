@@ -6,7 +6,7 @@ from .models import Timer, Calendar, FotoForBanner, Banner, Module
 class BannerAdmin(admin.ModelAdmin):
 
     fields = ('name', 'calendar', 'slider_type', 'slider_fotos',
-              'slider_speed', 'foto_count', 'timer', 'url', 'text')
+              'slider_speed', 'timer', 'url', 'text')
     list_display = ('name', 'calendar', 'slider_type', 'url')
     filter_horizontal = ('slider_fotos',)
     ordering = ('name', )

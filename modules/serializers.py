@@ -31,7 +31,7 @@ class BannerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Banner
         fields = ['id', 'name', 'calendar', 'slider_type', 'slider_fotos',
-                  'slider_speed', 'foto_count', 'timer', 'url', 'text']
+                  'slider_speed', 'timer', 'url', 'text']
 
 
 class ModuleSerializer(serializers.ModelSerializer):
