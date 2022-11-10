@@ -16,8 +16,9 @@ class SocialNetworks(models.Model):
     def __str__(self):
         return self.name
 
+
 class Phone(models.Model):
-    "Телефонный номер"
+    """Телефонный номер"""
     country_code = models.CharField('Код страны', max_length=4, default='+7',
                             validators=[RegexValidator(regex=r'^\+\d{1,3}$', message='Код страны должен быть в формате "+7" или "+375"')])
     number_operator = models.CharField('Код оператора', max_length=3,
