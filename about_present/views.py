@@ -1,3 +1,4 @@
+from drf_yasg.utils import swagger_auto_schema
 from rest_framework import viewsets, mixins
 from rest_framework.response import Response
 
@@ -33,7 +34,7 @@ class  RemindForDaysViewSets(mixins.ListModelMixin, viewsets.GenericViewSet):
 class AboutPresentAdd(viewsets.ViewSet):
     """API для оформления подарка"""
     queryset = AboutPresent.objects.all()
-
+    @swagger_auto_schema(request_body=AboutPresentSerializer)
     def create(self, request):
         serializer = AboutPresentSerializer(data=request.data)
         if serializer.is_valid():
