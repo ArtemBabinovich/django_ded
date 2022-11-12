@@ -1,30 +1,27 @@
 from rest_framework import serializers
 
-from services.models import ImageForTextDetailService, Service, ServiceCatalog, PromotionsDiscounts
+from services.models import ServicesCatalog, Services
 
 
-class PromotionsDiscountsSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = PromotionsDiscounts
-        fields = '__all__'
-
-class ServiceCatalogSerializer(serializers.ModelSerializer):
+class ServicesSerializer(serializers.ModelSerializer):
+    """Сериализатор для УСЛУГ"""
 
     class Meta:
-        model = ServiceCatalog
-        fields = '__all__'
-        # fields = ['title', 'image', 'add_descriptions']
+        model = Services
+        fields = [
+            'position_service',
+            'service_title',
+            'additional_title',
+            'marker',
+            'image_for_mini_slider',
+            'bottom_description'
+        ]
 
 
-class ServiceSerializer(serializers.ModelSerializer):
+class ServicesCatalogSerializer(serializers.ModelSerializer):
+    """Сериализатор для РАЗДЕЛА УСЛУГ"""
+    services_set = ServicesSerializer(many=True)
+
     class Meta:
-        model = Service
-        fields = '__all__'
-        # fields = ['title',
-        #           'image',
-        #           'image_title',
-        #           'short_descriptions',
-        #           'price',
-        #           'marker',
-        #           'sort_service']
+        model = ServicesCatalog
+        fields = ['position', 'title', 'additional_title', 'image_for_big_slider', 'url', 'services_set']
