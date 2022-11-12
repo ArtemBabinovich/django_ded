@@ -8,7 +8,7 @@ class BannerAdmin(admin.ModelAdmin):
     fields = ('name', 'calendar', 'slider_type', 'slider_fotos',
               'slider_speed', 'timer', 'url', 'text')
     list_display = ('name', 'calendar', 'slider_type', 'url')
-    filter_horizontal = ('slider_fotos',)
+    filter_horizontal = ('slider_fotos', )
     ordering = ('name', )
 
 admin.site.register(Timer)

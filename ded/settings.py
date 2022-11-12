@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'contacts',
     'api_routers',
     'modules',
+    'about_present'
 ]
 
 MIDDLEWARE = [

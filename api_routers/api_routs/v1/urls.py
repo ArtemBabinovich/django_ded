@@ -5,7 +5,8 @@ from main import viewsAPI
 from contacts import APIviews
 from modules.APIviews import FotoForBannerViewSet, CalendarViewSet, TimerViewSet, \
     BannerViewSet, ModuleViewSet
-
+from about_present.views import AboutPresentAdd, RecipientViewSets, \
+    ReasonViewSets, PresentViewSets, RemindForDaysViewSets
 
 router = routers.DefaultRouter()
 router.register(r'foto_slider_base', viewsAPI.FotoSliderBaseViewSet)
@@ -19,6 +20,11 @@ router.register(r'banners/calendar', CalendarViewSet)
 router.register(r'banners/timer', TimerViewSet)
 router.register(r'banners', BannerViewSet)
 router.register(r'modules', ModuleViewSet)
+router.register(r'presents/add', AboutPresentAdd, basename='present_add')
+router.register(r'recipient', RecipientViewSets)
+router.register(r'reason', ReasonViewSets)
+router.register(r'present', PresentViewSets)
+router.register(r'remind_for_days', RemindForDaysViewSets)
 
 urlpatterns = [
     path('api/', include(router.urls)),
