@@ -1,8 +1,11 @@
 asgiref==3.5.2
+backports.zoneinfo==0.2.1
 Django==4.1.1
 django-admin-sortable==2.3
+django-ckeditor==6.5.1
 django-colorfield==0.7.2
 django-cors-headers==3.13.0
+django-js-asset==2.0.0
 djangorestframework==3.14.0
 Pillow==9.2.0
 pytz==2022.4
