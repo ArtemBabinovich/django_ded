@@ -37,17 +37,20 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'drf_yasg',
     'adminsortable',
     'colorfield',
     'corsheaders',
     'rest_framework',
-
+    'tinymce',
     'ckeditor',
 
     'main',
     'contacts',
     'api_routers',
     'services',
+    'modules',
+
 ]
 
 MIDDLEWARE = [
@@ -153,6 +156,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CSRF_COOKIE_HTTPONLY = True
 
+
 CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': [
@@ -178,4 +182,15 @@ CKEDITOR_CONFIGS = {
         'toolbarCanCollapse': False,
         'forcePasteAsPlainText': True
     }
+}
+
+TINYMCE_DEFAULT_CONFIG = {
+    "height": "320px",
+    "width": "960px",
+    "menubar": "False",
+    "plugins": "advlist autolink lists link image charmap print preview anchor searchreplace visualblocks code "
+    "fullscreen insertdatetime media table paste code help wordcount spellchecker",
+    "toolbar": "bold italic underline strikethrough | fontselect fontsizeselect | forecolor ",
+    "language": "ru_RU",
+
 }
