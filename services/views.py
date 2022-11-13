@@ -3,7 +3,8 @@ from rest_framework import viewsets
 from rest_framework.response import Response
 
 from services.models import ServicesCatalog, Services
-from services.serializers import ServicesCatalogSerializer, BigSliderSerializer, SmallSliderSerializer
+from services.serializers import ServicesCatalogSerializer, BigSliderSerializer, SmallSliderSerializer, \
+    ServicesCatalogSerializerForSmallSlider
 
 
 class ServicesCatalogViewSet(viewsets.ReadOnlyModelViewSet):
@@ -32,7 +33,7 @@ class BigSliderViewSet(viewsets.ReadOnlyModelViewSet):
 
 class SmallSliderViewSet(viewsets.ReadOnlyModelViewSet):
     """Представление маленького слайдера"""
-    queryset = Services.objects \
-        .filter(is_active=True, service_catalog__is_active=True) \
-        .select_related('service_catalog', 'position_service')
-    serializer_class = SmallSliderSerializer
+
+    queryset =  ServicesCatalog.objects.filter(is_active=True) \
+        .prefetch_related(Prefetch('services', queryset=Services.objects.filter(is_active=True)))
+    serializer_class = ServicesCatalogSerializerForSmallSlider

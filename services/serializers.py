@@ -44,8 +44,16 @@ class SmallSliderSerializer(serializers.ModelSerializer):
             'color_service_title',
             'additional_title',
             'color_additional_title',
-            'marker',
             'image_for_mini_slider',
             'bottom_description',
             'color_bottom_description'
         ]
+
+
+class ServicesCatalogSerializerForSmallSlider(serializers.ModelSerializer):
+    """Сериализатор для маленького слайдера"""
+    services = SmallSliderSerializer(many=True)
+
+    class Meta:
+        model = ServicesCatalog
+        fields = ['id', 'title', 'additional_title', 'color_title', 'services']
