@@ -6,6 +6,7 @@ from contacts import APIviews
 from modules.APIviews import FotoForBannerViewSet, CalendarViewSet, TimerViewSet, \
     BannerViewSet, ModuleViewSet
 
+from services import views
 
 router = routers.DefaultRouter()
 router.register(r'foto_slider_base', viewsAPI.FotoSliderBaseViewSet)
@@ -19,6 +20,9 @@ router.register(r'banners/calendar', CalendarViewSet)
 router.register(r'banners/timer', TimerViewSet)
 router.register(r'banners', BannerViewSet)
 router.register(r'modules', ModuleViewSet)
+# ЮРЛ Сервисов
+router.register(r'services', views.ServiceViewSet)
+router.register(r'discount', views.PromotionsDiscountsViewSet)
 
 urlpatterns = [
     path('api/', include(router.urls)),
