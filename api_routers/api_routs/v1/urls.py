@@ -21,9 +21,9 @@ router.register(r'banners/timer', TimerViewSet)
 router.register(r'banners', BannerViewSet)
 router.register(r'modules', ModuleViewSet)
 # ЮРЛ Сервисов
-router.register(r'block_services', views.ServicesCatalogViewSet)
-router.register(r'big_slider', views.BigSliderViewSet)
-router.register(r'small_slider', views.SmallSliderViewSet)
+router.register(r'block_services', views.ServicesCatalogViewSet, basename='block_services')
+router.register(r'big_slider', views.BigSliderViewSet, basename='big_slider')
+router.register(r'small_slider', views.SmallSliderViewSet, basename='small_slider')
 
 urlpatterns = [
     path('api/', include(router.urls)),

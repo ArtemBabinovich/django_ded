@@ -12,7 +12,6 @@ class ServicesSerializer(serializers.ModelSerializer):
             'position_service',
             'id',
             'service_title',
-            'color_service_title',
             'marker'
         ]
 

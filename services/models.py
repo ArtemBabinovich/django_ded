@@ -60,14 +60,22 @@ class Services(models.Model):
     service_title = models.CharField('Название услуги', max_length=255)
     color_service_title = ColorField('Цвет первого заголовка', format='hexa', default='#FFFFFFFF')
     additional_title = models.CharField('Дополнительное описание', max_length=128, blank=True, null=True)
-    color_additional_title = ColorField('Цвет дополнительного заголовка', format='hexa', default='#FFFFFFFF')
+    color_additional_title = ColorField('Цвет дополнительного заголовка',
+                                        format='hexa',
+                                        default='#FFFFFFFF',
+                                        blank=True,
+                                        null=True)
     marker = models.CharField('Маркер услуги', max_length=5, choices=MARKER_SERVICES, blank=True, null=True)
     image_for_mini_slider = models.ImageField('Фотография для маленького слайдера',
                                               upload_to='services/static/img/foto_mini_slider',
                                               blank=True,
                                               null=True)
     bottom_description = models.CharField('Нижнее описание фотослайдера', max_length=128, blank=True, null=True)
-    color_bottom_description = ColorField('Цвет нижнего описания', format='hexa', default='#FFFFFFFF')
+    color_bottom_description = ColorField('Цвет нижнего описания',
+                                          format='hexa',
+                                          default='#FFFFFFFF',
+                                          blank=True,
+                                          null=True)
     service_catalog = models.ForeignKey(ServicesCatalog,
                                         related_name='services',
                                         on_delete=models.SET_NULL,
