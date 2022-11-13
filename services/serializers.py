@@ -10,18 +10,43 @@ class ServicesSerializer(serializers.ModelSerializer):
         model = Services
         fields = [
             'position_service',
+            'id',
             'service_title',
-            'additional_title',
-            'marker',
-            'image_for_mini_slider',
-            'bottom_description'
+            'color_service_title',
+            'marker'
         ]
 
 
 class ServicesCatalogSerializer(serializers.ModelSerializer):
     """Сериализатор для РАЗДЕЛА УСЛУГ"""
-    services_set = ServicesSerializer(many=True)
+    services = ServicesSerializer(many=True)
 
     class Meta:
         model = ServicesCatalog
-        fields = ['position', 'title', 'additional_title', 'image_for_big_slider', 'url', 'services_set']
+        fields = ['position', 'id', 'title', 'color_title', 'additional_title', 'url', 'services']
+
+
+class BigSliderSerializer(serializers.ModelSerializer):
+    """Сериализатор для большого слайдера"""
+
+    class Meta:
+        model = ServicesCatalog
+        fields = ['id', 'title', 'additional_title', 'color_title', 'image_for_big_slider', 'url']
+
+
+class SmallSliderSerializer(serializers.ModelSerializer):
+    """Сериализтор для маленького слайдера"""
+
+    class Meta:
+        model = Services
+        fields = [
+            'id',
+            'service_title',
+            'color_service_title',
+            'additional_title',
+            'color_additional_title',
+            'marker',
+            'image_for_mini_slider',
+            'bottom_description',
+            'color_bottom_description'
+        ]
