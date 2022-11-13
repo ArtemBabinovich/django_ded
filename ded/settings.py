@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-ig0+ok91o9i0c3b9bmj-ghj07)e_gb331g$myn1yy#fupir4&3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['developer.itec.by', '194.62.19.66', '127.0.0.1', ]
 
@@ -183,8 +183,7 @@ TINYMCE_DEFAULT_CONFIG = {
     "width": "960px",
     "menubar": "False",
     "plugins": "advlist autolink lists link image charmap print preview anchor searchreplace visualblocks code "
-               "fullscreen insertdatetime media table paste code help wordcount spellchecker",
+    "fullscreen insertdatetime media table paste code help wordcount spellchecker",
     "toolbar": "bold italic underline strikethrough | fontselect fontsizeselect | forecolor ",
     "language": "ru_RU",
-
 }
