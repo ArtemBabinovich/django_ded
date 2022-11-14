@@ -1,6 +1,7 @@
 from rest_framework import routers
 from django.urls import path, include
 
+from get_discount.views import GetDiscountAdd
 from main import viewsAPI
 from contacts import APIviews
 from modules.APIviews import FotoForBannerViewSet, CalendarViewSet, TimerViewSet, \
@@ -25,6 +26,7 @@ router.register(r'recipient', RecipientViewSets)
 router.register(r'reason', ReasonViewSets)
 router.register(r'present', PresentViewSets)
 router.register(r'remind_for_days', RemindForDaysViewSets)
+router.register(r'discont/add', GetDiscountAdd, basename='discont_add')
 
 urlpatterns = [
     path('api/', include(router.urls)),

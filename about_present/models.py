@@ -68,7 +68,7 @@ class AboutPresent(models.Model):
     """Модель напоминания для вручения подарка"""
     name = models.CharField('Имя закзчика', max_length=50)
     email = models.EmailField('Почта заказчика')
-    phone = models.CharField('Телефон заказчика', max_length=16, blank=True, null=True,
+    phone = models.CharField('Телефон заказчика', max_length=18, blank=True, null=True,
                              validators=[RegexValidator(regex=r'^[-0-9+() ]{11,18}$',
                                                         message='Поле должно состоять из цифр или знаков + () -')])
     dates = models.ManyToManyField(Date, verbose_name='Даты событий')
