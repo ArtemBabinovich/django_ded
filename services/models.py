@@ -67,7 +67,7 @@ class Services(models.Model):
     marker = models.CharField('Маркер услуги', max_length=5, choices=MARKER_SERVICES, blank=True, null=True)
     image_for_mini_slider = models.ImageField('Фотография для маленького слайдера',
                                               upload_to='services/static/img/foto_mini_slider',
-                                              default=None,
+                                              default='',
                                               null=True,
                                               blank=True)
     bottom_description = models.CharField('Нижнее описание фотослайдера', max_length=128, blank=True, null=True)
