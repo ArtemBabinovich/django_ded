@@ -33,9 +33,7 @@ class BigSliderViewSet(viewsets.ReadOnlyModelViewSet):
 
 class SmallSliderViewSet(viewsets.ReadOnlyModelViewSet):
     """Представление маленького слайдера"""
-
     queryset = ServicesCatalog.objects.filter(is_active=True) \
         .prefetch_related(Prefetch('services', queryset=Services.objects
                                    .filter(Q(is_active=True) & ~Q(image_for_mini_slider__exact=''))))
-
     serializer_class = ServicesCatalogSerializerForSmallSlider
