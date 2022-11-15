@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from main.models import FotoSliderBase, TimeSlideBase
+from main.models import FotoSliderBase, TimeSlideBase, TimeForMiniSlider
 
 
 class FotoSliderBaseSerializer(serializers.ModelSerializer):
@@ -14,4 +14,11 @@ class TimeSlideBaseSerializer(serializers.ModelSerializer):
     """Таймер для главного фотослайдера"""
     class Meta:
         model = TimeSlideBase
+        fields = ['id', 'time_pause', ]
+
+
+class TimeForMiniSliderSerializer(serializers.ModelSerializer):
+    """Таймер для мини-фотослайдеров"""
+    class Meta:
+        model = TimeForMiniSlider
         fields = ['id', 'time_pause', ]
