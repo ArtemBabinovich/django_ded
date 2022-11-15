@@ -1,20 +1,31 @@
-const btn = document.querySelector('.header__nav-phone-btn');
-const list = document.querySelector('.header__nav-list')
 const header = document.querySelector('header');
-const mainHeader = document.querySelector('.main__nav-list');
-// btn.addEventListener('click', () => {
-//     list.classList.toggle('active');
-// })
+const mainHeaderNav = document.querySelector('.main__nav-list');
 window.addEventListener('scroll', () => {
     if (Math.ceil(pageYOffset) >= header.offsetHeight){
         if (window.innerWidth <= 1024){
-            mainHeader.style.display = 'none';
+            mainHeaderNav.style.display = 'none';
         }else {
-            mainHeader.style.display = 'flex';
+            mainHeaderNav.style.display = 'flex';
         }
     }else {
-        mainHeader.style.display = 'none';
+        mainHeaderNav.style.display = 'none';
     }
 })
 
+// audio
+const headerLogo = document.querySelectorAll('.header__logo');
+let logoAudio = new Audio('./audio/logoMusic.mp3')
+
+
+headerLogo.forEach(item => {
+    item.addEventListener('mouseover', () => {
+        logoAudio.play()
+    })
+})
+// menu drop down
+const headerNavList = document.querySelector('.header__nav-list-mobile');
+const headerNavMobileBtn = document.querySelector('.header__nav-mobile-btn');
+headerNavMobileBtn.addEventListener('click', () => {
+    headerNavList.classList.toggle('header__nav-active');
+})
 

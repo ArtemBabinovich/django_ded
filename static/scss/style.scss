@@ -46,7 +46,19 @@ body{
 
 @import "header";
 @import "main";
+@import "mainSlider";
+@import "modalWindow";
+@import "customCalendar";
+@import "mainServiceBlock";
+@import "mainContentBlock";
+@import "mainSaleBlock";
 
 .active{
-  display: flex;
+  display: flex !important;
+}
+.calendarActive{
+  display: block !important;
+}
+.dropDownCalendar{
+  display: flex !important;
 }
