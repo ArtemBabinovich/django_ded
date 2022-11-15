@@ -5,7 +5,7 @@ from django.db import models
 
 class SocialNetworks(models.Model):
     """Социальные сети"""
-    logo = models.ImageField('Логотип социальной сети', upload_to='social_networks/image/')
+    logo = models.FileField('Логотип социальной сети', upload_to='social_networks/image/')
     name = models.CharField('Название социальной сети', max_length=50)
     link = models.URLField('Ссылка на социальную сеть', max_length=255)
 
