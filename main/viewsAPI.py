@@ -1,7 +1,6 @@
 from rest_framework import viewsets
-from main.models import FotoSliderBase, TimeSlideBase, MiniFotoSlider, TimeForMiniSlider
-from main.serializers import FotoSliderBaseSerializer, TimeSlideBaseSerializer, MiniFotoSliderSerializer, \
-    TimeForMiniSliderSerializer
+from main.models import FotoSliderBase, TimeSlideBase, TimeForMiniSlider
+from main.serializers import FotoSliderBaseSerializer, TimeSlideBaseSerializer, TimeForMiniSliderSerializer
 
 
 class FotoSliderBaseViewSet(viewsets.ReadOnlyModelViewSet):
@@ -11,18 +10,12 @@ class FotoSliderBaseViewSet(viewsets.ReadOnlyModelViewSet):
 
 
 class TimeSlideBaseViewSet(viewsets.ReadOnlyModelViewSet):
-    """API Фотослайдер главный"""
+    """API Таймер для главного-фотослайдера"""
     queryset = TimeSlideBase.objects.all()
     serializer_class = TimeSlideBaseSerializer
 
 
-class MiniFotoSliderViewSet(viewsets.ReadOnlyModelViewSet):
-    """API Мини-слайдер"""
-    queryset = MiniFotoSlider.objects.all()
-    serializer_class = MiniFotoSliderSerializer
-
-
 class TimeForMiniSliderViewSet(viewsets.ReadOnlyModelViewSet):
-    """API таймер Мини-слайдер"""
+    """API Таймер для мини-фотослайдеров"""
     queryset = TimeForMiniSlider.objects.all()
     serializer_class = TimeForMiniSliderSerializer
