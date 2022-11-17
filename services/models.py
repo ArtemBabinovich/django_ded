@@ -52,10 +52,10 @@ class ServicesCatalogPosition(models.Model):
 class Services(models.Model):
     """УСЛУГА 2-ая ветка дерева и маленький ФОТОСЛАЙДЕР"""
     MARKER_SERVICES = [
-        ('hit', 'ХИТ'),
-        ('top', 'ТОП'),
-        ('new', 'NEW'),
-        ('stock', 'АКЦИЯ'),
+        ('ХИТ', 'ХИТ'),
+        ('ТОП', 'ТОП'),
+        ('NEW', 'NEW'),
+        ('АКЦИЯ', 'АКЦИЯ'),
     ]
     service_title = models.CharField('Название услуги', max_length=255)
     color_service_title = ColorField('Цвет первого заголовка', format='hexa', default='#FFFFFFFF')
