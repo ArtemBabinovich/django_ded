@@ -14,7 +14,6 @@ from services import views
 
 
 router = routers.DefaultRouter()
-router.register(r'foto_slider_base', viewsAPI.FotoSliderBaseViewSet)
 router.register(r'time_slider_base', viewsAPI.TimeSlideBaseViewSet)
 router.register(r'time_mini-slider', viewsAPI.TimeForMiniSliderViewSet)
 router.register(r'social_networks', APIviews.SocialNetworksViewSet)
