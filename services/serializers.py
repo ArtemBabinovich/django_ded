@@ -5,7 +5,6 @@ from services.models import ServicesCatalog, Services
 
 class ServicesSerializer(serializers.ModelSerializer):
     """Сериализатор для УСЛУГ"""
-    marker = serializers.CharField(source="get_marker_display")
 
     class Meta:
         model = Services
