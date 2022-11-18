@@ -34,7 +34,7 @@ class BigSliderViewSet(viewsets.ReadOnlyModelViewSet):
 class SmallSliderViewSet(viewsets.ReadOnlyModelViewSet):
     """Представление маленького слайдера"""
 
-    # TODO: делается в 2 запроса, оптимиъзировать в один запрос, develop_han
+    # TODO: делается в 2 запроса, оптимизировать в один запрос, develop_han
     def get_queryset(self):
         queryset = ServicesCatalog.objects.filter(is_active=True) \
             .prefetch_related(Prefetch('services', queryset=Services.objects
