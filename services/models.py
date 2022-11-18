@@ -1,16 +1,22 @@
 from colorfield.fields import ColorField
 from django.db import models
+import main.models
 
 
 class ServicesCatalog(models.Model):
     """РАЗДЕЛ УСЛУГ 1-ая ветка дерева и большой ФОТОСЛАЙДЕР"""
     title = models.CharField('Заголовок РАЗДЕЛА УСЛУГ', max_length=255)
     additional_title = models.CharField('Допоплнительный заголовок', max_length=128, blank=True, null=True)
+    additional_title_2 = models.CharField('Дополнительное описание', max_length=128, blank=True, null=True)
     image_for_big_slider = models.ImageField('Фотография большого слайдера',
                                              upload_to='services/static/img/foto_big_slider')
     color_title = ColorField('Цвет заголовка', format='hexa', default='#FFFFFFFF')
     is_active = models.BooleanField('Активня', default=False)
-    url = models.CharField('Внетренняя ссылка', max_length=255, unique=True)
+    url = models.SlugField('URL', max_length=255, unique=True, db_index=True)
+    timer = models.ForeignKey(main.models.TimeSlideBase,
+                              verbose_name='Таймер',
+                              on_delete=models.SET_NULL,
+                              null=True)
     position = models.OneToOneField('ServicesCatalogPosition',
                                     on_delete=models.CASCADE,
                                     verbose_name='Номер очереди',
@@ -59,11 +65,6 @@ class Services(models.Model):
     ]
     service_title = models.CharField('Название услуги', max_length=255)
     color_service_title = ColorField('Цвет первого заголовка', format='hexa', default='#FFFFFFFF')
-    additional_title = models.CharField('Дополнительное описание', max_length=128, blank=True, null=True)
-    color_additional_title = ColorField('Цвет дополнительного заголовка',
-                                        format='hexa',
-                                        blank=True,
-                                        null=True)
     marker = models.CharField('Маркер услуги', max_length=5, choices=MARKER_SERVICES, blank=True, null=True)
     image_for_mini_slider = models.ImageField('Фотография для маленького слайдера',
                                               upload_to='services/static/img/foto_mini_slider',
@@ -83,6 +84,10 @@ class Services(models.Model):
                                         null=True,
                                         verbose_name='К какому РАЗДЕЛУ УСЛУГ отнести:')
     is_active = models.BooleanField('Активная', default=False)
+    timer = models.ForeignKey(main.models.TimeForMiniSlider,
+                              verbose_name='Таймер',
+                              on_delete=models.SET_NULL,
+                              null=True)
     position_service = models.OneToOneField('PositionServices',
                                             on_delete=models.CASCADE,
                                             verbose_name='Номер очереди',
