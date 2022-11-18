@@ -5,6 +5,7 @@ from services.models import ServicesCatalog, Services
 
 class ServicesSerializer(serializers.ModelSerializer):
     """Сериализатор для УСЛУГ"""
+    marker = serializers.CharField(source="get_marker_display")
 
     class Meta:
         model = Services
@@ -22,7 +23,7 @@ class ServicesCatalogSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ServicesCatalog
-        fields = ['position', 'id', 'title', 'color_title', 'additional_title', 'url', 'services']
+        fields = ['position', 'id', 'title', 'color_title', 'timer', 'additional_title', 'url', 'services']
 
 
 class BigSliderSerializer(serializers.ModelSerializer):
@@ -30,7 +31,7 @@ class BigSliderSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ServicesCatalog
-        fields = ['id', 'title', 'additional_title', 'color_title', 'image_for_big_slider', 'url']
+        fields = ['id', 'title', 'additional_title', 'color_title', 'timer', 'image_for_big_slider', 'url']
 
 
 class SmallSliderSerializer(serializers.ModelSerializer):
@@ -42,9 +43,8 @@ class SmallSliderSerializer(serializers.ModelSerializer):
             'id',
             'service_title',
             'color_service_title',
-            'additional_title',
-            'color_additional_title',
             'image_for_mini_slider',
+            'timer',
             'bottom_description',
             'color_bottom_description'
         ]
