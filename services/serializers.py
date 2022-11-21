@@ -30,7 +30,7 @@ class BigSliderSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ServicesCatalog
-        fields = ['id', 'title', 'additional_title', 'color_title', 'image_for_big_slider', 'url']
+        fields = ['position', 'id', 'title', 'additional_title', 'color_title', 'image_for_big_slider', 'url']
 
 
 class SmallSliderSerializer(serializers.ModelSerializer):
