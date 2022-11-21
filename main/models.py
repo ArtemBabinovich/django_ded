@@ -1,12 +1,10 @@
-from colorfield.fields import ColorField
-from django.db import models
 from adminsortable.models import SortableMixin
-from adminsortable.fields import SortableForeignKey
+from django.db import models
 
 
 class TimeSlideBase(models.Model):
     """Таймер времени паузы для фотослайдера"""
-    time_pause = models.IntegerField('Таймер времени в миллисекундах', default=4000)
+    time_pause = models.PositiveIntegerField('Таймер времени в миллисекундах', default=4000)
 
     class Meta:
         verbose_name = 'Таймер времени паузы для главного-фотослайдера'
@@ -15,12 +13,11 @@ class TimeSlideBase(models.Model):
 
 class TimeForMiniSlider(models.Model):
     """Таймер времени паузы для мини-фотослайдера"""
-    time_pause = models.IntegerField('Таймер времени в миллисекундах', default=4000)
+    time_pause = models.PositiveIntegerField('Таймер времени в миллисекундах', default=4000)
 
     class Meta:
         verbose_name = 'Таймер времени паузы для мини-фотослайдера'
         verbose_name_plural = 'Таймер времени паузы для мини-фотослайдеров'
-
 
 # """ЛЕВАЯ ПАНЕЛЬ"""
 #
