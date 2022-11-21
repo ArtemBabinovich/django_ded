@@ -1,6 +1,5 @@
 from rest_framework import serializers
 
-from main.serializers import TimeSlideBaseSerializer, TimeForMiniSliderSerializer
 from services.models import ServicesCatalog, Services
 
 
@@ -28,16 +27,14 @@ class ServicesCatalogSerializer(serializers.ModelSerializer):
 
 class BigSliderSerializer(serializers.ModelSerializer):
     """Сериализатор для большого слайдера"""
-    timer = TimeSlideBaseSerializer()
 
     class Meta:
         model = ServicesCatalog
-        fields = ['id', 'title', 'additional_title', 'color_title', 'image_for_big_slider', 'url', 'timer']
+        fields = ['id', 'title', 'additional_title', 'color_title', 'image_for_big_slider', 'url']
 
 
 class SmallSliderSerializer(serializers.ModelSerializer):
     """Сериализтор для маленького слайдера"""
-    timer = TimeForMiniSliderSerializer()
 
     class Meta:
         model = Services
@@ -48,7 +45,6 @@ class SmallSliderSerializer(serializers.ModelSerializer):
             'image_for_mini_slider',
             'bottom_description',
             'color_bottom_description',
-            'timer'
         ]
 
 

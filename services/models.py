@@ -1,6 +1,5 @@
 from colorfield.fields import ColorField
 from django.db import models
-import main.models
 
 
 class ServicesCatalog(models.Model):
@@ -13,11 +12,6 @@ class ServicesCatalog(models.Model):
     color_title = ColorField('Цвет заголовка', format='hexa', default='#FFFFFFFF')
     is_active = models.BooleanField('Активня', default=False)
     url = models.SlugField('URL', max_length=255, unique=True, db_index=True)
-    timer = models.ForeignKey(main.models.TimeSlideBase,
-                              related_name='timer',
-                              verbose_name='Таймер',
-                              on_delete=models.SET_NULL,
-                              null=True)
     position = models.OneToOneField('ServicesCatalogPosition',
                                     on_delete=models.CASCADE,
                                     verbose_name='Номер очереди',
@@ -85,11 +79,6 @@ class Services(models.Model):
                                         null=True,
                                         verbose_name='К какому РАЗДЕЛУ УСЛУГ отнести:')
     is_active = models.BooleanField('Активная', default=False)
-    timer = models.ForeignKey(main.models.TimeForMiniSlider,
-                              related_name='timer',
-                              verbose_name='Таймер',
-                              on_delete=models.SET_NULL,
-                              null=True)
     position_service = models.OneToOneField('PositionServices',
                                             on_delete=models.CASCADE,
                                             verbose_name='Номер очереди',
