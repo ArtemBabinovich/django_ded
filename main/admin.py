@@ -1,12 +1,12 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
-from main.models import TimeSlideBase, TimeForMiniSlider
+from main.models import TimeSlideBase
 from adminsortable.admin import NonSortableParentAdmin, SortableStackedInline
 from adminsortable.admin import SortableTabularInline
 
 
 admin.site.register(TimeSlideBase)
-admin.site.register(TimeForMiniSlider)
+# admin.site.register(TimeForMiniSlider)
 
 
 # @admin.register(Position)
