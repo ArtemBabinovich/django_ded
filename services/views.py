@@ -3,8 +3,8 @@ from django.db.models import Q
 from rest_framework import viewsets
 from rest_framework.response import Response
 
-from main.models import TimeForMiniSlider, TimeSlideBase
-from main.serializers import TimeSlideBaseSerializer, TimeForMiniSliderSerializer
+from main.models import TimeSlideBase
+from main.serializers import TimeSlideBaseSerializer
 from services.models import ServicesCatalog, Services
 from services.serializers import ServicesCatalogSerializer, BigSliderSerializer, ServicesCatalogSerializerForSmallSlider
 
@@ -40,7 +40,6 @@ class BigSliderViewSet(viewsets.ReadOnlyModelViewSet):
             serializer = self.get_serializer(page, many=True)
             return self.get_paginated_response(serializer.data)
         serializer = self.get_serializer(queryset, many=True)
-
         if TimeSlideBase.objects.exists():
             timer = TimeSlideBase.objects.first()
         else:
@@ -48,7 +47,6 @@ class BigSliderViewSet(viewsets.ReadOnlyModelViewSet):
                 "id": 1,
                 "time_pause": 4000
             }
-
         data_ser = TimeSlideBaseSerializer(timer)
         return Response({"timer": data_ser.data.get('time_pause'), "slides": serializer.data})
 
@@ -76,13 +74,4 @@ class SmallSliderViewSet(viewsets.ReadOnlyModelViewSet):
             serializer = self.get_serializer(page, many=True)
             return self.get_paginated_response(serializer.data)
         serializer = self.get_serializer(queryset, many=True)
-        if TimeForMiniSlider.objects.exists():
-            timer = TimeForMiniSlider.objects.first()
-        else:
-            timer = {
-                "id": 1,
-                "time_pause": 4000
-            }
-
-        data_ser = TimeForMiniSliderSerializer(timer)
-        return Response({"time": data_ser.data.get('time_pause'), "catalog": serializer.data})
+        return Response({"catalog": serializer.data})
