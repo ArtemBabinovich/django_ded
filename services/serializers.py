@@ -54,4 +54,13 @@ class ServicesCatalogSerializerForSmallSlider(serializers.ModelSerializer):
 
     class Meta:
         model = ServicesCatalog
-        fields = ['id', 'title', 'additional_title', 'additional_title_2', 'color_title', 'services']
+        fields = [
+            'id',
+            'title',
+            'additional_title',
+            'additional_title_2',
+            'color_title',
+            'time_pause_for_mini_slider',
+            'url',
+            'services',
+        ]
