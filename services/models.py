@@ -12,6 +12,9 @@ class ServicesCatalog(models.Model):
     color_title = ColorField('Цвет заголовка', format='hexa', default='#FFFFFFFF')
     is_active = models.BooleanField('Активня', default=False)
     url = models.SlugField('URL', max_length=255, unique=True, db_index=True)
+    time_pause_for_mini_slider = models.PositiveIntegerField('Время для слайда "мини_слайдера',
+                                                             default=4000,
+                                                             blank=True)
     position = models.OneToOneField('ServicesCatalogPosition',
                                     on_delete=models.CASCADE,
                                     verbose_name='Номер очереди',
