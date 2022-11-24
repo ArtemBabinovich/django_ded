@@ -10,6 +10,9 @@ class TimeSlideBase(models.Model):
         verbose_name = 'Таймер времени паузы для главного-фотослайдера'
         verbose_name_plural = 'Таймер времени паузы для главного-фотослайдеров'
 
+    def __str__(self):
+        return str(self.time_pause)
+
 
 class TimeForMiniSlider(models.Model):
     """Таймер времени паузы для мини-фотослайдера"""
@@ -18,6 +21,10 @@ class TimeForMiniSlider(models.Model):
     class Meta:
         verbose_name = 'Таймер времени паузы для мини-фотослайдера'
         verbose_name_plural = 'Таймер времени паузы для мини-фотослайдеров'
+
+    def __str__(self):
+        return str(self.time_pause)
+
 
 # """ЛЕВАЯ ПАНЕЛЬ"""
 #
