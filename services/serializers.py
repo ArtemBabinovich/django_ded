@@ -45,6 +45,8 @@ class SmallSliderSerializer(serializers.ModelSerializer):
             'image_for_mini_slider',
             'bottom_description',
             'color_bottom_description',
+            'bottom_description_2',
+            'color_bottom_description_2',
         ]
 
 
