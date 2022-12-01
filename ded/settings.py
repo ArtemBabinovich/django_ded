@@ -48,6 +48,8 @@ INSTALLED_APPS = [
     'api_routers',
     'services',
     'modules',
+    'about_present',
+    'get_discount',
 
 ]
 
