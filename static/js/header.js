@@ -59,7 +59,7 @@ get__social('https://developer.itec.by/api/social_networks/')
 // audio
 window.onload = function () {
     const headerLogo = document.querySelectorAll('.header__logo');
-    let logoAudio = new Audio('./audio/logoMusic.mp3')
+    let logoAudio = new Audio('https://developer.itec.by/media/audio/logoMusic.mp3')
     headerLogo.forEach(item => {
         item.addEventListener('mouseover', () => {
             logoAudio.play()
