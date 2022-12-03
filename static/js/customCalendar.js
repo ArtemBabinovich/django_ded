@@ -3,12 +3,13 @@ const currentDate = document.querySelectorAll('.current__date'),
     monthPrev = document.querySelectorAll('.month__prev'),
     monthNext = document.querySelectorAll('.month__next'),
     calendarSelected = document.querySelectorAll('.calendar__selected'),
-    calendar = document.querySelector('.calendar'),
-    calendarSelectedDate = document.querySelectorAll('.calendar__selected-date'),
-    calendarDropDownWrap = document.querySelector('.calendar__drop-down-wrap'),
-    calendarItem = document.querySelectorAll('.calendar__item'),
+    calendar = document.querySelectorAll('.calendar'),
+    calendarDropDownWrap = document.querySelectorAll('.calendar__drop-down-wrap'),
     calendarIcon = document.getElementById('#calendarIcon').id,
-    abc = document.getElementById('#abc')
+    dateNow = document.querySelectorAll('.date__now'),
+    dateNowBtn = document.querySelectorAll('.date__now-btn-now'),
+    dateNowClearBtn = document.querySelectorAll('.date__clear-btn'),
+    calendarIconMobile = document.getElementById('#calendarIconMobile').id;
 
 
 // give isActive class
@@ -16,12 +17,15 @@ let selectedText;
 
 calendarSelected.forEach(selectedItem => {
     selectedItem.addEventListener('click', (e) => {
-        if (e.target.id === calendarIcon){
-            calendarDropDownWrap.classList.toggle('dropDownCalendar');
+        if (e.target.id === calendarIcon || e.target.id === calendarIconMobile){
+            calendarDropDownWrap.forEach(item => {
+                item.classList.toggle('dropDownCalendar');
+            })
         }
         else {
-            calendar.classList.toggle('calendarActive')
-            console.log(selectedText)
+            calendar.forEach(calendarItem => {
+                calendarItem.classList.toggle('calendarActive')
+            })
             selectedText = selectedItem.querySelector('.calendar__selected-date');
         }
     })
@@ -30,58 +34,24 @@ calendarSelected.forEach(selectedItem => {
 daysWrap.forEach(daysWrapItem => {
     daysWrapItem.addEventListener('click', (event) => {
         if (event.target.getAttribute('class') === 'days__item'){
-            selectedText.innerHTML = `${event.target.innerText.length < 2 ? '0' + event.target.innerText : event.target.innerText }..${currMonth + 1}..${currYear}`;
-            calendar.classList.remove('calendarActive')
-        } else if (event.target.getAttribute('class') === 'days__item-prevMonth'){
-            selectedText.innerHTML = `${event.target.innerText.length < 2 ? '0' + event.target.innerText : event.target.innerText }..${currMonth < 10 ? '0' : ''}${currMonth < 2 ? currMonth + 1 : currMonth}..${currYear}`
-            calendar.classList.remove('calendarActive')
-        } else if (event.target.getAttribute('class') === 'days__item-nextMonth'){
-            selectedText.innerHTML = `${event.target.innerText.length < 2 ? '0' + event.target.innerText : event.target.innerText }..${currMonth < 10 ? '0' : ''}${currMonth + 2 > 12 ? currMonth + 1 : currMonth + 2}..${currYear}`
-            calendar.classList.remove('calendarActive')
+            selectedText.innerHTML = `${event.target.innerText.length < 2 ? '0' + event.target.innerText : event.target.innerText }.${currMonth + 1}.${currYear}`;
+            calendar.forEach(calendarItem => {
+                calendarItem.classList.remove('calendarActive')
+            })
         }
+        // else if (event.target.getAttribute('class') === 'days__item-prevMonth'){
+        //     selectedText.innerHTML = `${event.target.innerText.length < 2 ? '0' + event.target.innerText : event.target.innerText }.${currMonth < 10 ? '0' : ''}${currMonth < 2 ? currMonth + 1 : currMonth}.${currYear}`
+        //     calendar.forEach(calendarItem => {
+        //         calendarItem.classList.remove('calendarActive')
+        //     })
+        // } else if (event.target.getAttribute('class') === 'days__item-nextMonth'){
+        //     selectedText.innerHTML = `${event.target.innerText.length < 2 ? '0' + event.target.innerText : event.target.innerText }.${currMonth < 10 ? '0' : ''}${currMonth + 2 > 12 ? currMonth + 1 : currMonth + 2}.${currYear}`
+        //     calendar.forEach(calendarItem => {
+        //         calendarItem.classList.remove('calendarActive')
+        //     })
+        // }
     })
 })
-    // calendarItem.forEach(itemCalendar => {
-    //     itemCalendar.addEventListener('click', (e) => {
-    //         console.log(itemCalendar.children[0])
-    //         daysWrap.forEach(daysWrapItem => {
-    //             daysWrapItem.addEventListener('click', (event) => {
-    //                 let itemPrevMonth = document.querySelectorAll('.days__item-prevMonth')
-    //                 itemPrevMonth.forEach(item => {
-    //                     if (event.target === item) {
-    //                         // `${event.target.innerText.length < 2 ? '0' + event.target.innerText : event.target.innerText }..${currMonth < 10 ? '0' : ''}${currMonth < 2 ? currMonth + 1 : currMonth}..${currYear}`
-    //                         calendar.forEach(calendarItem => {
-    //                             calendarItem.classList.remove('isActive')
-    //                         })
-    //                     }
-    //                 })
-    //                 let itemNextMonth = document.querySelectorAll('.days__item-nextMonth')
-    //                 itemNextMonth.forEach(item => {
-    //                     if (event.target === item){
-    //                         // `${event.target.innerText.length < 2 ? '0' + event.target.innerText : event.target.innerText }..${currMonth < 10 ? '0' : ''}${currMonth + 2 > 12 ? currMonth + 1 : currMonth + 2}..${currYear}`
-    //                         calendar.forEach(calendarItem => {
-    //                             calendarItem.classList.remove('isActive')
-    //                         })
-    //                     }
-    //                 })
-    //                 let itemDays = document.querySelectorAll('.days__item');
-    //                 itemDays.forEach(item => {
-    //                     if (event.target === item){
-    //                         // `${event.target.innerText.length < 2 ? '0' + event.target.innerText : event.target.innerText }..${currMonth + 1}..${currYear}`
-    //                         calendar.forEach(calendarItem => {
-    //                             calendarItem.classList.remove('isActive')
-    //                         })
-    //                     }
-    //                 })
-    //             })
-    //         })
-    //         if (e.target.id === calendarIcon){
-    //             calendarDropDownWrap.classList.toggle('dropDownCalendar')
-    //         }else {
-    //             itemCalendar.children[1].classList.toggle('calendarActive');
-    //         }
-    //     })
-    // })
 
 // getting new date, current year and month
 let date = new Date(),
@@ -100,7 +70,8 @@ const renderCalendar = () => {
     let liTag = ''
 
     for (let i = firstDateOfMonth; i > 0 ; i--) {
-        liTag += `<li class="days__item-prevMonth">${lastDateOfLastMonth - i + 1}</li>`
+        liTag += `<li class="days__item-prevMonth"></li>`
+        // ${lastDateOfLastMonth - i + 1}
     }
 
     for (let i = 1; i <= lastDateOfMonth ; i++) {
@@ -108,7 +79,8 @@ const renderCalendar = () => {
     }
 
     for (let i = lastDayOfMonth; i < 7; i++) {
-        liTag += `<li class="days__item-nextMonth">${i - lastDayOfMonth + 1}</li>`
+        liTag += `<li class="days__item-nextMonth"></li>`
+        // ${i - lastDayOfMonth + 1}
     }
     currentDate.forEach(item => {
         item.innerText = `${months[currMonth]} ${currYear}`
@@ -146,6 +118,23 @@ monthPrev.forEach(item => {
     })
 })
 
+let calendarDateNow = new Date();
 
+dateNow.forEach(dateNowItem => {
+    dateNowItem.innerHTML = `${calendarDateNow.getDate()}.${calendarDateNow.getMonth() + 1}.${calendarDateNow.getFullYear()}`
+})
+dateNowBtn.forEach(dateNowBtnItem => {
+    dateNowBtnItem.addEventListener('click',() => {
+        dateNow.forEach(item => {
+            item.innerHTML = `${calendarDateNow.getDate()}.${calendarDateNow.getMonth() + 1}.${calendarDateNow.getFullYear()}`
+        })
+    })
+})
+dateNowClearBtn.forEach(dateNowClearBtnItem => {
+    dateNowClearBtnItem.addEventListener('click', () => {
+        dateNow.forEach(item => {
+            item.innerHTML = `00.00.0000`;
+        });
+    })
+})
 
-const dateInSelected = new Date();
