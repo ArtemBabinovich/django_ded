@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-ig0+ok91o9i0c3b9bmj-ghj07)e_gb331g$myn1yy#fupir4&3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['developer.itec.by', '194.62.19.66', '127.0.0.1', ]
 
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'tinymce',
+    # 'python_telegram_bot',
     'ckeditor',
 
     'main',
@@ -142,7 +143,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+STATIC_ROOT = os.path.join(BASE_DIR, 'main/static/')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
@@ -189,3 +190,6 @@ TINYMCE_DEFAULT_CONFIG = {
     "toolbar": "bold italic underline strikethrough | fontselect fontsizeselect | forecolor ",
     "language": "ru_RU",
 }
+
+CELERY_BROKER_URL = "redis://localhost:6379"
+CELERY_RESULT_BACKEND = "redis://localhost:6379"

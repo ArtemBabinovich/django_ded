@@ -1,4 +1,3 @@
-from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
 from django.db import models
 
@@ -66,7 +65,7 @@ class RemindForDays(models.Model):
 
 class AboutPresent(models.Model):
     """Модель напоминания для вручения подарка"""
-    name = models.CharField('Имя закзчика', max_length=50)
+    name = models.CharField('Имя заказчика', max_length=50)
     email = models.EmailField('Почта заказчика')
     phone = models.CharField('Телефон заказчика', max_length=18, blank=True, null=True,
                              validators=[RegexValidator(regex=r'^[-0-9+() ]{11,18}$',
@@ -77,6 +76,7 @@ class AboutPresent(models.Model):
     present = models.ForeignKey(Present, on_delete=models.PROTECT, verbose_name='Подарок')
     remind_for_days = models.ForeignKey(RemindForDays, models.PROTECT, verbose_name='За сколько дней напомнить')
     remind_every_years = models.BooleanField(default=False, verbose_name='Напоминать ежегодно')
+    remind_every_day = models.BooleanField(default=False, verbose_name='Напоминать каждый день')
     date_created = models.DateField(auto_created=True, auto_now_add=True, verbose_name='Дата оформления')
 
     class Meta:
@@ -88,4 +88,4 @@ class AboutPresent(models.Model):
 
 
 
-# Create your models here.
+

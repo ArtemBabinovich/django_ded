@@ -5,6 +5,8 @@ from rest_framework.response import Response
 from .models import AboutPresent, Recipient, Reason, Present, RemindForDays
 from .serializers import AboutPresentSerializer, RecipientSerializer, ReasonSerializer,\
     PresentSerializer, RemindForDaysSerializer
+from .tasks import send_to_telegram
+
 
 
 class  RecipientViewSets(mixins.ListModelMixin, viewsets.GenericViewSet):
@@ -36,9 +38,11 @@ class AboutPresentAdd(viewsets.ViewSet):
     queryset = AboutPresent.objects.all()
     @swagger_auto_schema(request_body=AboutPresentSerializer)
     def create(self, request):
+
         serializer = AboutPresentSerializer(data=request.data)
         if serializer.is_valid():
             response = serializer.save(validated_data=serializer.validated_data)
+            send_to_telegram.delay(response.id)
             return Response(AboutPresentSerializer(response).data)
         else:
             return Response(serializer.errors)

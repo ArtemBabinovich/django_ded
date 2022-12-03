@@ -50,10 +50,11 @@ class AboutPresentSerializer(serializers.ModelSerializer):
     present = serializers.PrimaryKeyRelatedField(queryset=Present.objects.all())
     remind_for_days = serializers.PrimaryKeyRelatedField(queryset=RemindForDays.objects.all())
     remind_every_years = serializers.BooleanField()
+    remind_every_day = serializers.BooleanField()
     class Meta:
         model = AboutPresent
         fields = ['id', 'name', 'email', 'phone', 'dates', 'recipient',
-                  'reason', 'present', 'remind_for_days', 'remind_every_years']
+                  'reason', 'present', 'remind_for_days', 'remind_every_years', 'remind_every_day']
 
     def validate_dates(self, value):
 
@@ -69,7 +70,8 @@ class AboutPresentSerializer(serializers.ModelSerializer):
                                    phone=validated_data['phone'], recipient=validated_data['recipient'],
                                    reason=validated_data['reason'], present=validated_data['present'],
                                    remind_for_days=validated_data['remind_for_days'],
-                                   remind_every_years=validated_data['remind_every_years'])
+                                   remind_every_years=validated_data['remind_every_years'],
+                                   remind_every_day=validated_data['remind_every_day'],)
             present.save()
             for value in validated_data['dates']:
                 date = Date(date=value.get("date"))
