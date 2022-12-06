@@ -189,3 +189,17 @@ TINYMCE_DEFAULT_CONFIG = {
     "toolbar": "bold italic underline strikethrough | fontselect fontsizeselect | forecolor ",
     "language": "ru_RU",
 }
+
+CELERY_BROKER_URL = "redis://localhost:6379"
+CELERY_RESULT_BACKEND = "redis://localhost:6379"
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+
+# params mail for test !!!
+DEFAULT_USER_MAIL = 'someloginfor@yandex.ru'
+EMAIL_USE_SSL = True
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_HOST_USER = 'someloginfor@yandex.ru'
+EMAIL_HOST_PASSWORD = 'someloginfor1234'
+EMAIL_PORT = 465
