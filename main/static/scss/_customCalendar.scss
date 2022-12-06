@@ -13,12 +13,28 @@
   gap: 10px;
   background: #390000;
   z-index: 3;
-  top: 45px;
+  top: 40px;
 }
 .calendar__selected{
-  border: 2px solid #fff0c8;
+  border: 1px solid #fff0c8;
   background: rgba( 0,0,0,.0);
-  padding: 5px 10px 5px 10px;
+  padding: 2px 10px 2px 10px;
+  font-family: Tahoma;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 23.83px;
+  color: #fff0c8;
+  width: 100%;
+  display: flex;
+  cursor: pointer;
+  position: relative;
+  gap: 40px;
+}
+.calendar__selected-hover{
+  border: 1px solid #fff0c8;
+  background: rgba( 0,0,0,.0);
+  padding: 2px 10px 2px 10px;
   font-family: Tahoma;
   font-style: normal;
   font-weight: 400;
@@ -32,7 +48,7 @@
   gap: 40px;
 }
 .calendar__image-wrap{
-  width: 40px;
+  width: 34px;
   position: absolute;
   right: -1px;
   top: -5px;
@@ -48,7 +64,7 @@
   background: #810b2f;
   padding: 5px;
   position: absolute;
-  top: 0;
+  top: -50px;
   left: -305px;
   display: none;
   z-index: 5;
@@ -123,10 +139,52 @@
       background: linear-gradient(0deg, rgba(133,2,2,1) 0%, rgba(255,0,0,1) 100%);
     }
   }
+  & .days__item-prevMonth{
+    background: none;
+    cursor: default;
+    &:hover{
+      background: #810b2f;
+    }
+  }
+  & .days__item-nextMonth{
+    background: none;
+    cursor: default;
+    &:hover{
+      background: #810b2f;
+    }
+  }
+}
+
+.calendar__date-now {
+  position: absolute;
+  left: 0;
+  bottom: -67px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  max-width: 290px;
+  padding: 10px 0;
+  background-image: linear-gradient(0deg, #850202 0%, #ff0000 53%, #a01600 100%);
+}
+.calendar__date-now-btnWrapper {
+  display: flex;
+  gap: 10px;
+  cursor: pointer;
+  & span {
+    color: white;
+  }
+}
+.date__clear-btn{
+  cursor: pointer;
+}
+.date__now{
+  margin-top: 15px;
 }
 @media (max-width: 768px) {
   .calendar{
     left: 0;
-    top: 39px;
+    top: -300px;
   }
 }

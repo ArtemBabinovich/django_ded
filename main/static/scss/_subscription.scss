@@ -1,0 +1,305 @@
+.subscription__block-wrapper{
+  padding-bottom: 40px;
+  padding-top: 55px;
+  border-bottom: 1px solid #643c3c;
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+}
+.first__know-block-text-wrap{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  align-items: flex-start;
+}
+.first__know-block{
+  flex: 1 1 auto;
+  max-width: 450px;
+}
+.first__know-block-title{
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  & p {
+    font-size: 30px;
+    color: #ffff00;
+    font-weight: 700;
+    font-style: normal;
+    font-family: "Roboto";
+  }
+}
+.first__know-block-text{
+  max-width: 240px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  & p {
+    font-size: 14px;
+    color: #fff0c8;
+    font-weight: 400;
+    font-style: normal;
+    font-family: "Roboto";
+  }
+}
+.first__know-form{
+  padding: 20px;
+  border: 1px solid #efe5bd;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  & input {
+    background: rgba(0,0,0, 0);
+    border: 1px solid #efe5bd;
+    padding: 5px 10px;
+    width: 100%;
+    &::placeholder{
+      font-size: 18px;
+      //line-height: 41px;
+      color: #fff0c8;
+      font-family: "Verdana";
+      font-weight: 400;
+      font-style: normal;
+    }
+  }
+  & button {
+    padding: 0 15px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    font-size: 18px;
+    line-height: 43px;
+    color: #ffffff;
+    font-weight: 700;
+    text-shadow: 2px 2px 2px rgb(50 0 0);
+    background: linear-gradient(0deg, rgb(125, 2, 2) 34%, rgb(223, 3, 0) 73%);
+    font-family: "Verdana";
+  }
+}
+.reminders__block-wrapper-btn{
+  margin: 0 auto;
+  margin-top: 10px;
+  padding: 0 15px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  font-size: 18px;
+  line-height: 43px;
+  color: #ffffff;
+  font-weight: 700;
+  text-shadow: 2px 2px 2px rgb(50 0 0);
+  background: linear-gradient(0deg, rgb(125, 2, 2) 34%, rgb(223, 3, 0) 73%);
+  font-family: "Verdana";
+  cursor: pointer;
+}
+.download__phone-block-title{
+  display: flex;
+  flex-direction: column;
+  text-align: end;
+  gap: 40px;
+  margin-bottom: 40px;
+  & p {
+    font-size: 30px;
+    color: #ffff00;
+    font-weight: 700;
+    font-style: normal;
+    font-family: "Roboto";
+  }
+}
+.download__phone-block-about{
+  border: 1px solid #efe5bd;
+  padding: 15px 20px;
+  display: flex;
+  max-width: 345px;
+}
+.download__phone-block-about-text{
+  font-size: 14px;
+  line-height: 23px;
+  color: #fff0c8;
+  font-family: "Verdana";
+  font-style: normal;
+  font-weight: 400;
+  max-width: 118px;
+}
+.download__phone-block-about-action{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.download__phone-block-about-action-text{
+  font-size: 14px;
+  line-height: 24px;
+  color: #ffffff;
+  font-family: "Verdana";
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.download__phone-block-about-action-btn{
+  padding: 0 15px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  font-size: 18px;
+  line-height: 43px;
+  color: #ffffff;
+  font-weight: 700;
+  text-shadow: 2px 2px 2px rgb(50 0 0);
+  background: linear-gradient(0deg, rgb(125, 2, 2) 34%, rgb(223, 3, 0) 73%);
+  font-family: "Verdana";
+  cursor: pointer;
+}
+.reminders__block{
+  flex: 1 1 auto;
+  max-width: 450px;
+}
+.reminders__block-wrapper{
+  border: 1px solid #efe5bd;
+  padding: 20px 0px 20px 20px;
+  display: flex;
+  flex-direction: column;
+}
+.reminders__block-title{
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  margin-bottom: 40px;
+  & p {
+    font-size: 30px;
+    color: #ffff00;
+    font-weight: 700;
+    font-family: "Roboto";
+    font-style: normal;
+    text-align: right;
+  }
+}
+.reminders__block-wrapper-text{
+  font-size: 14px;
+  line-height: 24px;
+  color: #fff0c8;
+  font-family: "Verdana";
+  font-style: normal;
+  font-weight: 400;
+}
+@media (max-width: 1919px) {
+  .download__phone-block{
+    max-width: 450px;
+    flex: 1 1 auto;
+    & .download__phone-block-about{
+      max-width: 100%;
+      justify-content: space-between;
+    }
+  }
+}
+@media (max-width: 1365px) {
+  .subscription__block-wrapper {
+    gap: 10px;
+    flex-wrap: wrap;
+    row-gap: 15px;
+  }
+  .download__phone-block-title{
+    & p {
+      font-size: 24px;
+    }
+  }
+  .first__know-block-text{
+    gap: 10px;
+  }
+  .first__know-block-title{
+    & p {
+      font-size: 24px;
+    }
+  }
+  .reminders__block-title{
+    & p {
+      font-size: 24px;
+    }
+  }
+}
+@media (max-width: 1024px) {
+  .reminders__block{
+    max-width: 100%;
+  }
+  .reminders__block-title{
+    flex-direction: row;
+    gap: 5px;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+}
+@media (max-width: 767px) {
+  .reminders__block-title{
+    flex-direction: row;
+    gap: 5px;
+    justify-content: center;
+    margin-bottom: 15px;
+    & p {
+      font-size: 18px;
+    }
+  }
+  .download__phone-block-title{
+    flex-direction: row;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 15px;
+    & p {
+      font-size: 18px;
+    }
+  }
+  .first__know-block-title{
+    flex-direction: row;
+    gap: 5px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    & p {
+      font-size: 18px;
+    }
+  }
+  .first__know-block-text-wrap{
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  .subscription__block-wrapper{
+    gap: 40px;
+    padding-bottom: 20px;
+  }
+  .first__know-block{
+    max-width: 100%;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #643c3c;
+  }
+  .download__phone-block{
+    max-width: 100%;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #643c3c;
+  }
+  .reminders__block{
+    max-width: 100%;
+  }
+  .reminders__block-wrapper-text{
+    & br {
+      display: none;
+    }
+  }
+  .reminders__block-wrapper{
+    padding: 20px;
+  }
+}
+@media (max-width: 479px) {
+  .download__phone-block-about-action-btn{
+    font-size: 14px;
+  }
+  .download__phone-block-about{
+    padding: 20px 10px;
+  }
+  .first__know-form{
+    padding: 20px 10px;
+  }
+  .reminders__block-wrapper{
+    padding: 20px 10px;
+  }
+}
