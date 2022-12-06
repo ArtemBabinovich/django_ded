@@ -70,7 +70,7 @@ class RemindForDays(models.Model):
 
 class AboutPresent(models.Model):
     """Модель напоминания для вручения подарка"""
-    name = models.CharField('Имя закзчика', max_length=50)
+    name = models.CharField('Имя заказчика', max_length=50)
     email = models.EmailField('Почта заказчика')
     phone = models.CharField('Телефон заказчика', max_length=18, blank=True, null=True,
                              validators=[RegexValidator(regex=r'^[-0-9+() ]{11,18}$',
@@ -88,5 +88,3 @@ class AboutPresent(models.Model):
 
     def __str__(self):
         return (f'{self.name} - {self.present.name}')
-
-# Create your models here.

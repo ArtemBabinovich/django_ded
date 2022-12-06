@@ -1,4 +1,4 @@
-from django.contrib import admin
+# from django.contrib import admin
 
 # from .modelTASKmessage import Message, SubjectMessage
 # from .models import Recipient, Reason, Present, Date, RemindForDays, AboutPresent
