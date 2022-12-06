@@ -34,7 +34,9 @@ class ServicesCatalog(models.Model):
         ordering = ('position',)
 
     def __str__(self):
-        return self.title
+        if not self.additional_title:
+            return self.title
+        return f'{self.title} {self.additional_title}'
 
 
 class ServicesCatalogPosition(models.Model):
