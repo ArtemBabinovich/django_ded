@@ -78,3 +78,6 @@ class AboutPresentSerializer(serializers.ModelSerializer):
                 date.save()
                 present.dates.add(date.id)
         return present
+
+
+#TODO апиха на метод гет отдаёт( повод, кому,[что хотите заказать, напоминание за количество дней,]), метод пост напомнить о подарке, пост скидки 2+
