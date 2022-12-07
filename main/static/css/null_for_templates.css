@@ -46,6 +46,24 @@
 	font-weight: 700;
 	font-style: normal;
 }
+@font-face {
+	font-family: Verdana;
+	src: url(../fonts/Verdana/Verdana.ttf);
+	font-weight: 400;
+	font-style: normal;
+}
+@font-face {
+	font-family: Roboto;
+	src: url(../fonts/Roboto/Roboto-Regular.ttf);
+	font-weight: 400;
+	font-style: normal;
+}
+@font-face {
+	font-family: Roboto;
+	src: url(../fonts/Roboto/Roboto-Bold.ttf);
+	font-weight: 700;
+	font-style: normal;
+}
 
 /*Обнуление*/
 *{

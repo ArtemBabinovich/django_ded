@@ -3,7 +3,7 @@ from django.db import models
 
 
 class GetDiscount(models.Model):
-    """Модель оформления заявки на скидку"""
+    """Модель оформления заявки на скидку 2+"""
     name = models.CharField('Имя отправителя', max_length=50)
     phone = models.CharField('Телефон отправителя', max_length=18, validators=[RegexValidator(regex=r'^[-0-9+() ]{11,18}$',
                                                         message='Поле должно состоять из цифр или знаков + () -')])

@@ -5,17 +5,17 @@
   display: none;
   justify-content: space-between;
   flex: 1 1 auto;
-  gap: 1px;
   position: fixed;
   width: 100%;
   top: 0;
   left: 0;
-  z-index: 10;
+  z-index: 15;
 }
 .main__nav-list-item{
   flex: 1 1 auto;
   text-align: center;
   background: linear-gradient(to bottom, #d20300, #710909);
+  border-right: 1px solid black;
   &:hover{
     background: #3c0000;
   }

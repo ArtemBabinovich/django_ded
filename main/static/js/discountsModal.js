@@ -43,12 +43,19 @@ if (window.innerWidth < 480) {
         presentBtn.addEventListener('mouseover', () => {
             presentWrapperHover.style.position = 'absolute';
             presentWrapperHover.style.display = 'block';
-            presentWrapperHover.style.top = '87px';
+            if (window.innerWidth < 1920) {
+                presentWrapperHover.style.top = '82px';
+            }else {
+                presentWrapperHover.style.top = '100px';
+            }
             presentWrapperHover.style.right = '270px';
             presentWrapperHover.style.zIndex = '50'
         })
         presentBtn.addEventListener('mouseout', () => {
-            presentWrapperHover.style.display = 'none'
+            presentWrapperHover.style.display = 'none';
+        })
+        presentWrapperHover.addEventListener('click', () => {
+            presentWrapperHover.style.display = 'none';
         })
     }
 }
@@ -72,7 +79,11 @@ if (window.innerWidth < 480) {
             item.addEventListener('mouseover', () => {
                 dropDownModalHover.style.position = 'absolute';
                 dropDownModalHover.style.display = 'block';
-                dropDownModalHover.style.top = '87px';
+                if (window.innerWidth < 1920){
+                    dropDownModalHover.style.top = '82px'
+                }else {
+                    dropDownModalHover.style.top = '100px'
+                }
                 dropDownModalHover.style.right = '0px';
                 dropDownModalHover.style.zIndex = '50'
             })
