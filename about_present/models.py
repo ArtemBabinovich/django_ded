@@ -6,7 +6,7 @@ from modules.models import validate_current_century
 
 class Recipient(models.Model):
     """Получатель подарка"""
-    name = models.CharField('Получатель' ,max_length=50)
+    name = models.CharField('Получатель', max_length=50)
 
     class Meta:
         verbose_name = 'Получатель'
@@ -42,7 +42,11 @@ class Present(models.Model):
 
 class Date(models.Model):
     """Дата события для вручения подарка"""
-    date = models.DateField(validators=[validate_current_century],  verbose_name='Дата события')
+    date = models.DateField(validators=[validate_current_century], verbose_name='Дата события')
+    presents = models.ForeignKey('AboutPresent',
+                                 verbose_name='Какой подарок',
+                                 on_delete=models.CASCADE,
+                                 related_name='about_present')
 
     class Meta:
         verbose_name = 'Дата получения'
@@ -63,6 +67,7 @@ class RemindForDays(models.Model):
     def __str__(self):
         return str(self.days)
 
+
 class AboutPresent(models.Model):
     """Модель напоминания для вручения подарка"""
     name = models.CharField('Имя заказчика', max_length=50)
@@ -70,13 +75,11 @@ class AboutPresent(models.Model):
     phone = models.CharField('Телефон заказчика', max_length=18, blank=True, null=True,
                              validators=[RegexValidator(regex=r'^[-0-9+() ]{11,18}$',
                                                         message='Поле должно состоять из цифр или знаков + () -')])
-    dates = models.ManyToManyField(Date, verbose_name='Даты событий')
     recipient = models.ForeignKey(Recipient, on_delete=models.PROTECT, verbose_name='Кому')
     reason = models.ForeignKey(Reason, on_delete=models.PROTECT, verbose_name='Повод')
     present = models.ForeignKey(Present, on_delete=models.PROTECT, verbose_name='Подарок')
     remind_for_days = models.ForeignKey(RemindForDays, models.PROTECT, verbose_name='За сколько дней напомнить')
     remind_every_years = models.BooleanField(default=False, verbose_name='Напоминать ежегодно')
-    remind_every_day = models.BooleanField(default=False, verbose_name='Напоминать каждый день')
     date_created = models.DateField(auto_created=True, auto_now_add=True, verbose_name='Дата оформления')
 
     class Meta:
@@ -85,7 +88,3 @@ class AboutPresent(models.Model):
 
     def __str__(self):
         return (f'{self.name} - {self.present.name}')
-
-
-
-
