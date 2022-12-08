@@ -1,6 +1,6 @@
 const mainSwiperWrapper = document.querySelector('.main__swiper-slider');
 const miniSlidersWrapper = document.querySelector('.main__content-block-mini-sliders-wrapper');
-function getSwiperItem(url,url2) {
+function getSwiperItem(url,url2,url3) {
     fetch(url2)
         .then(resp => resp.json())
         .then(res => {
@@ -32,10 +32,10 @@ function getSwiperItem(url,url2) {
                                                     </div>
                                                     <div class="mini__slider-arrow-wrapper">
                                                         <div class="mini__slider-prev">
-                                                            <img src="../img/icons/miniSliderPrevArrow.svg" alt="">
+                                                            <img src="https://developer.itec.by/static/img/icons/miniSliderPrevArrow.svg" alt="">
                                                         </div>
                                                         <div class="mini__slider-next">
-                                                            <img src="../img/icons/miniSliderNextArrow.svg" alt="">
+                                                            <img src="https://developer.itec.by/static/img/icons/miniSliderNextArrow.svg" alt="">
                                                         </div>
                                                     </div>
                                                     <div class="mini__swiper-container swiper">
@@ -263,30 +263,6 @@ function getSwiperItem(url,url2) {
                                                 </div>
                                             `
                 services = ``
-                // const miniSwiper = new Swiper ('.mini__swiper-container', {
-                //     simulateTouch: true,
-                //     loop: true,
-                //     autoplay: {
-                //         delay: `${timer != null ? timer : 2000}`,
-                //         disableOnInteraction: false,
-                //         pauseOnMouseEnter:true,
-                //     },
-                //     navigation: {
-                //         nextEl: '.mini__slider-prev',
-                //         prevEl: '.mini__slider-next',
-                //     },
-                //     breakpoints: {
-                //         1919: {
-                //             slidesPerView: 3.5
-                //         },
-                //         1024: {
-                //             slidesPerView: 3,
-                //         }
-                //     }
-                // })
-                // console.log(timer)
-                // console.log(miniSwiper.autoplay)
-                // timer = 0;
             }
             const miniSwiperTips = document.querySelectorAll('.mini__swiper-tips');
             miniSwiperTips.forEach(item => {
@@ -306,8 +282,8 @@ function getSwiperItem(url,url2) {
                     pauseOnMouseEnter:true,
                 },
                 navigation: {
-                    nextEl: '.mini__slider-prev',
-                    prevEl: '.mini__slider-next',
+                    nextEl: '.mini__slider-next',
+                    prevEl: '.mini__slider-prev',
                 },
                 breakpoints: {
                     1919: {
@@ -382,7 +358,7 @@ function getSwiperItem(url,url2) {
                     // zoomWindow.style.top = `${e.offsetY - 40}px`
                     // zoomWindow.style.left = `${e.offsetX + 30}px`
                     zoomWindow.style.top = `${e.offsetY - 40}px`
-                    zoomWindow.style.left = `${e.offsetX + 70}px`
+                    zoomWindow.style.left = `${e.offsetX + 100}px`
                     mainSliderImage.forEach(slidesItem => {
                         if (e.target === slidesItem) {
                             src = slidesItem.getAttribute('src')
@@ -392,17 +368,30 @@ function getSwiperItem(url,url2) {
                     zoomWindow.style.background = `url(${src})`;
                     zoomWindow.style.backgroundRepeat = 'no-repeat'
                     zoomWindow.style.backgroundSize = `${sliderWidth}px`;
-                    zoomWindow.style.backgroundPositionX = `${-e.offsetX + 40}px`
+                    zoomWindow.style.backgroundPositionX = `${-e.offsetX + 45}px`
                     zoomWindow.style.backgroundPositionY = `${-e.offsetY + 40}px`
-                    zoomWindow.style.transform = `scale(1.8)`;
+                    zoomWindow.style.transform = `scale(2.3)`;
                 })
                 mainSliderWrapper.addEventListener('mouseout', () => {
                     zoomWindow.style.display = 'none'
                 })
             }
         })
+    fetch(url3)
+        .then(resp => resp.json())
+        .then(res => {
+            const swiper = new Swiper('.main__content-sale-block-item-swiper', {
+                simulateTouch: false,
+                autoplay: {
+                    delay: 2000,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter:true,
+                },
+                loop:true,
+            })
+        })
 }
 
 
-getSwiperItem('https://developer.itec.by/api/big_slider/','https://developer.itec.by/api/small_slider/')
+getSwiperItem('https://developer.itec.by/api/big_slider/','https://developer.itec.by/api/small_slider/','https://developer.itec.by/api/small_slider/')
 

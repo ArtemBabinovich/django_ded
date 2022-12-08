@@ -8,1175 +8,1208 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{% static 'css/null_for_templates.css' %}">
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'scss/style.css' %}">
     <link rel="shortcut icon" href="{% static 'img/icons/favicon.svg' %}" type="image/x-icon">
     <title>УСЛУГИ ФОТОШОПА | ОБРАБОТКА ФОТО | ФОТОМОНТАЖ | СЛАЙД-ШОУ | ВИДЕОРОЛИК | ФОТОКНИГА | РЕКЛАМА</title>
 </head>
 <body>
-    <div class="wrapper">
-        <div class="modal__window">
-            <div class="btn__drop-down-menu">
-                <div class="drop-down-menu-wrapper">
-                    <div class="close__modal">
-                        <img src="{% static 'img/icons/closeIcon.svg' %}" alt="">
-                    </div>
-                    <div class="drop__down-menu-firstBlock">
+<div class="wrapper">
+    <div class="modal__window">
+        <div class="btn__drop-down-menu">
+            <div class="drop-down-menu-wrapper">
+                <div class="close__modal">
+                    <img src="{% static 'img/icons/closeIcon.svg' %}" alt="">
+                </div>
+                <div class="drop__down-menu-firstBlock">
+                    <div class="firstBlock__title-Wrapper">
                         <div class="firstBlock__title">
                             <p>ДАРИМ 300 РУБЛЕЙ</p> <span>за пост в соцсети!</span>
                         </div>
                         <div class="firstBlock__image">
                             <img src="{% static 'img/modalSaleImage.png' %}" alt="">
                         </div>
-                        <div class="firstBlock__nav">
-                            <div class="secondBlock__title">
-                                <p>
-                                    ВЫБЕРИ соцсеть
-                                </p>
-                                <span>
+                    </div>
+                    <div class="firstBlock__nav">
+                        <div class="secondBlock__title">
+                            <p>
+                                ВЫБЕРИ соцсеть
+                            </p>
+                            <span>
                                         Срок поста - 30 дней
                                     </span>
-                            </div>
-                            <nav class="secondBlock__nav">
-                                <ul class="secondBlock__nav-list">
-                                </ul>
-                            </nav>
                         </div>
-                    </div>
-                    <div class="drop__down-menu-secondBlock">
-                        <div class="secondBlock__instruction">
-                            <div class="instruction__title">
-                                СЛЕДУЙ ИНСТРУКЦИИ
-                            </div>
-                            <ul class="instruction__list">
-                                <li class="instruction__list-item">
-                                    1. Размести ссылку <br>
-                                    <a href="#">https://АНДРЕЙЛЕБЕДЬ.рф</a> в соцсети!
-                                </li>
-                                <li class="instruction__list-item">
-                                    2. Порекомендуй нас друзьям!
-                                </li>
-                                <li class="instruction__list-item">
-                                    3. Скидка твоему другу - <span>5%</span>
-                                </li>
-                                <li class="instruction__list-item">
-                                    4. Скидка тебе за друга - <span>10%</span>
-                                </li>
-                                <li class="instruction__list-item">
-                                    5. Куда нам отправить промокод?
-                                </li>
-                                <li class="instruction__list-item">
-                                    6. Заполни поля формы!
-                                </li>
+                        <nav class="secondBlock__nav">
+                            <ul class="secondBlock__nav-list">
                             </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="drop__down-menu-secondBlock">
+                    <div class="secondBlock__instruction">
+                        <div class="instruction__title">
+                            СЛЕДУЙ ИНСТРУКЦИИ
                         </div>
-                        <form method="POST" action="/" class="secondBock__form-wrapper">
-                            <div class="secondBlock__first-form">
-                                <div class="form-title">
-                                    Данные ТВОИ
-                                </div>
-                                <div class="form-input-wrapper">
-                                    <input type="text" name="name" id="#firstFormName" placeholder="Имя *">
-                                    <input type="tel" name="phone" id="#firstFormPhone" placeholder="Телефон *">
-                                    <input type="email" name="email" id="#firstFormEmail" placeholder="E-mail *">
-                                </div>
+                        <ul class="instruction__list">
+                            <li class="instruction__list-item">
+                                1. Размести ссылку <br>
+                                <a href="#">https://АНДРЕЙЛЕБЕДЬ.рф</a> в соцсети!
+                            </li>
+                            <li class="instruction__list-item">
+                                2. Порекомендуй нас друзьям!
+                            </li>
+                            <li class="instruction__list-item">
+                                3. Скидка твоему другу - <span>5%</span>
+                            </li>
+                            <li class="instruction__list-item">
+                                4. Скидка тебе за друга - <span>10%</span>
+                            </li>
+                            <li class="instruction__list-item">
+                                5. Куда нам отправить промокод?
+                            </li>
+                            <li class="instruction__list-item">
+                                6. Заполни поля формы!
+                            </li>
+                        </ul>
+                    </div>
+                    <form method="POST" action="/" class="secondBock__form-wrapper">
+                        <div class="secondBlock__first-form">
+                            <div class="form-title">
+                                Данные ТВОИ
                             </div>
-                            <div class="secondBlock__second-form">
-                                <div class="form-title">
-                                    Данные ДРУГА
-                                </div>
-                                <div class="form-input-wrapper">
-                                    <input type="text" name="name" id="#secondFormName" placeholder="Имя друга *">
-                                    <input type="tel" name="phone" id="#secondFormPhone" placeholder="Телефон друга *">
-                                    <input type="email" name="email" id="#secondFormEmail" placeholder="E-mail друга *">
-                                </div>
+                            <div class="form-input-wrapper">
+                                <input type="text" name="name" id="#firstFormName" placeholder="Имя *">
+                                <input type="tel" name="phone" id="#firstFormPhone" placeholder="Телефон *">
+                                <input type="email" name="email" id="#firstFormEmail" placeholder="E-mail *">
                             </div>
-                            <div class="form__subTitle">
+                        </div>
+                        <div class="secondBlock__second-form">
+                            <div class="form-title">
+                                Данные ДРУГА
+                            </div>
+                            <div class="form-input-wrapper">
+                                <input type="text" name="name" id="#secondFormName" placeholder="Имя друга *">
+                                <input type="tel" name="phone" id="#secondFormPhone" placeholder="Телефон друга *">
+                                <input type="email" name="email" id="#secondFormEmail" placeholder="E-mail друга *">
+                            </div>
+                        </div>
+                        <div class="form__subTitle">
                                                     <span>
                                                     Все поля обязательны для заполнения!
                                                     </span>
-                                <span>
+                            <span>
                                                     Скидка 300 рублей за заказ от 3 000 рублей
                                                     </span>
-                            </div>
-                            <button type="submit" class="secondBlock__form-btn">
-                                ОТПРАВИТЬ
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="btn__drop-down-present">
-                <div class="drop__down-present-wrapper">
-                    <div class="drop__down-present-firstBlock">
-                        <div class="present__firstBlock-image">
-                            <img src="{% static 'img/dropDownImage.png' %}" alt="">
                         </div>
-                        <div class="present__secondBlock-text-wrapper">
-                            <div class="present__secondBlock-title">
-                                Календарь НАПОМИНАНИЙ
-                            </div>
-                            <div class="present__secondBlock-text">
-                                <p>
-                                    Используйте <br>
-                                    календарь напоминаний.
-                                </p>
-                                <p>
-                                    ВВЕДИТЕ и ОТПРАВЬТЕ <br>
-                                    любые ДАТЫ будущих событий.
-                                </p>
-                                <p>
-                                    Мы НАПОМНИМ о себе <br>
-                                    перед вашим праздником. <br>
-                                    Ваш ПОДАРОК будет <br>
-                                    самым НЕЗАБЫВАЕМЫМ!
-                                </p>
-                                <p class="secondBlock-text-filling">
-                                    <span>*</span> Поля обязательные к заполнению!
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="present__secondBlock">
-                        <form method="POST" action="/" class="present__secondBlock-form">
-                            <div class="present__secondBlock-formFirstBlock">
-                                <input type="text" name="name" id="#presentFormName" placeholder="ИМЯ *">
-                                <input type="email" name="email" id="#presentFormEmail" placeholder="E-mail *">
-                                <input type="tel" name="phone" id="#presentFormPhone" placeholder="Телефон">
-                            </div>
-                            <div class="present__secondBlock-formSecondBlock">
-                                <div class="form__date-wrap">
-                                    <div class="form__date-title">
-                                        Дата <span>*</span>
-                                    </div>
-                                    <div class="calendar__wrap">
-                                        <div class="calendar__item">
-                                            <div class="calendar__selected">
-                                                <p>Дата 1</p>
-                                                <p class="calendar__selected-date">00.00.0000</p>
-                                                <div class="calendar__image-wrap">
-                                                    <img src="{% static 'img/icons/calendarIcon.svg' %}" alt="calendarIcon" id="#calendarIcon">
-                                                </div>
-                                            </div>
-                                            <div class="calendar">
-                                                <div class="calendar__month-wrap">
-                                                    <div class="month__prev">
-                                                        <img src="{% static 'img/icons/calendarArrow.svg' %}" alt="">
-                                                    </div>
-                                                    <div class="current__date">
-                                                    </div>
-                                                    <div class="month__next">
-                                                        <img src="{% static 'img/icons/calendarArrow.svg' %}" alt="">
-                                                    </div>
-                                                </div>
-                                                <div class="calendar__days-name">
-                                                    <p>Пн</p>
-                                                    <p>Вт</p>
-                                                    <p>Ср</p>
-                                                    <p>Чт</p>
-                                                    <p>Пт</p>
-                                                    <p>Сб</p>
-                                                    <p>Вс</p>
-                                                </div>
-                                                <ul class="calendar__days-wrap">
-                                                </ul>
-                                                <div class="calendar__date-now">
-                                                    <div class="calendar__date-now-btnWrapper">
-                                                        <div class="date__now-btn-now">
-                                                            Сегодня
-                                                        </div>
-                                                        <span>|</span>
-                                                        <div class="date__clear-btn">
-                                                            Очистить
-                                                        </div>
-                                                    </div>
-                                                    <div class="date__now">
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="calendar__drop-down-wrap">
-                                            <div class="calendar__item">
-                                                <div class="calendar__selected">
-                                                    <p>Дата 2</p>
-                                                    <p class="calendar__selected-date">00.00.0000</p>
-                                                    <div class="calendar__image-wrap">
-                                                        <img src="{% static 'img/icons/calendarIcon.svg' %}" alt="">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="calendar__item">
-                                                <div class="calendar__selected">
-                                                    <p>Дата 3</p>
-                                                    <p class="calendar__selected-date">00.00.0000</p>
-                                                    <div class="calendar__image-wrap">
-                                                        <img src="{% static 'img/icons/calendarIcon.svg' %}" alt="">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="calendar__item">
-                                                <div class="calendar__selected">
-                                                    <p>Дата 4</p>
-                                                    <p class="calendar__selected-date">00.00.0000</p>
-                                                    <div class="calendar__image-wrap">
-                                                        <img src="{% static 'img/icons/calendarIcon.svg' %}" alt="">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="calendar__item">
-                                                <div class="calendar__selected">
-                                                    <p>Дата 5</p>
-                                                    <p class="calendar__selected-date">00.00.0000</p>
-                                                    <div class="calendar__image-wrap">
-                                                        <img src="{% static 'img/icons/calendarIcon.svg' %}" alt="">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="calendar__item">
-                                                <div class="calendar__selected">
-                                                    <p>Дата 6</p>
-                                                    <p class="calendar__selected-date">00.00.0000</p>
-                                                    <div class="calendar__image-wrap">
-                                                        <img src="{% static 'img/icons/calendarIcon.svg' %}" alt="">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="calendar__item">
-                                                <div class="calendar__selected">
-                                                    <p>Дата 7</p>
-                                                    <p class="calendar__selected-date">00.00.0000</p>
-                                                    <div class="calendar__image-wrap">
-                                                        <img src="{% static 'img/icons/calendarIcon.svg' %}" alt="">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="calendar__item">
-                                                <div class="calendar__selected">
-                                                    <p>Дата 8</p>
-                                                    <p class="calendar__selected-date">00.00.0000</p>
-                                                    <div class="calendar__image-wrap">
-                                                        <img src="{% static 'img/icons/calendarIcon.svg' %}" alt="">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="calendar__item">
-                                                <div class="calendar__selected">
-                                                    <p>Дата 9</p>
-                                                    <p class="calendar__selected-date">00.00.0000</p>
-                                                    <div class="calendar__image-wrap">
-                                                        <img src="{% static 'img/icons/calendarIcon.svg' %}" alt="">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form__who-wrap">
-                                    <div class="form__who-title">
-                                        Кому
-                                    </div>
-                                    <div class="form__who-select">
-                                        <div class="who__selected">
-                                            Себе
-                                        </div>
-                                        <ul class="who__selected-choice">
-                                            <li class="selected__choice-item">
-                                                Себе
-                                            </li>
-                                            <li class="selected__choice-item">
-                                                Другу
-                                            </li>
-                                            <li class="selected__choice-item">
-                                                Брату
-                                            </li>
-                                            <li class="selected__choice-item">
-                                                Маме
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="form__occasion-wrap">
-                                    <div class="occasion__title">
-                                        Повод
-                                    </div>
-                                    <div class="form__occasion-select">
-                                        <div class="occasion__selected">
-                                            День рождения
-                                        </div>
-                                        <ul class="occasion__selected-choice">
-                                            <li class="selected__choice-item">
-                                                День рождения
-                                            </li>
-                                            <li class="selected__choice-item">
-                                                Юбилей
-                                            </li>
-                                            <li class="selected__choice-item">
-                                                Годовщина
-                                            </li>
-                                            <li class="selected__choice-item">
-                                                Свадьба
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="form__order-wrap">
-                                    <div class="form__order-title">
-                                        Что хотите заказать
-                                    </div>
-                                    <div class="form__order-select">
-                                        <div class="order__selected">
-                                            Видеофильм
-                                        </div>
-                                        <ul class="order__selected-choice">
-                                            <li class="selected__choice-item">
-                                                Видеофильм
-                                            </li>
-                                            <li class="selected__choice-item">
-                                                Музыкальный клип
-                                            </li>
-                                            <li class="selected__choice-item">
-                                                Организация мероприятия
-                                            </li>
-                                            <li class="selected__choice-item">
-                                                Что-то еще
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="form__about">
-                                    <div class="form__about-title">
-                                        <span>*</span> Срок изготовления 3-30 дней
-                                    </div>
-                                    <p class="form__about-text">
-                                        <span>*</span> Не забудьте учесть время на доставку подарка в ваш город
-                                    </p>
-                                </div>
-                                <div class="form__remind-wrap">
-                                    <span>*</span> <p>Напомнить за</p>
-                                    <div class="form__remind-select">
-                                        <div class="remind__selected">
-                                            30
-                                        </div>
-                                        <ul class="remind__selected-choice">
-                                            <li class="selected__choice-item">
-                                                30
-                                            </li>
-                                            <li class="selected__choice-item">
-                                                60
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <p>дней</p>
-                                </div>
-                                <div class="form__remind-everyYears">
-                                    <input type="checkbox" name="remindEveryYears" id="#remindEverYears">
-                                    <label for="#remindEverYears">Напоминать ежегодно</label>
-                                </div>
-                                <button type="submit" class="present__form-btn">
-                                    ОТПРАВИТЬ
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="present__close">
-                        <img src="{% static 'img/icons/closeIcon.svg' %}" alt="closeIcon">
-                    </div>
-                </div>
-            </div>
-            <div class="btn__drop-down-present-hover">
-                <div class="drop__down-present-wrapper">
-                    <div class="drop__down-present-firstBlock">
-                        <div class="present__firstBlock-image">
-                            <img src="{% static 'img/dropDownImage.png' %}" alt="">
-                        </div>
-                        <div class="present__secondBlock-text-wrapper">
-                            <div class="present__secondBlock-title">
-                                Календарь НАПОМИНАНИЙ
-                            </div>
-                            <div class="present__secondBlock-text">
-                                <p>
-                                    Используйте <br>
-                                    календарь напоминаний.
-                                </p>
-                                <p>
-                                    ВВЕДИТЕ и ОТПРАВЬТЕ <br>
-                                    любые ДАТЫ будущих событий.
-                                </p>
-                                <p>
-                                    Мы НАПОМНИМ о себе <br>
-                                    перед вашим праздником. <br>
-                                    Ваш ПОДАРОК будет самым <br>
-                                    НЕЗАБЫВАЕМЫМ!
-                                </p>
-                                <p class="secondBlock-text-filling">
-                                    <span>*</span> Поля обязательные к заполнению!
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="present__secondBlock">
-                        <form method="POST" action="/" class="present__secondBlock-form">
-                            <div class="present__secondBlock-formFirstBlock">
-                                <input type="text" name="name" placeholder="ИМЯ *">
-                                <input type="email" name="email" placeholder="E-mail *">
-                                <input type="tel" name="phone" placeholder="Телефон">
-                            </div>
-                            <div class="present__secondBlock-formSecondBlock">
-                                <div class="form__date-wrap">
-                                    <div class="form__date-title">
-                                        Дата <span>*</span>
-                                    </div>
-                                    <div class="calendar-wrap">
-                                        <div class="calendar__selected-hover">
-                                            <p>Дата 1</p>
-                                            <p class="calendar__selected-date">00.00.0000</p>
-                                            <div class="calendar__image-wrap">
-                                                <img src="{% static 'img/icons/calendarIcon.svg' %}" alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form__who-wrap">
-                                    <div class="form__who-title">
-                                        Кому
-                                    </div>
-                                    <div class="form__who-select-hover">
-                                        <div class="who__selected-hover">
-                                            Себе
-                                        </div>
-                                        <ul class="who__selected-choice">
-                                            <li class="selected__choice-item">
-                                                Себе
-                                            </li>
-                                            <li class="selected__choice-item">
-                                                Другу
-                                            </li>
-                                            <li class="selected__choice-item">
-                                                Брату
-                                            </li>
-                                            <li class="selected__choice-item">
-                                                Маме
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="form__occasion-wrap">
-                                    <div class="occasion__title">
-                                        Повод
-                                    </div>
-                                    <div class="form__occasion-select-hover">
-                                        <div class="occasion__selected-hover">
-                                            День рождения
-                                        </div>
-                                        <ul class="occasion__selected-choice">
-                                            <li class="selected__choice-item">
-                                                День рождения
-                                            </li>
-                                            <li class="selected__choice-item">
-                                                Юбилей
-                                            </li>
-                                            <li class="selected__choice-item">
-                                                Годовщина
-                                            </li>
-                                            <li class="selected__choice-item">
-                                                Свадьба
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="form__order-wrap">
-                                    <div class="form__order-title">
-                                        Что хотите заказать
-                                    </div>
-                                    <div class="form__order-select-hover">
-                                        <div class="order__selected-hover">
-                                            Видеофильм
-                                        </div>
-                                        <ul class="order__selected-choice">
-                                            <li class="selected__choice-item">
-                                                Видеофильм
-                                            </li>
-                                            <li class="selected__choice-item">
-                                                Музыкальный клип
-                                            </li>
-                                            <li class="selected__choice-item">
-                                                Организация мероприятия
-                                            </li>
-                                            <li class="selected__choice-item">
-                                                Что-то еще
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="form__about">
-                                    <div class="form__about-title">
-                                        <span>*</span> Срок изготовления 3-30 дней
-                                    </div>
-                                    <p class="form__about-text">
-                                        <span>*</span> Не забудьте учесть время на доставку подарка в ваш город
-                                    </p>
-                                </div>
-                                <div class="form__remind-wrap">
-                                    <span>*</span> <p>Напомнить за</p>
-                                    <div class="form__remind-select-hover">
-                                        <div class="remind__selected-hover">
-                                            30
-                                        </div>
-                                        <ul class="remind__selected-choice">
-                                            <li class="selected__choice-item">
-                                                30
-                                            </li>
-                                            <li class="selected__choice-item">
-                                                60
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <p>дней</p>
-                                </div>
-                                <div class="form__remind-everyYears">
-                                    <input type="checkbox" name="remindEveryYears">
-                                    <label for="#remindEverYears">Напоминать ежегодно</label>
-                                </div>
-                                <button type="submit" class="present__form-btn">
-                                    ОТПРАВИТЬ
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="present__close">
-                        <img src="{% static 'img/icons/closeIcon.svg' %}" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="btn__drop-down-menu-hover">
-                <div class="drop-down-menu-wrapper">
-                    <div class="close__modal">
-                        <img src="{% static 'img/icons/closeIcon.svg' %}" alt="">
-                    </div>
-                    <div class="drop__down-menu-firstBlock">
-                        <div class="firstBlock__title">
-                            <p>ДАРИМ 300 РУБЛЕЙ</p> <span>за пост в соцсети!</span>
-                        </div>
-                        <div class="firstBlock__image">
-                            <img src="{% static 'img/modalSaleImage.png' %}" alt="">
-                        </div>
-                        <div class="firstBlock__nav">
-                            <div class="secondBlock__title">
-                                <p>
-                                    ВЫБЕРИ соцсеть
-                                </p>
-                                <span>
-                                        Срок поста - 30 дней
-                                    </span>
-                            </div>
-                            <nav class="secondBlock__nav">
-                                <ul class="secondBlock__nav-list">
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                    <div class="drop__down-menu-secondBlock">
-                        <div class="secondBlock__instruction">
-                            <div class="instruction__title">
-                                СЛЕДУЙ ИНСТРУКЦИИ
-                            </div>
-                            <ul class="instruction__list">
-                                <li class="instruction__list-item">
-                                    1. Размести ссылку <br>
-                                    <a href="#">https://АНДРЕЙЛЕБЕДЬ.рф</a> в соцсети!
-                                </li>
-                                <li class="instruction__list-item">
-                                    2. Порекомендуй нас друзьям!
-                                </li>
-                                <li class="instruction__list-item">
-                                    3. Скидка твоему другу - <span>5%</span>
-                                </li>
-                                <li class="instruction__list-item">
-                                    4. Скидка тебе за друга - <span>10%</span>
-                                </li>
-                                <li class="instruction__list-item">
-                                    5. Куда нам отправить промокод?
-                                </li>
-                                <li class="instruction__list-item">
-                                    6. Заполни поля формы!
-                                </li>
-                            </ul>
-                        </div>
-                        <form method="POST" action="/" class="secondBock__form-wrapper">
-                            <div class="secondBlock__first-form">
-                                <div class="form-title">
-                                    Данные ТВОИ
-                                </div>
-                                <div class="form-input-wrapper">
-                                    <input type="text" name="name" placeholder="Имя *">
-                                    <input type="tel" name="phone" placeholder="Телефон *">
-                                    <input type="email" name="email" placeholder="E-mail *">
-                                </div>
-                            </div>
-                            <div class="secondBlock__second-form">
-                                <div class="form-title">
-                                    Данные ДРУГА
-                                </div>
-                                <div class="form-input-wrapper">
-                                    <input type="text" name="name" placeholder="Имя друга *">
-                                    <input type="tel" name="phone" placeholder="Телефон друга *">
-                                    <input type="email" name="email" placeholder="E-mail друга *">
-                                </div>
-                            </div>
-                            <div class="form__subTitle">
-                                                    <span>
-                                                    Все поля обязательны для заполнения!
-                                                    </span>
-                                <span>
-                                                    Скидка 300 рублей за заказ от 3 000 рублей
-                                                    </span>
-                            </div>
-                            <button type="submit" class="secondBlock__form-btn">
-                                ОТПРАВИТЬ
-                            </button>
-                        </form>
-                    </div>
+                        <button type="submit" class="secondBlock__form-btn">
+                            ОТПРАВИТЬ
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
-        <header>
-            <div class="container__header">
-                <div class="header__wrapper">
-                    <div class="header__about-wrapper">
+        <div class="btn__drop-down-present">
+            <div class="drop__down-present-wrapper">
+                <div class="drop__down-present-firstBlock">
+                    <div class="present__firstBlock-image">
+                        <img src="{% static 'img/dropDownImage.png' %}" alt="">
+                    </div>
+                    <div class="present__secondBlock-text-wrapper">
+                        <div class="present__secondBlock-title">
+                            Календарь НАПОМИНАНИЙ
+                        </div>
+                        <div class="present__secondBlock-text">
+                            <p>
+                                Используйте <br>
+                                календарь напоминаний!
+                            </p>
+                            <p>
+                                ВВЕДИТЕ и ОТПРАВЬТЕ <br>
+                                любые ДАТЫ будущих событий.
+                            </p>
+                            <p>
+                                Мы НАПОМНИМ о себе <br>
+                                перед вашим праздником. <br>
+                                Ваш ПОДАРОК будет <br>
+                                самым НЕЗАБЫВАЕМЫМ!
+                            </p>
+                            <p class="secondBlock-text-filling">
+                                <span>*</span> Поля обязательные к заполнению!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="present__secondBlock">
+                    <form method="POST" action="/" class="present__secondBlock-form">
+                        <div class="present__secondBlock-formFirstBlock">
+                            <input type="text" name="name" id="#presentFormName" placeholder="ИМЯ *">
+                            <input type="email" name="email" id="#presentFormEmail" placeholder="E-mail *">
+                            <input type="tel" name="phone" id="#presentFormPhone" placeholder="Телефон">
+                        </div>
+                        <div class="present__secondBlock-formSecondBlock">
+                            <div class="form__date-wrap">
+                                <div class="form__date-title">
+                                    Дата <span>*</span>
+                                </div>
+                                <div class="calendar__wrap">
+                                    <div class="calendar__item">
+                                        <div class="calendar__selected">
+                                            <p>Дата 1</p>
+                                            <p class="calendar__selected-date">00.00.0000</p>
+                                            <div class="calendar__image-wrap">
+                                                <img src="{% static 'img/icons/calendarIcon.svg' %}" alt="calendarIcon"
+                                                     id="#calendarIcon">
+                                            </div>
+                                        </div>
+                                        <div class="calendar">
+                                            <div class="calendar__month-wrap">
+                                                <div class="month__prev">
+                                                    <img src="{% static 'img/icons/miniSliderPrevArrow.svg' %}" alt="">
+                                                </div>
+                                                <div class="current__date">
+                                                </div>
+                                                <div class="month__next">
+                                                    <img src="{% static 'img/icons/miniSliderNextArrow.svg' %}" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="calendar__days-name">
+                                                <p>Пн</p>
+                                                <p>Вт</p>
+                                                <p>Ср</p>
+                                                <p>Чт</p>
+                                                <p>Пт</p>
+                                                <p>Сб</p>
+                                                <p>Вс</p>
+                                            </div>
+                                            <ul class="calendar__days-wrap">
+                                            </ul>
+                                            <div class="calendar__date-now">
+                                                <div class="calendar__date-now-btnWrapper">
+                                                    <div class="date__now-btn-now">
+                                                        Сегодня
+                                                    </div>
+                                                    <span>|</span>
+                                                    <div class="date__clear-btn">
+                                                        Очистить
+                                                    </div>
+                                                </div>
+                                                <div class="date__now">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="calendar__drop-down-wrap">
+                                        <div class="calendar__item">
+                                            <div class="calendar__selected">
+                                                <p>Дата 2</p>
+                                                <p class="calendar__selected-date">00.00.0000</p>
+                                                <div class="calendar__image-wrap">
+                                                    <img src="{% static 'img/icons/calendarIcon.svg' %}" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="calendar__item">
+                                            <div class="calendar__selected">
+                                                <p>Дата 3</p>
+                                                <p class="calendar__selected-date">00.00.0000</p>
+                                                <div class="calendar__image-wrap">
+                                                    <img src="{% static 'img/icons/calendarIcon.svg' %}" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="calendar__item">
+                                            <div class="calendar__selected">
+                                                <p>Дата 4</p>
+                                                <p class="calendar__selected-date">00.00.0000</p>
+                                                <div class="calendar__image-wrap">
+                                                    <img src="{% static 'img/icons/calendarIcon.svg' %}" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="calendar__item">
+                                            <div class="calendar__selected">
+                                                <p>Дата 5</p>
+                                                <p class="calendar__selected-date">00.00.0000</p>
+                                                <div class="calendar__image-wrap">
+                                                    <img src="{% static 'img/icons/calendarIcon.svg' %}" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="calendar__item">
+                                            <div class="calendar__selected">
+                                                <p>Дата 6</p>
+                                                <p class="calendar__selected-date">00.00.0000</p>
+                                                <div class="calendar__image-wrap">
+                                                    <img src="{% static 'img/icons/calendarIcon.svg' %}" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="calendar__item">
+                                            <div class="calendar__selected">
+                                                <p>Дата 7</p>
+                                                <p class="calendar__selected-date">00.00.0000</p>
+                                                <div class="calendar__image-wrap">
+                                                    <img src="{% static 'img/icons/calendarIcon.svg' %}" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="calendar__item">
+                                            <div class="calendar__selected">
+                                                <p>Дата 8</p>
+                                                <p class="calendar__selected-date">00.00.0000</p>
+                                                <div class="calendar__image-wrap">
+                                                    <img src="{% static 'img/icons/calendarIcon.svg' %}" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="calendar__item">
+                                            <div class="calendar__selected">
+                                                <p>Дата 9</p>
+                                                <p class="calendar__selected-date">00.00.0000</p>
+                                                <div class="calendar__image-wrap">
+                                                    <img src="{% static 'img/icons/calendarIcon.svg' %}" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form__who-wrap">
+                                <div class="form__who-title">
+                                    Кому
+                                </div>
+                                <div class="form__who-select">
+                                    <div class="who__selected">
+                                        Себе
+                                    </div>
+                                    <ul class="who__selected-choice">
+                                        <li class="selected__choice-item">
+                                            Себе
+                                        </li>
+                                        <li class="selected__choice-item">
+                                            Другу
+                                        </li>
+                                        <li class="selected__choice-item">
+                                            Брату
+                                        </li>
+                                        <li class="selected__choice-item">
+                                            Маме
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="form__occasion-wrap">
+                                <div class="occasion__title">
+                                    Повод
+                                </div>
+                                <div class="form__occasion-select">
+                                    <div class="occasion__selected">
+                                        День рождения
+                                    </div>
+                                    <ul class="occasion__selected-choice">
+                                        <li class="selected__choice-item">
+                                            День рождения
+                                        </li>
+                                        <li class="selected__choice-item">
+                                            Юбилей
+                                        </li>
+                                        <li class="selected__choice-item">
+                                            Годовщина
+                                        </li>
+                                        <li class="selected__choice-item">
+                                            Свадьба
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="form__order-wrap">
+                                <div class="form__order-title">
+                                    Что хотите заказать
+                                </div>
+                                <div class="form__order-select">
+                                    <div class="order__selected">
+                                        Видеофильм
+                                    </div>
+                                    <ul class="order__selected-choice">
+                                        <li class="selected__choice-item">
+                                            Видеофильм
+                                        </li>
+                                        <li class="selected__choice-item">
+                                            Музыкальный клип
+                                        </li>
+                                        <li class="selected__choice-item">
+                                            Организация мероприятия
+                                        </li>
+                                        <li class="selected__choice-item">
+                                            Что-то еще
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="form__about">
+                                <div class="form__about-title">
+                                    <span>*</span> Срок изготовления 3-30 дней
+                                </div>
+                                <p class="form__about-text">
+                                    <span>*</span> Не забудьте учесть время на доставку подарка в ваш город
+                                </p>
+                            </div>
+                            <div class="form__remind-wrap">
+                                <span>*</span>
+                                <p>Напомнить за</p>
+                                <div class="form__remind-select">
+                                    <div class="remind__selected">
+                                        30
+                                    </div>
+                                    <ul class="remind__selected-choice">
+                                        <li class="selected__choice-item">
+                                            30
+                                        </li>
+                                        <li class="selected__choice-item">
+                                            60
+                                        </li>
+                                    </ul>
+                                </div>
+                                <p>дней</p>
+                            </div>
+                            <div class="form__remind-everyYears">
+                                <input type="checkbox" name="remindEveryYears" id="#remindEverYears">
+                                <label for="#remindEverYears">Напоминать ежегодно</label>
+                            </div>
+                            <button type="submit" class="present__form-btn">
+                                ОТПРАВИТЬ
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="present__close">
+                    <img src="{% static 'img/icons/closeIcon.svg' %}" alt="closeIcon">
+                </div>
+            </div>
+        </div>
+        <div class="btn__drop-down-present-hover">
+            <div class="drop__down-present-wrapper">
+                <div class="drop__down-present-firstBlock">
+                    <div class="present__firstBlock-image">
+                        <img src="{% static 'img/dropDownImage.png' %}" alt="">
+                    </div>
+                    <div class="present__secondBlock-text-wrapper">
+                        <div class="present__secondBlock-title">
+                            Календарь НАПОМИНАНИЙ
+                        </div>
+                        <div class="present__secondBlock-text">
+                            <p>
+                                Используйте <br>
+                                календарь напоминаний!
+                            </p>
+                            <p>
+                                ВВЕДИТЕ и ОТПРАВЬТЕ <br>
+                                любые ДАТЫ будущих событий.
+                            </p>
+                            <p>
+                                Мы НАПОМНИМ о себе <br>
+                                перед вашим праздником. <br>
+                                Ваш ПОДАРОК будет самым <br>
+                                НЕЗАБЫВАЕМЫМ!
+                            </p>
+                            <p class="secondBlock-text-filling">
+                                <span>*</span> Поля обязательные к заполнению!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="present__secondBlock">
+                    <form method="POST" action="/" class="present__secondBlock-form">
+                        <div class="present__secondBlock-formFirstBlock">
+                            <input type="text" name="name" placeholder="ИМЯ *">
+                            <input type="email" name="email" placeholder="E-mail *">
+                            <input type="tel" name="phone" placeholder="Телефон">
+                        </div>
+                        <div class="present__secondBlock-formSecondBlock">
+                            <div class="form__date-wrap">
+                                <div class="form__date-title">
+                                    Дата <span>*</span>
+                                </div>
+                                <div class="calendar-wrap">
+                                    <div class="calendar__selected-hover">
+                                        <p>Дата 1</p>
+                                        <p class="calendar__selected-date">00.00.0000</p>
+                                        <div class="calendar__image-wrap">
+                                            <img src="{% static 'img/icons/calendarIcon.svg' %}" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form__who-wrap">
+                                <div class="form__who-title">
+                                    Кому
+                                </div>
+                                <div class="form__who-select-hover">
+                                    <div class="who__selected-hover">
+                                        Себе
+                                    </div>
+                                    <ul class="who__selected-choice">
+                                        <li class="selected__choice-item">
+                                            Себе
+                                        </li>
+                                        <li class="selected__choice-item">
+                                            Другу
+                                        </li>
+                                        <li class="selected__choice-item">
+                                            Брату
+                                        </li>
+                                        <li class="selected__choice-item">
+                                            Маме
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="form__occasion-wrap">
+                                <div class="occasion__title">
+                                    Повод
+                                </div>
+                                <div class="form__occasion-select-hover">
+                                    <div class="occasion__selected-hover">
+                                        День рождения
+                                    </div>
+                                    <ul class="occasion__selected-choice">
+                                        <li class="selected__choice-item">
+                                            День рождения
+                                        </li>
+                                        <li class="selected__choice-item">
+                                            Юбилей
+                                        </li>
+                                        <li class="selected__choice-item">
+                                            Годовщина
+                                        </li>
+                                        <li class="selected__choice-item">
+                                            Свадьба
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="form__order-wrap">
+                                <div class="form__order-title">
+                                    Что хотите заказать
+                                </div>
+                                <div class="form__order-select-hover">
+                                    <div class="order__selected-hover">
+                                        Видеофильм
+                                    </div>
+                                    <ul class="order__selected-choice">
+                                        <li class="selected__choice-item">
+                                            Видеофильм
+                                        </li>
+                                        <li class="selected__choice-item">
+                                            Музыкальный клип
+                                        </li>
+                                        <li class="selected__choice-item">
+                                            Организация мероприятия
+                                        </li>
+                                        <li class="selected__choice-item">
+                                            Что-то еще
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="form__about">
+                                <div class="form__about-title">
+                                    <span>*</span> Срок изготовления 3-30 дней
+                                </div>
+                                <p class="form__about-text">
+                                    <span>*</span> Не забудьте учесть время на доставку подарка в ваш город
+                                </p>
+                            </div>
+                            <div class="form__remind-wrap">
+                                <span>*</span>
+                                <p>Напомнить за</p>
+                                <div class="form__remind-select-hover">
+                                    <div class="remind__selected-hover">
+                                        30
+                                    </div>
+                                    <ul class="remind__selected-choice">
+                                        <li class="selected__choice-item">
+                                            30
+                                        </li>
+                                        <li class="selected__choice-item">
+                                            60
+                                        </li>
+                                    </ul>
+                                </div>
+                                <p>дней</p>
+                            </div>
+                            <div class="form__remind-everyYears">
+                                <input type="checkbox" name="remindEveryYears">
+                                <label for="#remindEverYears">Напоминать ежегодно</label>
+                            </div>
+                            <button type="submit" class="present__form-btn">
+                                ОТПРАВИТЬ
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="present__close">
+                    <img src="{% static 'img/icons/closeIcon.svg' %}" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="btn__drop-down-menu-hover">
+            <div class="drop-down-menu-wrapper">
+                <div class="close__modal">
+                    <img src="{% static 'img/icons/closeIcon.svg' %}" alt="">
+                </div>
+                <div class="drop__down-menu-firstBlock">
+                    <div class="firstBlock__title-Wrapper">
+                        <div class="firstBlock__title">
+                            <p>ДАРИМ 300 РУБЛЕЙ</p> <span>за пост в соцсети!</span>
+                        </div>
+                        <div class="firstBlock__image">
+                            <img src="{% static 'img/modalSaleImage.png' %}" alt="">
+                        </div>
+                    </div>
+                    <div class="firstBlock__nav">
+                        <div class="secondBlock__title">
+                            <p>
+                                ВЫБЕРИ соцсеть
+                            </p>
+                            <span>
+                                        Срок поста - 30 дней
+                                    </span>
+                        </div>
+                        <nav class="secondBlock__nav">
+                            <ul class="secondBlock__nav-list">
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="drop__down-menu-secondBlock">
+                    <div class="secondBlock__instruction">
+                        <div class="instruction__title">
+                            СЛЕДУЙ ИНСТРУКЦИИ
+                        </div>
+                        <ul class="instruction__list">
+                            <li class="instruction__list-item">
+                                1. Размести ссылку <br>
+                                <a href="#">https://АНДРЕЙЛЕБЕДЬ.рф</a> в соцсети!
+                            </li>
+                            <li class="instruction__list-item">
+                                2. Порекомендуй нас друзьям!
+                            </li>
+                            <li class="instruction__list-item">
+                                3. Скидка твоему другу - <span>5%</span>
+                            </li>
+                            <li class="instruction__list-item">
+                                4. Скидка тебе за друга - <span>10%</span>
+                            </li>
+                            <li class="instruction__list-item">
+                                5. Куда нам отправить промокод?
+                            </li>
+                            <li class="instruction__list-item">
+                                6. Заполни поля формы!
+                            </li>
+                        </ul>
+                    </div>
+                    <form method="POST" action="/" class="secondBock__form-wrapper">
+                        <div class="secondBlock__first-form">
+                            <div class="form-title">
+                                Данные ТВОИ
+                            </div>
+                            <div class="form-input-wrapper">
+                                <input type="text" name="name" placeholder="Имя *">
+                                <input type="tel" name="phone" placeholder="Телефон *">
+                                <input type="email" name="email" placeholder="E-mail *">
+                            </div>
+                        </div>
+                        <div class="secondBlock__second-form">
+                            <div class="form-title">
+                                Данные ДРУГА
+                            </div>
+                            <div class="form-input-wrapper">
+                                <input type="text" name="name" placeholder="Имя друга *">
+                                <input type="tel" name="phone" placeholder="Телефон друга *">
+                                <input type="email" name="email" placeholder="E-mail друга *">
+                            </div>
+                        </div>
+                        <div class="form__subTitle">
+                                                    <span>
+                                                    Все поля обязательны для заполнения!
+                                                    </span>
+                            <span>
+                                                    Скидка 300 рублей за заказ от 3 000 рублей
+                                                    </span>
+                        </div>
+                        <button type="submit" class="secondBlock__form-btn">
+                            ОТПРАВИТЬ
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <header>
+        <div class="container__header">
+            <div class="header__wrapper">
+                <div class="header__about-wrapper">
+                    <div class="header__logo">
+                        <img src="{% static 'img/logoSVG.svg' %}" alt="">
+                    </div>
+                    <div class="header__about-works-wrapper">
                         <div class="header__logo">
                             <img src="{% static 'img/logoSVG.svg' %}" alt="">
                         </div>
-                        <div class="header__about-works-wrapper">
-                            <div class="header__logo">
-                                <img src="{% static 'img/logoSVG.svg' %}" alt="">
+                        <div class="header__about-work">
+                            <div class="header__about-item">
+                                ОБРАБОТКА ФОТО <span>|</span> УСЛУГИ ФОТОШОПА <span>|</span> ФОТОМОНТАЖ <span>|</span>
                             </div>
-                            <div class="header__about-work">
-                                <div class="header__about-item">
-                                    ОБРАБОТКА ФОТО <span>|</span> УСЛУГИ ФОТОШОПА <span>|</span> ФОТОМОНТАЖ <span>|</span>
-                                </div>
-                                <div class="header__about-item">
-                                    СЛАЙД-ШОУ <span>|</span> ВИДЕОРОЛИК <span>|</span> ФОТОКНИГА <span>|</span> ДИЗАЙН
-                                </div>
+                            <div class="header__about-item">
+                                СЛАЙД-ШОУ <span>|</span> ВИДЕОРОЛИК <span>|</span> ФОТОКНИГА <span>|</span> ДИЗАЙН
                             </div>
-                            <div class="header__phone">
+                        </div>
+                        <div class="header__phone">
+                        </div>
+                        <div class="header__btn-wrapper">
+                            <div class="header__remind-present-button">
+                                НАПОМНИТЬ о ПОДАРКЕ
                             </div>
-                            <div class="header__btn-wrapper">
-                                <div class="header__remind-present-button">
-                                    НАПОМНИТЬ о ПОДАРКЕ
-                                </div>
-                                <div class="drop__down-present-wrapper" id="#presentBtn">
-                                    <div class="drop__down-present-firstBlock">
-                                        <div class="present__firstBlock-image">
-                                            <img src="{% static 'img/dropDownImage.png' %}" alt="">
+                            <div class="drop__down-present-wrapper" id="#presentBtn">
+                                <div class="drop__down-present-firstBlock">
+                                    <div class="present__firstBlock-image">
+                                        <img src="{% static 'img/dropDownImage.png' %}" alt="">
+                                    </div>
+                                    <div class="present__secondBlock-text-wrapper">
+                                        <div class="present__secondBlock-title">
+                                            Календарь НАПОМИНАНИЙ
                                         </div>
-                                        <div class="present__secondBlock-text-wrapper">
-                                            <div class="present__secondBlock-title">
-                                                Календарь НАПОМИНАНИЙ
-                                            </div>
-                                            <div class="present__secondBlock-text">
-                                                <p>
-                                                    Используйте <br>
-                                                    календарь напоминаний.
-                                                </p>
-                                                <p>
-                                                    ВВЕДИТЕ и ОТПРАВЬТЕ <br>
-                                                    любые ДАТЫ будущих событий.
-                                                </p>
-                                                <p>
-                                                    Мы НАПОМНИМ о себе <br>
-                                                    перед вашим праздником. <br>
-                                                    Ваш ПОДАРОК будет<br>
-                                                    самым НЕЗАБЫВАЕМЫМ!
-                                                </p>
-                                            </div>
+                                        <div class="present__secondBlock-text">
+                                            <p>
+                                                Используйте <br>
+                                                календарь напоминаний.
+                                            </p>
+                                            <p>
+                                                ВВЕДИТЕ и ОТПРАВЬТЕ <br>
+                                                любые ДАТЫ будущих событий.
+                                            </p>
+                                            <p>
+                                                Мы НАПОМНИМ о себе <br>
+                                                перед вашим праздником. <br>
+                                                Ваш ПОДАРОК будет<br>
+                                                самым НЕЗАБЫВАЕМЫМ!
+                                            </p>
                                         </div>
                                     </div>
-                                    <div class="present__secondBlock">
-                                        <form method="POST" action="/" class="present__secondBlock-form">
-                                            <div class="present__secondBlock-formFirstBlock">
-                                                <input type="text" name="name" id="#presentFormNameMobile" placeholder="ИМЯ *">
-                                                <input type="email" name="email" id="#presentFormEmailMobile" placeholder="E-mail *">
-                                                <input type="tel" name="phone" id="#presentFormPhoneMobile" placeholder="Телефон">
-                                            </div>
-                                            <div class="present__secondBlock-formSecondBlock">
-                                                <div class="form__date-wrap">
-                                                    <div class="form__date-title">
-                                                        Дата <span>*</span>
+                                </div>
+                                <div class="present__secondBlock">
+                                    <form method="POST" action="/" class="present__secondBlock-form">
+                                        <div class="present__secondBlock-formFirstBlock">
+                                            <input type="text" name="name" id="#presentFormNameMobile"
+                                                   placeholder="ИМЯ *">
+                                            <input type="email" name="email" id="#presentFormEmailMobile"
+                                                   placeholder="E-mail *">
+                                            <input type="tel" name="phone" id="#presentFormPhoneMobile"
+                                                   placeholder="Телефон">
+                                        </div>
+                                        <div class="present__secondBlock-formSecondBlock">
+                                            <div class="form__date-wrap">
+                                                <div class="form__date-title">
+                                                    Дата <span>*</span>
+                                                </div>
+                                                <div class="calendar__wrap">
+                                                    <div class="calendar__item">
+                                                        <div class="calendar__selected">
+                                                            <p>Дата 1</p>
+                                                            <p class="calendar__selected-date">00.00.0000</p>
+                                                            <div class="calendar__image-wrap">
+                                                                <img src="{% static 'img/icons/calendarIcon.svg' %}"
+                                                                     alt="calendarIcon" id="#calendarIconMobile">
+                                                            </div>
+                                                        </div>
+                                                        <div class="calendar">
+                                                            <div class="calendar__month-wrap">
+                                                                <div class="month__prev">
+                                                                    <img src="{% static 'img/icons/calendarArrow.svg' %}"
+                                                                         alt="">
+                                                                </div>
+                                                                <div class="current__date">
+                                                                </div>
+                                                                <div class="month__next">
+                                                                    <img src="{% static 'img/icons/calendarArrow.svg' %}"
+                                                                         alt="">
+                                                                </div>
+                                                            </div>
+                                                            <div class="calendar__days-name">
+                                                                <p>Пн</p>
+                                                                <p>Вт</p>
+                                                                <p>Ср</p>
+                                                                <p>Чт</p>
+                                                                <p>Пт</p>
+                                                                <p>Сб</p>
+                                                                <p>Вс</p>
+                                                            </div>
+                                                            <ul class="calendar__days-wrap">
+                                                            </ul>
+                                                            <div class="calendar__date-now">
+                                                                <div class="calendar__date-now-btnWrapper">
+                                                                    <div class="date__now-btn-now">
+                                                                        Сегодня
+                                                                    </div>
+                                                                    <span>|</span>
+                                                                    <div class="date__clear-btn">
+                                                                        Очистить
+                                                                    </div>
+                                                                </div>
+                                                                <div class="date__now">
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <div class="calendar__wrap">
+                                                    <div class="calendar__drop-down-wrap">
                                                         <div class="calendar__item">
                                                             <div class="calendar__selected">
-                                                                <p>Дата 1</p>
+                                                                <p>Дата 2</p>
                                                                 <p class="calendar__selected-date">00.00.0000</p>
                                                                 <div class="calendar__image-wrap">
-                                                                    <img src="{% static 'img/icons/calendarIcon.svg' %}" alt="calendarIcon" id="#calendarIconMobile">
-                                                                </div>
-                                                            </div>
-                                                            <div class="calendar">
-                                                                <div class="calendar__month-wrap">
-                                                                    <div class="month__prev">
-                                                                        <img src="{% static 'img/icons/calendarArrow.svg' %}" alt="">
-                                                                    </div>
-                                                                    <div class="current__date">
-                                                                    </div>
-                                                                    <div class="month__next">
-                                                                        <img src="{% static 'img/icons/calendarArrow.svg' %}" alt="">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="calendar__days-name">
-                                                                    <p>Пн</p>
-                                                                    <p>Вт</p>
-                                                                    <p>Ср</p>
-                                                                    <p>Чт</p>
-                                                                    <p>Пт</p>
-                                                                    <p>Сб</p>
-                                                                    <p>Вс</p>
-                                                                </div>
-                                                                <ul class="calendar__days-wrap">
-                                                                </ul>
-                                                                <div class="calendar__date-now">
-                                                                    <div class="calendar__date-now-btnWrapper">
-                                                                        <div class="date__now-btn-now">
-                                                                            Сегодня
-                                                                        </div>
-                                                                        <span>|</span>
-                                                                        <div class="date__clear-btn">
-                                                                            Очистить
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="date__now">
-
-                                                                    </div>
+                                                                    <img src="{% static 'img/icons/calendarIcon.svg' %}"
+                                                                         alt="">
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="calendar__drop-down-wrap">
-                                                            <div class="calendar__item">
-                                                                <div class="calendar__selected">
-                                                                    <p>Дата 2</p>
-                                                                    <p class="calendar__selected-date">00.00.0000</p>
-                                                                    <div class="calendar__image-wrap">
-                                                                        <img src="{% static 'img/icons/calendarIcon.svg' %}" alt="">
-                                                                    </div>
+                                                        <div class="calendar__item">
+                                                            <div class="calendar__selected">
+                                                                <p>Дата 3</p>
+                                                                <p class="calendar__selected-date">00.00.0000</p>
+                                                                <div class="calendar__image-wrap">
+                                                                    <img src="{% static 'img/icons/calendarIcon.svg' %}"
+                                                                         alt="">
                                                                 </div>
                                                             </div>
-                                                            <div class="calendar__item">
-                                                                <div class="calendar__selected">
-                                                                    <p>Дата 3</p>
-                                                                    <p class="calendar__selected-date">00.00.0000</p>
-                                                                    <div class="calendar__image-wrap">
-                                                                        <img src="{% static 'img/icons/calendarIcon.svg' %}" alt="">
-                                                                    </div>
+                                                        </div>
+                                                        <div class="calendar__item">
+                                                            <div class="calendar__selected">
+                                                                <p>Дата 4</p>
+                                                                <p class="calendar__selected-date">00.00.0000</p>
+                                                                <div class="calendar__image-wrap">
+                                                                    <img src="{% static 'img/icons/calendarIcon.svg' %}"
+                                                                         alt="">
                                                                 </div>
                                                             </div>
-                                                            <div class="calendar__item">
-                                                                <div class="calendar__selected">
-                                                                    <p>Дата 4</p>
-                                                                    <p class="calendar__selected-date">00.00.0000</p>
-                                                                    <div class="calendar__image-wrap">
-                                                                        <img src="{% static 'img/icons/calendarIcon.svg' %}" alt="">
-                                                                    </div>
+                                                        </div>
+                                                        <div class="calendar__item">
+                                                            <div class="calendar__selected">
+                                                                <p>Дата 5</p>
+                                                                <p class="calendar__selected-date">00.00.0000</p>
+                                                                <div class="calendar__image-wrap">
+                                                                    <img src="{% static 'img/icons/calendarIcon.svg' %}"
+                                                                         alt="">
                                                                 </div>
                                                             </div>
-                                                            <div class="calendar__item">
-                                                                <div class="calendar__selected">
-                                                                    <p>Дата 5</p>
-                                                                    <p class="calendar__selected-date">00.00.0000</p>
-                                                                    <div class="calendar__image-wrap">
-                                                                        <img src="{% static 'img/icons/calendarIcon.svg' %}" alt="">
-                                                                    </div>
+                                                        </div>
+                                                        <div class="calendar__item">
+                                                            <div class="calendar__selected">
+                                                                <p>Дата 6</p>
+                                                                <p class="calendar__selected-date">00.00.0000</p>
+                                                                <div class="calendar__image-wrap">
+                                                                    <img src="{% static 'img/icons/calendarIcon.svg' %}"
+                                                                         alt="">
                                                                 </div>
                                                             </div>
-                                                            <div class="calendar__item">
-                                                                <div class="calendar__selected">
-                                                                    <p>Дата 6</p>
-                                                                    <p class="calendar__selected-date">00.00.0000</p>
-                                                                    <div class="calendar__image-wrap">
-                                                                        <img src="{% static 'img/icons/calendarIcon.svg' %}" alt="">
-                                                                    </div>
+                                                        </div>
+                                                        <div class="calendar__item">
+                                                            <div class="calendar__selected">
+                                                                <p>Дата 7</p>
+                                                                <p class="calendar__selected-date">00.00.0000</p>
+                                                                <div class="calendar__image-wrap">
+                                                                    <img src="{% static 'img/icons/calendarIcon.svg' %}"
+                                                                         alt="">
                                                                 </div>
                                                             </div>
-                                                            <div class="calendar__item">
-                                                                <div class="calendar__selected">
-                                                                    <p>Дата 7</p>
-                                                                    <p class="calendar__selected-date">00.00.0000</p>
-                                                                    <div class="calendar__image-wrap">
-                                                                        <img src="{% static 'img/icons/calendarIcon.svg' %}" alt="">
-                                                                    </div>
+                                                        </div>
+                                                        <div class="calendar__item">
+                                                            <div class="calendar__selected">
+                                                                <p>Дата 8</p>
+                                                                <p class="calendar__selected-date">00.00.0000</p>
+                                                                <div class="calendar__image-wrap">
+                                                                    <img src="{% static 'img/icons/calendarIcon.svg' %}"
+                                                                         alt="">
                                                                 </div>
                                                             </div>
-                                                            <div class="calendar__item">
-                                                                <div class="calendar__selected">
-                                                                    <p>Дата 8</p>
-                                                                    <p class="calendar__selected-date">00.00.0000</p>
-                                                                    <div class="calendar__image-wrap">
-                                                                        <img src="{% static 'img/icons/calendarIcon.svg' %}" alt="">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="calendar__item">
-                                                                <div class="calendar__selected">
-                                                                    <p>Дата 9</p>
-                                                                    <p class="calendar__selected-date">00.00.0000</p>
-                                                                    <div class="calendar__image-wrap">
-                                                                        <img src="{% static 'img/icons/calendarIcon.svg' %}" alt="">
-                                                                    </div>
+                                                        </div>
+                                                        <div class="calendar__item">
+                                                            <div class="calendar__selected">
+                                                                <p>Дата 9</p>
+                                                                <p class="calendar__selected-date">00.00.0000</p>
+                                                                <div class="calendar__image-wrap">
+                                                                    <img src="{% static 'img/icons/calendarIcon.svg' %}"
+                                                                         alt="">
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="form__who-wrap">
-                                                    <div class="form__who-title">
-                                                        Кому
-                                                    </div>
-                                                    <div class="form__who-select">
-                                                        <div class="who__selected">
-                                                            Себе
-                                                        </div>
-                                                        <ul class="who__selected-choice">
-                                                            <li class="selected__choice-item">
-                                                                Себе
-                                                            </li>
-                                                            <li class="selected__choice-item">
-                                                                Другу
-                                                            </li>
-                                                            <li class="selected__choice-item">
-                                                                Брату
-                                                            </li>
-                                                            <li class="selected__choice-item">
-                                                                Маме
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="form__occasion-wrap">
-                                                    <div class="occasion__title">
-                                                        Повод
-                                                    </div>
-                                                    <div class="form__occasion-select">
-                                                        <div class="occasion__selected">
-                                                            День рождения
-                                                        </div>
-                                                        <ul class="occasion__selected-choice">
-                                                            <li class="selected__choice-item">
-                                                                День рождения
-                                                            </li>
-                                                            <li class="selected__choice-item">
-                                                                Юбилей
-                                                            </li>
-                                                            <li class="selected__choice-item">
-                                                                Годовщина
-                                                            </li>
-                                                            <li class="selected__choice-item">
-                                                                Свадьба
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="form__order-wrap">
-                                                    <div class="form__order-title">
-                                                        Что хотите заказать
-                                                    </div>
-                                                    <div class="form__order-select">
-                                                        <div class="order__selected">
-                                                            Видеофильм
-                                                        </div>
-                                                        <ul class="order__selected-choice">
-                                                            <li class="selected__choice-item">
-                                                                Видеофильм
-                                                            </li>
-                                                            <li class="selected__choice-item">
-                                                                Музыкальный клип
-                                                            </li>
-                                                            <li class="selected__choice-item">
-                                                                Организация мероприятия
-                                                            </li>
-                                                            <li class="selected__choice-item">
-                                                                Что-то еще
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="form__about">
-                                                    <div class="form__about-title">
-                                                        <span>*</span> Срок изготовления 3-30 дней
-                                                    </div>
-                                                    <p class="form__about-text">
-                                                        <span>*</span> Не забудьте учесть время на доставку подарка в ваш город
-                                                    </p>
-                                                </div>
-                                                <div class="form__remind-wrap">
-                                                    <span>*</span> <p>Напомнить за</p>
-                                                    <div class="form__remind-select">
-                                                        <div class="remind__selected">
-                                                            30
-                                                        </div>
-                                                        <ul class="remind__selected-choice">
-                                                            <li class="selected__choice-item">
-                                                                30
-                                                            </li>
-                                                            <li class="selected__choice-item">
-                                                                60
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                    <p>дней</p>
-                                                </div>
-                                                <div class="form__remind-everyYears">
-                                                    <input type="checkbox" name="remindEveryYears" id="#remindEverYearsMobile">
-                                                    <label for="#remindEverYears">Напоминать ежегодно</label>
-                                                </div>
-                                                <button type="submit" class="present__form-btn">
-                                                    ОТПРАВИТЬ
-                                                </button>
                                             </div>
-                                        </form>
-                                    </div>
-                                    <div class="present__close">
-                                        <img src="{% static 'img/icons/closeIcon.svg' %}" alt="">
-                                    </div>
+                                            <div class="form__who-wrap">
+                                                <div class="form__who-title">
+                                                    Кому
+                                                </div>
+                                                <div class="form__who-select">
+                                                    <div class="who__selected">
+                                                        Себе
+                                                    </div>
+                                                    <ul class="who__selected-choice">
+                                                        <li class="selected__choice-item">
+                                                            Себе
+                                                        </li>
+                                                        <li class="selected__choice-item">
+                                                            Другу
+                                                        </li>
+                                                        <li class="selected__choice-item">
+                                                            Брату
+                                                        </li>
+                                                        <li class="selected__choice-item">
+                                                            Маме
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="form__occasion-wrap">
+                                                <div class="occasion__title">
+                                                    Повод
+                                                </div>
+                                                <div class="form__occasion-select">
+                                                    <div class="occasion__selected">
+                                                        День рождения
+                                                    </div>
+                                                    <ul class="occasion__selected-choice">
+                                                        <li class="selected__choice-item">
+                                                            День рождения
+                                                        </li>
+                                                        <li class="selected__choice-item">
+                                                            Юбилей
+                                                        </li>
+                                                        <li class="selected__choice-item">
+                                                            Годовщина
+                                                        </li>
+                                                        <li class="selected__choice-item">
+                                                            Свадьба
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="form__order-wrap">
+                                                <div class="form__order-title">
+                                                    Что хотите заказать
+                                                </div>
+                                                <div class="form__order-select">
+                                                    <div class="order__selected">
+                                                        Видеофильм
+                                                    </div>
+                                                    <ul class="order__selected-choice">
+                                                        <li class="selected__choice-item">
+                                                            Видеофильм
+                                                        </li>
+                                                        <li class="selected__choice-item">
+                                                            Музыкальный клип
+                                                        </li>
+                                                        <li class="selected__choice-item">
+                                                            Организация мероприятия
+                                                        </li>
+                                                        <li class="selected__choice-item">
+                                                            Что-то еще
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="form__about">
+                                                <div class="form__about-title">
+                                                    <span>*</span> Срок изготовления 3-30 дней
+                                                </div>
+                                                <p class="form__about-text">
+                                                    <span>*</span> Не забудьте учесть время на доставку подарка в ваш
+                                                    город
+                                                </p>
+                                            </div>
+                                            <div class="form__remind-wrap">
+                                                <span>*</span>
+                                                <p>Напомнить за</p>
+                                                <div class="form__remind-select">
+                                                    <div class="remind__selected">
+                                                        30
+                                                    </div>
+                                                    <ul class="remind__selected-choice">
+                                                        <li class="selected__choice-item">
+                                                            30
+                                                        </li>
+                                                        <li class="selected__choice-item">
+                                                            60
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <p>дней</p>
+                                            </div>
+                                            <div class="form__remind-everyYears">
+                                                <input type="checkbox" name="remindEveryYears"
+                                                       id="#remindEverYearsMobile">
+                                                <label for="#remindEverYears">Напоминать ежегодно</label>
+                                            </div>
+                                            <button type="submit" class="present__form-btn">
+                                                ОТПРАВИТЬ
+                                            </button>
+                                        </div>
+                                    </form>
                                 </div>
-                                <div class="header__discounts-button">
-                                    СКИДКИ 2+
+                                <div class="present__close">
+                                    <img src="{% static 'img/icons/closeIcon.svg' %}" alt="">
                                 </div>
-                                <div class="drop-down-menu-wrapper" id="#salesBtn">
-                                    <div class="close__modal">
-                                        <img src="{% static 'img/icons/closeIcon.svg' %}" alt="">
-                                    </div>
-                                    <div class="drop__down-menu-firstBlock">
+                            </div>
+                            <div class="header__discounts-button">
+                                СКИДКИ 2+
+                            </div>
+                            <div class="drop-down-menu-wrapper" id="#salesBtn">
+                                <div class="close__modal">
+                                    <img src="{% static 'img/icons/closeIcon.svg' %}" alt="">
+                                </div>
+                                <div class="drop__down-menu-firstBlock">
+                                    <div class="firstBlock__title-Wrapper">
                                         <div class="firstBlock__title">
                                             <p>ДАРИМ 300 РУБЛЕЙ</p> <span>за пост в соцсети!</span>
                                         </div>
                                         <div class="firstBlock__image">
                                             <img src="{% static 'img/modalSaleImage.png' %}" alt="">
                                         </div>
-                                        <div class="firstBlock__nav">
-                                            <div class="secondBlock__title">
-                                                <p>
-                                                    ВЫБЕРИ соцсеть
-                                                </p>
-                                                <span>
-                                        Срок поста - 30 дней
-                                    </span>
-                                            </div>
-                                            <nav class="secondBlock__nav">
-                                                <ul class="secondBlock__nav-list">
-                                                </ul>
-                                            </nav>
-                                        </div>
                                     </div>
-                                    <div class="drop__down-menu-secondBlock">
-                                        <div class="secondBlock__instruction">
-                                            <div class="instruction__title">
-                                                СЛЕДУЙ ИНСТРУКЦИИ
-                                            </div>
-                                            <ul class="instruction__list">
-                                                <li class="instruction__list-item">
-                                                    1. Размести ссылку <br>
-                                                    <a href="#">https://АНДРЕЙЛЕБЕДЬ.рф</a> в соцсети!
-                                                </li>
-                                                <li class="instruction__list-item">
-                                                    2. Порекомендуй нас друзьям!
-                                                </li>
-                                                <li class="instruction__list-item">
-                                                    3. Скидка твоему другу - <span>5%</span>
-                                                </li>
-                                                <li class="instruction__list-item">
-                                                    4. Скидка тебе за друга - <span>10%</span>
-                                                </li>
-                                                <li class="instruction__list-item">
-                                                    5. Куда нам отправить промокод?
-                                                </li>
-                                                <li class="instruction__list-item">
-                                                    6. Заполни поля формы!
-                                                </li>
-                                            </ul>
+                                    <div class="firstBlock__nav">
+                                        <div class="secondBlock__title">
+                                            <p>
+                                                ВЫБЕРИ соцсеть
+                                            </p>
+                                            <span>
+                                                Срок поста - 30 дней
+                                            </span>
                                         </div>
-                                        <form method="POST" action="/" class="secondBock__form-wrapper">
-                                            <div class="secondBlock__first-form">
-                                                <div class="form-title">
-                                                    Данные ТВОИ
-                                                </div>
-                                                <div class="form-input-wrapper">
-                                                    <input type="text" name="name" id="#firstFormNameMobile" placeholder="Имя *">
-                                                    <input type="tel" name="phone" id="#firstFormPhoneMobile" placeholder="Телефон *">
-                                                    <input type="email" name="email" id="#firstFormEmailMobile" placeholder="E-mail *">
-                                                </div>
+                                        <nav class="secondBlock__nav">
+                                            <ul class="secondBlock__nav-list">
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+                                <div class="drop__down-menu-secondBlock">
+                                    <div class="secondBlock__instruction">
+                                        <div class="instruction__title">
+                                            СЛЕДУЙ ИНСТРУКЦИИ
+                                        </div>
+                                        <ul class="instruction__list">
+                                            <li class="instruction__list-item">
+                                                1. Размести ссылку <br>
+                                                <a href="#">https://АНДРЕЙЛЕБЕДЬ.рф</a> в соцсети!
+                                            </li>
+                                            <li class="instruction__list-item">
+                                                2. Порекомендуй нас друзьям!
+                                            </li>
+                                            <li class="instruction__list-item">
+                                                3. Скидка твоему другу - <span>5%</span>
+                                            </li>
+                                            <li class="instruction__list-item">
+                                                4. Скидка тебе за друга - <span>10%</span>
+                                            </li>
+                                            <li class="instruction__list-item">
+                                                5. Куда нам отправить промокод?
+                                            </li>
+                                            <li class="instruction__list-item">
+                                                6. Заполни поля формы!
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <form method="POST" action="/" class="secondBock__form-wrapper">
+                                        <div class="secondBlock__first-form">
+                                            <div class="form-title">
+                                                Данные ТВОИ
                                             </div>
-                                            <div class="secondBlock__second-form">
-                                                <div class="form-title">
-                                                    Данные ДРУГА
-                                                </div>
-                                                <div class="form-input-wrapper">
-                                                    <input type="text" name="name" id="#secondFormNameMobile" placeholder="Имя друга *">
-                                                    <input type="tel" name="phone" id="#secondFormPhoneMobile" placeholder="Телефон друга *">
-                                                    <input type="email" name="email" id="#secondFormEmailMobile" placeholder="E-mail друга *">
-                                                </div>
+                                            <div class="form-input-wrapper">
+                                                <input type="text" name="name" id="#firstFormNameMobile"
+                                                       placeholder="Имя *">
+                                                <input type="tel" name="phone" id="#firstFormPhoneMobile"
+                                                       placeholder="Телефон *">
+                                                <input type="email" name="email" id="#firstFormEmailMobile"
+                                                       placeholder="E-mail *">
                                             </div>
-                                            <div class="form__subTitle">
+                                        </div>
+                                        <div class="secondBlock__second-form">
+                                            <div class="form-title">
+                                                Данные ДРУГА
+                                            </div>
+                                            <div class="form-input-wrapper">
+                                                <input type="text" name="name" id="#secondFormNameMobile"
+                                                       placeholder="Имя друга *">
+                                                <input type="tel" name="phone" id="#secondFormPhoneMobile"
+                                                       placeholder="Телефон друга *">
+                                                <input type="email" name="email" id="#secondFormEmailMobile"
+                                                       placeholder="E-mail друга *">
+                                            </div>
+                                        </div>
+                                        <div class="form__subTitle">
                                                     <span>
                                                     Все поля обязательны для заполнения!
                                                     </span>
-                                                <span>
+                                            <span>
                                                     Скидка 300 рублей за заказ от 3 000 рублей
                                                     </span>
-                                            </div>
-                                            <button type="submit" class="secondBlock__form-btn">
-                                                ОТПРАВИТЬ
-                                            </button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="header__about-work-mini-wrapper">
-                        <div class="header__about-work">
-                            <div class="header__about-item">
-                                ОБРАБОТКА ФОТО <span>|</span> ФОТОКНИГА <span>|</span> СЛАЙД-ШОУ <span>|</span>
-                            </div>
-                            <div class="header__about-item">
-                                ФОТО/ВИДЕО СЪЕМКА <span>|</span> МОНТАЖ <span>|</span> ВИДЕОРОЛИК
-                            </div>
-                        </div>
-                        <div class="header__discounts-button">
-                            СКИДКИ 2+
-                        </div>
-                    </div>
-                    <div class="header__nav-wrapper">
-                        <nav class="header__nav">
-                            <ul class="header__nav-list">
-                                <li class="header__nav-list-item">
-                                    <a href="#">
-                                        ГЛАВНАЯ
-                                    </a>
-                                </li>
-                                <li class="header__nav-list-item">
-                                    <a href="#">
-                                        О СЕБЕ
-                                    </a>
-                                </li>
-                                <li class="header__nav-list-item">
-                                    <a href="#">
-                                        ВОПРОС - ОТВЕТ
-                                    </a>
-                                </li>
-                                <li class="header__nav-list-item">
-                                    <a href="#">
-                                        СЕРТИФИКАТ
-                                    </a>
-                                </li>
-                                <li class="header__nav-list-item">
-                                    <a href="#">
-                                        ОТЗЫВЫ
-                                    </a>
-                                </li>
-                                <li class="header__nav-list-item">
-                                    <a href="#">
-                                        РАБОТА
-                                    </a>
-                                </li>
-                                <li class="header__nav-list-item">
-                                    <a href="#">
-                                        ПРАЙС
-                                    </a>
-                                </li>
-                                <li class="header__nav-list-item">
-                                    <a href="#">
-                                        КАРТА САЙТА
-                                    </a>
-                                </li>
-                                <li class="header__nav-list-item">
-                                    <a href="#">
-                                        КОНТАКТЫ
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                        <div class="header__nav-mobile-wrap">
-                            <div class="header__nav-mobile-btn">
-                                МЕНЮ
-                            </div>
-                            <nav class="header__nav-mobile">
-                                <ul class="header__nav-list-mobile">
-                                    <li class="header__nav-list-item-mobile">
-                                        <a href="#">
-                                            Главная
-                                        </a>
-                                    </li>
-                                    <li class="header__nav-list-item-mobile">
-                                        <a href="#">
-                                            О себе
-                                        </a>
-                                    </li>
-                                    <li class="header__nav-list-item-mobile">
-                                        <a href="#">
-                                            Вопрос - ответ
-                                        </a>
-                                    </li>
-                                    <li class="header__nav-list-item-mobile">
-                                        <a href="#">
-                                            Сертификат
-                                        </a>
-                                    </li>
-                                    <li class="header__nav-list-item-mobile">
-                                        <a href="#">
-                                            Отзывы
-                                        </a>
-                                    </li>
-                                    <li class="header__nav-list-item-mobile">
-                                        <a href="#">
-                                            Работа
-                                        </a>
-                                    </li>
-                                    <li class="header__nav-list-item-mobile">
-                                        <a href="#">
-                                            Прайс
-                                        </a>
-                                    </li>
-                                    <li class="header__nav-list-item-mobile">
-                                        <a href="#">
-                                            Карта сайта
-                                        </a>
-                                    </li>
-                                    <li class="header__nav-list-item-mobile">
-                                        <a href="#">
-                                            Контакты
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                    <div class="main__slider-application-mobile-wrap">
-                        <div class="main__slider-application-mobile">
-                            <div class="main__slider-application-default">
-                                <a href="#">
-                                    Оставить ЗАЯВКУ
-                                </a>
-                            </div>
-                            <div class="main__slider-application-drop">
-                                <div class="application__drop-item">
-                                    <a href="#">
-                                        Telegram
-                                    </a>
-                                </div>
-                                <div class="application__drop-item">
-                                    <a href="#">
-                                        WhatsApp
-                                    </a>
+                                        </div>
+                                        <button type="submit" class="secondBlock__form-btn">
+                                            ОТПРАВИТЬ
+                                        </button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="header__about-work-mini-wrapper">
+                    <div class="header__about-work">
+                        <div class="header__about-item">
+                            ОБРАБОТКА ФОТО <span>|</span> ФОТОКНИГА <span>|</span> СЛАЙД-ШОУ <span>|</span>
+                        </div>
+                        <div class="header__about-item">
+                            ФОТО/ВИДЕО СЪЕМКА <span>|</span> МОНТАЖ <span>|</span> ВИДЕОРОЛИК
+                        </div>
+                    </div>
+                    <div class="header__discounts-button">
+                        СКИДКИ 2+
+                    </div>
+                </div>
+                <div class="header__nav-wrapper">
+                    <nav class="header__nav">
+                        <ul class="header__nav-list">
+                            <li class="header__nav-list-item">
+                                <a href="#">
+                                    ГЛАВНАЯ
+                                </a>
+                            </li>
+                            <li class="header__nav-list-item">
+                                <a href="#">
+                                    О СЕБЕ
+                                </a>
+                            </li>
+                            <li class="header__nav-list-item">
+                                <a href="#">
+                                    ВОПРОС - ОТВЕТ
+                                </a>
+                            </li>
+                            <li class="header__nav-list-item">
+                                <a href="#">
+                                    СЕРТИФИКАТ
+                                </a>
+                            </li>
+                            <li class="header__nav-list-item">
+                                <a href="#">
+                                    ОТЗЫВЫ
+                                </a>
+                            </li>
+                            <li class="header__nav-list-item">
+                                <a href="#">
+                                    РАБОТА
+                                </a>
+                            </li>
+                            <li class="header__nav-list-item">
+                                <a href="#">
+                                    ПРАЙС
+                                </a>
+                            </li>
+                            <li class="header__nav-list-item">
+                                <a href="#">
+                                    КАРТА САЙТА
+                                </a>
+                            </li>
+                            <li class="header__nav-list-item">
+                                <a href="#">
+                                    КОНТАКТЫ
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="header__nav-mobile-wrap">
+                        <div class="header__nav-mobile-btn">
+                            МЕНЮ
+                        </div>
+                        <nav class="header__nav-mobile">
+                            <ul class="header__nav-list-mobile">
+                                <li class="header__nav-list-item-mobile">
+                                    <a href="#">
+                                        Главная
+                                    </a>
+                                </li>
+                                <li class="header__nav-list-item-mobile">
+                                    <a href="#">
+                                        О себе
+                                    </a>
+                                </li>
+                                <li class="header__nav-list-item-mobile">
+                                    <a href="#">
+                                        Вопрос - ответ
+                                    </a>
+                                </li>
+                                <li class="header__nav-list-item-mobile">
+                                    <a href="#">
+                                        Сертификат
+                                    </a>
+                                </li>
+                                <li class="header__nav-list-item-mobile">
+                                    <a href="#">
+                                        Отзывы
+                                    </a>
+                                </li>
+                                <li class="header__nav-list-item-mobile">
+                                    <a href="#">
+                                        Работа
+                                    </a>
+                                </li>
+                                <li class="header__nav-list-item-mobile">
+                                    <a href="#">
+                                        Прайс
+                                    </a>
+                                </li>
+                                <li class="header__nav-list-item-mobile">
+                                    <a href="#">
+                                        Карта сайта
+                                    </a>
+                                </li>
+                                <li class="header__nav-list-item-mobile">
+                                    <a href="#">
+                                        Контакты
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="main__slider-application-mobile-wrap">
+                    <div class="main__slider-application-mobile">
+                        <div class="main__slider-application-default">
+                            <a href="#">
+                                Оставить ЗАЯВКУ
+                            </a>
+                        </div>
+                        <div class="main__slider-application-drop">
+                            <div class="application__drop-item">
+                                <a href="#">
+                                    Telegram
+                                </a>
+                            </div>
+                            <div class="application__drop-item">
+                                <a href="#">
+                                    WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </header>
-        <main>
-            <div class="main__wrapper">
+        </div>
+    </header>
+    <main>
+        <div class="main__wrapper">
+            <nav class="main__up-navigation">
                 <div class="container">
-                    <nav class="main__header-nav-list">
+                    <div class="main__header-nav-list">
                         <ul class="main__nav-list">
                             <li class="main__nav-list-item">
                                 <a href="#">
@@ -1224,289 +1257,377 @@
                                 </a>
                             </li>
                         </ul>
-                    </nav>
+                    </div>
                 </div>
-                <div class="main__slider">
-                    <div class="main__slider-zoomWindow"></div>
-                    <div class="main__slider-application">
-                        <div class="main__slider-application-default">
+            </nav>
+            <nav class="main__down-navigation">
+                <div class="main__down-navigation-wrapper">
+                    <ul class="main__down-navigation-list">
+                        <li class="main__down-navigation-list-item">
                             <a href="#">
-                                Оставить ЗАЯВКУ
+                                <p>ВЫБРАТЬ</p>
+                                <p>услугу</p>
+                            </a>
+                        </li>
+                        <li class="main__down-navigation-list-item">
+                            <a href="#">
+                                <p>СМОТРЕТЬ</p>
+                                <p>видео</p>
+                            </a>
+                        </li>
+                        <li class="main__down-navigation-list-item">
+                            <a href="#">
+                                <p>ПОЛУЧИТЬ</p>
+                                <p>скидку</p>
+                            </a>
+                        </li>
+                        <li class="main__down-navigation-list-item">
+                            <a href="#">
+                                <p>ПОДПИСАТЬСЯ</p>
+                                <p>на рассылку</p>
+                            </a>
+                        </li>
+                        <li class="main__down-navigation-list-item">
+                            <a href="#">
+                                <p>НАПОМНИТЬ</p>
+                                <p>о подарке</p>
+                            </a>
+                        </li>
+                        <li class="main__down-navigation-list-item">
+                            <a href="#">
+                                <p>ПОЛУЧИТЬ</p>
+                                <p>работу</p>
+                            </a>
+                        </li>
+                        <li class="main__down-navigation-list-item">
+                            ВВЕРХ
+                        </li>
+                        <li class="main__down-navigation-list-item">
+                            ВНИЗ
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="main__slider">
+                <div class="main__slider-zoomWindow"></div>
+                <div class="main__slider-application">
+                    <div class="main__slider-application-default">
+                        <a href="#">
+                            Оставить ЗАЯВКУ
+                        </a>
+                    </div>
+                    <div class="main__slider-application-drop">
+                        <div class="application__drop-item">
+                            <a href="#">
+                                Telegram
                             </a>
                         </div>
-                        <div class="main__slider-application-drop">
-                            <div class="application__drop-item">
-                                <a href="#">
-                                    Telegram
-                                </a>
-                            </div>
-                            <div class="application__drop-item">
-                                <a href="#">
-                                    WhatsApp
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="main__slider-action">
-                        <div class="slider__action-prev">
-                            <img src="{% static 'img/leftArr.png' %}" alt="">
-                        </div>
-                        <div class="slider__action-next">
-                            <img src="{% static 'img/rightArr.png' %}" alt="">
-                        </div>
-                    </div>
-                    <div class="main__slider-wrapper swiper">
-                        <!-- Additional required wrapper -->
-                        <div class="main__swiper-slider swiper-wrapper">
-                            <!--Slides-->
-                        </div>
-                        <!-- If we need navigation buttons -->
-<!--                        <div class="main__slider-next swiper-button-next">-->
-<!--                        </div>-->
-<!--                        <div class="main__slider-prev swiper-button-prev">-->
-<!--                        </div>-->
-                    </div>
-                    <div class="main__slider-pagination swiper-pagination">
-                        <div class="swiper-pagination-bullet">
+                        <div class="application__drop-item">
+                            <a href="#">
+                                WhatsApp
+                            </a>
                         </div>
                     </div>
                 </div>
-                <div class="main__content">
-                    <div class="main__container">
-                        <div class="main__content-wrapper">
-                            <div class="main__content-service-block">
-                                <div class="main__content-service-block-wrapper">
-                                </div>
+                <div class="main__slider-action">
+                    <div class="slider__action-prev">
+                        <img src="{% static 'img/leftArr.png' %}" alt="">
+                    </div>
+                    <div class="slider__action-next">
+                        <img src="{% static 'img/rightArr.png' %}" alt="">
+                    </div>
+                </div>
+                <div class="main__slider-wrapper swiper">
+                    <!-- Additional required wrapper -->
+                    <div class="main__swiper-slider swiper-wrapper">
+                        <!--Slides-->
+                    </div>
+                    <!-- If we need navigation buttons -->
+                    <!--                        <div class="main__slider-next swiper-button-next">-->
+                    <!--                        </div>-->
+                    <!--                        <div class="main__slider-prev swiper-button-prev">-->
+                    <!--                        </div>-->
+                </div>
+                <div class="main__slider-pagination swiper-pagination">
+                    <div class="swiper-pagination-bullet">
+                    </div>
+                </div>
+            </div>
+            <div class="main__content">
+                <div class="main__container">
+                    <div class="main__content-wrapper">
+                        <div class="main__content-service-block">
+                            <div class="main__content-service-block-wrapper">
                             </div>
-                            <div class="main__content-block">
-                                <div class="main__content-block-wrapper">
-                                    <div class="main__content-block-service-sale-btn">
-                                        <div class="main__content-block-service-btn">
-                                            <p>ВЫБРАТЬ УСЛГУ</p>
+                        </div>
+                        <div class="main__content-block">
+                            <div class="main__content-block-wrapper">
+                                <div class="main__content-block-service-sale-btn">
+                                    <div class="main__content-block-service-btn">
+                                        <p>ВЫБРАТЬ УСЛГУ</p>
+                                    </div>
+                                    <div class="main__content-service-block-btn">
+                                        <div class="main__content-service-block-wrapper">
                                         </div>
-                                        <div class="main__content-service-block-btn">
-                                            <div class="main__content-service-block-wrapper">
+                                    </div>
+                                    <div class="main__content-block-sale-btn">
+                                        ПОЛУЧИТЬ СКИДКУ по АКЦИИ
+                                    </div>
+                                </div>
+                                <div class="main__content-block-page-navigation">
+                                    <a href="#">
+                                        Главная
+                                    </a>
+                                </div>
+                                <div class="main__content-block-mini-sliders">
+                                    <div class="main__content-block-mini-sliders-wrapper">
+
+                                    </div>
+                                </div>
+                                <div class="subscription__block">
+                                    <div class="subscription__block-wrapper">
+                                        <div class="first__know-block">
+                                            <div class="first__know-block-text-wrap">
+                                                <div class="first__know-block-title">
+                                                    <p>УЗНАЙ</p>
+                                                    <p>ПЕРВЫМ</p>
+                                                </div>
+                                                <div class="first__know-block-text">
+                                                    <p>ПОДПИСКА на рассылку</p>
+                                                    <p>Один раз в неделю на вашей почте</p>
+                                                    <p>ТОП самых популярных услуг</p>
+                                                    <p>ТОП самых чувственных подарков</p>
+                                                </div>
+                                            </div>
+                                            <form action="/" method="POST" class="first__know-form">
+                                                <input type="text" name="Name" id="#firstKnowName" placeholder="ИМЯ *">
+                                                <input type="email" name="Email" id="#firstKnowEmail"
+                                                       placeholder="E-mail *">
+                                                <input type="tel" name="Phone" id="#firstKnowPhone"
+                                                       placeholder="Телефон">
+                                                <button type="submit">
+                                                    Подписаться
+                                                </button>
+                                            </form>
+                                        </div>
+                                        <div class="download__phone-block">
+                                            <div class="download__phone-block-title">
+                                                <p>ДОБАВЬ</p>
+                                                <p>на ТЕЛЕФОН</p>
+                                            </div>
+                                            <div class="download__phone-block-about">
+                                                <div class="download__phone-block-about-text">
+                                                    Добавь
+                                                    ИКОНКУ-
+                                                    ССЫЛКУ
+                                                    на свой
+                                                    мобильный
+                                                    телефон и
+                                                    рабочий стол
+                                                    компьютера
+                                                </div>
+                                                <div class="download__phone-block-about-action">
+                                                    <div class="download__phone-block-about-action-image">
+                                                        <img src="{% static 'img/subscribeBlockImage.png' %}" alt="">
+                                                    </div>
+                                                    <div class="download__phone-block-about-action-text">
+                                                        Андрей Лебедь <br>
+                                                        ФОТО | ВИДЕО <br>
+                                                        всегда под рукой
+                                                    </div>
+                                                    <div class="download__phone-block-about-action-btn">
+                                                        Как добавить
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="main__content-block-sale-btn">
-                                            ПОЛУЧИТЬ СКИДКУ  по АКЦИИ
+                                        <div class="reminders__block">
+                                            <div class="reminders__block-title">
+                                                <p>
+                                                    КАЛЕНДАРЬ
+                                                </p>
+                                                <p>
+                                                    НАПОМИНАНИЙ
+                                                </p>
+                                            </div>
+                                            <div class="reminders__block-wrapper">
+                                                <div class="reminders__block-wrapper-text">
+                                                    Используйте календарь напоминаний. <br>
+                                                    ВВЕДИТЕ и ОТПРАВЬТЕ любые ДАТЫ <br>
+                                                    будущих событий. <br>
+                                                    Мы НАПОМНИМ о себе перед <br>
+                                                    вашим праздником. <br>
+                                                    Ваш ПОДАРОК будет самым НЕЗАБЫВАЕМЫМ!
+                                                </div>
+                                                <div class="reminders__block-wrapper-btn">
+                                                    Напомнить о подарке
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="main__content-block-page-navigation">
-                                        <a href="#">
-                                            Главная
-                                        </a>
+                                </div>
+                                <div class="get__work-block">
+                                    <div class="get__work-block-wrapper">
+                                        <div class="get__work-title">
+                                            ПОЛУЧИ РАБОТУ <span>/сотрудничество/</span>
+                                        </div>
+                                        <div class="get__work-about">
+                                            <div class="get__work-about-image">
+                                                <div class="get__work-about-image-first">
+                                                    <img src="{% static 'img/workImageFirst.png' %}" alt="workImage">
+                                                </div>
+                                                <div class="get__work-about-image-second">
+                                                    <img src="{% static 'img/workImageSecond.png' %}" alt="workImage">
+                                                </div>
+                                            </div>
+                                            <div class="get__work-about-text">
+                                                <div class="get__work-about-text-first">
+                                                    <p>
+                                                        Работа
+                                                    </p>
+                                                    <p>
+                                                        Изготовитель
+                                                    </p>
+                                                    <p>
+                                                        Фотокниг
+                                                    </p>
+                                                </div>
+                                                <div class="get__work-about-text-second">
+                                                    <p>
+                                                        Ретушёр
+                                                    </p>
+                                                    <p>
+                                                        Дизайнер
+                                                    </p>
+                                                    <p>
+                                                        Верстальщик
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="main__content-block-mini-sliders">
-                                        <div class="main__content-block-mini-sliders-wrapper">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main__content-sale-block">
+                            <div class="main__content-sale-block-wrapper">
+                                <div class="main__content-sale-block-title">
+                                    ПОЛУЧИТЬ СКИДКУ по АКЦИИ
+                                </div>
+                                <div class="main__content-sale-block-item-wrapper">
+                                    <div class="main__content-sale-block-item">
+                                        <div class="main__content-sale-block-item-title">
+                                            СЕГОДНЯ
+                                        </div>
+                                        <div class="main__content-sale-block-item-sub-title">
+                                            31 сентября 2019
+                                        </div>
+                                        <div class="main__content-sale-block-item-main-text">
+                                            <p>ВИДЕОРОЛИК</p>
+                                            <p>из ваших фото</p>
+                                            <p>под музыку</p>
+                                        </div>
+                                        <div class="main__content-sale-block-item-swiper swiper">
+                                            <div class="main__content-sale-block-item-swiper-wrapper swiper-wrapper">
+                                                <div class="main__content-sale-block-swiper-item swiper-slide">
+                                                    <img src="{% static 'img/dropTipsImage.jpg' %}" alt="">
+                                                </div>
+                                                <div class="main__content-sale-block-swiper-item swiper-slide">
+                                                    <img src="{% static 'img/workImageSecond.png' %}" alt="">
+                                                </div>
+                                                <div class="main__content-sale-block-swiper-item swiper-slide">
+                                                    <img src="{% static 'img/workImageFirst.png' %}" alt="">
+                                                </div>
+                                                <div class="main__content-sale-block-swiper-item swiper-slide">
+                                                    <img src="{% static 'img/dropTipsImage.jpg' %}" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="main__content-sale-block-item-main-text-">
 
                                         </div>
                                     </div>
-                                    <div class="subscription__block">
-                                        <div class="subscription__block-wrapper">
-                                            <div class="first__know-block">
-                                                <div class="first__know-block-text-wrap">
-                                                    <div class="first__know-block-title">
-                                                        <p>УЗНАЙ</p>
-                                                        <p>ПЕРВЫМ</p>
-                                                    </div>
-                                                    <div class="first__know-block-text">
-                                                        <p>ПОДПИСКА на рассылку</p>
-                                                        <p>Один раз в неделю на вашей почте</p>
-                                                        <p>ТОП самых популярных услуг</p>
-                                                        <p>ТОП самых чувственных подарков</p>
-                                                    </div>
-                                                </div>
-                                                <form action="/" method="POST" class="first__know-form">
-                                                    <input type="text" name="Name" id="#firstKnowName" placeholder="ИМЯ *">
-                                                    <input type="email" name="Email" id="#firstKnowEmail" placeholder="E-mail *">
-                                                    <input type="tel" name="Phone" id="#firstKnowPhone" placeholder="Телефон">
-                                                    <button type="submit">
-                                                        Подписаться
-                                                    </button>
-                                                </form>
-                                            </div>
-                                            <div class="download__phone-block">
-                                                <div class="download__phone-block-title">
-                                                    <p>ДОБАВЬ</p>
-                                                    <p>на ТЕЛЕФОН</p>
-                                                </div>
-                                                <div class="download__phone-block-about">
-                                                    <div class="download__phone-block-about-text">
-                                                        Добавь
-                                                        ИКОНКУ-
-                                                        ССЫЛКУ
-                                                        на свой
-                                                        мобильный
-                                                        телефон и
-                                                        рабочий стол
-                                                        компьютера
-                                                    </div>
-                                                    <div class="download__phone-block-about-action">
-                                                        <div class="download__phone-block-about-action-image">
-                                                            <img src="{% static 'img/subscribeBlockImage.png' %}" alt="">
-                                                        </div>
-                                                        <div class="download__phone-block-about-action-text">
-                                                            Андрей Лебедь <br>
-                                                            ФОТО | ВИДЕО <br>
-                                                            всегда под рукой
-                                                        </div>
-                                                        <div class="download__phone-block-about-action-btn">
-                                                            Как добавить
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="reminders__block">
-                                                <div class="reminders__block-title">
-                                                    <p>
-                                                        КАЛЕНДАРЬ
-                                                    </p>
-                                                    <p>
-                                                        НАПОМИНАНИЙ
-                                                    </p>
-                                                </div>
-                                                <div class="reminders__block-wrapper">
-                                                    <div class="reminders__block-wrapper-text">
-                                                        Используйте календарь напоминаний. <br>
-                                                        ВВЕДИТЕ и ОТПРАВЬТЕ любые ДАТЫ <br>
-                                                        будущих событий. <br>
-                                                        Мы НАПОМНИМ о себе перед <br>
-                                                        вашим праздником. <br>
-                                                        Ваш ПОДАРОК будет самым НЕЗАБЫВАЕМЫМ!
-                                                    </div>
-                                                    <div class="reminders__block-wrapper-btn">
-                                                        Напомнить о подарке
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="get__work-block">
-                                        <div class="get__work-block-wrapper">
-                                            <div class="get__work-title">
-                                                ПОЛУЧИ РАБОТУ <span>/сотрудничество/</span>
-                                            </div>
-                                            <div class="get__work-about">
-                                                <div class="get__work-about-image">
-                                                    <div class="get__work-about-image-first">
-                                                        <img src="{% static 'img/workImageFirst.png' %}" alt="workImage">
-                                                    </div>
-                                                    <div class="get__work-about-image-second">
-                                                        <img src="{% static 'img/workImageSecond.png' %}" alt="workImage">
-                                                    </div>
-                                                </div>
-                                                <div class="get__work-about-text">
-                                                    <div class="get__work-about-text-first">
-                                                        <p>
-                                                            Работа
-                                                        </p>
-                                                        <p>
-                                                            Изготовитель
-                                                        </p>
-                                                        <p>
-                                                            Фотокниг
-                                                        </p>
-                                                    </div>
-                                                    <div class="get__work-about-text-second">
-                                                        <p>
-                                                            Ретушёр
-                                                        </p>
-                                                        <p>
-                                                            Дизайнер
-                                                        </p>
-                                                        <p>
-                                                            Верстальщик
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="main__content-sale-block">
-                                <div class="main__content-sale-block-wrapper">
-                                    fd
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </main>
-        <footer>
-            <div class="footer__wrapper">
-                <div class="main__container">
-                    <nav class="footer__nav">
-                        <ul class="footer__nav-list">
-                            <li class="footer__nav-list-item">
-                                <a href="#">
-                                    Пользовательское соглашение
-                                </a>
-                            </li>
-                            <li class="footer__nav-list-item">
-                                <a href="#">
-                                    Политика конфиденциальности
-                                </a>
-                            </li>
-                            <li class="footer__nav-list-item">
-                                <a href="#">
-                                    Подарочные СЕРТИФИКАТЫ
-                                </a>
-                            </li>
-                            <li class="footer__nav-list-item">
-                                <a href="#">
-                                    Оставить ЗАЯВКУ
-                                </a>
-                            </li>
-                            <li class="footer__nav-list-item">
-                                <a href="#">
-                                    КАРТА САЙТА
-                                </a>
-                            </li>
-                            <li class="footer__nav-list-item">
-                                <a href="#">
-                                    ВОПРОС ОТВЕТ
-                                </a>
-                            </li>
-                            <li class="footer__nav-list-item">
-                                <a href="#">
-                                    О СЕБЕ
-                                </a>
-                            </li>
-                            <li class="footer__nav-list-item">
-                                <a href="#">
-                                    ОТЗЫВЫ
-                                </a>
-                            </li>
-                            <li class="footer__nav-list-item">
-                                <a href="#">
-                                    ПРАЙС
-                                </a>
-                            </li>
-                            <li class="footer__nav-list-item">
-                                <a href="#">
-                                    КОНТАКТЫ
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                    <a href="#" class="footer__rights">
-                        www.АНДРЕЙЛЕБЕДЬ.РФ © 2022 | ВСЕ ПРАВА ЗАЩИЩЕНЫ
-                    </a>
-                </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer__wrapper">
+            <div class="main__container">
+                <nav class="footer__nav">
+                    <ul class="footer__nav-list">
+                        <li class="footer__nav-list-item">
+                            <a href="#">
+                                Пользовательское соглашение
+                            </a>
+                        </li>
+                        <li class="footer__nav-list-item">
+                            <a href="#">
+                                Политика конфиденциальности
+                            </a>
+                        </li>
+                        <li class="footer__nav-list-item">
+                            <a href="#">
+                                Подарочные СЕРТИФИКАТЫ
+                            </a>
+                        </li>
+                        <li class="footer__nav-list-item">
+                            <a href="#">
+                                Оставить ЗАЯВКУ
+                            </a>
+                        </li>
+                        <li class="footer__nav-list-item">
+                            <a href="#">
+                                КАРТА САЙТА
+                            </a>
+                        </li>
+                        <li class="footer__nav-list-item">
+                            <a href="#">
+                                ВОПРОС ОТВЕТ
+                            </a>
+                        </li>
+                        <li class="footer__nav-list-item">
+                            <a href="#">
+                                О СЕБЕ
+                            </a>
+                        </li>
+                        <li class="footer__nav-list-item">
+                            <a href="#">
+                                ОТЗЫВЫ
+                            </a>
+                        </li>
+                        <li class="footer__nav-list-item">
+                            <a href="#">
+                                ПРАЙС
+                            </a>
+                        </li>
+                        <li class="footer__nav-list-item">
+                            <a href="#">
+                                КОНТАКТЫ
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <a href="#" class="footer__rights">
+                    www.АНДРЕЙЛЕБЕДЬ.РФ © 2022 | ВСЕ ПРАВА ЗАЩИЩЕНЫ
+                </a>
             </div>
-        </footer>
-    </div>
-    <script src="{% static 'js/header.js' %}" defer></script>
-    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js" defer></script>
-    <script src="{% static 'js/slider.js' %}" defer></script>
-    <script src="{% static 'js/discountsModal.js' %}" defer></script>
-    <script src="{% static 'js/customSelect.js' %}" defer></script>
-    <script src="{% static 'js/customCalendar.js' %}" defer></script>
-    <script src="{% static 'js/miniSliders.js' %}" defer></script>
-    <script src="{% static 'js/mainService.js' %}" defer></script>
-    <script src="{% static 'js/dropDownService.js' %}" defer></script>
+        </div>
+    </footer>
+</div>
+<script src="{% static 'js/header.js' %}" defer></script>
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js" defer></script>
+<script src="{% static 'js/slider.js' %}" defer></script>
+<script src="{% static 'js/discountsModal.js' %}" defer></script>
+<script src="{% static 'js/customSelect.js' %}" defer></script>
+<script src="{% static 'js/customCalendar.js' %}" defer></script>
+<script src="{% static 'js/miniSliders.js' %}" defer></script>
+<script src="{% static 'js/mainService.js' %}" defer></script>
+<script src="{% static 'js/mainSale' %}"></script>
+<script src="{% static 'js/dropDownService.js' %}" defer></script>
 </body>
 </html>
