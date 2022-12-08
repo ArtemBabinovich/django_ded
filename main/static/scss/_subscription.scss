@@ -5,6 +5,7 @@
   display: flex;
   gap: 20px;
   justify-content: space-between;
+  align-items: stretch;
 }
 .first__know-block-text-wrap{
   display: flex;
@@ -15,6 +16,9 @@
 .first__know-block{
   flex: 1 1 auto;
   max-width: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .first__know-block-title{
   display: flex;
@@ -45,6 +49,7 @@
   padding: 20px;
   border: 1px solid #efe5bd;
   display: flex;
+  flex: 1 1 auto;
   flex-direction: column;
   align-items: center;
   gap: 20px;
@@ -94,6 +99,11 @@
   font-family: "Verdana";
   cursor: pointer;
 }
+.download__phone-block{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 .download__phone-block-title{
   display: flex;
   flex-direction: column;
@@ -113,6 +123,7 @@
   padding: 15px 20px;
   display: flex;
   max-width: 345px;
+  flex: 1 1 auto;
 }
 .download__phone-block-about-text{
   font-size: 14px;
@@ -156,6 +167,9 @@
 .reminders__block{
   flex: 1 1 auto;
   max-width: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .reminders__block-wrapper{
   border: 1px solid #efe5bd;

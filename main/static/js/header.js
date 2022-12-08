@@ -27,7 +27,7 @@ function get__phone(url) {
         .then(res => {
             for (let i of res){
                 headerPhone.innerHTML += `
-                                            <a href="#">${i.country_code}/${i.number_operator}/<span style="color: ${i.color_number}">${i.number_phone}</span></a>
+                                            <a href="#">${i.country_code} /${i.number_operator}/ <span style="color: ${i.color_number}">${i.number_phone}</span></a>
                                         `
             }
         })

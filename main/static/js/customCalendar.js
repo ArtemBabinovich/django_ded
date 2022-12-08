@@ -21,6 +21,10 @@ calendarSelected.forEach(selectedItem => {
             calendarDropDownWrap.forEach(item => {
                 item.classList.toggle('dropDownCalendar');
             })
+            calendar.forEach(calendarItem => {
+                calendarItem.classList.toggle('calendarActive')
+            })
+            selectedText = selectedItem.querySelector('.calendar__selected-date');
         }
         else {
             calendar.forEach(calendarItem => {
@@ -34,7 +38,7 @@ calendarSelected.forEach(selectedItem => {
 daysWrap.forEach(daysWrapItem => {
     daysWrapItem.addEventListener('click', (event) => {
         if (event.target.getAttribute('class') === 'days__item'){
-            selectedText.innerHTML = `${event.target.innerText.length < 2 ? '0' + event.target.innerText : event.target.innerText }.${currMonth + 1}.${currYear}`;
+            selectedText.innerHTML = `${event.target.innerText.length < 2 ? '0' + event.target.innerText : event.target.innerText }.${currMonth + 1 < 10 ? '0' + (currMonth + 1) : currMonth + 1}.${currYear}`;
             calendar.forEach(calendarItem => {
                 calendarItem.classList.remove('calendarActive')
             })
@@ -126,14 +130,14 @@ dateNow.forEach(dateNowItem => {
 dateNowBtn.forEach(dateNowBtnItem => {
     dateNowBtnItem.addEventListener('click',() => {
         dateNow.forEach(item => {
-            item.innerHTML = `${calendarDateNow.getDate()}.${calendarDateNow.getMonth() + 1}.${calendarDateNow.getFullYear()}`
+            selectedText.innerHTML = `${calendarDateNow.getDate() < 10 ? ('0' + calendarDateNow.getDate()) : calendarDateNow.getDate() }.${calendarDateNow.getMonth() < 10 ? '0' + (calendarDateNow.getMonth() + 1) :calendarDateNow.getMonth() + 1}.${calendarDateNow.getFullYear()}`
         })
     })
 })
 dateNowClearBtn.forEach(dateNowClearBtnItem => {
     dateNowClearBtnItem.addEventListener('click', () => {
         dateNow.forEach(item => {
-            item.innerHTML = `00.00.0000`;
+            selectedText.innerHTML = `00.00.0000`;
         });
     })
 })
