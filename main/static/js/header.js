@@ -1,14 +1,18 @@
 const header = document.querySelector('header');
 const mainHeaderNav = document.querySelector('.main__nav-list');
+const mainDownNav = document.querySelector('.main__down-navigation-list')
 window.addEventListener('scroll', () => {
     if (Math.ceil(pageYOffset) >= header.offsetHeight){
         if (window.innerWidth <= 1024){
             mainHeaderNav.style.display = 'none';
+            mainDownNav.style.display = 'none';
         }else {
             mainHeaderNav.style.display = 'flex';
+            mainDownNav.style.display = 'flex';
         }
     }else {
         mainHeaderNav.style.display = 'none';
+        mainDownNav.style.display = 'none';
     }
 })
 
