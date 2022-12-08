@@ -2,7 +2,7 @@ from django.db import transaction
 from rest_framework import serializers
 
 from .models import Recipient, Reason, Present, Date, \
-    RemindForDays, AboutPresent
+    RemindForDays, AboutPresent, OnlyGetAboutPresent
 
 
 class RecipientSerializer(serializers.ModelSerializer):
@@ -10,15 +10,15 @@ class RecipientSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Recipient
-        fields = '__all__'
+        fields = ['id', 'name']
 
 
 class ReasonSerializer(serializers.ModelSerializer):
-    """Сериализатор для причины подарка"""
+    """Сериализатор для повода подарка"""
 
     class Meta:
         model = Reason
-        fields = '__all__'
+        fields = ['id', 'name']
 
 
 class PresentSerializer(serializers.ModelSerializer):
@@ -26,7 +26,7 @@ class PresentSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Present
-        fields = '__all__'
+        fields = ['id', 'name']
 
 
 class DateSerializer(serializers.ModelSerializer):
@@ -42,7 +42,7 @@ class RemindForDaysSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = RemindForDays
-        fields = '__all__'
+        fields = ['id', 'days']
 
 
 class AboutPresentSerializer(serializers.ModelSerializer):
@@ -75,7 +75,7 @@ class AboutPresentSerializer(serializers.ModelSerializer):
                                    reason=validated_data['reason'], present=validated_data['present'],
                                    remind_for_days=validated_data['remind_for_days'],
                                    remind_every_years=validated_data['remind_every_years'],
-                                   remind_every_day=validated_data['remind_every_day'],)
+                                   remind_every_day=validated_data['remind_every_day'], )
             present.save()
             for value in validated_data['about_present']:
                 date = Date(date=value.get("date"))
@@ -84,5 +84,13 @@ class AboutPresentSerializer(serializers.ModelSerializer):
         return present
 
 
-#TODO апиха на метод гет отдаёт( повод, кому,[что хотите заказать, напоминание за количество дней,]), метод пост напомнить о подарке, пост скидки 2+
+class OnlyReadAboutPresentSerializer(serializers.ModelSerializer):
+    """Сериализатор на API View оформления подарков"""
+    recipient_set = RecipientSerializer(many=True)
+    reason_set = ReasonSerializer(many=True)
+    present_set = PresentSerializer(many=True)
+    remindfordays_set = RemindForDaysSerializer(many=True)
 
+    class Meta:
+        model = OnlyGetAboutPresent
+        fields = ['reason_set', 'recipient_set', 'present_set', 'remindfordays_set']
