@@ -1,25 +1,38 @@
-# from django.contrib import admin
+from django.contrib import admin
 
-# from .modelTASKmessage import Message, SubjectMessage
-# from .models import Recipient, Reason, Present, Date, RemindForDays, AboutPresent
-#
-# admin.site.register(Recipient)
-# admin.site.register(Reason)
-# admin.site.register(Present)
-# admin.site.register(RemindForDays)
-# admin.site.register(AboutPresent)
-# admin.site.register(Date)
-
-# @admin.register(Date)
-# class DateModel(admin.ModelAdmin):
-#
-#     def has_add_permission(self, request):
-#         return True
+from about_present.models import Reason, Present, RemindForDays, Recipient, AboutPresent
 
 
+@admin.register(AboutPresent)
+class AboutPresentAdmin(admin.ModelAdmin):
+    """Модель просмотра кто заказал подарок"""
+    fields = ('name', 'email', 'phone', 'recipient', 'reason', 'present', 'remind_for_days', 'remind_every_years')
+    list_display = ('name', 'email', 'phone', 'recipient', 'reason', 'present', 'remind_for_days', 'remind_every_years')
 
 
-# admin.site.register(Message)
-# admin.site.register(SubjectMessage)
+@admin.register(Reason)
+class ReasonAdmin(admin.ModelAdmin):
+    """Модель Повод для подарка"""
 
-# Register your models here.
+    fields = ('name',)
+
+
+@admin.register(Present)
+class PresentAdmin(admin.ModelAdmin):
+    """Модель Тип подарка"""
+
+    fields = ('name',)
+
+
+@admin.register(RemindForDays)
+class RemindForDaysAdmin(admin.ModelAdmin):
+    """Модель За какое количество дней напомнить"""
+
+    fields = ('days',)
+
+
+@admin.register(Recipient)
+class RecipientAdmin(admin.ModelAdmin):
+    """Модель Для кого подарок"""
+
+    fields = ('name',)

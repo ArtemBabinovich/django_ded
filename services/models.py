@@ -72,9 +72,9 @@ class Services(models.Model):
                                               null=True,
                                               blank=True)
     bottom_description = models.CharField('Описание фотослайдера', max_length=128, blank=True, null=True)
-    color_bottom_description = ColorField('Цвет описания', format='hexa', blank=True,null=True)
+    color_bottom_description = ColorField('Цвет описания', format='hexa', blank=True, null=True)
     bottom_description_2 = models.CharField('Доп. описание фотослайдера', max_length=128, blank=True, null=True)
-    color_bottom_description_2 = ColorField('Цвет доп. описания', format='hexa', blank=True,null=True)
+    color_bottom_description_2 = ColorField('Цвет доп. описания', format='hexa', blank=True, null=True)
     service_catalog = models.ForeignKey(ServicesCatalog,
                                         related_name='services',
                                         on_delete=models.SET_NULL,

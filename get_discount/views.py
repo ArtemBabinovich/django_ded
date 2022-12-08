@@ -7,7 +7,7 @@ from .serializers import GetDiscountSerializer
 
 
 class GetDiscountAdd(viewsets.ViewSet):
-    """API для оформления подарка"""
+    """API для оформления скидки 2+"""
     queryset = GetDiscount.objects.all()
 
     @swagger_auto_schema(request_body=GetDiscountSerializer)

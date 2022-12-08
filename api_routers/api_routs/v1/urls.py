@@ -1,17 +1,13 @@
-from rest_framework import routers
 from django.urls import path, include
+from rest_framework import routers
 
-
-from get_discount.views import GetDiscountAdd
-from main import viewsAPI
+from about_present.views import AboutPresentAdd, FullApiInfoViewSets
 from contacts import APIviews
+from get_discount.views import GetDiscountAdd
 from main import viewsAPI
 from modules.APIviews import FotoForBannerViewSet, CalendarViewSet, TimerViewSet, \
     BannerViewSet, ModuleViewSet
-from about_present.views import AboutPresentAdd, RecipientViewSets, \
-    ReasonViewSets, PresentViewSets, RemindForDaysViewSets
 from services import views
-
 
 router = routers.DefaultRouter()
 router.register(r'time_slider_base', viewsAPI.TimeSlideBaseViewSet)
@@ -26,10 +22,7 @@ router.register(r'banners', BannerViewSet)
 router.register(r'modules', ModuleViewSet)
 # ЮРЛ каллендарь напоминаний
 router.register(r'presents/add', AboutPresentAdd, basename='present_add')
-router.register(r'recipient', RecipientViewSets)
-router.register(r'reason', ReasonViewSets)
-router.register(r'present', PresentViewSets)
-router.register(r'remind_for_days', RemindForDaysViewSets)
+router.register(r'presents/get', FullApiInfoViewSets, basename='present_get')
 # ЮРЛ получения скидки
 router.register(r'discont/add', GetDiscountAdd, basename='discont_add')
 # ЮРЛ Сервисов

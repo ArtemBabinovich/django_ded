@@ -41,8 +41,9 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'tinymce',
-    'python_telegram_bot',
+    # 'python_telegram_bot',
     'ckeditor',
+    'drf_multiple_model',
 
     'main',
     'contacts',

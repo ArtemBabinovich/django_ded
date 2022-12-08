@@ -5,7 +5,6 @@ from dateutil.relativedelta import relativedelta
 from django.core.mail import EmailMultiAlternatives, send_mail
 from django.db.models import Prefetch
 
-# from about_present.modelTASKmessage import Message, SubjectMessage
 from about_present.models import AboutPresent, Date
 from ded import settings
 from ded.celery import app

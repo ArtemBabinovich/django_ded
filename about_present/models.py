@@ -1,12 +1,40 @@
+from django.core.exceptions import ValidationError
 from django.core.validators import RegexValidator
 from django.db import models
 
 from modules.models import validate_current_century
 
 
+"""Функция для дефолтного значения календаря"""
+def get_default_name():
+    try:
+        OnlyGetAboutPresent.objects.get_or_create(name='calendar_dates')
+    except:
+        return 1
+
+
+class OnlyGetAboutPresent(models.Model):
+    """Модель для АРI view напоминание о подарке"""
+    name = models.CharField(null=True, blank=True, max_length=30)
+
+    def save(self, *args, **kwargs):
+        if not self.pk and OnlyGetAboutPresent.objects.exists():
+            raise ValidationError('Можно создать только одну запись а базе')
+        return super(OnlyGetAboutPresent, self).save(*args, **kwargs)
+
+    def __str__(self):
+        return "Заполнить календарь"
+
+    class Meta:
+        verbose_name = "API календаря"
+        verbose_name_plural = "API календаря"
+
+
 class Recipient(models.Model):
     """Получатель подарка"""
     name = models.CharField('Получатель', max_length=50)
+    about_preset = models.ForeignKey(OnlyGetAboutPresent, on_delete=models.SET_NULL, default=get_default_name,
+                                     null=True, blank=True, verbose_name='Кому')
 
     class Meta:
         verbose_name = 'Получатель'
@@ -19,6 +47,8 @@ class Recipient(models.Model):
 class Reason(models.Model):
     """Причина подарка"""
     name = models.CharField('Причина', max_length=50)
+    about_preset = models.ForeignKey(OnlyGetAboutPresent, on_delete=models.SET_NULL, default=get_default_name,
+                                     null=True, blank=True, verbose_name='Повод')
 
     class Meta:
         verbose_name = 'Причина'
@@ -31,6 +61,8 @@ class Reason(models.Model):
 class Present(models.Model):
     """Тип подарка"""
     name = models.CharField('Подарок', max_length=50)
+    about_preset = models.ForeignKey(OnlyGetAboutPresent, on_delete=models.SET_NULL, default=get_default_name,
+                                     null=True, verbose_name='Подарок', blank=True)
 
     class Meta:
         verbose_name = 'Подарок'
@@ -59,6 +91,8 @@ class Date(models.Model):
 class RemindForDays(models.Model):
     """За какое кол-во дней напомнить"""
     days = models.IntegerField(verbose_name='За сколько дней напомнить')
+    about_preset = models.ForeignKey(OnlyGetAboutPresent, on_delete=models.SET_NULL, default=get_default_name,
+                                     null=True, blank=True, verbose_name='За сколько дней напомнить')
 
     class Meta:
         verbose_name = 'За сколько дней напомнить'
