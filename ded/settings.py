@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'tinymce',
     # 'python_telegram_bot',
     'ckeditor',
-    'drf_multiple_model',
 
     'main',
     'contacts',
