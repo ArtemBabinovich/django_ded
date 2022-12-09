@@ -3,8 +3,8 @@ from django.db.models import Q
 from rest_framework import viewsets
 from rest_framework.response import Response
 
-from main.models import TimeSlideBase
-from main.serializers import TimeSlideBaseSerializer
+from main.models import TimeSlideBase, TimeForMiniSlider
+from main.serializers import TimeSlideBaseSerializer, TimeForMiniSliderSerializer
 from services.models import ServicesCatalog, Services
 from services.serializers import ServicesCatalogSerializer, BigSliderSerializer, ServicesCatalogSerializerForSmallSlider
 
@@ -74,4 +74,22 @@ class SmallSliderViewSet(viewsets.ReadOnlyModelViewSet):
             serializer = self.get_serializer(page, many=True)
             return self.get_paginated_response(serializer.data)
         serializer = self.get_serializer(queryset, many=True)
-        return Response({"catalog": serializer.data})
+        if TimeSlideBase.objects.exists():
+            timer = TimeForMiniSlider.objects.first()
+        else:
+            timer = {
+                "id": 1,
+                "time_pause": 4000
+            }
+        data_ser = TimeForMiniSliderSerializer(timer)
+        return Response({"timer": data_ser.data.get('time_pause'), "slides": serializer.data})
+
+
+    # def list(self, request, *args, **kwargs):
+    #     queryset = self.filter_queryset(self.get_queryset())
+    #     page = self.paginate_queryset(queryset)
+    #     if page is not None:
+    #         serializer = self.get_serializer(page, many=True)
+    #         return self.get_paginated_response(serializer.data)
+    #     serializer = self.get_serializer(queryset, many=True)
+    #     return Response({"catalog": serializer.data})

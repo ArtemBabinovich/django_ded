@@ -10,11 +10,11 @@ class ServicesCatalog(models.Model):
     image_for_big_slider = models.ImageField('Фотография большого слайдера',
                                              upload_to='services/static/img/foto_big_slider')
     color_title = ColorField('Цвет заголовка', format='hexa', default='#FFFFFFFF')
-    is_active = models.BooleanField('Активня', default=False)
+    is_active = models.BooleanField('Активня', default=True)
     url = models.SlugField('URL', max_length=255, unique=True, db_index=True)
-    time_pause_for_mini_slider = models.PositiveIntegerField('Время для слайда "мини_слайдера',
-                                                             default=4000,
-                                                             blank=True)
+    # time_pause_for_mini_slider = models.PositiveIntegerField('Время для слайда "мини_слайдера',
+    #                                                          default=4000,
+    #                                                          blank=True)
     position = models.OneToOneField('ServicesCatalogPosition',
                                     on_delete=models.CASCADE,
                                     verbose_name='Номер очереди',
@@ -82,7 +82,7 @@ class Services(models.Model):
                                         blank=True,
                                         null=True,
                                         verbose_name='К какому РАЗДЕЛУ УСЛУГ отнести:')
-    is_active = models.BooleanField('Активная', default=False)
+    is_active = models.BooleanField('Активная', default=True)
     position_service = models.OneToOneField('PositionServices',
                                             on_delete=models.CASCADE,
                                             verbose_name='Номер очереди',

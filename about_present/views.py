@@ -1,6 +1,6 @@
 from django.db.models import Prefetch
 from drf_yasg.utils import swagger_auto_schema
-from rest_framework import viewsets
+from rest_framework import viewsets, mixins
 from rest_framework.response import Response
 
 from .models import AboutPresent, Recipient, Reason, Present, RemindForDays, OnlyGetAboutPresent
@@ -8,7 +8,7 @@ from .serializers import AboutPresentSerializer, OnlyReadAboutPresentSerializer
 from .tasks import send, send_to_telegram
 
 
-class FullApiInfoViewSets(viewsets.ReadOnlyModelViewSet):
+class FullApiInfoViewSets(mixins.ListModelMixin, viewsets.GenericViewSet):
     """
     API для оформления подарков, отдаёт все записи из базы данных:
             Подарок, Кому, За сколько дней, Причина
@@ -21,7 +21,6 @@ class FullApiInfoViewSets(viewsets.ReadOnlyModelViewSet):
     serializer_class = OnlyReadAboutPresentSerializer
 
 
-# #
 # class RecipientViewSets(mixins.ListModelMixin, viewsets.GenericViewSet):
 #     """API  всех  получателей подарка"""
 #     queryset = Recipient.objects.all()
