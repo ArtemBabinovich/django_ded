@@ -8,14 +8,15 @@ from modules.models import validate_current_century
 """Функция для дефолтного значения календаря"""
 def get_default_name():
     try:
-        OnlyGetAboutPresent.objects.get_or_create(name='calendar_dates')
+        about_present, created = OnlyGetAboutPresent.objects.get_or_create(name='calendar_dates')
+        return about_present
     except:
-        return 1
+        return None
 
 
 class OnlyGetAboutPresent(models.Model):
     """Модель для АРI view напоминание о подарке"""
-    name = models.CharField(null=True, blank=True, max_length=30)
+    name = models.CharField(default='calendar_dates', null=True, blank=True, max_length=30)
 
     def save(self, *args, **kwargs):
         if not self.pk and OnlyGetAboutPresent.objects.exists():
@@ -33,7 +34,7 @@ class OnlyGetAboutPresent(models.Model):
 class Recipient(models.Model):
     """Получатель подарка"""
     name = models.CharField('Получатель', max_length=50)
-    about_preset = models.ForeignKey(OnlyGetAboutPresent, on_delete=models.SET_NULL, default=get_default_name,
+    about_preset = models.ForeignKey(OnlyGetAboutPresent, on_delete=models.SET_DEFAULT, default=get_default_name,
                                      null=True, blank=True, verbose_name='Кому')
 
     class Meta:
@@ -47,7 +48,7 @@ class Recipient(models.Model):
 class Reason(models.Model):
     """Причина подарка"""
     name = models.CharField('Причина', max_length=50)
-    about_preset = models.ForeignKey(OnlyGetAboutPresent, on_delete=models.SET_NULL, default=get_default_name,
+    about_preset = models.ForeignKey(OnlyGetAboutPresent, on_delete=models.SET_DEFAULT, default=get_default_name,
                                      null=True, blank=True, verbose_name='Повод')
 
     class Meta:
@@ -61,7 +62,7 @@ class Reason(models.Model):
 class Present(models.Model):
     """Тип подарка"""
     name = models.CharField('Подарок', max_length=50)
-    about_preset = models.ForeignKey(OnlyGetAboutPresent, on_delete=models.SET_NULL, default=get_default_name,
+    about_preset = models.ForeignKey(OnlyGetAboutPresent, on_delete=models.SET_DEFAULT, default=get_default_name,
                                      null=True, verbose_name='Подарок', blank=True)
 
     class Meta:
@@ -91,7 +92,7 @@ class Date(models.Model):
 class RemindForDays(models.Model):
     """За какое кол-во дней напомнить"""
     days = models.IntegerField(verbose_name='За сколько дней напомнить')
-    about_preset = models.ForeignKey(OnlyGetAboutPresent, on_delete=models.SET_NULL, default=get_default_name,
+    about_preset = models.ForeignKey(OnlyGetAboutPresent, on_delete=models.SET_DEFAULT, default=get_default_name,
                                      null=True, blank=True, verbose_name='За сколько дней напомнить')
 
     class Meta:
@@ -109,10 +110,10 @@ class AboutPresent(models.Model):
     phone = models.CharField('Телефон заказчика', max_length=18, blank=True, null=True,
                              validators=[RegexValidator(regex=r'^[-0-9+() ]{11,18}$',
                                                         message='Поле должно состоять из цифр или знаков + () -')])
-    recipient = models.ForeignKey(Recipient, on_delete=models.PROTECT, verbose_name='Кому')
-    reason = models.ForeignKey(Reason, on_delete=models.PROTECT, verbose_name='Повод')
-    present = models.ForeignKey(Present, on_delete=models.PROTECT, verbose_name='Подарок')
-    remind_for_days = models.ForeignKey(RemindForDays, models.PROTECT, verbose_name='За сколько дней напомнить')
+    recipient = models.ForeignKey(Recipient, on_delete=models.CASCADE, verbose_name='Кому')
+    reason = models.ForeignKey(Reason, on_delete=models.CASCADE, verbose_name='Повод')
+    present = models.ForeignKey(Present, on_delete=models.CASCADE, verbose_name='Подарок')
+    remind_for_days = models.ForeignKey(RemindForDays, models.CASCADE, verbose_name='За сколько дней напомнить')
     remind_every_years = models.BooleanField(default=False, verbose_name='Напоминать ежегодно')
     date_created = models.DateField(auto_created=True, auto_now_add=True, verbose_name='Дата оформления')
 

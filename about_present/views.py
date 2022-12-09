@@ -9,8 +9,11 @@ from .tasks import send, send_to_telegram
 
 
 class FullApiInfoViewSets(viewsets.ReadOnlyModelViewSet):
-    """API для оформления подарков"""
-    queryset = OnlyGetAboutPresent.objects.all() \
+    """
+    API для оформления подарков, отдаёт все записи из базы данных:
+            Подарок, Кому, За сколько дней, Причина
+    """
+    queryset = OnlyGetAboutPresent.objects.filter(name='calendar_dates') \
         .prefetch_related(Prefetch('recipient_set', queryset=Recipient.objects.all())) \
         .prefetch_related(Prefetch('reason_set', queryset=Reason.objects.all())) \
         .prefetch_related(Prefetch('present_set', queryset=Present.objects.all())) \
@@ -18,7 +21,7 @@ class FullApiInfoViewSets(viewsets.ReadOnlyModelViewSet):
     serializer_class = OnlyReadAboutPresentSerializer
 
 
-#
+# #
 # class RecipientViewSets(mixins.ListModelMixin, viewsets.GenericViewSet):
 #     """API  всех  получателей подарка"""
 #     queryset = Recipient.objects.all()
@@ -44,7 +47,7 @@ class FullApiInfoViewSets(viewsets.ReadOnlyModelViewSet):
 
 
 class AboutPresentAdd(viewsets.ViewSet):
-    """API для оформления подарка"""
+    """API календаря для оформления подарка на POST запрос"""
     queryset = AboutPresent.objects.all()
 
     @swagger_auto_schema(request_body=AboutPresentSerializer)
