@@ -5,7 +5,6 @@ from .models import GetDiscount
 
 class GetDiscountSerializer(serializers.ModelSerializer):
     """Сериализатор для оформления заявки на скидку"""
-    friends_phone = serializers.CharField(max_length=18, validators=[])
     class Meta:
         model = GetDiscount
         fields = '__all__'
