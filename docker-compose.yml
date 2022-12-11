@@ -10,7 +10,34 @@ services:
     volumes:
       - static_volume:/django_ded/static
       - media_volume:/django_ded/media
-
+    depends_on:
+      - redis
+  redis:
+    image: redis:alpine
+    restart: unless-stopped
+    volumes:
+      - redis_volume:/data/
+  celery:
+    build: .
+    command: celery -A ded worker -l info
+    volumes:
+      - ./accounts_sale/:/usr/src/app/
+#    environment:
+#      - CELERY_BROKER=redis://redis:6379
+#      - CELERY_BACKEND=redis://redis:6379
+    depends_on:
+      - redis
+  celery-beat:
+    build: .
+    command: celery -A ded beat -l info
+    volumes:
+      - ./accounts_sale/:/usr/src/app/
+#    environment:
+#      - CELERY_BROKER=redis://redis:6379
+#      - CELERY_BACKEND=redis://redis:6379
+    depends_on:
+      - redis
 volumes:
   static_volume:
   media_volume:
+  redis_volume:

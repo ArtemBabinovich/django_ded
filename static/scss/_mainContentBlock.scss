@@ -53,7 +53,8 @@
   position: absolute;
   top: 34px;
   left: 0;
-  min-width: 330px;
+  width: 100%;
+  max-width: 330px;
   background: #3c0000;
   z-index: 45;
   min-height: 100vh;
@@ -279,5 +280,8 @@
   }
   .mini__slider-item-title{
     font-size: 25px;
+  }
+  .main__content-service-block-btn{
+    max-width: 100%;
   }
 }

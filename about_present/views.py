@@ -2,7 +2,7 @@ from django.db.models import Prefetch
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework import viewsets, mixins
 from rest_framework.response import Response
-
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from .models import AboutPresent, Recipient, Reason, Present, RemindForDays, OnlyGetAboutPresent
 from .serializers import AboutPresentSerializer, OnlyReadAboutPresentSerializer
 from .tasks import send, send_to_telegram
@@ -48,6 +48,15 @@ class FullApiInfoViewSets(mixins.ListModelMixin, viewsets.GenericViewSet):
 class AboutPresentAdd(viewsets.ViewSet):
     """API календаря для оформления подарка на POST запрос"""
     queryset = AboutPresent.objects.all()
+    def get_permissions(self):
+        """
+        Instantiates and returns the list of permissions that this view requires.
+        """
+        if self.action == 'post':
+            permission_classes = [IsAuthenticated]
+        else:
+            permission_classes = [AllowAny]
+        return [permission() for permission in permission_classes]
 
     @swagger_auto_schema(request_body=AboutPresentSerializer)
     def create(self, request):

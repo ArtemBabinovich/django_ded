@@ -5,6 +5,17 @@ select.forEach(selectItem => {
     selectItem.addEventListener('click', (e) => {
         selectList.forEach(selectListItem => {
             selectListItem.classList.toggle('selectActive');
+            if (selectListItem.classList.contains('selectActive')){
+                occasionSelectedChoice.forEach(occasionSelectedChoiceItem => {
+                    occasionSelectedChoiceItem.classList.remove('selectActive');
+                })
+                orderSelectedChoice.forEach(orderSelectedChoiceItem => {
+                    orderSelectedChoiceItem.classList.remove('selectActive');
+                })
+                remindSelectedChoice.forEach(remindSelectedChoiceItem => {
+                    remindSelectedChoiceItem.classList.remove('selectActive');
+                })
+            }
         })
         let text;
         if (e.target.tagName === 'LI'){
@@ -23,6 +34,17 @@ occasionSelect.forEach(occasionItem => {
     occasionItem.addEventListener('click', (e) => {
         occasionSelectedChoice.forEach(occasionSelectedChoiceItem => {
             occasionSelectedChoiceItem.classList.toggle('selectActive');
+            if (occasionSelectedChoiceItem.classList.contains('selectActive')){
+                selectList.forEach(selectListItem => {
+                    selectListItem.classList.remove('selectActive');
+                })
+                orderSelectedChoice.forEach(orderSelectedChoiceItem => {
+                    orderSelectedChoiceItem.classList.remove('selectActive');
+                })
+                remindSelectedChoice.forEach(remindSelectedChoiceItem => {
+                    remindSelectedChoiceItem.classList.remove('selectActive');
+                })
+            }
         })
         let text;
         if (e.target.tagName === 'LI'){
@@ -42,6 +64,17 @@ orderSelect.forEach(orderSelectItem => {
     orderSelectItem.addEventListener('click', (e) => {
         orderSelectedChoice.forEach(orderSelectedChoiceItem => {
             orderSelectedChoiceItem.classList.toggle('selectActive');
+            if (orderSelectedChoiceItem.classList.contains('selectActive')){
+                selectList.forEach(selectListItem => {
+                    selectListItem.classList.remove('selectActive');
+                })
+                occasionSelectedChoice.forEach(occasionSelectedChoiceItem => {
+                    occasionSelectedChoiceItem.classList.remove('selectActive');
+                })
+                remindSelectedChoice.forEach(remindSelectedChoiceItem => {
+                    remindSelectedChoiceItem.classList.remove('selectActive');
+                })
+            }
         })
         let text;
         if (e.target.tagName === 'LI'){
@@ -62,6 +95,17 @@ remindSelect.forEach(remindSelectItem => {
     remindSelectItem.addEventListener('click', (e) => {
         remindSelectedChoice.forEach(remindSelectedChoiceItem => {
             remindSelectedChoiceItem.classList.toggle('selectActive');
+            if (remindSelectedChoiceItem.classList.contains('selectActive')){
+                selectList.forEach(selectListItem => {
+                    selectListItem.classList.remove('selectActive');
+                })
+                orderSelectedChoice.forEach(orderSelectedChoiceItem => {
+                    orderSelectedChoiceItem.classList.remove('selectActive');
+                })
+                occasionSelectedChoice.forEach(occasionSelectedChoiceItem => {
+                    occasionSelectedChoiceItem.classList.remove('selectActive');
+                })
+            }
         })
         let text;
         if (e.target.tagName === 'LI'){
