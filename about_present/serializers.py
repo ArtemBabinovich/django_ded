@@ -74,8 +74,7 @@ class AboutPresentSerializer(serializers.ModelSerializer):
                                    phone=validated_data['phone'], recipient=validated_data['recipient'],
                                    reason=validated_data['reason'], present=validated_data['present'],
                                    remind_for_days=validated_data['remind_for_days'],
-                                   remind_every_years=validated_data['remind_every_years'],
-                                   remind_every_day=validated_data['remind_every_day'], )
+                                   remind_every_years=validated_data['remind_every_years'],)
             present.save()
             for value in validated_data['about_present']:
                 date = Date(date=value.get("date"))
