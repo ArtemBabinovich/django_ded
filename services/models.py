@@ -29,8 +29,8 @@ class ServicesCatalog(models.Model):
     # banner = models.ForeignKey('Вовка свяжи БАННЕР', verbose_name='Баннер')
 
     class Meta:
-        verbose_name = 'Создание РАЗДЕЛА УСЛУГ'
-        verbose_name_plural = 'Создание РАЗДЕЛА УСЛУГ'
+        verbose_name = 'Создание КАТАЛОГА УСЛУГ'
+        verbose_name_plural = 'Создание КАТАЛОГА УСЛУГ'
         ordering = ('position',)
 
     def __str__(self):

@@ -32,28 +32,28 @@ class OnlyGetAboutPresent(models.Model):
 
 
 class Recipient(models.Model):
-    """Получатель подарка"""
-    name = models.CharField('Получатель', max_length=50)
+    """Для кого подарок"""
+    name = models.CharField('Кому', max_length=50)
     about_preset = models.ForeignKey(OnlyGetAboutPresent, on_delete=models.SET_DEFAULT, default=get_default_name,
-                                     null=True, blank=True, verbose_name='Кому')
+                                     null=True, blank=True, verbose_name='Календарь напоминаний')
 
     class Meta:
-        verbose_name = 'Получатель'
-        verbose_name_plural = 'Получатели'
+        verbose_name = 'Кому'
+        verbose_name_plural = 'Кому'
 
     def __str__(self):
         return self.name
 
 
 class Reason(models.Model):
-    """Причина подарка"""
-    name = models.CharField('Причина', max_length=50)
+    """Повод подарка"""
+    name = models.CharField('Повод', max_length=50)
     about_preset = models.ForeignKey(OnlyGetAboutPresent, on_delete=models.SET_DEFAULT, default=get_default_name,
-                                     null=True, blank=True, verbose_name='Повод')
+                                     null=True, blank=True, verbose_name='Календарь напоминаний')
 
     class Meta:
-        verbose_name = 'Причина'
-        verbose_name_plural = 'Причины'
+        verbose_name = 'Повод'
+        verbose_name_plural = 'Повод'
 
     def __str__(self):
         return self.name
@@ -61,13 +61,13 @@ class Reason(models.Model):
 
 class Present(models.Model):
     """Тип подарка"""
-    name = models.CharField('Подарок', max_length=50)
+    name = models.CharField('Что хотят заказать', max_length=50)
     about_preset = models.ForeignKey(OnlyGetAboutPresent, on_delete=models.SET_DEFAULT, default=get_default_name,
-                                     null=True, verbose_name='Подарок', blank=True)
+                                     null=True, verbose_name='Календарь напоминаний', blank=True)
 
     class Meta:
-        verbose_name = 'Подарок'
-        verbose_name_plural = 'Подарки'
+        verbose_name = 'Что хотят заказать'
+        verbose_name_plural = 'Что хотят заказать'
 
     def __str__(self):
         return self.name
@@ -82,8 +82,8 @@ class Date(models.Model):
                                  related_name='about_present')
 
     class Meta:
-        verbose_name = 'Дата получения'
-        verbose_name_plural = 'Дата получения'
+        verbose_name = 'Дата напоминания'
+        verbose_name_plural = 'Дата напоминания'
 
     def __str__(self):
         return str(self.date)
@@ -91,20 +91,20 @@ class Date(models.Model):
 
 class RemindForDays(models.Model):
     """За какое кол-во дней напомнить"""
-    days = models.IntegerField(verbose_name='За сколько дней напомнить')
+    days = models.IntegerField(verbose_name='За сколько дней напоминать')
     about_preset = models.ForeignKey(OnlyGetAboutPresent, on_delete=models.SET_DEFAULT, default=get_default_name,
-                                     null=True, blank=True, verbose_name='За сколько дней напомнить')
+                                     null=True, blank=True, verbose_name='Календарь напоминаний')
 
     class Meta:
-        verbose_name = 'За сколько дней напомнить'
-        verbose_name_plural = 'За сколько дней напомнить'
+        verbose_name = 'За сколько дней напоминать'
+        verbose_name_plural = 'За сколько дней напоминать'
 
     def __str__(self):
         return str(self.days)
 
 
 class AboutPresent(models.Model):
-    """Модель напоминания для вручения подарка"""
+    """Кто заказал напоминане для вручения подарка"""
     name = models.CharField('Имя заказчика', max_length=50)
     email = models.EmailField('Почта заказчика')
     phone = models.CharField('Телефон заказчика', max_length=18, blank=True, null=True,
@@ -118,8 +118,8 @@ class AboutPresent(models.Model):
     date_created = models.DateField(auto_created=True, auto_now_add=True, verbose_name='Дата оформления')
 
     class Meta:
-        verbose_name = 'Напомнить о подарках'
-        verbose_name_plural = 'Напомнить о подарке'
+        verbose_name = 'Кто заказал напоминание о подарке'
+        verbose_name_plural = 'Кто заказал напоминание о подарке'
 
     def __str__(self):
         return (f'{self.name} - {self.present.name}')

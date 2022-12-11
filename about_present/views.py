@@ -65,9 +65,9 @@ class AboutPresentAdd(viewsets.ViewSet):
         if serializer.is_valid():
             response = serializer.save(validated_data=serializer.validated_data)
             # отправка письма на email при заказе
-            send.delay(response.email, response.name, response.recipient)
+            # send.delay(response.email)
             # отправка на бота
-            send_to_telegram.delay(response.id)
+            # send_to_telegram.delay(response.id)
             return Response(AboutPresentSerializer(response).data)
         else:
             return Response(serializer.errors)
