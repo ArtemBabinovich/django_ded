@@ -2402,6 +2402,7 @@ html {
 }
 .main__content-sale-block {
   min-width: 300px;
+  max-width: 300px;
   background: #320000;
 }
 
