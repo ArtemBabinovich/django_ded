@@ -5,7 +5,7 @@ function getSwiperItem(url,url2,url3) {
         .then(resp => resp.json())
         .then(res => {
             let services = ``;
-            for (let i of res.catalog){
+            for (let i of res.slides){
                 for (let j of i.services){
                     services += `
                                 <div class="mini__swiper-item swiper-slide">
