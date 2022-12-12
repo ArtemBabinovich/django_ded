@@ -205,3 +205,6 @@ EMAIL_HOST = 'smtp.yandex.ru'
 EMAIL_HOST_USER = 'someloginfor@yandex.ru'
 EMAIL_HOST_PASSWORD = 'someloginfor1234'
 EMAIL_PORT = 465
+
+
+DATE_INPUT_FORMATS = ['%d/%m/%Y']

@@ -1,6 +1,7 @@
 from django.db import transaction
 from rest_framework import serializers
 
+from ded import settings
 from .models import Recipient, Reason, Present, Date, \
     RemindForDays, AboutPresent, OnlyGetAboutPresent
 
@@ -31,7 +32,7 @@ class PresentSerializer(serializers.ModelSerializer):
 
 class DateSerializer(serializers.ModelSerializer):
     """Сериализатор для даты события"""
-
+    date = serializers.DateField(input_formats=settings.DATE_INPUT_FORMATS)
     class Meta:
         model = Date
         fields = ['date']
