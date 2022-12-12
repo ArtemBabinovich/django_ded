@@ -71,7 +71,8 @@
                             </li>
                         </ul>
                     </div>
-                    <form method="POST" action="/" class="secondBock__form-wrapper">
+                    <form method="POST" action="https://developer.itec.by/api/discont/add/" class="secondBock__form-wrapper">
+                        {% csrf_token %}
                         <div class="secondBlock__first-form">
                             <div class="form-title">
                                 Данные ТВОИ
@@ -87,9 +88,9 @@
                                 Данные ДРУГА
                             </div>
                             <div class="form-input-wrapper">
-                                <input type="text" name="name" id="#secondFormName" placeholder="Имя друга *">
-                                <input type="tel" name="phone" id="#secondFormPhone" placeholder="Телефон друга *">
-                                <input type="email" name="email" id="#secondFormEmail" placeholder="E-mail друга *">
+                                <input type="text" name="friends_name" id="#secondFormName" placeholder="Имя друга *">
+                                <input type="tel" name="friends_phone" id="#secondFormPhone" placeholder="Телефон друга *">
+                                <input type="email" name="friends_email" id="#secondFormEmail" placeholder="E-mail друга *">
                             </div>
                         </div>
                         <div class="form__subTitle">
@@ -139,7 +140,8 @@
                     </div>
                 </div>
                 <div class="present__secondBlock">
-                    <form method="POST" action="/" class="present__secondBlock-form">
+                    <form method="POST" action="" id="#remindPresentForm" class="present__secondBlock-form">
+                        {% csrf_token %}
                         <div class="present__secondBlock-formFirstBlock">
                             <input type="text" name="name" id="#presentFormName" placeholder="ИМЯ *">
                             <input type="email" name="email" id="#presentFormEmail" placeholder="E-mail *">
@@ -154,7 +156,7 @@
                                     <div class="calendar__item">
                                         <div class="calendar__selected">
                                             <p>Дата 1</p>
-                                            <p class="calendar__selected-date">00.00.0000</p>
+                                            <p class="calendar__selected-date" id="#presentCalendarDate">00.00.0000</p>
                                             <div class="calendar__image-wrap">
                                                 <img src="{% static 'img/icons/calendarIcon.svg' %}" alt="calendarIcon"
                                                      id="#calendarIcon">
@@ -280,21 +282,9 @@
                                 </div>
                                 <div class="form__who-select">
                                     <div class="who__selected">
-                                        Себе
+
                                     </div>
                                     <ul class="who__selected-choice">
-                                        <li class="selected__choice-item">
-                                            Себе
-                                        </li>
-                                        <li class="selected__choice-item">
-                                            Другу
-                                        </li>
-                                        <li class="selected__choice-item">
-                                            Брату
-                                        </li>
-                                        <li class="selected__choice-item">
-                                            Маме
-                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -304,21 +294,8 @@
                                 </div>
                                 <div class="form__occasion-select">
                                     <div class="occasion__selected">
-                                        День рождения
                                     </div>
                                     <ul class="occasion__selected-choice">
-                                        <li class="selected__choice-item">
-                                            День рождения
-                                        </li>
-                                        <li class="selected__choice-item">
-                                            Юбилей
-                                        </li>
-                                        <li class="selected__choice-item">
-                                            Годовщина
-                                        </li>
-                                        <li class="selected__choice-item">
-                                            Свадьба
-                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -328,21 +305,9 @@
                                 </div>
                                 <div class="form__order-select">
                                     <div class="order__selected">
-                                        Видеофильм
+
                                     </div>
                                     <ul class="order__selected-choice">
-                                        <li class="selected__choice-item">
-                                            Видеофильм
-                                        </li>
-                                        <li class="selected__choice-item">
-                                            Музыкальный клип
-                                        </li>
-                                        <li class="selected__choice-item">
-                                            Организация мероприятия
-                                        </li>
-                                        <li class="selected__choice-item">
-                                            Что-то еще
-                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -359,15 +324,9 @@
                                 <p>Напомнить за</p>
                                 <div class="form__remind-select">
                                     <div class="remind__selected">
-                                        30
+
                                     </div>
                                     <ul class="remind__selected-choice">
-                                        <li class="selected__choice-item">
-                                            30
-                                        </li>
-                                        <li class="selected__choice-item">
-                                            60
-                                        </li>
                                     </ul>
                                 </div>
                                 <p>дней</p>
@@ -376,7 +335,7 @@
                                 <input type="checkbox" name="remindEveryYears" id="#remindEverYears">
                                 <label for="#remindEverYears">Напоминать ежегодно</label>
                             </div>
-                            <button type="submit" class="present__form-btn">
+                            <button type="button" class="present__form-btn">
                                 ОТПРАВИТЬ
                             </button>
                         </div>
@@ -1627,7 +1586,7 @@
 <script src="{% static 'js/customCalendar.js' %}" defer></script>
 <script src="{% static 'js/miniSliders.js' %}" defer></script>
 <script src="{% static 'js/mainService.js' %}" defer></script>
-<script src="{% static 'js/mainSale' %}"></script>
+<script src="{% static 'js/mainSale.js' %}" defer></script>
 <script src="{% static 'js/dropDownService.js' %}" defer></script>
 </body>
 </html>
