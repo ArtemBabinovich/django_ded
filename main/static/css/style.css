@@ -669,7 +669,7 @@ html {
   width: 100%;
   top: 0;
   left: 0;
-  z-index: 15;
+  z-index: 40;
 }
 
 .main__nav-list-item {
@@ -2112,7 +2112,7 @@ html {
   top: 2px;
 }
 
-@media (max-width: 1919px) {
+@media (max-width: 1365px) {
   .main__content-service-block {
     display: none;
   }
@@ -2328,7 +2328,7 @@ html {
 
 @media (max-width: 1919px) {
   .main__content-block-mini-sliders {
-    max-width: 100%;
+    max-width: 1000px;
   }
   .main__content-block-wrapper {
     padding: 0 30px;
@@ -2349,8 +2349,11 @@ html {
     max-width: 330px;
   }
   .main__content-block-service-btn {
-    display: block;
+    display: none;
     max-width: 330px;
+  }
+  .main__content-block-service-sale-btn {
+    justify-content: flex-end;
   }
 }
 @media (max-width: 1365px) {
@@ -2487,7 +2490,7 @@ html {
   position: absolute;
   background: #f0e6be;
   width: 100%;
-  z-index: 40;
+  z-index: 20;
   padding-top: 40px;
   display: none;
 }
@@ -2895,7 +2898,10 @@ html {
   }
   .download__phone-block .download__phone-block-about {
     max-width: 100%;
-    justify-content: space-between;
+    justify-content: center;
+  }
+  .download__phone-block-about-text {
+    display: none;
   }
 }
 @media (max-width: 1365px) {
