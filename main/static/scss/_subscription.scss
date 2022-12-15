@@ -205,8 +205,11 @@
     flex: 1 1 auto;
     & .download__phone-block-about{
       max-width: 100%;
-      justify-content: space-between;
+      justify-content: center;
     }
+  }
+  .download__phone-block-about-text{
+    display: none;
   }
 }
 @media (max-width: 1365px) {

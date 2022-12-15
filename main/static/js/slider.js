@@ -277,7 +277,7 @@ function getSwiperItem(url,url2,url3) {
                 simulateTouch: false,
                 loop: true,
                 autoplay: {
-                    delay: 4000,
+                    delay: res.timer ? res.timer : 4000,
                     disableOnInteraction: false,
                     pauseOnMouseEnter:true,
                 },
@@ -290,7 +290,7 @@ function getSwiperItem(url,url2,url3) {
                         slidesPerView: 3.5
                     },
                     1365: {
-                        slidesPerView: 4,
+                        slidesPerView: 3,
                     },
                     1023: {
                         slidesPerView: 3,

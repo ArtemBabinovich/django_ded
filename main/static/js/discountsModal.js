@@ -164,86 +164,73 @@ function get_presents(url) {
 }
 
 get_presents('https://developer.itec.by/api/presents/get/')
-
+function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+const presentName = document.getElementById('#presentFormName');
+const presentEmail = document.getElementById('#presentFormEmail');
+const presentPhone = document.getElementById('#presentFormPhone');
+presentPhone.oninput = () => {
+    presentPhone.value = presentPhone.value.replace(/\s/g, '')
+}
+presentEmail.oninput = () => {
+    presentEmail.value = presentEmail.value.replace(/\s/g, '')
+}
 function post_presents(url) {
     const presentForm = document.getElementById('#remindPresentForm'),
-        presentName = document.getElementById('#presentFormName'),
-        presentEmail = document.getElementById('#presentFormEmail'),
-        presentPhone = document.getElementById('#presentFormPhone'),
         presentCalendarDate = document.getElementById('#presentCalendarDate'),
         whoSelected = document.querySelector('.who__selected'),
         occasionSelected = document.querySelector('.occasion__selected'),
         orderSelected = document.querySelector('.order__selected'),
         remindSelected = document.querySelector('.remind__selected');
-
-    presentForm.onsubmit = () => {
-    }
-    let formData = new FormData();
-    formData.append('name', presentName.value);
-    formData.append('email', presentEmail.value);
-    formData.append('phone', presentPhone.value);
     let dateNewFormat = presentCalendarDate.textContent.trim()
-    formData.append('about_present', [{
-        'date': dateNewFormat.replace(/[^0-9]/g,'/'),
-    }]);
-    formData.append('recipient', 1);
-    formData.append('reason', 1);
-    formData.append('present', 1);
-    formData.append('remind_for_days', 1);
-    console.log(formData.get('about_present'))
+    console.log(presentCalendarDate.textContent.trim())
     fetch(url, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Cookie': 'csrf'
+            'X-CSRFToken': getCookie('csrftoken'),
         },
 
-        body: formData,
+        body: JSON.stringify(
+            {
+                "name": presentName.value.trim(),
+                "email": presentEmail.value.trim(),
+                "phone": presentPhone.value.trim(),
+                "about_present": [
+                    {
+                        "date": dateNewFormat.replace(/[^0-9]/g, '/')
+                    }
+                ],
+                "recipient": 1,
+                "reason": 2,
+                "present": 2,
+                "remind_for_days": 2,
+                "remind_every_years": true
+            }
+        ),
     })
         .then(resp => resp.json())
         .then(res => console.log(res))
 }
+
 const presentFormBtn = document.querySelector('.present__form-btn')
 presentFormBtn.addEventListener('click', () => {
-    // post_presents('https://developer.itec.by/api/presents/add/')
-    let Data = new FormData();
-    // Data.append('name', 'Вася');
-    // Data.append('email', 'dsgjskdh@yandex.ru' );
-    // Data.append('phone', '+37529243534');
-    // // let dateNewFormat = presentCalendarDate.textContent.trim()
-    // Data.append('about_present', [{
-    //     'date': '19/02/2022',
-    // }]);
-    // Data.append('recipient', 1);
-    // Data.append('reason', 1);
-    // Data.append('present', 1);
-    // Data.append('remind_for_days', 1);
-    // Data.append('remind_every_years', true);
-    fetch('https://developer.itec.by/api/presents/add/', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: {
-            "name": "Вася",
-            "email": "user@example.com",
-            "phone": "+375448502752",
-            "about_present": [
-                {
-                    "date": "12/02/2022"
-                }
-            ],
-            "recipient": 1,
-            "reason": 2,
-            "present": 2,
-            "remind_for_days": 2,
-            "remind_every_years": true
-        },
-    })
-        .then(resp => resp.json())
-        .then(res => console.log(res))
-})
+    post_presents('https://developer.itec.by/api/presents/add/')
 
+})
 const firstFormName = document.getElementById('#firstFormName');
 const firstFormPhone = document.getElementById('#firstFormPhone');
 const firstFormEmail = document.getElementById('#firstFormEmail');

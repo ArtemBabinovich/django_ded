@@ -205,7 +205,7 @@
   //  width: 100%;
   //}
   .main__content-block-mini-sliders{
-    max-width: 100%;
+    max-width: 1000px;
   }
   .main__content-block-wrapper{
     padding: 0 30px;
@@ -226,8 +226,11 @@
     max-width: 330px;
   }
   .main__content-block-service-btn{
-    display: block;
+    display: none;
     max-width: 330px;
+  }
+  .main__content-block-service-sale-btn{
+    justify-content: flex-end;
   }
 }
 @media (max-width: 1365px) {
