@@ -1,6 +1,15 @@
 version: "3.8"
 
 services:
+#  sqlite3:
+#    container_name: sqlite3_container
+#    image: nouchka/sqlite3:latest
+#    stdin_open: true
+#    tty: true
+#    volumes:
+#      - ./db/:/root/db/
+#    environment:
+#      - SQLITE3_DB=db.sqlite3
   django_ded:
     build:
       context: .
@@ -21,7 +30,7 @@ services:
     build: .
     command: celery -A ded worker -l info
     volumes:
-      - ./accounts_sale/:/usr/src/app/
+      - ./django_ded/:/usr/src/app/
 #    environment:
 #      - CELERY_BROKER=redis://redis:6379
 #      - CELERY_BACKEND=redis://redis:6379
@@ -31,7 +40,7 @@ services:
     build: .
     command: celery -A ded beat -l info
     volumes:
-      - ./accounts_sale/:/usr/src/app/
+      - ./django_ded/:/usr/src/app/
 #    environment:
 #      - CELERY_BROKER=redis://redis:6379
 #      - CELERY_BACKEND=redis://redis:6379
