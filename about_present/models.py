@@ -33,7 +33,7 @@ class OnlyGetAboutPresent(models.Model):
 
 class Recipient(models.Model):
     """Для кого подарок"""
-    name = models.CharField('Кому', max_length=50)
+    name = models.CharField('Кому', max_length=50, unique=True)
     about_preset = models.ForeignKey(OnlyGetAboutPresent, on_delete=models.SET_DEFAULT, default=get_default_name,
                                      null=True, blank=True, verbose_name='Календарь напоминаний')
 
@@ -47,7 +47,7 @@ class Recipient(models.Model):
 
 class Reason(models.Model):
     """Повод подарка"""
-    name = models.CharField('Повод', max_length=50)
+    name = models.CharField('Повод', max_length=50, unique=True)
     about_preset = models.ForeignKey(OnlyGetAboutPresent, on_delete=models.SET_DEFAULT, default=get_default_name,
                                      null=True, blank=True, verbose_name='Календарь напоминаний')
 
@@ -61,7 +61,7 @@ class Reason(models.Model):
 
 class Present(models.Model):
     """Тип подарка"""
-    name = models.CharField('Что хотят заказать', max_length=50)
+    name = models.CharField('Что хотят заказать', max_length=50, unique=True)
     about_preset = models.ForeignKey(OnlyGetAboutPresent, on_delete=models.SET_DEFAULT, default=get_default_name,
                                      null=True, verbose_name='Календарь напоминаний', blank=True)
 
@@ -91,7 +91,7 @@ class Date(models.Model):
 
 class RemindForDays(models.Model):
     """За какое кол-во дней напомнить"""
-    days = models.IntegerField(verbose_name='За сколько дней напоминать')
+    days = models.IntegerField(verbose_name='За сколько дней напоминать', unique=True)
     about_preset = models.ForeignKey(OnlyGetAboutPresent, on_delete=models.SET_DEFAULT, default=get_default_name,
                                      null=True, blank=True, verbose_name='Календарь напоминаний')
 
@@ -113,7 +113,7 @@ class AboutPresent(models.Model):
     recipient = models.ForeignKey(Recipient, on_delete=models.CASCADE, verbose_name='Кому')
     reason = models.ForeignKey(Reason, on_delete=models.CASCADE, verbose_name='Повод')
     present = models.ForeignKey(Present, on_delete=models.CASCADE, verbose_name='Подарок')
-    remind_for_days = models.ForeignKey(RemindForDays, models.CASCADE, verbose_name='За сколько дней напомнить')
+    remind_for_days = models.ForeignKey(RemindForDays, on_delete=models.CASCADE, verbose_name='За сколько дней напомнить')
     remind_every_years = models.BooleanField(default=False, verbose_name='Напоминать ежегодно')
     date_created = models.DateField(auto_created=True, auto_now_add=True, verbose_name='Дата оформления')
 

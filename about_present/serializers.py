@@ -49,18 +49,27 @@ class RemindForDaysSerializer(serializers.ModelSerializer):
 class AboutPresentSerializer(serializers.ModelSerializer):
     """Сериализатор для оформления подарка"""
     about_present = DateSerializer(many=True)
-    recipient = serializers.PrimaryKeyRelatedField(queryset=Recipient.objects.all())
-    reason = serializers.PrimaryKeyRelatedField(queryset=Reason.objects.all())
-    present = serializers.PrimaryKeyRelatedField(queryset=Present.objects.all())
-    remind_for_days = serializers.PrimaryKeyRelatedField(queryset=RemindForDays.objects.all())
+    recipient = serializers.SlugRelatedField(slug_field='name', queryset=Recipient.objects.all())
+    reason = serializers.SlugRelatedField(slug_field='name', queryset=Reason.objects.all())
+    present = serializers.SlugRelatedField(slug_field='name', queryset=Present.objects.all())
+    remind_for_days = serializers.SlugRelatedField(slug_field='days', queryset=RemindForDays.objects.all())
+    # recipient = serializers.PrimaryKeyRelatedField(queryset=Recipient.objects.all())
+    # reason = serializers.PrimaryKeyRelatedField(queryset=Reason.objects.all())
+    # present = serializers.PrimaryKeyRelatedField(queryset=Present.objects.all())
+    # remind_for_days = serializers.PrimaryKeyRelatedField(queryset=RemindForDays.objects.all())
+    # recipient = serializers.CharField(max_length=50)
+    # reason = serializers.CharField(max_length=50)
+    # present = serializers.CharField(max_length=50)
+    # remind_for_days = serializers.IntegerField()
+
     remind_every_years = serializers.BooleanField()
 
     class Meta:
         model = AboutPresent
-        fields = ['id', 'name', 'email', 'phone', 'about_present', 'recipient',
-                  'reason', 'present', 'remind_for_days', 'remind_every_years']
+        fields = ['id', 'name', 'email', 'phone', 'about_present',
+                  'recipient', 'reason', 'present', 'remind_for_days',
+                  'remind_every_years']
 
-    # def validated_date
     def validate_dates(self, value):
 
         if len(value) < 1:
@@ -69,15 +78,20 @@ class AboutPresentSerializer(serializers.ModelSerializer):
             return value
 
     def save(self, validated_data):
-
+        recipient = Recipient.objects.get(name=validated_data['recipient'].name)
+        reason = Reason.objects.get(name=validated_data['reason'].name)
+        present = Present.objects.get(name=validated_data['present'].name)
+        remind_for_days = RemindForDays.objects.get(days=validated_data["remind_for_days"].days)
         with transaction.atomic():
+
             present = AboutPresent(name=validated_data['name'], email=validated_data['email'],
-                                   phone=validated_data['phone'], recipient=validated_data['recipient'],
-                                   reason=validated_data['reason'], present=validated_data['present'],
-                                   remind_for_days=validated_data['remind_for_days'],
+                                   phone=validated_data['phone'], recipient_id=recipient.id,
+                                   reason_id=reason.id, present_id=present.id,
+                                   remind_for_days_id=remind_for_days.id,
                                    remind_every_years=validated_data['remind_every_years'])
 
             present.save()
+
             for value in validated_data['about_present']:
                 date = Date(date=value.get("date"), presents_id=present.id)
                 date.save()
