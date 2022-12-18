@@ -18,9 +18,21 @@ window.addEventListener('scroll', () => {
 
 // menu drop down
 const headerNavList = document.querySelector('.header__nav-list-mobile');
-const headerNavMobileBtn = document.querySelector('.header__nav-mobile-btn');
+const headerNavMobileBtn = document.querySelector('.header__nav-mobile-btn')
+const dropDownPresentsMobile = document.querySelectorAll('.drop__down-present-wrapper')
+const dropDownSalesMobile = document.querySelectorAll('.drop-down-menu-wrapper')
 headerNavMobileBtn.addEventListener('click', () => {
     headerNavList.classList.toggle('header__nav-active');
+    dropDownPresentsMobile.forEach(item => {
+        if (item.classList.contains('active')){
+            item.classList.remove('active')
+        }
+    })
+    dropDownSalesMobile.forEach(item => {
+        if (item.classList.contains('active')){
+            item.classList.remove('active')
+        }
+    })
 })
 
 // get phone in header
@@ -70,3 +82,13 @@ window.onload = function () {
         })
     })
 }
+const Footer = document.querySelector('footer')
+const Header = document.querySelector('header')
+const windowUp = document.getElementById('#windowUp')
+const windowDown = document.getElementById('#windowDown')
+windowUp.addEventListener('click', () => {
+    scrollBy(0,Header.getBoundingClientRect().top)
+})
+windowDown.addEventListener('click', () => {
+    scrollBy(0,Footer.getBoundingClientRect().bottom)
+})

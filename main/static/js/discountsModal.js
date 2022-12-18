@@ -27,9 +27,15 @@ closeModal.addEventListener('click', () => {
 
 
 if (window.innerWidth < 480) {
+    const headerNavListMobile = document.querySelector('.header__nav-list-mobile');
     presentBtn.addEventListener('click', () => {
         presentsBtn.classList.toggle('active');
+        salesBtn.classList.remove('active')
+        if (headerNavListMobile.classList.contains('header__nav-active')){
+            headerNavListMobile.classList.remove('header__nav-active')
+        }
     })
+
 } else {
     presentBtn.addEventListener('click', () => {
         dropPresentModal.style.display = 'flex';
@@ -59,9 +65,14 @@ if (window.innerWidth < 480) {
     }
 }
 if (window.innerWidth < 480) {
+    const headerNavListMobile = document.querySelector('.header__nav-list-mobile');
     discountsBtn.forEach(item => {
         item.addEventListener('click', () => {
             salesBtn.classList.toggle('active')
+            presentsBtn.classList.remove('active')
+            if (headerNavListMobile.classList.contains('header__nav-active')){
+                headerNavListMobile.classList.remove('header__nav-active')
+            }
         })
     })
 } else {

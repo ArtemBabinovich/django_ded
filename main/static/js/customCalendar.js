@@ -132,6 +132,9 @@ dateNowBtn.forEach(dateNowBtnItem => {
         dateNow.forEach(item => {
             selectedText.innerHTML = `${calendarDateNow.getDate() < 10 ? ('0' + calendarDateNow.getDate()) : calendarDateNow.getDate() }.${calendarDateNow.getMonth() < 10 ? '0' + (calendarDateNow.getMonth() + 1) :calendarDateNow.getMonth() + 1}.${calendarDateNow.getFullYear()}`
         })
+        calendar.forEach(calendarItem => {
+            calendarItem.classList.remove('calendarActive')
+        })
     })
 })
 dateNowClearBtn.forEach(dateNowClearBtnItem => {

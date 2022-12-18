@@ -19,7 +19,6 @@ function getSwiperItem(url,url2,url3) {
                                 </div>
                                 `
                 }
-                let timer = i.time_pause_for_mini_slider
                 miniSlidersWrapper.innerHTML += `
                                                 <div class="main__content-block-mini-slider-item" id="${i.url}">
                                                     <div class="mini__slider-title-wrapper">
@@ -157,7 +156,9 @@ function getSwiperItem(url,url2,url3) {
                                                                         </ul>
                                                                     </div>
                                                                     <div class="swiper__tips-backAll">
-                                                                        Свернуть ВСЕ ...
+                                                                        <span id="#swiperBackAll">
+                                                                            Свернуть ВСЕ ...
+                                                                        </span>
                                                                     </div>
                                                                     <div class="swiper__tips-openAllBlock">
                                                                         <div class="swiper__tips-drop-title">

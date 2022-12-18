@@ -101,9 +101,10 @@
                                                     Скидка 300 рублей за заказ от 3 000 рублей
                                                     </span>
                         </div>
-                        <button type="submit" class="secondBlock__form-btn">
-                            ОТПРАВИТЬ
-                        </button>
+<!--                        <button type="button" class="secondBlock__form-btn">-->
+<!--                            ОТПРАВИТЬ-->
+<!--                        </button>-->
+                        <input class="secondBlock__form-btn" type="submit" value="ОТПРАВИТЬ">
                     </form>
                 </div>
             </div>
@@ -1258,11 +1259,21 @@
                                 <p>работу</p>
                             </a>
                         </li>
-                        <li class="main__down-navigation-list-item">
-                            ВВЕРХ
+                        <li class="main__down-navigation-list-item windowUp" id="#windowUp">
+                            <p>
+                                ВВЕРХ
+                            </p>
+                            <div class="navigation__list-item-img-wrapper">
+                                <img src="{% static 'img/icons/arrowUpIcon.svg' %}" alt="">
+                            </div>
                         </li>
-                        <li class="main__down-navigation-list-item">
-                            ВНИЗ
+                        <li class="main__down-navigation-list-item windowDown" id="#windowDown">
+                            <p>
+                                ВНИЗ
+                            </p>
+                            <div class="navigation__list-item-img-wrapper">
+                                <img src="{% static 'img/icons/arrowDownIcon.svg' %}" alt="">
+                            </div>
                         </li>
                     </ul>
                 </div>
@@ -1330,7 +1341,50 @@
                                         </div>
                                     </div>
                                     <div class="main__content-block-sale-btn">
-                                        ПОЛУЧИТЬ СКИДКУ по АКЦИИ
+                                        <p>
+                                            ПОЛУЧИТЬ СКИДКУ по АКЦИИ
+                                        </p>
+                                        <div class="main__content-sale-block-btn">
+                                            <div class="main__content-sale-block-wrapper">
+                                                <div class="main__content-sale-block-title">
+                                                    ПОЛУЧИТЬ СКИДКУ по АКЦИИ
+                                                </div>
+                                                <div class="main__content-sale-block-item-wrapper">
+                                                    <div class="main__content-sale-block-item">
+                                                        <div class="main__content-sale-block-item-title">
+                                                            СЕГОДНЯ
+                                                        </div>
+                                                        <div class="main__content-sale-block-item-sub-title">
+                                                            31 сентября 2019
+                                                        </div>
+                                                        <div class="main__content-sale-block-item-main-text">
+                                                            <p>ВИДЕОРОЛИК</p>
+                                                            <p>из ваших фото</p>
+                                                            <p>под музыку</p>
+                                                        </div>
+                                                        <div class="main__content-sale-block-item-swiper swiper">
+                                                            <div class="main__content-sale-block-item-swiper-wrapper swiper-wrapper">
+                                                                <div class="main__content-sale-block-swiper-item swiper-slide">
+                                                                    <img src="{% static 'img/dropTipsImage.jpg' %}" alt="">
+                                                                </div>
+                                                                <div class="main__content-sale-block-swiper-item swiper-slide">
+                                                                    <img src="{% static 'img/workImageSecond.png' %}" alt="">
+                                                                </div>
+                                                                <div class="main__content-sale-block-swiper-item swiper-slide">
+                                                                    <img src="{% static 'img/workImageFirst.png' %}" alt="">
+                                                                </div>
+                                                                <div class="main__content-sale-block-swiper-item swiper-slide">
+                                                                    <img src="{% static 'img/dropTipsImage.jpg' %}" alt="">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="main__content-sale-block-item-main-text-">
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="main__content-block-page-navigation">
@@ -1475,30 +1529,64 @@
                                 </div>
                                 <div class="main__content-sale-block-item-wrapper">
                                     <div class="main__content-sale-block-item">
-                                        <div class="main__content-sale-block-item-title">
-                                            СЕГОДНЯ
+                                        <div class="main__content-sale-block-item-time-wrapper">
+                                            <div class="main__content-sale-block-item-time">
+                                                СЕГОДНЯ
+                                            </div>
+                                            <div class="main__content-sale-block-item-sub-time">
+                                                31 сентября 2019
+                                            </div>
                                         </div>
-                                        <div class="main__content-sale-block-item-sub-title">
-                                            31 сентября 2019
+                                        <div class="main__content-sale-block-item-img">
+                                            <div class="main__content-sale-block-item-img-wrapper">
+                                                <img src="{% static 'img/dropDownImage.png'  %}" alt="">
+                                            </div>
                                         </div>
-                                        <div class="main__content-sale-block-item-main-text">
-                                            <p>ВИДЕОРОЛИК</p>
-                                            <p>из ваших фото</p>
-                                            <p>под музыку</p>
+                                        <div class="main__content-sale-block-item-main-text-wrapper">
+                                            <div class="main__content-sale-block-item-main-title">
+                                                <div class="main__content-sale-block-item-main-title-item">
+                                                    Картины
+                                                </div>
+                                            </div>
+                                            <div class="main__content-sale-block-item-main-text">
+                                                <p>ВИДЕОРОЛИК</p>
+                                                <p>из ваших фото</p>
+                                                <p>под музыку</p>
+                                            </div>
                                         </div>
                                         <div class="main__content-sale-block-item-swiper swiper">
                                             <div class="main__content-sale-block-item-swiper-wrapper swiper-wrapper">
                                                 <div class="main__content-sale-block-swiper-item swiper-slide">
                                                     <img src="{% static 'img/dropTipsImage.jpg' %}" alt="">
+                                                    <div class="main__content-sale-block-swiper-item-title">
+                                                        <p>
+                                                            Ресторан
+                                                        </p>
+                                                    </div>
                                                 </div>
                                                 <div class="main__content-sale-block-swiper-item swiper-slide">
                                                     <img src="{% static 'img/workImageSecond.png' %}" alt="">
+                                                    <div class="main__content-sale-block-swiper-item-title">
+                                                        <p>
+                                                            Кафе
+                                                        </p>
+                                                    </div>
                                                 </div>
                                                 <div class="main__content-sale-block-swiper-item swiper-slide">
                                                     <img src="{% static 'img/workImageFirst.png' %}" alt="">
+                                                    <div class="main__content-sale-block-swiper-item-title">
+                                                        <p>
+                                                            Коридор
+                                                        </p>
+                                                    </div>
                                                 </div>
                                                 <div class="main__content-sale-block-swiper-item swiper-slide">
                                                     <img src="{% static 'img/dropTipsImage.jpg' %}" alt="">
+                                                    <div class="main__content-sale-block-swiper-item-title">
+                                                        <p>
+                                                            Офис
+                                                        </p>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -1584,9 +1672,7 @@
 <script src="{% static 'js/discountsModal.js' %}" defer></script>
 <script src="{% static 'js/customSelect.js' %}" defer></script>
 <script src="{% static 'js/customCalendar.js' %}" defer></script>
-<script src="{% static 'js/miniSliders.js' %}" defer></script>
 <script src="{% static 'js/mainService.js' %}" defer></script>
-<script src="{% static 'js/mainSale.js' %}" defer></script>
 <script src="{% static 'js/dropDownService.js' %}" defer></script>
 </body>
 </html>

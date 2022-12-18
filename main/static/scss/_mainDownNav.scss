@@ -40,3 +40,31 @@
     text-shadow: 2px 2px 2px rgb(50 0 0);
   }
 }
+.windowUp{
+  gap: 10px;
+}
+.navigation__list-item-img-wrapper{
+  width: 30px;
+  & img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+.windowDown{
+  gap: 10px;
+  position: relative;
+
+}
+@media (max-width: 1919px) {
+  .windowUp{
+    & p {
+      display: none;
+    }
+  }
+  .windowDown{
+    & p {
+      display: none;
+    }
+  }
+}

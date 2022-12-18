@@ -7,3 +7,11 @@ mainServiceBlock.addEventListener('click', (e) => {
         mainServiceBlockDrop.classList.toggle('mainBtnActive');
     }
 })
+const mainSalesBlock = document.querySelector('.main__content-block-sale-btn'),
+    mainSaleBlockDrop = document.querySelector('.main__content-sale-block-btn');
+
+mainSalesBlock.addEventListener('click', (e) => {
+    if (e.target.tagName === 'P' || e.target === e.currentTarget){
+        mainSaleBlockDrop.classList.toggle('mainBtnActive');
+    }
+})
