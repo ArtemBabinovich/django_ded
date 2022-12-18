@@ -10,11 +10,11 @@ class ServicesCatalog(models.Model):
     image_for_big_slider = models.ImageField('Фотография большого слайдера',
                                              upload_to='services/static/img/foto_big_slider')
     color_title = ColorField('Цвет заголовка', format='hexa', default='#FFFFFFFF')
-    is_active = models.BooleanField('Активня', default=False)
+    is_active = models.BooleanField('Активня', default=True)
     url = models.SlugField('URL', max_length=255, unique=True, db_index=True)
-    time_pause_for_mini_slider = models.PositiveIntegerField('Время для слайда "мини_слайдера',
-                                                             default=4000,
-                                                             blank=True)
+    # time_pause_for_mini_slider = models.PositiveIntegerField('Время для слайда "мини_слайдера',
+    #                                                          default=4000,
+    #                                                          blank=True)
     position = models.OneToOneField('ServicesCatalogPosition',
                                     on_delete=models.CASCADE,
                                     verbose_name='Номер очереди',
@@ -29,12 +29,14 @@ class ServicesCatalog(models.Model):
     # banner = models.ForeignKey('Вовка свяжи БАННЕР', verbose_name='Баннер')
 
     class Meta:
-        verbose_name = 'Создание РАЗДЕЛА УСЛУГ'
-        verbose_name_plural = 'Создание РАЗДЕЛА УСЛУГ'
+        verbose_name = 'Создание КАТАЛОГА УСЛУГ'
+        verbose_name_plural = 'Создание КАТАЛОГА УСЛУГ'
         ordering = ('position',)
 
     def __str__(self):
-        return self.title
+        if not self.additional_title:
+            return self.title
+        return f'{self.title} {self.additional_title}'
 
 
 class ServicesCatalogPosition(models.Model):
@@ -70,9 +72,9 @@ class Services(models.Model):
                                               null=True,
                                               blank=True)
     bottom_description = models.CharField('Описание фотослайдера', max_length=128, blank=True, null=True)
-    color_bottom_description = ColorField('Цвет описания', format='hexa', blank=True,null=True)
+    color_bottom_description = ColorField('Цвет описания', format='hexa', blank=True, null=True)
     bottom_description_2 = models.CharField('Доп. описание фотослайдера', max_length=128, blank=True, null=True)
-    color_bottom_description_2 = ColorField('Цвет доп. описания', format='hexa', blank=True,null=True)
+    color_bottom_description_2 = ColorField('Цвет доп. описания', format='hexa', blank=True, null=True)
     service_catalog = models.ForeignKey(ServicesCatalog,
                                         related_name='services',
                                         on_delete=models.SET_NULL,
@@ -80,7 +82,7 @@ class Services(models.Model):
                                         blank=True,
                                         null=True,
                                         verbose_name='К какому РАЗДЕЛУ УСЛУГ отнести:')
-    is_active = models.BooleanField('Активная', default=False)
+    is_active = models.BooleanField('Активная', default=True)
     position_service = models.OneToOneField('PositionServices',
                                             on_delete=models.CASCADE,
                                             verbose_name='Номер очереди',

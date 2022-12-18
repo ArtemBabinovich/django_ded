@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'tinymce',
+    # 'python_telegram_bot',
     'ckeditor',
 
     'main',
@@ -48,6 +49,8 @@ INSTALLED_APPS = [
     'api_routers',
     'services',
     'modules',
+    'about_present',
+    'get_discount',
 
 ]
 
@@ -184,7 +187,24 @@ TINYMCE_DEFAULT_CONFIG = {
     "width": "960px",
     "menubar": "False",
     "plugins": "advlist autolink lists link image charmap print preview anchor searchreplace visualblocks code "
-    "fullscreen insertdatetime media table paste code help wordcount spellchecker",
+               "fullscreen insertdatetime media table paste code help wordcount spellchecker",
     "toolbar": "bold italic underline strikethrough | fontselect fontsizeselect | forecolor ",
     "language": "ru_RU",
 }
+
+CELERY_BROKER_URL = "redis://redis:6379"
+CELERY_RESULT_BACKEND = "redis://redis:6379"
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+
+# params mail for test !!!
+DEFAULT_USER_MAIL = 'someloginfor@yandex.ru'
+EMAIL_USE_SSL = True
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_HOST_USER = 'someloginfor@yandex.ru'
+EMAIL_HOST_PASSWORD = 'someloginfor1234'
+EMAIL_PORT = 465
+
+
+DATE_INPUT_FORMATS = ['%d/%m/%Y']

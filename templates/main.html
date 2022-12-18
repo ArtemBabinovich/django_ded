@@ -71,7 +71,7 @@
                             </li>
                         </ul>
                     </div>
-                    <form method="POST" action="https://developer.itec.by/api/discont/add/" class="secondBock__form-wrapper">
+                    <form method="POST" action="" class="secondBock__form-wrapper">
                         {% csrf_token %}
                         <div class="secondBlock__first-form">
                             <div class="form-title">
@@ -379,7 +379,8 @@
                     </div>
                 </div>
                 <div class="present__secondBlock">
-                    <form method="POST" action="/" class="present__secondBlock-form">
+                    <form method="POST" action="" class="present__secondBlock-form">
+                        {% csrf_token %}
                         <div class="present__secondBlock-formFirstBlock">
                             <input type="text" name="name" placeholder="ИМЯ *">
                             <input type="email" name="email" placeholder="E-mail *">
@@ -569,7 +570,8 @@
                             </li>
                         </ul>
                     </div>
-                    <form method="POST" action="/" class="secondBock__form-wrapper">
+                    <form method="POST" action="" class="secondBock__form-wrapper">
+                        {% csrf_token %}
                         <div class="secondBlock__first-form">
                             <div class="form-title">
                                 Данные ТВОИ
@@ -585,9 +587,9 @@
                                 Данные ДРУГА
                             </div>
                             <div class="form-input-wrapper">
-                                <input type="text" name="name" placeholder="Имя друга *">
-                                <input type="tel" name="phone" placeholder="Телефон друга *">
-                                <input type="email" name="email" placeholder="E-mail друга *">
+                                <input type="text" name="friends_name" placeholder="Имя друга *">
+                                <input type="tel" name="friends_phone" placeholder="Телефон друга *">
+                                <input type="email" name="friends_email" placeholder="E-mail друга *">
                             </div>
                         </div>
                         <div class="form__subTitle">
@@ -659,7 +661,8 @@
                                     </div>
                                 </div>
                                 <div class="present__secondBlock">
-                                    <form method="POST" action="/" class="present__secondBlock-form">
+                                    <form method="POST" action="" class="present__secondBlock-form">
+                                        {% csrf_token %}
                                         <div class="present__secondBlock-formFirstBlock">
                                             <input type="text" name="name" id="#presentFormNameMobile"
                                                    placeholder="ИМЯ *">
@@ -979,7 +982,8 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <form method="POST" action="/" class="secondBock__form-wrapper">
+                                    <form method="POST" action="" class="secondBock__form-wrapper">
+                                        {% csrf_token %}
                                         <div class="secondBlock__first-form">
                                             <div class="form-title">
                                                 Данные ТВОИ
@@ -998,11 +1002,11 @@
                                                 Данные ДРУГА
                                             </div>
                                             <div class="form-input-wrapper">
-                                                <input type="text" name="name" id="#secondFormNameMobile"
+                                                <input type="text" name="friends_name" id="#secondFormNameMobile"
                                                        placeholder="Имя друга *">
-                                                <input type="tel" name="phone" id="#secondFormPhoneMobile"
+                                                <input type="tel" name="friends_phone" id="#secondFormPhoneMobile"
                                                        placeholder="Телефон друга *">
-                                                <input type="email" name="email" id="#secondFormEmailMobile"
+                                                <input type="email" name="friends_email" id="#secondFormEmailMobile"
                                                        placeholder="E-mail друга *">
                                             </div>
                                         </div>

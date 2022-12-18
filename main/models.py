@@ -3,7 +3,7 @@ from django.db import models
 
 
 class TimeSlideBase(models.Model):
-    """Таймер времени паузы для фотослайдера"""
+    """Таймер времени паузы для главного фотослайдера"""
     time_pause = models.PositiveIntegerField('Таймер времени в миллисекундах', default=4000)
 
     class Meta:
