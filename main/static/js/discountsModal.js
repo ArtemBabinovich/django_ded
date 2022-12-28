@@ -267,3 +267,41 @@ secondFormPhone.oninput = () => {
 secondFormEmail.oninput = () => {
     secondFormEmail.value = secondFormEmail.value.replace(/\s/g, '')
 }
+function post_sale(url) {
+    if (secondFormEmail.value === firstFormEmail){
+        secondFormEmail.style.border = '1px solid red'
+        firstFormEmail.style.border = '1px solid red'
+    }else if(firstFormPhone.value === secondFormPhone.value){
+        firstFormPhone.style.border = '1px solid red'
+        secondFormPhone.style.border = '1px solid red'
+    } else{
+            secondFormEmail.style.border = '1px solid white'
+        firstFormEmail.style.border = '1px solid white'
+        firstFormPhone.style.border = '1px solid white'
+        secondFormPhone.style.border = '1px solid white'
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': getCookie('csrftoken'),
+            },
+
+            body: JSON.stringify(
+                {
+                    name: firstFormName.value,
+                    phone: firstFormPhone.value,
+                    email: firstFormEmail.value,
+                    friends_name: secondFormName.value,
+                    friends_phone: secondFormPhone.value,
+                    friends_email: secondFormEmail.value,
+                }
+            ),
+        })
+            .then(resp => resp.json())
+            .then(res => console.log(res))
+    }
+}
+const saleBtnPost = document.querySelector('.secondBlock__form-btn');
+saleBtnPost.addEventListener('click', () => {
+    post_sale('https://developer.itec.by/api/discont/add/')
+})

@@ -101,10 +101,9 @@
                                                     Скидка 300 рублей за заказ от 3 000 рублей
                                                     </span>
                         </div>
-<!--                        <button type="button" class="secondBlock__form-btn">-->
-<!--                            ОТПРАВИТЬ-->
-<!--                        </button>-->
-                        <input class="secondBlock__form-btn" type="submit" value="ОТПРАВИТЬ">
+                        <button type="button" class="secondBlock__form-btn">
+                            ОТПРАВИТЬ
+                        </button>
                     </form>
                 </div>
             </div>
@@ -1011,14 +1010,14 @@
                                             </div>
                                         </div>
                                         <div class="form__subTitle">
-                                                    <span>
+                                            <span>
                                                     Все поля обязательны для заполнения!
                                                     </span>
                                             <span>
                                                     Скидка 300 рублей за заказ от 3 000 рублей
                                                     </span>
                                         </div>
-                                        <button type="submit" class="secondBlock__form-btn">
+                                        <button type="button" class="secondBlock__form-btn">
                                             ОТПРАВИТЬ
                                         </button>
                                     </form>
@@ -1175,6 +1174,9 @@
                 <div class="container">
                     <div class="main__header-nav-list">
                         <ul class="main__nav-list">
+                            <div class="main__header-nav-list-btn-mobile">
+                                меню сайта
+                            </div>
                             <li class="main__nav-list-item">
                                 <a href="#">
                                     ГЛАВНАЯ
@@ -1227,6 +1229,9 @@
             <nav class="main__down-navigation">
                 <div class="main__down-navigation-wrapper">
                     <ul class="main__down-navigation-list">
+                        <div class="main__down-navigation-list-btn-mobile">
+                            меню страницы
+                        </div>
                         <li class="main__down-navigation-list-item">
                             <a href="#">
                                 <p>ВЫБРАТЬ</p>
@@ -1251,17 +1256,17 @@
                                 <p>на рассылку</p>
                             </a>
                         </li>
-                        <li class="main__down-navigation-list-item">
-                            <a href="#">
+                        <li class="main__down-navigation-list-item" id="#remindPresents">
+                            <div href="#">
                                 <p>НАПОМНИТЬ</p>
                                 <p>о подарке</p>
-                            </a>
+                            </div>
                         </li>
-                        <li class="main__down-navigation-list-item">
-                            <a href="#">
+                        <li class="main__down-navigation-list-item" id="#getWrok">
+                            <div>
                                 <p>ПОЛУЧИТЬ</p>
                                 <p>работу</p>
-                            </a>
+                            </div>
                         </li>
                         <li class="main__down-navigation-list-item windowUp" id="#windowUp">
                             <p>
@@ -1348,42 +1353,193 @@
                                         <p>
                                             ПОЛУЧИТЬ СКИДКУ по АКЦИИ
                                         </p>
-                                        <div class="main__content-sale-block-btn">
-                                            <div class="main__content-sale-block-wrapper">
-                                                <div class="main__content-sale-block-title">
-                                                    ПОЛУЧИТЬ СКИДКУ по АКЦИИ
-                                                </div>
-                                                <div class="main__content-sale-block-item-wrapper">
-                                                    <div class="main__content-sale-block-item">
-                                                        <div class="main__content-sale-block-item-title">
+                                    </div>
+                                    <div class="main__content-sale-block-btn">
+                                        <div class="main__content-sale-block-wrapper">
+                                            <div class="main__content-sale-block-title">
+                                                ПОЛУЧИТЬ СКИДКУ по АКЦИИ
+                                            </div>
+                                            <div class="main__content-sale-block-item-wrapper">
+                                                <div class="main__content-sale-block-item">
+                                                    <div class="main__content-sale-block-item-time-wrapper">
+                                                        <div class="main__content-sale-block-item-time">
                                                             СЕГОДНЯ
                                                         </div>
-                                                        <div class="main__content-sale-block-item-sub-title">
+                                                        <div class="main__content-sale-block-item-sub-time">
                                                             31 сентября 2019
+                                                        </div>
+                                                    </div>
+                                                    <div class="main__content-sale-block-item-img">
+                                                        <div class="main__content-sale-block-item-img-wrapper">
+                                                            <img src="{% static 'img/dropDownImage.png'  %}" alt="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="main__content-sale-block-item-main-text-wrapper">
+                                                        <div class="main__content-sale-block-item-main-title">
+                                                            <div class="main__content-sale-block-item-main-title-item">
+                                                                Картины
+                                                            </div>
                                                         </div>
                                                         <div class="main__content-sale-block-item-main-text">
                                                             <p>ВИДЕОРОЛИК</p>
                                                             <p>из ваших фото</p>
                                                             <p>под музыку</p>
                                                         </div>
-                                                        <div class="main__content-sale-block-item-swiper swiper">
-                                                            <div class="main__content-sale-block-item-swiper-wrapper swiper-wrapper">
-                                                                <div class="main__content-sale-block-swiper-item swiper-slide">
-                                                                    <img src="{% static 'img/dropTipsImage.jpg' %}" alt="">
+                                                    </div>
+                                                    <div class="main__content-sale-block-item-swiper swiper">
+                                                        <div class="main__content-sale-block-item-swiper-wrapper swiper-wrapper">
+                                                            <div class="main__content-sale-block-swiper-item swiper-slide">
+                                                                <img src="{% static 'img/dropTipsImage.jpg' %}" alt="">
+                                                                <div class="main__content-sale-block-swiper-item-title">
+                                                                    <p>
+                                                                        Ресторан
+                                                                    </p>
                                                                 </div>
-                                                                <div class="main__content-sale-block-swiper-item swiper-slide">
-                                                                    <img src="{% static 'img/workImageSecond.png' %}" alt="">
+                                                            </div>
+                                                            <div class="main__content-sale-block-swiper-item swiper-slide">
+                                                                <img src="{% static 'img/workImageSecond.png' %}" alt="">
+                                                                <div class="main__content-sale-block-swiper-item-title">
+                                                                    <p>
+                                                                        Кафе
+                                                                    </p>
                                                                 </div>
-                                                                <div class="main__content-sale-block-swiper-item swiper-slide">
-                                                                    <img src="{% static 'img/workImageFirst.png' %}" alt="">
+                                                            </div>
+                                                            <div class="main__content-sale-block-swiper-item swiper-slide">
+                                                                <img src="{% static 'img/workImageFirst.png' %}" alt="">
+                                                                <div class="main__content-sale-block-swiper-item-title">
+                                                                    <p>
+                                                                        Коридор
+                                                                    </p>
                                                                 </div>
-                                                                <div class="main__content-sale-block-swiper-item swiper-slide">
-                                                                    <img src="{% static 'img/dropTipsImage.jpg' %}" alt="">
+                                                            </div>
+                                                            <div class="main__content-sale-block-swiper-item swiper-slide">
+                                                                <img src="{% static 'img/dropTipsImage.jpg' %}" alt="">
+                                                                <div class="main__content-sale-block-swiper-item-title">
+                                                                    <p>
+                                                                        Офис
+                                                                    </p>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="main__content-sale-block-item-main-text-">
-
+                                                    </div>
+                                                    <div class="main__content-sale-block-item-main-text-wrapper">
+                                                        <div class="main__content-sale-block-item-main-title">
+                                                            <div class="main__content-sale-block-item-main-title-item">
+                                                                ЖАНР и ТЕМА
+                                                            </div>
+                                                            <div class="main__content-sale-block-item-main-title-item">
+                                                                оформление интерьера
+                                                            </div>
+                                                            <div class="main__content-sale-block-item-main-title-item">
+                                                                на выбор
+                                                            </div>
+                                                        </div>
+                                                        <div class="main__content-sale-block-item-main-text">
+                                                            <p>ВИДЕОРОЛИК</p>
+                                                            <p>из ваших фото</p>
+                                                            <p>под музыку</p>
+                                                        </div>
+                                                        <div class="main__content-sale-block-item-main-star">
+                                                            *
+                                                        </div>
+                                                        <div class="main__content-sale-block-item-main-title">
+                                                            <div class="main__content-sale-block-item-main-title-item">
+                                                                При первом заказе
+                                                            </div>
+                                                            <div class="main__content-sale-block-item-main-title-item">
+                                                                Скидка
+                                                            </div>
+                                                            <div class="main__content-sale-block-item-main-title-item">
+                                                                10%
+                                                            </div>
+                                                        </div>
+                                                        <div class="main__content-sale-block-item-main-end">
+                                                            <p class="main__content-sale-block-item-main-end-title">
+                                                                До конца акции осталось
+                                                            </p>
+                                                            <div class="main__content-sale-block-item-main-end-time">
+                                                                <div class="main__content-sale-block-item-main-end-time-item">
+                                                                    <div class="main__content-sale-block-item-main-end-time-item-date-wrap">
+                                                                        <div class="main__content-sale-block-item-main-end-time-item-date">
+                                                                            <p>
+                                                                                3
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="main__content-sale-block-item-main-end-time-item-date">
+                                                                            <p>
+                                                                                0
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="main__content-sale-block-item-main-end-time">
+                                                                        <p>
+                                                                            дней
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="main__content-sale-block-item-main-end-time-item">
+                                                                    <div class="main__content-sale-block-item-main-end-time-item-date-wrap">
+                                                                        <div class="main__content-sale-block-item-main-end-time-item-date">
+                                                                            <p>
+                                                                                3
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="main__content-sale-block-item-main-end-time-item-date">
+                                                                            <p>
+                                                                                0
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="main__content-sale-block-item-main-end-time">
+                                                                        <p>
+                                                                            часов
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="main__content-sale-block-item-main-end-time-item">
+                                                                    <div class="main__content-sale-block-item-main-end-time-item-date-wrap">
+                                                                        <div class="main__content-sale-block-item-main-end-time-item-date">
+                                                                            <p>
+                                                                                3
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="main__content-sale-block-item-main-end-time-item-date">
+                                                                            <p>
+                                                                                0
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="main__content-sale-block-item-main-end-time">
+                                                                        <p>
+                                                                            минут
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="main__content-sale-block-item-main-end-time-item">
+                                                                    <div class="main__content-sale-block-item-main-end-time-item-date-wrap">
+                                                                        <div class="main__content-sale-block-item-main-end-time-item-date">
+                                                                            <p>
+                                                                                3
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="main__content-sale-block-item-main-end-time-item-date">
+                                                                            <p>
+                                                                                0
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="main__content-sale-block-item-main-end-time">
+                                                                        <p>
+                                                                            секунд
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="main__content-sale-block-item-main-more">
+                                                            <a href="#">
+                                                                Подробнее
+                                                            </a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1553,9 +1709,9 @@
                                                 </div>
                                             </div>
                                             <div class="main__content-sale-block-item-main-text">
-                                                <p>ВИДЕОРОЛИК</p>
-                                                <p>из ваших фото</p>
-                                                <p>под музыку</p>
+                                                ВИДЕОРОЛИК
+                                                из ваших фото
+                                                под музыку
                                             </div>
                                         </div>
                                         <div class="main__content-sale-block-item-swiper swiper">
@@ -1594,8 +1750,125 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="main__content-sale-block-item-main-text-">
-
+                                        <div class="main__content-sale-block-item-main-text-wrapper">
+                                            <div class="main__content-sale-block-item-main-title">
+                                                <div class="main__content-sale-block-item-main-title-item">
+                                                    ЖАНР и ТЕМА
+                                                </div>
+                                                <div class="main__content-sale-block-item-main-title-item">
+                                                    оформление интерьера
+                                                </div>
+                                                <div class="main__content-sale-block-item-main-title-item">
+                                                    на выбор
+                                                </div>
+                                            </div>
+                                            <div class="main__content-sale-block-item-main-text">
+                                                ВИДЕОРОЛИК
+                                                из ваших фото
+                                                под музыку
+                                            </div>
+                                            <div class="main__content-sale-block-item-main-star">
+                                                *
+                                            </div>
+                                            <div class="main__content-sale-block-item-main-title">
+                                                <div class="main__content-sale-block-item-main-title-item">
+                                                    При первом заказе
+                                                </div>
+                                                <div class="main__content-sale-block-item-main-title-item">
+                                                    Скидка
+                                                </div>
+                                                <div class="main__content-sale-block-item-main-title-item">
+                                                    10%
+                                                </div>
+                                            </div>
+                                            <div class="main__content-sale-block-item-main-end">
+                                                <p class="main__content-sale-block-item-main-end-title">
+                                                    До конца акции осталось
+                                                </p>
+                                                <div class="main__content-sale-block-item-main-end-time">
+                                                    <div class="main__content-sale-block-item-main-end-time-item">
+                                                        <div class="main__content-sale-block-item-main-end-time-item-date-wrap">
+                                                            <div class="main__content-sale-block-item-main-end-time-item-date">
+                                                                <p>
+                                                                    3
+                                                                </p>
+                                                            </div>
+                                                            <div class="main__content-sale-block-item-main-end-time-item-date">
+                                                                <p>
+                                                                    0
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="main__content-sale-block-item-main-end-time">
+                                                            <p>
+                                                                дней
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="main__content-sale-block-item-main-end-time-item">
+                                                        <div class="main__content-sale-block-item-main-end-time-item-date-wrap">
+                                                            <div class="main__content-sale-block-item-main-end-time-item-date">
+                                                                <p>
+                                                                    3
+                                                                </p>
+                                                            </div>
+                                                            <div class="main__content-sale-block-item-main-end-time-item-date">
+                                                                <p>
+                                                                    0
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="main__content-sale-block-item-main-end-time">
+                                                            <p>
+                                                                часов
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="main__content-sale-block-item-main-end-time-item">
+                                                        <div class="main__content-sale-block-item-main-end-time-item-date-wrap">
+                                                            <div class="main__content-sale-block-item-main-end-time-item-date">
+                                                                <p>
+                                                                    3
+                                                                </p>
+                                                            </div>
+                                                            <div class="main__content-sale-block-item-main-end-time-item-date">
+                                                                <p>
+                                                                    0
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="main__content-sale-block-item-main-end-time">
+                                                            <p>
+                                                                минут
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="main__content-sale-block-item-main-end-time-item">
+                                                        <div class="main__content-sale-block-item-main-end-time-item-date-wrap">
+                                                            <div class="main__content-sale-block-item-main-end-time-item-date">
+                                                                <p>
+                                                                    3
+                                                                </p>
+                                                            </div>
+                                                            <div class="main__content-sale-block-item-main-end-time-item-date">
+                                                                <p>
+                                                                    0
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="main__content-sale-block-item-main-end-time">
+                                                            <p>
+                                                                секунд
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="main__content-sale-block-item-main-more">
+                                                <a href="#">
+                                                    Подробнее
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

@@ -14,7 +14,7 @@
 .main__nav-list-item{
   flex: 1 1 auto;
   text-align: center;
-  background: linear-gradient(to bottom, #d20300, #710909);
+  background: linear-gradient(0deg, rgb(125, 2, 2) 34%, rgb(223, 3, 0) 73%);
   border-right: 1px solid black;
   &:hover{
     background: #3c0000;
@@ -35,4 +35,47 @@
 }
 .main__content-wrapper{
   display: flex;
+}
+.main__header-nav-list-btn-mobile{
+  display: none;
+  position: relative;
+  width: 100%;
+  padding: 10px;
+  text-shadow: 2px 2px 2px rgb(50 0 0);
+  font-family: Tahoma;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 19px;
+  color: white;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  background: linear-gradient(0deg, rgb(125, 2, 2) 34%, rgb(223, 3, 0) 73%);
+  &:after{
+    content: url(../img/icons/dropDownIcon.svg);
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+  }
+}
+@media (max-width: 767px) {
+  .main__nav-list{
+    flex-direction: column;
+  }
+  .main__nav-list-item{
+    display: none;
+  }
+  .main__header-nav-list-btn-mobile{
+    display: flex;
+  }
+  .main__down-navigation-list-btn-mobile{
+    display: flex !important;
+  }
+}
+.mainNavListItemActive{
+  display: block;
 }
