@@ -5,8 +5,7 @@ from about_present.views import AboutPresentAdd, FullApiInfoViewSets
 from contacts import APIviews
 from get_discount.views import GetDiscountAdd
 from main import viewsAPI
-# from modules.APIviews import FotoForBannerViewSet, CalendarViewSet, TimerViewSet, \
-#     BannerViewSet, ModuleViewSet
+from modules.APIviews import ModuleForMainPageViewSet
 from services import views
 
 router = routers.DefaultRouter()
@@ -15,11 +14,7 @@ router.register(r'time_slider_base', viewsAPI.TimeSlideBaseViewSet)
 router.register(r'social_networks', APIviews.SocialNetworksViewSet)
 # ЮРЛ БАННЕР
 router.register(r'phone', APIviews.PhoneViewSet)
-# router.register(r'banners/fotos', FotoForBannerViewSet)
-# router.register(r'banners/calendar', CalendarViewSet)
-# router.register(r'banners/timer', TimerViewSet)
-# router.register(r'banners', BannerViewSet)
-# router.register(r'modules', ModuleViewSet)
+router.register(r'modules/main_page', ModuleForMainPageViewSet, basename='main_page')
 # ЮРЛ каллендарь напоминаний
 router.register(r'presents/add', AboutPresentAdd, basename='present_add')
 router.register(r'presents/get', FullApiInfoViewSets, basename='present_get')

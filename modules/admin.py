@@ -1,7 +1,20 @@
 from django.contrib import admin
 
 from .models import  FotoForBanner, Banner1, Title1ForBanner2, Title2ForBanner2, Banner2, Banner3,\
-    TextForBanner4, Banner4, Banner5
+    TextForBanner4, Banner4, Banner5, ModuleForMainPage
+
+
+from django.contrib import admin
+
+class ModuleForMainPageAdmin(admin.ModelAdmin):
+  def has_add_permission(self, request):
+    num_objects = self.model.objects.count()
+    if num_objects >= 1:
+      return False
+    else:
+      return True
+
+
 
 
 class Banner1Admin(admin.ModelAdmin):
@@ -39,12 +52,14 @@ class Banner5Admin(admin.ModelAdmin):
     ordering = ('banner_position', )
 
 admin.site.register(Banner1, Banner1Admin)
-admin.site.register(Title1ForBanner2)
-admin.site.register(Title2ForBanner2)
 admin.site.register(Banner2, Banner2Admin)
 admin.site.register(Banner3, Banner3Admin)
-admin.site.register(TextForBanner4)
 admin.site.register(Banner4, Banner4Admin)
 admin.site.register(Banner5, Banner5Admin)
+admin.site.register(ModuleForMainPage, ModuleForMainPageAdmin)
 admin.site.register(FotoForBanner)
+admin.site.register(TextForBanner4)
+admin.site.register(Title1ForBanner2)
+admin.site.register(Title2ForBanner2)
+
 
