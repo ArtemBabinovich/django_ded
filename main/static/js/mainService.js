@@ -19,7 +19,7 @@ function get__services(url) {
                 }
                 serviceBlockWrapper.forEach(item => {
                 item.innerHTML += `<div class="service__block-item">
-                                                        <div class="service__block-item-title" style="color: ${i.color_title}">
+                                                        <div class="service__block-item-title">
                                                             ${i.title}
                                                         </div>
                                                         <ul class="service__block-item-list">

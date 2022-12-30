@@ -1,11 +1,39 @@
 const header = document.querySelector('header');
 const mainHeaderNav = document.querySelector('.main__nav-list');
-const mainDownNav = document.querySelector('.main__down-navigation-list')
+const mainDownNav = document.querySelector('.main__down-navigation-list');
+const btnDropMobile = document.querySelector('.main__nav-list');
+const mainHeaderNavItem = document.querySelectorAll('.main__nav-list-item');
+const btnDropMobileDown = document.querySelector('.main__down-navigation-list');
+const btnDropMobileDownItem = document.querySelectorAll('.main__down-navigation-list-item');
+
+
+btnDropMobileDown.addEventListener('click', (e) => {
+    if (e.target.tagName === 'LI' || e.target.tagName === 'P'){
+        btnDropMobileDownItem.forEach(item => {
+            item.classList.remove('mainDownListActive')
+        })
+    }else if (e.target.className === 'main__down-navigation-list-btn-mobile'){
+        btnDropMobileDownItem.forEach(item => {
+            item.classList.toggle('mainDownListActive')
+        })
+    }
+})
+btnDropMobile.addEventListener('click', (e) => {
+    if (e.target.tagName === 'LI' || e.target.tagName === 'A'){
+        mainHeaderNavItem.forEach(item => {
+            item.classList.remove('mainNavListItemActive')
+        })
+    }else if (e.target.className === 'main__header-nav-list-btn-mobile'){
+        mainHeaderNavItem.forEach(item => {
+            item.classList.toggle('mainNavListItemActive')
+        })
+    }
+})
 window.addEventListener('scroll', () => {
     if (Math.ceil(pageYOffset) >= header.offsetHeight){
         if (window.innerWidth <= 1024){
-            mainHeaderNav.style.display = 'none';
-            mainDownNav.style.display = 'none';
+            mainHeaderNav.style.display = 'flex';
+            mainDownNav.style.display = 'flex';
         }else {
             mainHeaderNav.style.display = 'flex';
             mainDownNav.style.display = 'flex';
@@ -86,6 +114,17 @@ const Footer = document.querySelector('footer')
 const Header = document.querySelector('header')
 const windowUp = document.getElementById('#windowUp')
 const windowDown = document.getElementById('#windowDown')
+const getWork = document.getElementById('#getWrok');
+const getWorkBlock = document.querySelector('.get__work-block');
+const remindPresents = document.getElementById('#remindPresents');
+
+remindPresents.addEventListener('click', () => {
+    scrollBy(0,header.getBoundingClientRect().top)
+})
+getWork.addEventListener('click', () => {
+    scrollBy(0, (getWorkBlock.getBoundingClientRect().top - 40))
+})
+
 windowUp.addEventListener('click', () => {
     scrollBy(0,Header.getBoundingClientRect().top)
 })

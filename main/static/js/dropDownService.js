@@ -11,6 +11,7 @@ const mainSalesBlock = document.querySelector('.main__content-block-sale-btn'),
     mainSaleBlockDrop = document.querySelector('.main__content-sale-block-btn');
 
 mainSalesBlock.addEventListener('click', (e) => {
+    console.log(e.currentTarget)
     if (e.target.tagName === 'P' || e.target === e.currentTarget){
         mainSaleBlockDrop.classList.toggle('mainBtnActive');
     }

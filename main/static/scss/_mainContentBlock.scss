@@ -65,7 +65,7 @@
   display: none;
   position: absolute;
   top: 34px;
-  left: 0;
+  right: 0;
   width: 100%;
   max-width: 330px;
   background: #3c0000;
@@ -280,6 +280,10 @@
   }
   .main__content-block-mini-sliders {
     max-width: 100%;
+  }
+  .main__content-sale-block-btn{
+    max-width: 100%;
+    top: 92px;
   }
   //.mini__swiper-wrapper{
   //  gap: 20px;

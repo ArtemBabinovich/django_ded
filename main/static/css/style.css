@@ -208,7 +208,7 @@ html {
   left: 0;
   top: 35px;
   width: 100%;
-  z-index: 11;
+  z-index: 30;
 }
 
 .header__nav-list-item-mobile {
@@ -675,7 +675,7 @@ html {
 .main__nav-list-item {
   flex: 1 1 auto;
   text-align: center;
-  background: linear-gradient(to bottom, #d20300, #710909);
+  background: linear-gradient(0deg, rgb(125, 2, 2) 34%, rgb(223, 3, 0) 73%);
   border-right: 1px solid black;
 }
 .main__nav-list-item:hover {
@@ -697,6 +697,51 @@ html {
 
 .main__content-wrapper {
   display: flex;
+}
+
+.main__header-nav-list-btn-mobile {
+  display: none;
+  position: relative;
+  width: 100%;
+  padding: 10px;
+  text-shadow: 2px 2px 2px rgb(50, 0, 0);
+  font-family: Tahoma;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 19px;
+  color: white;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  background: linear-gradient(0deg, rgb(125, 2, 2) 34%, rgb(223, 3, 0) 73%);
+}
+.main__header-nav-list-btn-mobile:after {
+  content: url(../img/icons/dropDownIcon.svg);
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+
+@media (max-width: 767px) {
+  .main__nav-list {
+    flex-direction: column;
+  }
+  .main__nav-list-item {
+    display: none;
+  }
+  .main__header-nav-list-btn-mobile {
+    display: flex;
+  }
+  .main__down-navigation-list-btn-mobile {
+    display: flex !important;
+  }
+}
+.mainNavListItemActive {
+  display: block;
 }
 
 .main__slider {
@@ -1799,6 +1844,10 @@ html {
     align-items: center;
     max-width: 290px;
   }
+  .btn__drop-down-present {
+    padding-top: 100px;
+    padding-bottom: 5px;
+  }
   .firstBlock__title-Wrapper {
     border-radius: 55px 55px 0 0;
   }
@@ -2189,7 +2238,7 @@ html {
   display: none;
   position: absolute;
   top: 34px;
-  left: 0;
+  right: 0;
   width: 100%;
   max-width: 330px;
   background: #3c0000;
@@ -2399,6 +2448,10 @@ html {
   .main__content-block-mini-sliders {
     max-width: 100%;
   }
+  .main__content-sale-block-btn {
+    max-width: 100%;
+    top: 92px;
+  }
   .main__content-block-wrapper {
     padding: 0;
   }
@@ -2461,8 +2514,18 @@ html {
 .main__content-sale-block-item {
   border: 1px solid #f0e6be;
   position: relative;
-  padding-bottom: 20px;
   background: linear-gradient(90deg, rgb(41, 0, 0) 20%, rgb(134, 3, 3) 73%);
+}
+
+.main__content-sale-block-item-main-title {
+  margin-bottom: 15px;
+}
+
+.main__content-sale-block-item-main-star {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 28px;
+  color: #f0e6be;
 }
 
 .main__content-sale-block-item-main-title-item {
@@ -2471,22 +2534,19 @@ html {
   font-weight: 700;
   font-family: "Verdana";
   text-align: center;
-  text-transform: uppercase;
   line-height: 30px;
 }
 
 .main__content-sale-block-item-main-text {
   display: flex;
   flex-direction: column;
-  margin-bottom: 25px;
-}
-.main__content-sale-block-item-main-text p {
   font-size: 16px;
   line-height: 30px;
   color: #f0e6be;
   font-weight: 400;
   font-family: "Verdana";
   text-align: center;
+  padding: 0 5px 0 13px;
 }
 
 .main__content-sale-block-swiper-item {
@@ -2500,6 +2560,7 @@ html {
 
 .main__content-sale-block-item-swiper {
   margin-bottom: 30px;
+  margin-top: 25px;
 }
 
 .main__content-sale-block-swiper-item-title {
@@ -2538,6 +2599,82 @@ html {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+.main__content-sale-block-item-main-end {
+  border-bottom: 1px solid #f0e6be;
+  border-top: 1px solid #f0e6be;
+  padding: 15px 0;
+}
+
+.main__content-sale-block-item-main-end-title {
+  font-size: 18px;
+  line-height: 30px;
+  color: #f0e6be;
+  font-family: "Verdana";
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.main__content-sale-block-item-main-end-time {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.main__content-sale-block-item-main-end-time-item-date-wrap {
+  display: flex;
+  gap: 5px;
+}
+
+.main__content-sale-block-item-main-end-time-item-date {
+  width: 25px;
+  height: 55px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  line-height: 17px;
+  color: #fff0c8;
+  font-family: "Verdana";
+  font-weight: 700;
+  font-style: normal;
+  background: linear-gradient(180deg, rgb(210, 34, 34) 42%, rgb(83, 4, 4) 60%);
+}
+
+.main__content-sale-block-item-main-end-time {
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 17px;
+  color: #fff0c8;
+  font-family: "Verdana";
+  font-style: normal;
+  font-weight: 400;
+  text-align: center;
+}
+
+.main__content-sale-block-item-main-more {
+  margin: 15px 0;
+  display: flex;
+  justify-content: center;
+}
+.main__content-sale-block-item-main-more a {
+  font-size: 18px;
+  line-height: 30px;
+  color: #f0e6be;
+  font-family: "Verdana";
+  text-align: center;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.main__content-sale-block-item-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 @media (max-width: 1919px) {
@@ -3041,6 +3178,7 @@ html {
   }
   .subscription__block-wrapper {
     gap: 40px;
+    align-items: flex-end;
     padding-bottom: 20px;
   }
   .first__know-block {
@@ -3206,7 +3344,7 @@ html {
   align-items: center;
   justify-content: center;
   border-right: 1px solid black;
-  background: linear-gradient(to bottom, #d20300, #710909);
+  background: linear-gradient(0deg, rgb(125, 2, 2) 34%, rgb(223, 3, 0) 73%);
   font-family: Verdana;
   font-style: normal;
   font-weight: 700;
@@ -3249,6 +3387,33 @@ html {
   position: relative;
 }
 
+.main__down-navigation-list-btn-mobile {
+  display: none;
+  position: relative;
+  width: 100%;
+  padding: 10px;
+  text-shadow: 2px 2px 2px rgb(50, 0, 0);
+  font-family: Tahoma;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 19px;
+  color: white;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  background: linear-gradient(0deg, rgb(125, 2, 2) 34%, rgb(223, 3, 0) 73%);
+}
+.main__down-navigation-list-btn-mobile:after {
+  content: url(../img/icons/dropDownIcon.svg);
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+
 @media (max-width: 1919px) {
   .windowUp p {
     display: none;
@@ -3257,6 +3422,18 @@ html {
     display: none;
   }
 }
+@media (max-width: 767px) {
+  .main__down-navigation-list {
+    flex-direction: column;
+  }
+  .main__down-navigation-list-item {
+    display: none;
+  }
+}
+.mainDownListActive {
+  display: flex;
+}
+
 footer {
   padding-top: 40px;
 }
