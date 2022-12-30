@@ -37,6 +37,10 @@ class Title1ForBanner2(models.Model):
     """Текст №1 для баннера № 2"""
     text = models.TextField('Текст №1 для баннера № 2')
 
+    class Meta:
+        verbose_name = 'Текст №1 для баннера № 2'
+        verbose_name_plural = 'Текст №1 для баннера № 2'
+
     def __str__(self):
         return self.text
 
@@ -44,6 +48,10 @@ class Title1ForBanner2(models.Model):
 class Title2ForBanner2(models.Model):
     """Текст №1 для баннера № 2"""
     text = models.TextField('Текст №2 для баннера № 2')
+
+    class Meta:
+        verbose_name = 'Текст №2 для баннера № 2'
+        verbose_name_plural = 'Текст №2 для баннера № 2'
 
     def __str__(self):
         return self.text
@@ -96,6 +104,10 @@ class TextForBanner4(models.Model):
     """Текст №1 для баннера № 2"""
     text = models.TextField('Текст для баннера № 4')
 
+    class Meta:
+        verbose_name = 'Текст №1 для баннера № 4'
+        verbose_name_plural = 'Текст №1 для баннера № 4'
+
     def __str__(self):
         return self.text
 
@@ -139,11 +151,10 @@ class Banner5(models.Model):
 
 class FotoForBanner(models.Model):
     """Добовление фотографии, текста и позиции для слайдера в баннере"""
-    name = models.CharField('Название', max_length=50)
-    item_number = models.IntegerField('Номер позиции в слайдере')
+    name = models.CharField(verbose_name='Название', max_length=50)
+    item_number = models.IntegerField(verbose_name='Номер позиции в слайдере')
     foto = models.ImageField(verbose_name='Изображение для баннера',
                              upload_to='static/img/banner1', null=True, blank=True)
-    text = tinymce_models.HTMLField(verbose_name='Текст', null=True, blank=True, default=None)
 
     class Meta:
         verbose_name = 'Наполнение слайдеров для баннеров'
@@ -153,19 +164,25 @@ class FotoForBanner(models.Model):
     def __str__(self):
         return self.name
 
-# class Module(models.Model):
-#     name = models.CharField('Название модуля', max_length=250)
-#     slot_1 = models.ForeignKey(Banner, on_delete=models.SET_NULL, null=True, blank=True, related_name='slot_1')
-#     slot_2 = models.ForeignKey(Banner, on_delete=models.SET_NULL, null=True, blank=True, related_name='slot_2')
-#     slot_3 = models.ForeignKey(Banner, on_delete=models.SET_NULL, null=True, blank=True, related_name='slot_3')
-#     slot_4 = models.ForeignKey(Banner, on_delete=models.SET_NULL, null=True, blank=True, related_name='slot_4')
-#     slot_5 = models.ForeignKey(Banner, on_delete=models.SET_NULL, null=True, blank=True, related_name='slot_5')
+class ModuleForMainPage(models.Model):
+    """Модуль для главной страницы"""
+    number_slot_bunner_1 = models.IntegerField(verbose_name='Номер слота баннера №1', null=True, blank=True)
+    banner_type_1 = models.ForeignKey(Banner1, on_delete=models.SET_NULL, verbose_name='Выбор баннера типа №1', null=True, blank=True)
+    number_slot_bunner_2 = models.IntegerField(verbose_name='Номер слота баннера №2', null=True, blank=True)
+    banner_type_2 = models.ForeignKey(Banner2, on_delete=models.SET_NULL, verbose_name='Выбор баннера типа №2', null=True, blank=True)
+    number_slot_bunner_3 = models.IntegerField(verbose_name='Номер слота баннера №3', null=True, blank=True)
+    banner_type_3 = models.ForeignKey(Banner3, on_delete=models.SET_NULL, verbose_name='Выбор баннера типа №3', null=True, blank=True)
+    number_slot_bunner_4 = models.IntegerField(verbose_name='Номер слота баннера №4', null=True, blank=True)
+    banner_type_4 = models.ForeignKey(Banner4, on_delete=models.SET_NULL, verbose_name='Выбор баннера типа №4', null=True, blank=True)
+    number_slot_bunner_5 = models.IntegerField(verbose_name='Номер слота баннера №5', null=True, blank=True)
+    banner_type_5 = models.ForeignKey(Banner5, on_delete=models.SET_NULL, verbose_name='Выбор баннера типа №5', null=True, blank=True)
+
+    class Meta:
+        verbose_name = 'Модуль для главной страницы'
+        verbose_name_plural = 'Модуль для главной страницы'
+        unique_together = ['number_slot_bunner_1', 'number_slot_bunner_2', 'number_slot_bunner_3',]
 #
-#     class Meta:
-#         verbose_name = 'Модуль'
-#         verbose_name_plural = 'Модули'
-#
-#     def __str__(self):
-#         return self.name
+    def __str__(self):
+        return 'Модуль для главной страницы'
 
 
