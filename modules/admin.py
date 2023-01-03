@@ -51,15 +51,33 @@ class Banner5Admin(admin.ModelAdmin):
     filter_horizontal = ('slider',)
     ordering = ('banner_position', )
 
+class FotoForBannerAdmin(admin.ModelAdmin):
+    def has_module_permission(self, request):
+        return False
+
+class Title1ForBanner2Admin(admin.ModelAdmin):
+    def has_module_permission(self, request):
+        return False
+
+class Title2ForBanner2Admin(admin.ModelAdmin):
+    def has_module_permission(self, request):
+        return False
+
+class TextForBanner4Admin(admin.ModelAdmin):
+    def has_module_permission(self, request):
+        return False
+
 admin.site.register(Banner1, Banner1Admin)
 admin.site.register(Banner2, Banner2Admin)
 admin.site.register(Banner3, Banner3Admin)
 admin.site.register(Banner4, Banner4Admin)
 admin.site.register(Banner5, Banner5Admin)
 admin.site.register(ModuleForMainPage, ModuleForMainPageAdmin)
-admin.site.register(FotoForBanner)
-admin.site.register(TextForBanner4)
-admin.site.register(Title1ForBanner2)
-admin.site.register(Title2ForBanner2)
+admin.site.register(FotoForBanner, FotoForBannerAdmin)
+admin.site.register(Title1ForBanner2, Title1ForBanner2Admin)
+admin.site.register(Title2ForBanner2, Title2ForBanner2Admin)
+admin.site.register(TextForBanner4, TextForBanner4Admin)
+
+
 
 
