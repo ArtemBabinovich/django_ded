@@ -1,8 +1,7 @@
 from collections import OrderedDict
 
 from rest_framework import serializers
-from .models import FotoForBanner, Banner1, Title1ForBanner2, Title2ForBanner2, Banner2, Banner3,\
-    TextForBanner4, Banner4, Banner5, ModuleForMainPage
+from .models import FotoForBanner, Banner1, Banner2, Banner3, Banner4, Banner5, ModuleForMainPage
 #
 #
 class FotoForBannerSerializer(serializers.ModelSerializer):
@@ -16,27 +15,33 @@ class FotoForBannerSerializer(serializers.ModelSerializer):
 class Banner1Serializer(serializers.ModelSerializer):
     """Сериализер баннера № 1"""
     slider = FotoForBannerSerializer(many=True)
+    timer = serializers.DateTimeField("%d-%m-%Y - %H:%M:%S")
     class Meta:
         model = Banner1
-        exclude = ('id',)
+        fields = ('calendar_title', 'calendar_date', 'text_1', 'slider', 'text_2',
+                  'timer_title', 'timer', 'banner_position')
 
 
 class Banner2Serializer(serializers.ModelSerializer):
     """Сериализер баннера № 2"""
     slider_1 = FotoForBannerSerializer(many=True)
     slider_2 = FotoForBannerSerializer(many=True)
+    timer = serializers.DateTimeField("%d-%m-%Y - %H:%M:%S")
     class Meta:
         model = Banner2
-        exclude = ('id',)
+        fields = ('calendar_title', 'calendar_date', 'text_1', 'slider_1', 'text_2',
+                  'slider_2', 'text_3', 'timer_title', 'timer', 'banner_position')
         depth = 1
 
 
 class Banner3Serializer(serializers.ModelSerializer):
     """Сериализер баннера № 3"""
     slider = FotoForBannerSerializer(many=True)
+    timer = serializers.DateTimeField("%d-%m-%Y - %H:%M:%S")
     class Meta:
         model = Banner3
-        exclude = ('id',)
+        fields = ('calendar_title', 'calendar_date', 'text_1', 'slider', 'text_2',
+                  'timer_title', 'timer', 'banner_position')
 
 
 class Banner4Serializer(serializers.ModelSerializer):
@@ -44,7 +49,8 @@ class Banner4Serializer(serializers.ModelSerializer):
     slider = FotoForBannerSerializer(many=True)
     class Meta:
         model = Banner4
-        exclude = ('id',)
+        fields = ('banner_title', 'text_1', 'slider', 'text_2',
+                  'banner_position')
         depth = 1
 
 
@@ -53,7 +59,8 @@ class Banner5Serializer(serializers.ModelSerializer):
     slider = FotoForBannerSerializer(many=True)
     class Meta:
         model = Banner5
-        exclude = ('id',)
+        fields = ('banner_title', 'text_1', 'slider', 'text_2',
+                  'banner_position')
 
 
 class ModuleForMainPageSerializer(serializers.ModelSerializer):
