@@ -14,7 +14,7 @@ router.register(r'time_slider_base', viewsAPI.TimeSlideBaseViewSet)
 router.register(r'social_networks', APIviews.SocialNetworksViewSet)
 # ЮРЛ БАННЕР
 router.register(r'phone', APIviews.PhoneViewSet)
-router.register(r'modules/main_page', ModuleForMainPageViewSet, basename='main_page')
+router.register(r'banners/main_page', ModuleForMainPageViewSet, basename='main_page')
 # ЮРЛ каллендарь напоминаний
 router.register(r'presents/add', AboutPresentAdd, basename='present_add')
 router.register(r'presents/get', FullApiInfoViewSets, basename='present_get')
