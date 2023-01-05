@@ -1,8 +1,7 @@
 from rest_framework import serializers
 from .models import FotoForBanner, Banner1, Title1ForBanner2, Title2ForBanner2, Banner2, Banner3,\
     TextForBanner4, Banner4, Banner5, ModuleForMainPage
-#
-#
+
 class FotoForBannerSerializer(serializers.ModelSerializer):
     """Сериализер фото для слайдера баннера"""
     # item_number = serializers.IntegerField()
