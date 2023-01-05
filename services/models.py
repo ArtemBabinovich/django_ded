@@ -1,5 +1,29 @@
 from colorfield.fields import ColorField
 from django.db import models
+from django.template.defaultfilters import slugify as dj_slugify
+
+# преобразование кириллицы в Англ.
+alphabet = {'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd', 'е': 'e', 'ё': 'yo', 'ж': 'zh', 'з': 'z', 'и': 'i',
+            'й': 'j', 'к': 'k', 'л': 'l', 'м': 'm', 'н': 'n', 'о': 'o', 'п': 'p', 'р': 'r', 'с': 's', 'т': 't',
+            'у': 'u', 'ф': 'f', 'х': 'kh', 'ц': 'ts', 'ч': 'ch', 'ш': 'sh', 'щ': 'shch', 'ы': 'i', 'э': 'e', 'ю': 'yu',
+            'я': 'ya'}
+
+
+def slugify(some_text, self):
+    """Транскрипция slug с кириллицы на англ алфавит, проверка на уникальность URL"""
+    try:
+        if str(self.__name__) == 'ServicesCatalog':
+            url_format_english = dj_slugify(''.join(alphabet.get(word, word) for word in some_text.lower()))
+            get_url = ServicesCatalog.objects.get(url=url_format_english)
+            url = str(url_format_english) + str(ServicesCatalog.objects.last().id)
+            return url
+        if str(self.__name__) == 'Services':
+            url_format_english = dj_slugify(''.join(alphabet.get(word, word) for word in some_text.lower()))
+            get_url = Services.objects.get(url=url_format_english)
+            url = str(url_format_english) + str(Services.objects.last().id)
+            return url
+    except:
+        return dj_slugify(''.join(alphabet.get(word, word) for word in some_text.lower()))
 
 
 class ServicesCatalog(models.Model):
@@ -38,6 +62,15 @@ class ServicesCatalog(models.Model):
             return self.title
         return f'{self.title} {self.additional_title}'
 
+    def save(self, *args, **kwargs):
+        # Автоматическая генерация урла
+        if self.additional_title:
+            title = f"{self.title}_{self.additional_title}"
+        else:
+            title = self.title
+        self.url = slugify(title, self.__class__)
+        super(ServicesCatalog, self).save(*args, **kwargs)
+
 
 class ServicesCatalogPosition(models.Model):
     """Порядковый номер позиций РАЗДЕЛА УСЛУГ"""
@@ -74,6 +107,7 @@ class Services(models.Model):
     bottom_description = models.CharField('Описание фотослайдера', max_length=128, blank=True, null=True)
     color_bottom_description = ColorField('Цвет описания', format='hexa', blank=True, null=True)
     bottom_description_2 = models.CharField('Доп. описание фотослайдера', max_length=128, blank=True, null=True)
+    url = models.SlugField('URL', max_length=255, unique=True, db_index=True)
     color_bottom_description_2 = ColorField('Цвет доп. описания', format='hexa', blank=True, null=True)
     service_catalog = models.ForeignKey(ServicesCatalog,
                                         related_name='services',
@@ -103,6 +137,15 @@ class Services(models.Model):
 
     def __str__(self):
         return self.service_title
+
+    def save(self, *args, **kwargs):
+        # Автоматическая генерация урла
+        if self.bottom_description:
+            title = f"{self.service_title}_{self.bottom_description}"
+        else:
+            title = self.service_title
+        self.url = slugify(title, self.__class__)
+        super(Services, self).save(*args, **kwargs)
 
 
 class PositionServices(models.Model):

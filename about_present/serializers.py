@@ -33,6 +33,7 @@ class PresentSerializer(serializers.ModelSerializer):
 class DateSerializer(serializers.ModelSerializer):
     """Сериализатор для даты события"""
     date = serializers.DateField(input_formats=settings.DATE_INPUT_FORMATS)
+
     class Meta:
         model = Date
         fields = ['date']
@@ -46,22 +47,19 @@ class RemindForDaysSerializer(serializers.ModelSerializer):
         fields = ['id', 'days']
 
 
+# TODO переделать поле days на стринг
 class AboutPresentSerializer(serializers.ModelSerializer):
     """Сериализатор для оформления подарка"""
+    # remind_for_days = serializers.
     about_present = DateSerializer(many=True)
     recipient = serializers.SlugRelatedField(slug_field='name', queryset=Recipient.objects.all())
     reason = serializers.SlugRelatedField(slug_field='name', queryset=Reason.objects.all())
     present = serializers.SlugRelatedField(slug_field='name', queryset=Present.objects.all())
-    remind_for_days = serializers.SlugRelatedField(slug_field='days', queryset=RemindForDays.objects.all())
+    remind_for_days1 = serializers.SlugRelatedField(slug_field='days', queryset=RemindForDays.objects.all())
     # recipient = serializers.PrimaryKeyRelatedField(queryset=Recipient.objects.all())
     # reason = serializers.PrimaryKeyRelatedField(queryset=Reason.objects.all())
     # present = serializers.PrimaryKeyRelatedField(queryset=Present.objects.all())
     # remind_for_days = serializers.PrimaryKeyRelatedField(queryset=RemindForDays.objects.all())
-    # recipient = serializers.CharField(max_length=50)
-    # reason = serializers.CharField(max_length=50)
-    # present = serializers.CharField(max_length=50)
-    # remind_for_days = serializers.IntegerField()
-
     remind_every_years = serializers.BooleanField()
 
     class Meta:
@@ -83,7 +81,6 @@ class AboutPresentSerializer(serializers.ModelSerializer):
         present = Present.objects.get(name=validated_data['present'].name)
         remind_for_days = RemindForDays.objects.get(days=validated_data["remind_for_days"].days)
         with transaction.atomic():
-
             present = AboutPresent(name=validated_data['name'], email=validated_data['email'],
                                    phone=validated_data['phone'], recipient_id=recipient.id,
                                    reason_id=reason.id, present_id=present.id,

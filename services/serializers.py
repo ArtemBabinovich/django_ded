@@ -12,7 +12,8 @@ class ServicesSerializer(serializers.ModelSerializer):
             'position_service',
             'id',
             'service_title',
-            'marker'
+            'marker',
+            'url',
         ]
 
 
@@ -47,6 +48,7 @@ class SmallSliderSerializer(serializers.ModelSerializer):
             'color_bottom_description',
             'bottom_description_2',
             'color_bottom_description_2',
+            'url',
         ]
 
 
