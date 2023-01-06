@@ -8,6 +8,7 @@ from main import viewsAPI
 from modules.APIviews import FotoForBannerViewSet, CalendarViewSet, TimerViewSet, \
     BannerViewSet, ModuleViewSet
 from services import views
+from video_app.views import VideoApiViewSets
 
 router = routers.DefaultRouter()
 router.register(r'time_slider_base', viewsAPI.TimeSlideBaseViewSet)
@@ -29,6 +30,8 @@ router.register(r'discont/add', GetDiscountAdd, basename='discont_add')
 router.register(r'block_services', views.ServicesCatalogViewSet, basename='block_services')
 router.register(r'big_slider', views.BigSliderViewSet, basename='big_slider')
 router.register(r'small_slider', views.SmallSliderViewSet, basename='small_slider')
+# URL ссылок для видео
+router.register(r'video_links', VideoApiViewSets, basename='video_links')
 
 urlpatterns = [
     path('api/', include(router.urls)),
