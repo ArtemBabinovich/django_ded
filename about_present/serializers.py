@@ -69,7 +69,6 @@ class AboutPresentSerializer(serializers.ModelSerializer):
                   'remind_every_years']
 
     def validate_dates(self, value):
-
         if len(value) < 1:
             raise serializers.ValidationError({"error": "Выберите дату события"})
         else:
