@@ -51,7 +51,8 @@ INSTALLED_APPS = [
     'modules',
     'about_present',
     'get_discount',
-
+    # 'site_visit_analysis',
+    'video_app',
 ]
 
 MIDDLEWARE = [
@@ -192,8 +193,13 @@ TINYMCE_DEFAULT_CONFIG = {
     "language": "ru_RU",
 }
 
-CELERY_BROKER_URL = "redis://redis:6379"
-CELERY_RESULT_BACKEND = "redis://redis:6379"
+
+# CELERY_HOST = 'redis'
+# REDIS_HOST = '0.0.0.0'
+REDIS_HOST = 'localhost'
+REDIS_PORT = '6379'
+CELERY_BROKER_URL = 'redis://' + REDIS_HOST + ':' + REDIS_PORT + '/0'
+CELERY_RESULT_BACKEND = 'redis://' + REDIS_HOST + ':' + REDIS_PORT + '/0'
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
