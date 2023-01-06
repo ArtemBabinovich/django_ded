@@ -8,15 +8,12 @@ from django.db import models
 def validate_current_century(value):
     """Валидатор для выбора года в каллендаре баннера,
        максимальное значение 2050"""
-    print(value)
     if value.year > 2050:
         raise ValidationError('Год не может превышать значение 2050')
 
 def validate_number(value):
     """Валидатор для позиции баннера в модуле"""
-    print(value, '--------------------------')
     if value > 5 or value < 1:
-        print(value)
         raise ValidationError('Введите число от 1 до 5')
 
 class Banner1(models.Model):

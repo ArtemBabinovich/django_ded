@@ -15,7 +15,6 @@ class FotoForBannerSerializer(serializers.ModelSerializer):
 class Banner1Serializer(serializers.ModelSerializer):
     """Сериализер баннера № 1"""
     slider = FotoForBannerSerializer(many=True)
-    timer = serializers.DateTimeField("%d-%m-%Y - %H:%M:%S")
     class Meta:
         model = Banner1
         fields = ('calendar_title', 'calendar_date', 'text_1', 'slider', 'text_2',
@@ -26,7 +25,6 @@ class Banner2Serializer(serializers.ModelSerializer):
     """Сериализер баннера № 2"""
     slider_1 = FotoForBannerSerializer(many=True)
     slider_2 = FotoForBannerSerializer(many=True)
-    timer = serializers.DateTimeField("%d-%m-%Y - %H:%M:%S")
     class Meta:
         model = Banner2
         fields = ('calendar_title', 'calendar_date', 'text_1', 'slider_1', 'text_2',
@@ -37,7 +35,6 @@ class Banner2Serializer(serializers.ModelSerializer):
 class Banner3Serializer(serializers.ModelSerializer):
     """Сериализер баннера № 3"""
     slider = FotoForBannerSerializer(many=True)
-    timer = serializers.DateTimeField("%d-%m-%Y - %H:%M:%S")
     class Meta:
         model = Banner3
         fields = ('calendar_title', 'calendar_date', 'text_1', 'slider', 'text_2',
@@ -77,6 +74,7 @@ class ModuleForMainPageSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
     def to_representation(self, instance):
+        """Отсортированное представление 'json'-а"""
         representation = super().to_representation(instance)
         numbers = []
         banners = []
