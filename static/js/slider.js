@@ -19,7 +19,6 @@ function getSwiperItem(url,url2,url3) {
                                 </div>
                                 `
                 }
-                let timer = i.time_pause_for_mini_slider
                 miniSlidersWrapper.innerHTML += `
                                                 <div class="main__content-block-mini-slider-item" id="${i.url}">
                                                     <div class="mini__slider-title-wrapper">
@@ -157,7 +156,9 @@ function getSwiperItem(url,url2,url3) {
                                                                         </ul>
                                                                     </div>
                                                                     <div class="swiper__tips-backAll">
-                                                                        Свернуть ВСЕ ...
+                                                                        <span id="#swiperBackAll">
+                                                                            Свернуть ВСЕ ...
+                                                                        </span>
                                                                     </div>
                                                                     <div class="swiper__tips-openAllBlock">
                                                                         <div class="swiper__tips-drop-title">
@@ -242,7 +243,7 @@ function getSwiperItem(url,url2,url3) {
                                                                                     1.  Жаль.
                                                                                 </li>
                                                                                 <li class="tips-drop-numericListItem">
-                                                                                    2. В этом случае, 100 рублей остаются у мастера. Это самая минимальная компенсация оплаты рабочего времени, потраченного на обработку вашей фотографии.
+                                                                                    2. В этом случае 100 рублей остаются у мастера. Это самая минимальная компенсация оплаты рабочего времени, потраченного на обработку вашей фотографии.
                                                                                 </li>
                                                                                 <li class="tips-drop-numericListItem">
                                                                                     3. Сравните качество обработки с результатом аналогичной работы в другой студии. 
@@ -377,9 +378,32 @@ function getSwiperItem(url,url2,url3) {
                 })
             }
         })
+
     fetch(url3)
         .then(resp => resp.json())
         .then(res => {
+            const saleBlockWrapper = document.querySelectorAll('.main__content-sale-block-item-wrapper');
+            for (let i of res){
+                saleBlockWrapper.forEach(item => {
+                    item.innerHTML += `
+                                                <div class="main__content-sale-block-item">
+                                                    <div class="main__content-sale-block-item-time-wrapper">
+                                                        <div class="main__content-sale-block-item-time">
+                                                            ${i.text}
+                                                        </div>
+                                                        <div class="main__content-sale-block-item-sub-time" style="${i.calendar ? 'display:block' : 'display:none'}">
+                                                            ${i.calendar === null ? '' : i.calendar.banner_calendar}
+                                                        </div>
+                                                    </div>
+                                                    <div class="main__content-sale-block-item-img">
+                                                        <div class="main__content-sale-block-item-img-wrapper">
+                                                            <img src="${i.url}" alt="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            `
+                })
+            }
             const swiper = new Swiper('.main__content-sale-block-item-swiper', {
                 simulateTouch: false,
                 autoplay: {
@@ -389,9 +413,10 @@ function getSwiperItem(url,url2,url3) {
                 },
                 loop:true,
             })
+
         })
 }
 
 
-getSwiperItem('https://developer.itec.by/api/big_slider/','https://developer.itec.by/api/small_slider/','https://developer.itec.by/api/small_slider/')
+getSwiperItem('https://developer.itec.by/api/big_slider/','https://developer.itec.by/api/small_slider/','https://developer.itec.by/api/banners/')
 

@@ -185,21 +185,24 @@ CKEDITOR_CONFIGS = {
 
 TINYMCE_DEFAULT_CONFIG = {
     "height": "320px",
-    "width": "960px",
+    # "width": "960px",
     "menubar": "False",
     "plugins": "advlist autolink lists link image charmap print preview anchor searchreplace visualblocks code "
                "fullscreen insertdatetime media table paste code help wordcount spellchecker",
-    "toolbar": "bold italic underline strikethrough | fontselect fontsizeselect | forecolor ",
+    "toolbar": " undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft "
+    "aligncenter alignright alignjustify | outdent indent |  numlist bullist checklist | forecolor "
+    "backcolor casechange permanentpen formatpainter removeformat | pagebreak | charmap emoticons | "
+    "fullscreen  preview save  code",
     "language": "ru_RU",
 }
 
 
 # REDIS_HOST = 'redis'
 # REDIS_HOST = '0.0.0.0'
-REDIS_HOST = 'localhost'
+REDIS_HOST = 'redis'
 REDIS_PORT = '6379'
-CELERY_BROKER_URL = 'redis://' + REDIS_HOST + ':' + REDIS_PORT + '/0'
-CELERY_RESULT_BACKEND = 'redis://' + REDIS_HOST + ':' + REDIS_PORT + '/0'
+CELERY_BROKER_URL = 'redis://' + REDIS_HOST + ':' + REDIS_PORT
+CELERY_RESULT_BACKEND = 'redis://' + REDIS_HOST + ':' + REDIS_PORT
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
