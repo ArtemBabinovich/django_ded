@@ -6,6 +6,7 @@ from contacts import APIviews
 from get_discount.views import GetDiscountAdd
 from main import viewsAPI
 from modules.APIviews import ModuleForMainPageViewSet
+from read_tips.views import ContentTips1ApiViewSets
 from services import views
 from video_app.views import VideoApiViewSets
 
@@ -27,6 +28,8 @@ router.register(r'big_slider', views.BigSliderViewSet, basename='big_slider')
 router.register(r'small_slider', views.SmallSliderViewSet, basename='small_slider')
 # URL ссылок для видео
 router.register(r'video_links', VideoApiViewSets, basename='video_links')
+# URL для Читать советы(read_tips)
+router.register(r'content_tips', ContentTips1ApiViewSets, basename='content_tips')
 
 urlpatterns = [
     path('api/', include(router.urls)),
