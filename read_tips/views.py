@@ -2,7 +2,7 @@ from django.db.models import Prefetch
 from rest_framework import viewsets
 
 from read_tips.models import GeneralModel, PromotionsDiscounts
-from read_tips.serializers import MainSer
+from read_tips.serializers import MainSerializer
 from services.models import ServicesCatalog
 
 
@@ -14,5 +14,5 @@ class ContentTips1ApiViewSets(viewsets.ReadOnlyModelViewSet):
                                                               queryset=PromotionsDiscounts.objects.filter(
                                                                   is_activ=True)))))
 
-    serializer_class = MainSer
+    serializer_class = MainSerializer
     lookup_field = 'url'
