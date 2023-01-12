@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'get_discount',
     # 'site_visit_analysis',
     'video_app',
+    'read_tips',
 ]
 
 MIDDLEWARE = [
