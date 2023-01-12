@@ -50,7 +50,6 @@ class RemindForDaysSerializer(serializers.ModelSerializer):
 # TODO переделать поле days на стринг
 class AboutPresentSerializer(serializers.ModelSerializer):
     """Сериализатор для оформления подарка"""
-    # remind_for_days = serializers.
     about_present = DateSerializer(many=True)
     recipient = serializers.SlugRelatedField(slug_field='name', queryset=Recipient.objects.all())
     reason = serializers.SlugRelatedField(slug_field='name', queryset=Reason.objects.all())
