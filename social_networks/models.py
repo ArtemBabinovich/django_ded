@@ -28,6 +28,7 @@ class SubscribeSocialNetworksModel(models.Model):
 class AddSocialNetworks(models.Model):
     """Модель для создания ссылок на социальную сеть"""
     url_social_network = models.CharField('Ссылка на социальную сеть', max_length=511)
+    icon_for_url = models.ImageField('Добавить иконку соц.сети', upload_to='social_networks/static/img/icon')
     image = models.ImageField('Добавить фотографию', upload_to='social_networks/static/img')
 
     class Meta:

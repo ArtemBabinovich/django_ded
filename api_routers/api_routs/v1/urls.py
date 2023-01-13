@@ -8,6 +8,7 @@ from main import viewsAPI
 from modules.APIviews import ModuleForMainPageViewSet
 from read_tips.views import ContentTips1ApiViewSets
 from services import views
+from social_networks.views import SubscribeSocialNetworksApiView
 from video_app.views import VideoApiViewSets
 
 router = routers.DefaultRouter()
@@ -30,6 +31,8 @@ router.register(r'small_slider', views.SmallSliderViewSet, basename='small_slide
 router.register(r'video_links', VideoApiViewSets, basename='video_links')
 # URL для Читать советы(read_tips)
 router.register(r'content_tips', ContentTips1ApiViewSets, basename='content_tips')
+# URL для Ссылок на социальные сети
+router.register(r'url_for_social_networks', SubscribeSocialNetworksApiView, basename='url_for_social_networks')
 
 urlpatterns = [
     path('api/', include(router.urls)),
