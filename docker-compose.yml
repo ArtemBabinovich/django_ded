@@ -10,6 +10,8 @@ services:
       - POSTGRES_DB=db_photoshop
       - POSTGRES_USER=ALebed
       - POSTGRES_PASSWORD=ALebed
+    volumes:
+      - photoshop_pgdata:/var/lib/postgresql/data
   django_ded:
     build:
       context: .
@@ -21,6 +23,7 @@ services:
       - media_volume:/django_ded/media
     depends_on:
       - redis
+      - photoshop_db
   redis:
     image: redis:alpine
     restart: unless-stopped
@@ -47,6 +50,7 @@ services:
     depends_on:
       - redis
 volumes:
+  photoshop_pgdata:
   static_volume:
   media_volume:
   redis_volume:
