@@ -27,6 +27,7 @@ class SubscribeSocialNetworksModel(models.Model):
 
 class AddSocialNetworks(models.Model):
     """Модель для создания ссылок на социальную сеть"""
+    name = models.CharField('Название соц.сети', max_length=128)
     url_social_network = models.CharField('Ссылка на социальную сеть', max_length=511)
     icon_for_url = models.ImageField('Добавить иконку соц.сети', upload_to='social_networks/static/img/icon')
     image = models.ImageField('Добавить фотографию', upload_to='social_networks/static/img')
@@ -36,6 +37,6 @@ class AddSocialNetworks(models.Model):
         verbose_name_plural = 'Создать ссылку на социальную сеть'
 
     def __str__(self):
-        return f"Соц.сеть {self.url_social_network}"
+        return f"Соц.сеть {self.name}"
 
 
