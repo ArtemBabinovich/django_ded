@@ -1,9 +1,8 @@
 from datetime import datetime
 from django.core.exceptions import ValidationError
 from django.core.validators import MaxValueValidator
-from tinymce import models as tinymce_models
 from django.db import models
-
+from ckeditor.fields import RichTextField
 
 def validate_current_century(value):
     """Валидатор для выбора года в каллендаре баннера,
@@ -20,9 +19,9 @@ class Banner1(models.Model):
     """Баннер №1"""
     calendar_title = models.CharField('Заголовок календаря', max_length=100)
     calendar_date = models.DateField(validators=[validate_current_century], verbose_name='Выбор даты')
-    text_1 = tinymce_models.HTMLField(verbose_name='Текстовый блок №1', null=True, blank=True, default=None)
+    text_1 = RichTextField(verbose_name='Текстовый блок №1', null=True, blank=True, default=None)
     slider = models.ManyToManyField('FotoForBanner', verbose_name='Выбрать фото для слайдера',blank=True)
-    text_2 = tinymce_models.HTMLField(verbose_name='Текстовый блок №2', null=True, blank=True, default=None)
+    text_2 = RichTextField(verbose_name='Текстовый блок №2', null=True, blank=True, default=None)
     timer_title = models.CharField('Заголовок таймера', max_length=100)
     timer = models.DateTimeField('Дата и время окончания таймера')
     banner_position = models.IntegerField(verbose_name='Порядковый номер баннера')
@@ -39,11 +38,11 @@ class Banner2(models.Model):
     """Баннер №2"""
     calendar_title = models.CharField('Заголовок календаря', max_length=100)
     calendar_date = models.DateField(validators=[validate_current_century], verbose_name='Выбор даты')
-    text_1 = tinymce_models.HTMLField(verbose_name='Текстовый блок №1', null=True, blank=True, default=None)
+    text_1 = RichTextField(verbose_name='Текстовый блок №1', null=True, blank=True, default=None)
     slider_1 = models.ManyToManyField('FotoForBanner', related_name='slider_1', verbose_name='Выбрать фото для слайдера №1', blank=True)
-    text_2 = tinymce_models.HTMLField(verbose_name='Текстовый блок №2', null=True, blank=True, default=None)
+    text_2 = RichTextField(verbose_name='Текстовый блок №2', null=True, blank=True, default=None)
     slider_2 = models.ManyToManyField('FotoForBanner', related_name='slider_2', verbose_name='Выбрать фото для слайдера №2', blank=True)
-    text_3 = tinymce_models.HTMLField(verbose_name='Текстовый блок №3', null=True, blank=True, default=None)
+    text_3 = RichTextField(verbose_name='Текстовый блок №3', null=True, blank=True, default=None)
     timer_title = models.CharField('Заголовок таймера', max_length=100)
     timer = models.DateTimeField('Дата и время окончания таймера')
     banner_position = models.IntegerField(verbose_name='Порядковый номер баннера')
@@ -60,9 +59,9 @@ class Banner3(models.Model):
     """Баннер №3"""
     calendar_title = models.CharField('Заголовок календаря', max_length=100)
     calendar_date = models.DateField(validators=[validate_current_century], verbose_name='Выбор даты')
-    text_1 = tinymce_models.HTMLField(verbose_name='Текстовый блок №1', null=True, blank=True, default=None)
+    text_1 = RichTextField(verbose_name='Текстовый блок №1', null=True, blank=True, default=None)
     slider = models.ManyToManyField('FotoForBanner', verbose_name='Выбрать фото для слайдера', blank=True)
-    text_2 = tinymce_models.HTMLField(verbose_name='Текстовый блок №2', null=True, blank=True, default=None)
+    text_2 = RichTextField(verbose_name='Текстовый блок №2', null=True, blank=True, default=None)
     timer_title = models.CharField('Заголовок таймера', max_length=100)
     timer = models.DateTimeField('Дата и время окончания таймера')
     banner_position = models.IntegerField(verbose_name='Порядковый номер баннера')
@@ -78,9 +77,9 @@ class Banner3(models.Model):
 class Banner4(models.Model):
     """Баннер №3"""
     banner_title = models.CharField('Заголовок баннера', max_length=100)
-    text_1 = tinymce_models.HTMLField(verbose_name='Текстовый блок №1', null=True, blank=True, default=None)
+    text_1 = RichTextField(verbose_name='Текстовый блок №1', null=True, blank=True, default=None)
     slider = models.ManyToManyField('FotoForBanner', verbose_name='Выбрать фото для слайдера', blank=True)
-    text_2 = tinymce_models.HTMLField(verbose_name='Текстовый блок №2', null=True, blank=True, default=None)
+    text_2 = RichTextField(verbose_name='Текстовый блок №2', null=True, blank=True, default=None)
     banner_position = models.IntegerField(verbose_name='Порядковый номер баннера')
 
     class Meta:
@@ -94,9 +93,9 @@ class Banner4(models.Model):
 class Banner5(models.Model):
     """Баннер №5"""
     banner_title = models.CharField('Заголовок баннера', max_length=100)
-    text_1 = tinymce_models.HTMLField(verbose_name='Текстовый блок №1', null=True, blank=True, default=None)
+    text_1 = RichTextField(verbose_name='Текстовый блок №1', null=True, blank=True, default=None)
     slider = models.ManyToManyField('FotoForBanner', verbose_name='Выбрать фото для слайдера', blank=True)
-    text_2 = tinymce_models.HTMLField(verbose_name='Текстовый блок №2', null=True, blank=True, default=None)
+    text_2 = RichTextField(verbose_name='Текстовый блок №2', null=True, blank=True, default=None)
     banner_position = models.IntegerField(verbose_name='Порядковый номер баннера')
 
     class Meta:
@@ -127,15 +126,15 @@ class FotoForBanner(models.Model):
 class ModuleForMainPage(models.Model):
     """Модуль для главной страницы"""
     number_slot_bunner_1 = models.IntegerField(verbose_name='Номер слота баннера №1', null=True, blank=True, validators=[validate_number])
-    banner_type_1 = models.ForeignKey(Banner1, on_delete=models.SET_NULL, verbose_name='Выбор баннера типа №1', null=True, blank=True)
+    banner_type_1 = models.ManyToManyField(Banner1, verbose_name='Выбор баннеров типа №1', blank=True)
     number_slot_bunner_2 = models.IntegerField(verbose_name='Номер слота баннера №2', null=True, blank=True, validators=[validate_number])
-    banner_type_2 = models.ForeignKey(Banner2, on_delete=models.SET_NULL, verbose_name='Выбор баннера типа №2', null=True, blank=True)
+    banner_type_2 = models.ManyToManyField(Banner2, verbose_name='Выбор баннеров типа №2', blank=True)
     number_slot_bunner_3 = models.IntegerField(verbose_name='Номер слота баннера №3', null=True, blank=True, validators=[validate_number])
-    banner_type_3 = models.ForeignKey(Banner3, on_delete=models.SET_NULL, verbose_name='Выбор баннера типа №3', null=True, blank=True)
+    banner_type_3 = models.ManyToManyField(Banner3, verbose_name='Выбор баннеров типа №3', blank=True)
     number_slot_bunner_4 = models.IntegerField(verbose_name='Номер слота баннера №4', null=True, blank=True, validators=[validate_number])
-    banner_type_4 = models.ForeignKey(Banner4, on_delete=models.SET_NULL, verbose_name='Выбор баннера типа №4', null=True, blank=True)
+    banner_type_4 = models.ManyToManyField(Banner4, verbose_name='Выбор баннеров типа №4', blank=True)
     number_slot_bunner_5 = models.IntegerField(verbose_name='Номер слота баннера №5', null=True, blank=True, validators=[validate_number])
-    banner_type_5 = models.ForeignKey(Banner5, on_delete=models.SET_NULL, verbose_name='Выбор баннера типа №5', null=True, blank=True)
+    banner_type_5 = models.ManyToManyField(Banner5, verbose_name='Выбор баннеров типа №5', blank=True)
 
     class Meta:
         verbose_name = 'Модуль для главной страницы'
