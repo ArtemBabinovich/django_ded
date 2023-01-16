@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     # 'site_visit_analysis',
     'video_app',
     'read_tips',
+    'social_networks',
 ]
 
 MIDDLEWARE = [

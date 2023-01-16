@@ -4,12 +4,12 @@ from read_tips.models import ContentTips, ModelTips, GeneralModel, PromotionsDis
 from services.models import ServicesCatalog, Services
 
 
-class ServicesSerializer(serializers.ModelSerializer):
+class ServicesSerializer1(serializers.ModelSerializer):
     """Сериализатор для УСЛУГ"""
 
     class Meta:
         model = Services
-        fields = ['service_title', 'url', ]
+        fields = ['service_title', 'url']
 
 
 class ServicesCategorySerializer(serializers.ModelSerializer):
@@ -18,13 +18,6 @@ class ServicesCategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = ServicesCatalog
         fields = ['title', 'url', ]
-
-
-#
-# class ServicesCatalogSerializer1(serializers.ModelSerializer):
-#     class Meta:
-#         model = ServicesCatalog
-#         fields = ['url', ]
 
 
 class PromotionsDiscountsSerializer(serializers.ModelSerializer):
@@ -37,7 +30,7 @@ class PromotionsDiscountsSerializer(serializers.ModelSerializer):
 
 class ContentTipsSerializer(serializers.ModelSerializer):
     """Сериализатор для СОДЕРЖИМОГО СОВЕТОВ"""
-    service = ServicesSerializer()
+    service = ServicesSerializer1()
     services_catalog = ServicesCategorySerializer()
 
     class Meta:
