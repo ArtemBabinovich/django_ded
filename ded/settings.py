@@ -113,8 +113,8 @@ DATABASES = {
         'NAME': 'db_photoshop',
         'USER':'ALebed',
         'PASSWORD':'ALebed',
-        'HOST':'localhost',
-        'POST':'5436',
+        'HOST':'photoshop_db',
+        'PORT':'5436',
     }
 }
 
