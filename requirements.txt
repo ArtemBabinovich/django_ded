@@ -39,6 +39,7 @@ packaging==21.3
 Pillow==9.2.0
 prometheus-client==0.15.0
 prompt-toolkit==3.0.33
+psycopg2-binary==2.9.5
 pycparser==2.21
 pyparsing==3.0.9
 python-dateutil==2.8.2
