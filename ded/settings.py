@@ -114,7 +114,6 @@ DATABASES = {
         'USER':'ALebed',
         'PASSWORD':'ALebed',
         'HOST':'photoshop_db',
-        'PORT':'5436',
     }
 }
 
