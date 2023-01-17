@@ -144,4 +144,3 @@ dateNowClearBtn.forEach(dateNowClearBtnItem => {
         });
     })
 })
-

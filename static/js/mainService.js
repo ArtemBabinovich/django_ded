@@ -34,4 +34,3 @@ function get__services(url) {
         })
 }
 get__services('https://developer.itec.by/api/block_services/')
-
