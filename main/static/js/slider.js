@@ -605,8 +605,11 @@ function banners(url) {
             }
             const swiper = new Swiper('.main__content-sale-block-item-swiper', {
                 simulateTouch: false, autoplay: {
-                    delay: 2000, disableOnInteraction: false, pauseOnMouseEnter: true,
-                }, loop: true,
+                    delay: 2000,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true,
+                },
+                loop: true,
             })
         })
 }
