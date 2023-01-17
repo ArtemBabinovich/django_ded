@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'video_app',
     'read_tips',
     'social_networks',
+    'lower_banner',
 ]
 
 MIDDLEWARE = [
@@ -114,6 +115,8 @@ DATABASES = {
         'USER':'ALebed',
         'PASSWORD':'ALebed',
         'HOST':'photoshop_db',
+        # 'HOST':'localhost',
+        # 'PORT':'5432',
     }
 }
 

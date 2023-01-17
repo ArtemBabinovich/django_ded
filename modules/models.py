@@ -109,7 +109,7 @@ class Banner5(models.Model):
 
 
 class FotoForBanner(models.Model):
-    """Добовление фотографии, текста и позиции для слайдера в баннере"""
+    """Добовление фотографии,  и позиции для слайдера в баннере"""
     name = models.CharField(verbose_name='Название', max_length=50)
     item_number = models.IntegerField(verbose_name='Номер позиции в слайдере')
     foto = models.ImageField(verbose_name='Изображение для баннера',
