@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'tinymce',
     # 'python_telegram_bot',
     'ckeditor',
+    'sortedm2m',
+    'sortedm2m_filter_horizontal_widget',
 
     'main',
     'contacts',
@@ -115,8 +117,6 @@ DATABASES = {
         'USER':'ALebed',
         'PASSWORD':'ALebed',
         'HOST':'photoshop_db',
-        # 'HOST':'localhost',
-        # 'PORT':'5432',
     }
 }
 

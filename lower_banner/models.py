@@ -1,8 +1,9 @@
 from django.dispatch import receiver
-from django.db.models.signals import post_save, pre_delete
+from django.db.models.signals import post_save, pre_delete, pre_save
 from autoslug import AutoSlugField
 from ckeditor.fields import RichTextField
 from django.db import models
+from sortedm2m.fields import SortedManyToManyField
 
 from modules.models import validate_current_century
 from services.utils import slugify
@@ -100,7 +101,7 @@ class AllLowerBanners(models.Model):
     class Meta:
         verbose_name = 'Список всех баннеров'
         verbose_name_plural = 'Список всех баннеров'
-        ordering = ('low_banner_1', 'low_banner_2', 'low_banner_3',)
+        # ordering = ('low_banner_1', 'low_banner_2', 'low_banner_3',)
 
 
     def __str__(self):
@@ -116,7 +117,7 @@ class AllLowerBanners(models.Model):
 
 class LowerBannerForMainPage(models.Model):
     """Нижний баннер для главной страницы"""
-    selected_banners = models.ManyToManyField(AllLowerBanners)
+    selected_banners = SortedManyToManyField(AllLowerBanners)
 
     class Meta:
         verbose_name = 'Нижний баннер главной страницы'
