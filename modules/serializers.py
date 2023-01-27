@@ -63,11 +63,11 @@ class Banner5Serializer(serializers.ModelSerializer):
 class ModuleForMainPageSerializer(serializers.ModelSerializer):
 
     """Сериализер модуля для главной страницы"""
-    banner_type_1 = Banner1Serializer()
-    banner_type_2 = Banner2Serializer()
-    banner_type_3 = Banner3Serializer()
-    banner_type_4 = Banner4Serializer()
-    banner_type_5 = Banner5Serializer()
+    banner_type_1 = Banner1Serializer(many=True)
+    banner_type_2 = Banner2Serializer(many=True)
+    banner_type_3 = Banner3Serializer(many=True)
+    banner_type_4 = Banner4Serializer(many=True)
+    banner_type_5 = Banner5Serializer(many=True)
 
     class Meta:
         model = ModuleForMainPage
@@ -85,10 +85,13 @@ class ModuleForMainPageSerializer(serializers.ModelSerializer):
             if value.startswith('banner_type'):
                 banners.append(value)
         for_order = list(zip(numbers, banners))
-        for value in for_order:
-            if value[0] == None or value[1] == None:
+        print(for_order)
+        for value in for_order[-1:0:-1]:
+            if value[0] == None or len(representation.get(value[1])) < 1:
                 for_order.remove(value)
+        print(for_order)
         order_list = sorted(for_order, key=lambda x: (x[0], x[1]))
         for value in order_list:
             result[value[1]] = representation.get(value[1])
         return result
+    

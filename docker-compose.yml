@@ -1,15 +1,17 @@
 version: "3.8"
 
 services:
-#  sqlite3:
-#    container_name: sqlite3_container
-#    image: nouchka/sqlite3:latest
-#    stdin_open: true
-#    tty: true
-#    volumes:
-#      - ./db/:/root/db/
-#    environment:
-#      - SQLITE3_DB=db.sqlite3
+  photoshop_db:
+    container_name: photoshop_db
+    image: postgres:14-alpine
+    ports:
+      - '5436:5432'
+    environment:
+      - POSTGRES_DB=db_photoshop
+      - POSTGRES_USER=ALebed
+      - POSTGRES_PASSWORD=ALebed
+    volumes:
+      - photoshop_pgdata:/var/lib/postgresql/data
   django_ded:
     build:
       context: .
@@ -21,6 +23,7 @@ services:
       - media_volume:/django_ded/media
     depends_on:
       - redis
+      - photoshop_db
   redis:
     image: redis:alpine
     restart: unless-stopped
@@ -47,6 +50,7 @@ services:
     depends_on:
       - redis
 volumes:
+  photoshop_pgdata:
   static_volume:
   media_volume:
   redis_volume:

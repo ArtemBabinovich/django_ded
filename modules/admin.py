@@ -6,47 +6,48 @@ from .models import  FotoForBanner, Banner1, Banner2, Banner3, Banner4, Banner5,
 from django.contrib import admin
 
 class ModuleForMainPageAdmin(admin.ModelAdmin):
-  def has_add_permission(self, request):
-    num_objects = self.model.objects.count()
-    if num_objects >= 1:
-      return False
-    else:
-      return True
+    filter_horizontal = ('banner_type_1', 'banner_type_2', 'banner_type_3', 'banner_type_4', 'banner_type_5',)
+    def has_add_permission(self, request):
+        num_objects = self.model.objects.count()
+        if num_objects >= 1:
+          return False
+        else:
+          return True
 
 
 class Banner1Admin(admin.ModelAdmin):
 
     # fields = '__all__'
     filter_horizontal = ('slider', )
-    ordering = ('banner_position', )
+    # ordering = ('banner_position', )
 
 
 class Banner2Admin(admin.ModelAdmin):
 
     # fields = '__all__'
     filter_horizontal = ('slider_1', 'slider_2',)
-    ordering = ('banner_position', )
+    # ordering = ('banner_position', )
 
 
 class Banner3Admin(admin.ModelAdmin):
 
     # fields = '__all__'
     filter_horizontal = ('slider', )
-    ordering = ('banner_position', )
+    # ordering = ('banner_position', )
 
 
 class Banner4Admin(admin.ModelAdmin):
 
     # fields = '__all__'
     filter_horizontal = ('slider',)
-    ordering = ('banner_position', )
+    # ordering = ('banner_position', )
 
 
 class Banner5Admin(admin.ModelAdmin):
 
     # fields = '__all__'
     filter_horizontal = ('slider',)
-    ordering = ('banner_position', )
+    # ordering = ('banner_position', )
 
 class FotoForBannerAdmin(admin.ModelAdmin):
     def has_module_permission(self, request):

@@ -21,6 +21,7 @@ function get__services(url) {
                 item.innerHTML += `<div class="service__block-item">
                                                         <div class="service__block-item-title">
                                                             ${i.title}
+                                                            ${i.additional_title === null ? '' : i.additional_title }
                                                         </div>
                                                         <ul class="service__block-item-list">
                                                             ${i.services.length === 0 ? '' : serviceItem}
@@ -33,4 +34,3 @@ function get__services(url) {
         })
 }
 get__services('https://developer.itec.by/api/block_services/')
-

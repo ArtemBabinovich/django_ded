@@ -8,16 +8,24 @@
   cursor: pointer;
 }
 .mini__swiper-tips-drop{
-  position: absolute;
   background: #f0e6be;
   width: 100%;
-  z-index: 20 ;
-  //padding: 40px 60px;
   padding-top: 40px;
   display: none;
+  & a {
+    font-size: 18px;
+    line-height: 30px;
+    color: #0000ff;
+    font-family: "Verdana";
+    font-weight: 700;
+  }
 }
-.tips__active{
-  display: block;
+#swiperBackAll{
+  cursor: pointer;
+}
+.mini__swiper-tips{
+  display: flex;
+  flex-direction: column;
 }
 .swiper__tips-drop-title{
   text-align: center;
@@ -39,19 +47,24 @@
   display: none;
 }
 .swiper__tips-drop-about{
-  padding: 0 40px;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  margin-bottom: 20px;
   & p {
+    padding: 0 40px;
     font-size: 14px;
     color: #410000;
     font-weight: 700;
     font-family: Verdana;
   }
+  & a {
+    padding: 0 40px;
+  }
 }
 .swiper__tips-drop-about-head{
-  font-size: 14px;
+  padding: 0 40px;
+  font-size: 18px;
   color: #ff0000;
   font-weight: 700;
   font-family: Verdana;
@@ -106,6 +119,7 @@
     font-weight: 700;
     font-family: Verdana;
     font-style: normal;
+    color: black;
   }
 }
 .swiper__tips-backAll{
@@ -127,7 +141,8 @@
 .swiper__tips-content-action-wrapper{
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 5px;
+  flex-wrap: wrap;
   margin: 20px 0;
   padding: 0 40px;
 }
@@ -164,8 +179,8 @@
 }
 .swiper__tips-anchors-list{
   display: grid;
+  align-items: center;
   grid-template-columns: 1fr 1fr 1fr;
-  row-gap: 15px;
   & a {
     font-size: 18px;
     color: #ff0000;
@@ -174,7 +189,9 @@
     font-style: normal;
   }
 }
-
+.tips__active{
+  display: block;
+}
 @media (max-width: 1919px) {
   .mini__swiper-tips-drop{
     //padding: 40px 30px;

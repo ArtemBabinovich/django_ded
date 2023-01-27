@@ -207,7 +207,6 @@ function post_presents(url) {
         orderSelected = document.querySelector('.order__selected'),
         remindSelected = document.querySelector('.remind__selected');
     let dateNewFormat = presentCalendarDate.textContent.trim()
-    console.log(presentCalendarDate.textContent.trim())
     fetch(url, {
         method: 'POST',
         headers: {
@@ -225,10 +224,10 @@ function post_presents(url) {
                         "date": dateNewFormat.replace(/[^0-9]/g, '/')
                     }
                 ],
-                "recipient": 1,
-                "reason": 2,
-                "present": 2,
-                "remind_for_days": 2,
+                "recipient": whoSelected.textContent.trim(),
+                "reason": occasionSelected.textContent.trim(),
+                "present": orderSelected.textContent.trim(),
+                "remind_for_days": remindSelected.textContent.trim(),
                 "remind_every_years": true
             }
         ),
