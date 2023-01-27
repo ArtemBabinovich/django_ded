@@ -1,5 +1,6 @@
 from autoslug import AutoSlugField
 from ckeditor.fields import RichTextField
+from django.core.exceptions import ValidationError
 from django.db import models
 
 from services.models import ServicesCatalog, Services
@@ -8,13 +9,13 @@ from services.utils import slugify
 
 class GeneralModel(models.Model):
     """Общаяя модель для Советов"""
-    services_catalog = models.ForeignKey(ServicesCatalog,
-                                         related_name='advices_for_services_catalog',
-                                         verbose_name='К какому каталогу прикремить',
-                                         on_delete=models.SET_NULL,
-                                         null=True,
-                                         blank=True)
-    title = models.CharField('Название блока советов', max_length=128)
+    # services_catalog = models.ForeignKey(ServicesCatalog,
+    #                                      related_name='advices_for_services_catalog',
+    #                                      verbose_name='К какому каталогу прикремить',
+    #                                      on_delete=models.SET_NULL,
+    #                                      null=True,
+    #                                      blank=True)
+    # title = models.CharField('Название блока советов', max_length=128)
     advices = models.ManyToManyField('ModelTips',
                                      verbose_name='Какие советы добавить',
                                      # blank=True,
@@ -25,7 +26,12 @@ class GeneralModel(models.Model):
         verbose_name_plural = 'Сборка советов в одну API'
 
     def __str__(self):
-        return self.title
+        return "Сборка совета"
+
+    def save(self, *args, **kwargs):
+        if not self.pk and GeneralModel.objects.exists():
+            raise ValidationError('Можно создать только одну запись а базе')
+        return super(GeneralModel, self).save(*args, **kwargs)
 
 
 class ModelTips(models.Model):

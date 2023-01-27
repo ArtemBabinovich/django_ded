@@ -13,8 +13,8 @@ class PromotionsDiscountsAdmin(admin.ModelAdmin):
 @admin.register(GeneralModel)
 class GeneralModelAdmin(admin.ModelAdmin):
     """Сборка СОВЕТОВ в один блок"""
-    list_display = ['title', 'services_catalog', ]
-    list_editable = ['services_catalog', ]
+    # list_display = ['title', 'services_catalog', ]
+    # list_editable = ['services_catalog', ]
     filter_horizontal = ('advices',)
 
 

@@ -49,6 +49,7 @@ class ModTipServSer(serializers.ModelSerializer):
 
 class ContentTipsServSer1(serializers.ModelSerializer):
     """Сериализатор для сборки якорей"""
+
     class Meta:
         model = ContentTips
         fields = ['title', 'url']
@@ -70,11 +71,10 @@ class GeneralModelSerializer(serializers.ModelSerializer):
         serializer = ContentTipsServSer1(queryset, many=True)
         return serializer.data
 
-
-class MainSerializer(serializers.ModelSerializer):
-    """Главный сериализатор для общего API"""
-    advices_for_services_catalog = GeneralModelSerializer(many=True)
-
-    class Meta:
-        model = ServicesCatalog
-        fields = ['advices_for_services_catalog']
+# class MainSerializer(serializers.ModelSerializer):
+#     """Главный сериализатор для общего API"""
+#     advices_for_services_catalog = GeneralModelSerializer(many=True)
+#
+#     class Meta:
+#         model = ServicesCatalog
+#         fields = ['advices_for_services_catalog']
