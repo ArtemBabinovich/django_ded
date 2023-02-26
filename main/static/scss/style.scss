@@ -69,19 +69,20 @@ html{
   }
 }
 
-@import "header";
-@import "main";
-@import "mainSlider";
-@import "modalWindow";
-@import "customCalendar";
-@import "mainServiceBlock";
-@import "mainContentBlock";
-@import "mainSaleBlock";
-@import "swiperTips";
-@import "subscription";
-@import "getWork";
-@import "mainDownNav";
-@import "footer";
+@import "_header.scss";
+@import "_main.scss";
+@import "_mainSlider.scss";
+@import "_modalWindow.scss";
+@import "_customCalendar.scss";
+@import "_mainServiceBlock.scss";
+@import "_mainContentBlock.scss";
+@import "_mainSaleBlock.scss";
+@import "_swiperTips.scss";
+@import "_subscription.scss";
+@import "_getWork.scss";
+@import "_mainDownNav.scss";
+@import "_footer.scss";
+@import "_test.scss";
 
 .active{
   display: flex !important;
@@ -91,4 +92,7 @@ html{
 }
 .dropDownCalendar{
   display: flex !important;
+}
+.wrapper{
+  display: block;
 }

@@ -180,7 +180,14 @@
 .swiper__tips-anchors-list{
   display: grid;
   align-items: center;
-  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 10px;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-auto-flow: column;
+  align-content: flex-start;
+  & li {
+    justify-self: flex-start;
+    align-self: flex-start;
+  }
   & a {
     font-size: 18px;
     color: #ff0000;

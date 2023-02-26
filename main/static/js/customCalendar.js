@@ -125,12 +125,13 @@ monthPrev.forEach(item => {
 let calendarDateNow = new Date();
 
 dateNow.forEach(dateNowItem => {
-    dateNowItem.innerHTML = `${calendarDateNow.getDate()}.${calendarDateNow.getMonth() + 1}.${calendarDateNow.getFullYear()}`
+    dateNowItem.innerHTML = `${calendarDateNow.getDate()}.${calendarDateNow.getMonth() < 10 ? '0'  + (calendarDateNow.getMonth() + 1) : calendarDateNow.getMonth() + 1}.${calendarDateNow.getFullYear()}`
 })
 dateNowBtn.forEach(dateNowBtnItem => {
     dateNowBtnItem.addEventListener('click',() => {
         dateNow.forEach(item => {
-            selectedText.innerHTML = `${calendarDateNow.getDate() < 10 ? ('0' + calendarDateNow.getDate()) : calendarDateNow.getDate() }.${calendarDateNow.getMonth() < 10 ? '0' + (calendarDateNow.getMonth() + 1) :calendarDateNow.getMonth() + 1}.${calendarDateNow.getFullYear()}`
+            console.log(calendarDateNow.getMonth())
+            selectedText.innerHTML = `${calendarDateNow.getDate() < 10 ? ('0' + calendarDateNow.getDate()) : calendarDateNow.getDate() }.${calendarDateNow.getMonth() < 10 ? '0' + (calendarDateNow.getMonth() + 1) : calendarDateNow.getMonth() + 1}.${calendarDateNow.getFullYear()}`
         })
         calendar.forEach(calendarItem => {
             calendarItem.classList.remove('calendarActive')

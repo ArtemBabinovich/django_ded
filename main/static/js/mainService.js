@@ -5,6 +5,7 @@ function get__services(url) {
     fetch(url)
         .then(resp => resp.json())
         .then(res => {
+            console.log(res)
             let serviceItem = ``;
             for (let i of res.data){
                 for (let j of i.services){
@@ -12,7 +13,7 @@ function get__services(url) {
                                         <div class="service__block-list-item-hit" style="display: ${j.marker === null ? 'none' : 'flex'}">
                                             ${j.marker}
                                         </div>
-                                        <a href="#">
+                                        <a href="${i.url}">
                                             ${j.service_title}
                                         </a>
                                     </li>`

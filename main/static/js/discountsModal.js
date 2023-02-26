@@ -31,7 +31,7 @@ if (window.innerWidth < 480) {
     presentBtn.addEventListener('click', () => {
         presentsBtn.classList.toggle('active');
         salesBtn.classList.remove('active')
-        if (headerNavListMobile.classList.contains('header__nav-active')){
+        if (headerNavListMobile.classList.contains('header__nav-active')) {
             headerNavListMobile.classList.remove('header__nav-active')
         }
     })
@@ -49,11 +49,11 @@ if (window.innerWidth < 480) {
             presentWrapperHover.style.position = 'absolute';
             presentWrapperHover.style.display = 'block';
             if (window.innerWidth < 1920) {
-                presentWrapperHover.style.top = '82px';
+                presentWrapperHover.style.top = '66px';
             } else {
                 presentWrapperHover.style.top = '100px';
             }
-            presentWrapperHover.style.right = '270px';
+            presentWrapperHover.style.right = '255px';
             presentWrapperHover.style.zIndex = '50'
         })
         presentBtn.addEventListener('mouseout', () => {
@@ -70,7 +70,7 @@ if (window.innerWidth < 480) {
         item.addEventListener('click', () => {
             salesBtn.classList.toggle('active')
             presentsBtn.classList.remove('active')
-            if (headerNavListMobile.classList.contains('header__nav-active')){
+            if (headerNavListMobile.classList.contains('header__nav-active')) {
                 headerNavListMobile.classList.remove('header__nav-active')
             }
         })
@@ -90,12 +90,13 @@ if (window.innerWidth < 480) {
                 dropDownModalHover.style.position = 'absolute';
                 dropDownModalHover.style.display = 'block';
                 if (window.innerWidth < 1920) {
-                    dropDownModalHover.style.top = '82px'
+                    dropDownModalHover.style.top = '66px'
                 } else {
                     dropDownModalHover.style.top = '100px'
                 }
                 dropDownModalHover.style.right = '0px';
                 dropDownModalHover.style.zIndex = '50'
+                dropDownModalHover.style.minWidth = '580px'
             })
             item.addEventListener('mouseout', () => {
                 dropDownModalHover.style.display = 'none'
@@ -116,65 +117,83 @@ dropDownModal.addEventListener('click', (e) => {
     }
 })
 
-const selectedChoice = document.querySelector('.who__selected-choice'),
-    selectedChoiceActive = document.querySelector('.who__selected'),
-    occasionChoice = document.querySelector('.occasion__selected-choice'),
-    occasionChoiceActive = document.querySelector('.occasion__selected'),
-    orderChoice = document.querySelector('.order__selected-choice'),
-    orderChoiceActive = document.querySelector('.order__selected'),
-    remindChoice = document.querySelector('.remind__selected-choice'),
-    remindChoiceActive = document.querySelector('.remind__selected');
+const selectedChoice = document.querySelectorAll('.who__selected-choice'),
+    selectedChoiceActive = document.querySelectorAll('.who__selected'),
+    occasionChoice = document.querySelectorAll('.occasion__selected-choice'),
+    occasionChoiceActive = document.querySelectorAll('.occasion__selected'),
+    orderChoice = document.querySelectorAll('.order__selected-choice'),
+    orderChoiceActive = document.querySelectorAll('.order__selected'),
+    remindChoice = document.querySelectorAll('.remind__selected-choice'),
+    remindChoiceActive = document.querySelectorAll('.remind__selected');
 
 function get_presents(url) {
     fetch(url)
         .then(resp => resp.json())
         .then(res => {
             for (let i of res) {
-                selectedChoiceActive.innerHTML = `
-                                                        ${i.reason_set[0].name}
-                                                    `
-                occasionChoiceActive.innerHTML = `
+                selectedChoiceActive.forEach(item => {
+                    item.innerHTML = `
+                                        ${i.reason_set[0].name}
+                                    `
+                })
+                occasionChoiceActive.forEach(item => {
+                    item.innerHTML = `
                                                         ${i.recipient_set[0].name}
                                                     `
-                orderChoiceActive.innerHTML = `
+                })
+                orderChoiceActive.forEach(item => {
+                    item.innerHTML = `
                                                     ${i.present_set[0].name}
                                                 `
-                remindChoiceActive.innerHTML = `
+                })
+                remindChoiceActive.forEach(item => {
+                    item.innerHTML = `
                                                         ${i.remindfordays_set[0].days}
                                                     `
+                })
+                remindChoiceActive
                 for (let j of i.reason_set) {
-                    selectedChoice.innerHTML += `
+                    selectedChoice.forEach(item => {
+                        item.innerHTML += `
                                                     <li class="selected__choice-item"">
                                                         ${j.name}
                                                     </li>
                                                 `
+                    })
                 }
                 for (let k of i.recipient_set) {
-                    occasionChoice.innerHTML += `
+                    occasionChoice.forEach(item => {
+                        item.innerHTML += `
                                                     <li class="selected__choice-item">
                                                         ${k.name}
                                                     </li>
                                                 `
+                    })
                 }
                 for (let b of i.present_set) {
-                    orderChoice.innerHTML += `
+                    orderChoice.forEach(item => {
+                        item.innerHTML += `
                                                     <li class="selected__choice-item">
                                                         ${b.name}
                                                     </li>
                                                 `
+                    })
                 }
                 for (let t of i.remindfordays_set) {
-                    remindChoice.innerHTML += `
+                    remindChoice.forEach(item => {
+                        item.innerHTML += `
                                                     <li class="selected__choice-item">
                                                         ${t.days}
                                                     </li>
                                                 `
+                    })
                 }
             }
         })
 }
 
 get_presents('https://developer.itec.by/api/presents/get/')
+
 function getCookie(name) {
     var cookieValue = null;
     if (document.cookie && document.cookie !== '') {
@@ -190,6 +209,7 @@ function getCookie(name) {
     }
     return cookieValue;
 }
+
 const presentName = document.getElementById('#presentFormName');
 const presentEmail = document.getElementById('#presentFormEmail');
 const presentPhone = document.getElementById('#presentFormPhone');
@@ -199,6 +219,7 @@ presentPhone.oninput = () => {
 presentEmail.oninput = () => {
     presentEmail.value = presentEmail.value.replace(/\s/g, '')
 }
+
 function post_presents(url) {
     const presentForm = document.getElementById('#remindPresentForm'),
         presentCalendarDate = document.getElementById('#presentCalendarDate'),
@@ -266,15 +287,16 @@ secondFormPhone.oninput = () => {
 secondFormEmail.oninput = () => {
     secondFormEmail.value = secondFormEmail.value.replace(/\s/g, '')
 }
+
 function post_sale(url) {
-    if (secondFormEmail.value === firstFormEmail){
+    if (secondFormEmail.value === firstFormEmail) {
         secondFormEmail.style.border = '1px solid red'
         firstFormEmail.style.border = '1px solid red'
-    }else if(firstFormPhone.value === secondFormPhone.value){
+    } else if (firstFormPhone.value === secondFormPhone.value) {
         firstFormPhone.style.border = '1px solid red'
         secondFormPhone.style.border = '1px solid red'
-    } else{
-            secondFormEmail.style.border = '1px solid white'
+    } else {
+        secondFormEmail.style.border = '1px solid white'
         firstFormEmail.style.border = '1px solid white'
         firstFormPhone.style.border = '1px solid white'
         secondFormPhone.style.border = '1px solid white'
@@ -300,6 +322,7 @@ function post_sale(url) {
             .then(res => console.log(res))
     }
 }
+
 const saleBtnPost = document.querySelector('.secondBlock__form-btn');
 saleBtnPost.addEventListener('click', () => {
     post_sale('https://developer.itec.by/api/discont/add/')

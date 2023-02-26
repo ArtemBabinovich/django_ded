@@ -107,6 +107,13 @@ window.onload = function () {
     headerLogo.forEach(item => {
         item.addEventListener('mouseover', () => {
             logoAudio.play()
+            setTimeout(() => {
+                item.addEventListener('mouseover', () => {
+                    logoAudio.play()
+                })
+            },600000)
+            item.removeEventListener('mouseover')
+
         })
     })
 }

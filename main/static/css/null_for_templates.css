@@ -6,7 +6,7 @@
 }
 @font-face {
 	font-family: Cambria;
-	src: url(../fonts/Cambria/Cambria-Bold.ttf);
+	src: url(../fonts/Cambria/cambriab.ttf);
 	font-weight: 700;
 	font-style: normal;
 }
@@ -42,13 +42,13 @@
 }
 @font-face {
 	font-family: Verdana;
-	src: url(../fonts/Verdana/Verdana-Bold.ttf);
+	src: url(../fonts/Verdana/verdanab.ttf);
 	font-weight: 700;
 	font-style: normal;
 }
 @font-face {
 	font-family: Verdana;
-	src: url(../fonts/Verdana/Verdana.ttf);
+	src: url(../fonts/Verdana/verdana.ttf);
 	font-weight: 400;
 	font-style: normal;
 }
