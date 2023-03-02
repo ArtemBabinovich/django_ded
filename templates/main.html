@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{% static 'css/null_for_templates.css' %}">
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'scss/style.css' %}">
     <link rel="shortcut icon" href="{% static 'img/icons/favicon.svg' %}" type="image/x-icon">
     <title>УСЛУГИ ФОТОШОПА | ОБРАБОТКА ФОТО | ФОТОМОНТАЖ | СЛАЙД-ШОУ | ВИДЕОРОЛИК | ФОТОКНИГА | РЕКЛАМА</title>
 </head>
@@ -42,6 +42,16 @@
                             <ul class="secondBlock__nav-list">
                             </ul>
                         </nav>
+                        <div class="secondBlock-sub-title">
+                            <div class="sub__title-item">
+                                <span>*</span>
+                                <p>Поля обязательны к заполнению!</p>
+                            </div>
+                            <div class="sub__title-item">
+                                <span>*</span>
+                                <p>Скидка 300р. за заказ от 3 000 р.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="drop__down-menu-secondBlock">
@@ -52,22 +62,22 @@
                         <ul class="instruction__list">
                             <li class="instruction__list-item">
                                 1. Размести ссылку <br>
-                                <a href="#">https://АНДРЕЙЛЕБЕДЬ.рф</a> в соцсети!
+                                <a href="#">https://АНДРЕЙЛЕБЕДЬ.рф</a> у себя в соцсети!
                             </li>
                             <li class="instruction__list-item">
                                 2. Порекомендуй нас друзьям!
                             </li>
                             <li class="instruction__list-item">
-                                3. Скидка твоему другу - <span>5%</span>
+                                3. СКИДКА твоему ДРУГУ - <span>5%</span>
                             </li>
                             <li class="instruction__list-item">
-                                4. Скидка тебе за друга - <span>10%</span>
+                                4. Скидка ТЕБЕ за друга - <span>10%</span>
                             </li>
                             <li class="instruction__list-item">
-                                5. Куда нам отправить промокод?
+                                5. Заполни поля формы.
                             </li>
                             <li class="instruction__list-item">
-                                6. Заполни поля формы!
+                                6. Ожидай промокод!
                             </li>
                         </ul>
                     </div>
@@ -78,9 +88,9 @@
                                 Данные ТВОИ
                             </div>
                             <div class="form-input-wrapper">
-                                <input type="text" name="name" id="#firstFormName" placeholder="Имя *">
-                                <input type="tel" name="phone" id="#firstFormPhone" placeholder="Телефон *">
+                                <input type="text" name="name" id="#firstFormName" placeholder="ИМЯ *">
                                 <input type="email" name="email" id="#firstFormEmail" placeholder="E-mail *">
+                                <input type="tel" name="phone" id="#firstFormPhone" placeholder="Телефон *">
                             </div>
                         </div>
                         <div class="secondBlock__second-form">
@@ -88,20 +98,12 @@
                                 Данные ДРУГА
                             </div>
                             <div class="form-input-wrapper">
-                                <input type="text" name="friends_name" id="#secondFormName" placeholder="Имя друга *">
-                                <input type="tel" name="friends_phone" id="#secondFormPhone"
-                                       placeholder="Телефон друга *">
+                                <input type="text" name="friends_name" id="#secondFormName" placeholder="ИМЯ друга *">
                                 <input type="email" name="friends_email" id="#secondFormEmail"
                                        placeholder="E-mail друга *">
+                                <input type="tel" name="friends_phone" id="#secondFormPhone"
+                                       placeholder="Телефон друга *">
                             </div>
-                        </div>
-                        <div class="form__subTitle">
-                                                    <span>
-                                                    Все поля обязательны для заполнения!
-                                                    </span>
-                            <span>
-                                                    Скидка 300 рублей за заказ от 3 000 рублей
-                                                    </span>
                         </div>
                         <button type="button" class="secondBlock__form-btn">
                             ОТПРАВИТЬ
@@ -127,7 +129,8 @@
                             </p>
                             <p>
                                 ВВЕДИТЕ и ОТПРАВЬТЕ <br>
-                                любые ДАТЫ будущих событий.
+                                любые ДАТЫ <br>
+                                будущих событий.
                             </p>
                             <p>
                                 Мы НАПОМНИМ о себе <br>
@@ -348,266 +351,6 @@
                 </div>
             </div>
         </div>
-        <div class="btn__drop-down-present-hover">
-            <div class="drop__down-present-wrapper">
-                <div class="drop__down-present-firstBlock">
-                    <div class="present__firstBlock-image">
-                        <img src="{% static 'img/dropDownImage.png' %}" alt="">
-                    </div>
-                    <div class="present__secondBlock-text-wrapper">
-                        <div class="present__secondBlock-title">
-                            Календарь НАПОМИНАНИЙ
-                        </div>
-                        <div class="present__secondBlock-text">
-                            <p>
-                                Используйте <br>
-                                календарь напоминаний!
-                            </p>
-                            <p>
-                                ВВЕДИТЕ и ОТПРАВЬТЕ <br>
-                                любые ДАТЫ будущих событий.
-                            </p>
-                            <p>
-                                Мы НАПОМНИМ о себе <br>
-                                перед вашим праздником. <br>
-                                Ваш ПОДАРОК будет самым <br>
-                                НЕЗАБЫВАЕМЫМ!
-                            </p>
-                            <p class="secondBlock-text-filling">
-                                <span>*</span> Поля обязательные к заполнению!
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="present__secondBlock">
-                    <form method="POST" action="" class="present__secondBlock-form">
-                        {% csrf_token %}
-                        <div class="present__secondBlock-formFirstBlock">
-                            <input type="text" name="name" placeholder="ИМЯ *">
-                            <input type="email" name="email" placeholder="E-mail *">
-                            <input type="tel" name="phone" placeholder="Телефон">
-                        </div>
-                        <div class="present__secondBlock-formSecondBlock">
-                            <div class="form__date-wrap">
-                                <div class="form__date-title">
-                                    Дата <span>*</span>
-                                </div>
-                                <div class="calendar-wrap">
-                                    <div class="calendar__selected-hover">
-                                        <p>Дата 1</p>
-                                        <p class="calendar__selected-date">00.00.0000</p>
-                                        <div class="calendar__image-wrap">
-                                            <img src="{% static 'img/icons/calendarIcon.svg' %}" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form__who-wrap">
-                                <div class="form__who-title">
-                                    Кому
-                                </div>
-                                <div class="form__who-select-hover">
-                                    <div class="who__selected-hover">
-                                        Себе
-                                    </div>
-                                    <ul class="who__selected-choice">
-                                        <li class="selected__choice-item">
-                                            Себе
-                                        </li>
-                                        <li class="selected__choice-item">
-                                            Другу
-                                        </li>
-                                        <li class="selected__choice-item">
-                                            Брату
-                                        </li>
-                                        <li class="selected__choice-item">
-                                            Маме
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="form__occasion-wrap">
-                                <div class="occasion__title">
-                                    Повод
-                                </div>
-                                <div class="form__occasion-select-hover">
-                                    <div class="occasion__selected-hover">
-                                        День рождения
-                                    </div>
-                                    <ul class="occasion__selected-choice">
-                                        <li class="selected__choice-item">
-                                            День рождения
-                                        </li>
-                                        <li class="selected__choice-item">
-                                            Юбилей
-                                        </li>
-                                        <li class="selected__choice-item">
-                                            Годовщина
-                                        </li>
-                                        <li class="selected__choice-item">
-                                            Свадьба
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="form__order-wrap">
-                                <div class="form__order-title">
-                                    Что хотите заказать
-                                </div>
-                                <div class="form__order-select-hover">
-                                    <div class="order__selected-hover">
-                                        Видеофильм
-                                    </div>
-                                    <ul class="order__selected-choice">
-                                        <li class="selected__choice-item">
-                                            Видеофильм
-                                        </li>
-                                        <li class="selected__choice-item">
-                                            Музыкальный клип
-                                        </li>
-                                        <li class="selected__choice-item">
-                                            Организация мероприятия
-                                        </li>
-                                        <li class="selected__choice-item">
-                                            Что-то еще
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="form__about">
-                                <div class="form__about-title">
-                                    <span>*</span> Срок изготовления 3-30 дней
-                                </div>
-                                <p class="form__about-text">
-                                    <span>*</span> Не забудьте учесть время на доставку подарка в ваш город
-                                </p>
-                            </div>
-                            <div class="form__remind-wrap">
-                                <span>*</span>
-                                <p>Напомнить за</p>
-                                <div class="form__remind-select-hover">
-                                    <div class="remind__selected-hover">
-                                        30
-                                    </div>
-                                    <ul class="remind__selected-choice">
-                                        <li class="selected__choice-item">
-                                            30
-                                        </li>
-                                        <li class="selected__choice-item">
-                                            60
-                                        </li>
-                                    </ul>
-                                </div>
-                                <p>дней</p>
-                            </div>
-                            <div class="form__remind-everyYears">
-                                <input type="checkbox" name="remindEveryYears">
-                                <label for="#remindEverYears">Напоминать ежегодно</label>
-                            </div>
-                            <button type="submit" class="present__form-btn">
-                                ОТПРАВИТЬ
-                            </button>
-                        </div>
-                    </form>
-                </div>
-                <div class="present__close">
-                    <img src="{% static 'img/icons/closeIcon.svg' %}" alt="">
-                </div>
-            </div>
-        </div>
-        <div class="btn__drop-down-menu-hover">
-            <div class="drop-down-menu-wrapper">
-                <div class="close__modal">
-                    <img src="{% static 'img/icons/closeIcon.svg' %}" alt="">
-                </div>
-                <div class="drop__down-menu-firstBlock">
-                    <div class="firstBlock__title-Wrapper">
-                        <div class="firstBlock__title">
-                            <p>ДАРИМ 300 РУБЛЕЙ</p> <span>за пост в соцсети!</span>
-                        </div>
-                        <div class="firstBlock__image">
-                            <img src="{% static 'img/modalSaleImage.png' %}" alt="">
-                        </div>
-                    </div>
-                    <div class="firstBlock__nav">
-                        <div class="secondBlock__title">
-                            <p>
-                                ВЫБЕРИ соцсеть
-                            </p>
-                            <span>
-                                        Срок поста - 30 дней
-                                    </span>
-                        </div>
-                        <nav class="secondBlock__nav">
-                            <ul class="secondBlock__nav-list">
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-                <div class="drop__down-menu-secondBlock">
-                    <div class="secondBlock__instruction">
-                        <div class="instruction__title">
-                            СЛЕДУЙ ИНСТРУКЦИИ
-                        </div>
-                        <ul class="instruction__list">
-                            <li class="instruction__list-item">
-                                1. Размести ссылку <br>
-                                <a href="#">https://АНДРЕЙЛЕБЕДЬ.рф</a> в соцсети!
-                            </li>
-                            <li class="instruction__list-item">
-                                2. Порекомендуй нас друзьям!
-                            </li>
-                            <li class="instruction__list-item">
-                                3. Скидка твоему другу - <span>5%</span>
-                            </li>
-                            <li class="instruction__list-item">
-                                4. Скидка тебе за друга - <span>10%</span>
-                            </li>
-                            <li class="instruction__list-item">
-                                5. Куда нам отправить промокод?
-                            </li>
-                            <li class="instruction__list-item">
-                                6. Заполни поля формы!
-                            </li>
-                        </ul>
-                    </div>
-                    <form method="POST" action="" class="secondBock__form-wrapper">
-                        {% csrf_token %}
-                        <div class="secondBlock__first-form">
-                            <div class="form-title">
-                                Данные ТВОИ
-                            </div>
-                            <div class="form-input-wrapper">
-                                <input type="text" name="name" placeholder="Имя *">
-                                <input type="tel" name="phone" placeholder="Телефон *">
-                                <input type="email" name="email" placeholder="E-mail *">
-                            </div>
-                        </div>
-                        <div class="secondBlock__second-form">
-                            <div class="form-title">
-                                Данные ДРУГА
-                            </div>
-                            <div class="form-input-wrapper">
-                                <input type="text" name="friends_name" placeholder="Имя друга *">
-                                <input type="tel" name="friends_phone" placeholder="Телефон друга *">
-                                <input type="email" name="friends_email" placeholder="E-mail друга *">
-                            </div>
-                        </div>
-                        <div class="form__subTitle">
-                                                    <span>
-                                                    Все поля обязательны для заполнения!
-                                                    </span>
-                            <span>
-                                                    Скидка 300 рублей за заказ от 3 000 рублей
-                                                    </span>
-                        </div>
-                        <button type="submit" class="secondBlock__form-btn">
-                            ОТПРАВИТЬ
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
     </div>
     <header>
         <div class="container__header">
@@ -650,7 +393,8 @@
                                             </p>
                                             <p>
                                                 ВВЕДИТЕ и ОТПРАВЬТЕ <br>
-                                                любые ДАТЫ будущих событий.
+                                                любые ДАТЫ <br>
+                                                будущих событий.
                                             </p>
                                             <p>
                                                 Мы НАПОМНИМ о себе <br>
@@ -913,7 +657,7 @@
                                             <div class="form__remind-everyYears">
                                                 <input type="checkbox" name="remindEveryYears"
                                                        id="#remindEverYearsMobile">
-                                                <label for="#remindEverYears">Напоминать ежегодно</label>
+                                                <label for="#remindEverYearsMobile">Напоминать ежегодно</label>
                                             </div>
                                             <button type="submit" class="present__form-btn">
                                                 ОТПРАВИТЬ
@@ -983,7 +727,7 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <form method="POST" action="" class="secondBock__form-wrapper">
+                                    <form method="POST" class="secondBock__form-wrapper">
                                         {% csrf_token %}
                                         <div class="secondBlock__first-form">
                                             <div class="form-title">
@@ -1023,6 +767,271 @@
                                             ОТПРАВИТЬ
                                         </button>
                                     </form>
+                                </div>
+                            </div>
+                            <div class="btn__drop-down-present-hover">
+                                <div class="drop__down-present-wrapper">
+                                    <div class="drop__down-present-firstBlock">
+                                        <div class="present__firstBlock-image">
+                                            <img src="{% static 'img/dropDownImage.png' %}" alt="">
+                                        </div>
+                                        <div class="present__secondBlock-text-wrapper">
+                                            <div class="present__secondBlock-title">
+                                                Календарь НАПОМИНАНИЙ
+                                            </div>
+                                            <div class="present__secondBlock-text">
+                                                <p>
+                                                    Используйте <br>
+                                                    календарь напоминаний!
+                                                </p>
+                                                <p>
+                                                    ВВЕДИТЕ и ОТПРАВЬТЕ <br>
+                                                    любые ДАТЫ <br>
+                                                    будущих событий.
+                                                </p>
+                                                <p>
+                                                    Мы НАПОМНИМ о себе <br>
+                                                    перед вашим праздником. <br>
+                                                    Ваш ПОДАРОК будет самым <br>
+                                                    НЕЗАБЫВАЕМЫМ!
+                                                </p>
+                                                <p class="secondBlock-text-filling">
+                                                    <span>*</span> Поля обязательные к заполнению!
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="present__secondBlock">
+                                        <form method="POST" action="" class="present__secondBlock-form">
+                                            {% csrf_token %}
+                                            <div class="present__secondBlock-formFirstBlock">
+                                                <input type="text" name="name" placeholder="ИМЯ *">
+                                                <input type="email" name="email" placeholder="E-mail *">
+                                                <input type="tel" name="phone" placeholder="Телефон">
+                                            </div>
+                                            <div class="present__secondBlock-formSecondBlock">
+                                                <div class="form__date-wrap">
+                                                    <div class="form__date-title">
+                                                        Дата <span>*</span>
+                                                    </div>
+                                                    <div class="calendar-wrap">
+                                                        <div class="calendar__selected-hover">
+                                                            <p>Дата 1</p>
+                                                            <p class="calendar__selected-date">00.00.0000</p>
+                                                            <div class="calendar__image-wrap">
+                                                                <img src="{% static 'img/icons/calendarIcon.svg' %}"
+                                                                     alt="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form__who-wrap">
+                                                    <div class="form__who-title">
+                                                        Кому
+                                                    </div>
+                                                    <div class="form__who-select-hover">
+                                                        <div class="who__selected-hover">
+                                                            Себе
+                                                        </div>
+                                                        <ul class="who__selected-choice">
+                                                            <li class="selected__choice-item">
+                                                                Себе
+                                                            </li>
+                                                            <li class="selected__choice-item">
+                                                                Другу
+                                                            </li>
+                                                            <li class="selected__choice-item">
+                                                                Брату
+                                                            </li>
+                                                            <li class="selected__choice-item">
+                                                                Маме
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="form__occasion-wrap">
+                                                    <div class="occasion__title">
+                                                        Повод
+                                                    </div>
+                                                    <div class="form__occasion-select-hover">
+                                                        <div class="occasion__selected-hover">
+                                                            День рождения
+                                                        </div>
+                                                        <ul class="occasion__selected-choice">
+                                                            <li class="selected__choice-item">
+                                                                День рождения
+                                                            </li>
+                                                            <li class="selected__choice-item">
+                                                                Юбилей
+                                                            </li>
+                                                            <li class="selected__choice-item">
+                                                                Годовщина
+                                                            </li>
+                                                            <li class="selected__choice-item">
+                                                                Свадьба
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="form__order-wrap">
+                                                    <div class="form__order-title">
+                                                        Что хотите заказать
+                                                    </div>
+                                                    <div class="form__order-select-hover">
+                                                        <div class="order__selected-hover">
+                                                            Видеофильм
+                                                        </div>
+                                                        <ul class="order__selected-choice">
+                                                            <li class="selected__choice-item">
+                                                                Видеофильм
+                                                            </li>
+                                                            <li class="selected__choice-item">
+                                                                Музыкальный клип
+                                                            </li>
+                                                            <li class="selected__choice-item">
+                                                                Организация мероприятия
+                                                            </li>
+                                                            <li class="selected__choice-item">
+                                                                Что-то еще
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="form__about">
+                                                    <div class="form__about-title">
+                                                        <span>*</span> Срок изготовления 3-30 дней
+                                                    </div>
+                                                    <p class="form__about-text">
+                                                        <span>*</span> Не забудьте учесть время на доставку подарка в
+                                                        ваш город
+                                                    </p>
+                                                </div>
+                                                <div class="form__remind-wrap">
+                                                    <span>*</span>
+                                                    <p>Напомнить за</p>
+                                                    <div class="form__remind-select-hover">
+                                                        <div class="remind__selected-hover">
+                                                            30
+                                                        </div>
+                                                        <ul class="remind__selected-choice">
+                                                            <li class="selected__choice-item">
+                                                                30
+                                                            </li>
+                                                            <li class="selected__choice-item">
+                                                                60
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <p>дней</p>
+                                                </div>
+                                                <div class="form__remind-everyYears">
+                                                    <input type="checkbox" name="remindEveryYears">
+                                                    <label for="#remindEverYears">Напоминать ежегодно</label>
+                                                </div>
+                                                <button type="submit" class="present__form-btn">
+                                                    ОТПРАВИТЬ
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="present__close">
+                                        <img src="{% static 'img/icons/closeIcon.svg' %}" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="btn__drop-down-menu-hover">
+                                <div class="drop-down-menu-wrapper">
+                                    <div class="close__modal">
+                                        <img src="{% static 'img/icons/closeIcon.svg' %}" alt="">
+                                    </div>
+                                    <div class="drop__down-menu-firstBlock">
+                                        <div class="firstBlock__title-Wrapper">
+                                            <div class="firstBlock__title">
+                                                <p>ДАРИМ 300 РУБЛЕЙ</p> <span>за пост в соцсети!</span>
+                                            </div>
+                                            <div class="firstBlock__image">
+                                                <img src="{% static 'img/modalSaleImage.png' %}" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="firstBlock__nav">
+                                            <div class="secondBlock__title">
+                                                <p>
+                                                    ВЫБЕРИ соцсеть
+                                                </p>
+                                                <span>
+                                        Срок поста - 30 дней
+                                    </span>
+                                            </div>
+                                            <nav class="secondBlock__nav">
+                                                <ul class="secondBlock__nav-list">
+                                                </ul>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                    <div class="drop__down-menu-secondBlock">
+                                        <div class="secondBlock__instruction">
+                                            <div class="instruction__title">
+                                                СЛЕДУЙ ИНСТРУКЦИИ
+                                            </div>
+                                            <ul class="instruction__list">
+                                                <li class="instruction__list-item">
+                                                    1. Размести ссылку <br>
+                                                    <a href="#">https://АНДРЕЙЛЕБЕДЬ.рф</a> в соцсети!
+                                                </li>
+                                                <li class="instruction__list-item">
+                                                    2. Порекомендуй нас друзьям!
+                                                </li>
+                                                <li class="instruction__list-item">
+                                                    3. Скидка твоему другу - <span>5%</span>
+                                                </li>
+                                                <li class="instruction__list-item">
+                                                    4. Скидка тебе за друга - <span>10%</span>
+                                                </li>
+                                                <li class="instruction__list-item">
+                                                    5. Куда нам отправить промокод?
+                                                </li>
+                                                <li class="instruction__list-item">
+                                                    6. Заполни поля формы!
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <form method="POST" action="" class="secondBock__form-wrapper">
+                                            {% csrf_token %}
+                                            <div class="secondBlock__first-form">
+                                                <div class="form-title">
+                                                    Данные ТВОИ
+                                                </div>
+                                                <div class="form-input-wrapper">
+                                                    <input type="text" name="name" placeholder="Имя *">
+                                                    <input type="tel" name="phone" placeholder="Телефон *">
+                                                    <input type="email" name="email" placeholder="E-mail *">
+                                                </div>
+                                            </div>
+                                            <div class="secondBlock__second-form">
+                                                <div class="form-title">
+                                                    Данные ДРУГА
+                                                </div>
+                                                <div class="form-input-wrapper">
+                                                    <input type="text" name="friends_name" placeholder="Имя друга *">
+                                                    <input type="tel" name="friends_phone"
+                                                           placeholder="Телефон друга *">
+                                                    <input type="email" name="friends_email"
+                                                           placeholder="E-mail друга *">
+                                                </div>
+                                            </div>
+                                            <div class="form__subTitle">
+                                                    <span>
+                                                    Все поля обязательны для заполнения!
+                                                    </span>
+                                                <span>
+                                                    Скидка 300 рублей за заказ от 3 000 рублей
+                                                    </span>
+                                            </div>
+                                            <button type="submit" class="secondBlock__form-btn">
+                                                ОТПРАВИТЬ
+                                            </button>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1196,7 +1205,7 @@
                             </li>
                             <li class="main__nav-list-item">
                                 <a href="#">
-                                    СЕРТЕФИКАТ
+                                    СЕРТИФИКАТ
                                 </a>
                             </li>
                             <li class="main__nav-list-item">
@@ -1259,7 +1268,7 @@
                             </a>
                         </li>
                         <li class="main__down-navigation-list-item" id="#remindPresents">
-                            <div href="#">
+                            <div>
                                 <p>НАПОМНИТЬ</p>
                                 <p>о подарке</p>
                             </div>
@@ -1378,38 +1387,16 @@
                                     </div>
                                 </div>
                                 <div class="video__slider-block">
-                                    <div class="video__slider-arrow-wrapper">
-                                        <div class="video__slider-prev">
-                                            <img src="https://developer.itec.by/static/img/icons/miniSliderPrevArrow.svg"
-                                                 alt="">
-                                        </div>
-                                        <div class="video__slider-next">
-                                            <img src="https://developer.itec.by/static/img/icons/miniSliderNextArrow.svg"
-                                                 alt="">
-                                        </div>
-                                    </div>
                                     <div class="video__slider-block-title">
                                         Студия Андрей ЛЕБЕДЬ
                                     </div>
-                                    <div class="video__slider-block-slider swiper">
-                                        <div class="video__slider-block-slider-wrapper swiper-wrapper">
+                                    <div class="video__slider-block-slider">
+                                        <div class="video__slider-block-slider-wrapper">
 
                                         </div>
                                     </div>
                                 </div>
                                 <div class="social__slider-block">
-                                    <div class="social__slider-arrow-wrapper">
-                                        <div class="social__slider-arrow-wrapper">
-                                            <div class="social__slider-prev">
-                                                <img src="https://developer.itec.by/static/img/icons/miniSliderPrevArrow.svg"
-                                                     alt="">
-                                            </div>
-                                            <div class="social__slider-next">
-                                                <img src="https://developer.itec.by/static/img/icons/miniSliderNextArrow.svg"
-                                                     alt="">
-                                            </div>
-                                        </div>
-                                    </div>
                                     <div class="social__slider-title">
                                         <p>
                                             ПОДПИШИСЬ на стильные УСЛУГИ и ПОДАРКИ
@@ -1418,8 +1405,8 @@
                                             ПОЛУЧИ постоянную СКИДКУ 5% на все заказы
                                         </p>
                                     </div>
-                                    <div class="social__block-slider swiper">
-                                        <div class="social__block-slider-wrapper swiper-wrapper">
+                                    <div class="social__block-slider">
+                                        <div class="social__block-slider-wrapper">
 
                                         </div>
                                     </div>
@@ -1439,7 +1426,7 @@
                                                     <p>ТОП самых чувственных подарков</p>
                                                 </div>
                                             </div>
-                                            <form action="/" method="POST" class="first__know-form">
+                                            <form method="POST" class="first__know-form">
                                                 <input type="text" name="Name" id="#firstKnowName" placeholder="ИМЯ *">
                                                 <input type="email" name="Email" id="#firstKnowEmail"
                                                        placeholder="E-mail *">
@@ -1630,6 +1617,8 @@
 </div>
 <script src="{% static 'js/header.js' %}"></script>
 <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+<script src="{% static 'js/slick.min.js' %}"></script>
 <script src="{% static 'js/slider.js' %}"></script>
 <script src="{% static 'js/discountsModal.js' %}"></script>
 <script src="{% static 'js/customSelect.js' %}"></script>

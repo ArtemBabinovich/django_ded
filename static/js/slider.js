@@ -125,6 +125,7 @@ function getSwiperItem(url) {
             }
         })
 }
+
 getSwiperItem('https://developer.itec.by/api/big_slider/')
 
 function miniSliders(url) {
@@ -132,22 +133,22 @@ function miniSliders(url) {
         .then(resp => resp.json())
         .then(res => {
             let services = ``;
+            let count = 1;
             for (let i of res.slides) {
                 for (let j of i.services) {
                     services += `
-                                <div class="mini__swiper-item swiper-slide">
+                                <a href="#" class="mini__swiper-item swiper-slide">
                                     <div class="mini__swiper-item-image">
-                                        <img src="${j.image_for_mini_slider}" alt="${j.image_for_mini_slider}">
+                                        <img data-lazy="${j.image_for_mini_slider}" alt="${j.image_for_mini_slider}">
                                     </div>
-                                    <a href="#" class="mini__swiper-item-text">
+                                    <div class="mini__swiper-item-text">
                                         <p style="color: ${j.color_service_title}">${j.service_title}</p>
                                         <p style="color: ${j.color_bottom_description};">${j.bottom_description}</p>
                                         <p style="color: ${j.color_bottom_description_2}; display: ${j.bottom_description_2 === null ? 'none' : 'block'}">${j.bottom_description_2}</p>
-                                    </a>
-                                </div>
+                                    </div>
+                                </a>
                                 `
                 }
-
                 miniSlidersWrapper.innerHTML += `
                                                 <div class="main__content-block-mini-slider-item" id="${i.url}">
                                                     <div class="mini__slider-title-wrapper">
@@ -158,75 +159,40 @@ function miniSliders(url) {
                                                             ${i.additional_title_2 === null ? '' : i.additional_title_2}
                                                         </div>
                                                     </div>
-                                                    <div class="mini__slider-arrow-wrapper">
-                                                        <div class="mini__slider-prev">
-                                                            <img src="https://developer.itec.by/static/img/icons/miniSliderPrevArrow.svg" alt="">
-                                                        </div>
-                                                        <div class="mini__slider-next">
-                                                            <img src="https://developer.itec.by/static/img/icons/miniSliderNextArrow.svg" alt="">
-                                                        </div>
-                                                    </div>
-                                                    <div class="mini__swiper-container swiper">
-                                                        <div class="mini__swiper-wrapper swiper-wrapper">
-                                                            ${services}
-                                                        </div>
+                                                    <div class="mini__swiper-container">
+                                                        ${services}
                                                     </div>
                                                 </div>
                                             `
                 services = ``
-                get_tips('https://developer.itec.by/api/content_tips/' + i.url)
+                count++
             }
             let countTips = 0;
+            let adviceContent = ``
+            let anchorsLi = ``
+            let contentDescription = ``;
+            let openAllBlock = ``;
 
-            setTimeout(() => {
-                let miniSwiper = new Swiper('.mini__swiper-container', {
-                    autoplay: {
-                        delay: res.timer ? res.timer : 2000,
-                        disableOnInteraction: false,
-                        pauseOnMouseEnter: true,
-                    },
-                    loop: true,
-                    breakpoints: {
-                        1919: {
-                            slidesPerView: 3.5
-                        }, 1365: {
-                            slidesPerView: 3,
-                        }, 1023: {
-                            slidesPerView: 3,
-                        }, 767: {
-                            slidesPerView: 2,
-                        }, 480: {
-                            slidesPerView: 1.5,
-                        }, 319: {
-                            slidesPerView: 1,
-                        },
-                    },
-                })
-            }, 1000)
             function get_tips(url) {
                 fetch(url)
                     .then(resp => resp.json())
                     .then(result => {
                         const blockMiniSlider = document.querySelectorAll('.main__content-block-mini-slider-item')
-
-                        if (blockMiniSlider[countTips].children[3]) {
+                        if (blockMiniSlider[0].children[3]) {
                             countTips++
                         }
-                        let adviceContent = ``
-                        let anchorsLi = ``
-                        let contentDescription = ``;
-                        let openAllBlock = ``;
                         // циклы для заголовка и контента советов adviceContent
                         adviceContent += `
                                     <div class="swiper__tips-drop-title">
-                                        ${result.advices_for_services_catalog[0].advices[0].title}
+                                        ${result.advices_for_services_catalog[0] ? result.advices_for_services_catalog[0].advices[0].title : ''}
                                     </div>
                                     <div class="swiper__tips-drop-sub-title">
-                                        ${result.advices_for_services_catalog[0].advices[0].title2}
+                                        ${result.advices_for_services_catalog[0] ? result.advices_for_services_catalog[0].advices[0].title2 : ''}
                                     </div>
                                 `
-                        for (let l of result.advices_for_services_catalog[0].advices[0].content) {
-                            contentDescription += `
+                        if (result.advices_for_services_catalog[0]) {
+                            for (let l of result.advices_for_services_catalog[0].advices[0].content) {
+                                contentDescription += `
                                             <div class="swiper__tips-drop-about-head" id="${l.url}">
                                                 ${l.title}
                                             </div>
@@ -241,6 +207,7 @@ function miniSliders(url) {
                                                 ${l.services_catalog === null ? '' : l.services_catalog.title}
                                             </a>
                                         `
+                            }
                         }
                         adviceContent += `
                                         <div class="swiper__tips-drop-about">
@@ -249,9 +216,10 @@ function miniSliders(url) {
                                     `
                         contentDescription = ``
                         // циклы для заголовков и контента советов openAllBlock
-                        result.advices_for_services_catalog[0].advices.shift()
-                        for (let i of result.advices_for_services_catalog[0].advices) {
-                            openAllBlock += `
+                        if (result.advices_for_services_catalog[0]) {
+                            result.advices_for_services_catalog[0].advices.shift()
+                            for (let i of result.advices_for_services_catalog[0].advices) {
+                                openAllBlock += `
                                     <div class="swiper__tips-drop-title">
                                         ${i.title}
                                     </div>
@@ -259,8 +227,8 @@ function miniSliders(url) {
                                         ${i.title2}
                                     </div>
                                 `
-                            for (let l of i.content) {
-                                contentDescription += `
+                                for (let l of i.content) {
+                                    contentDescription += `
                                             <div class="swiper__tips-drop-about-head" id="${l.url}">
                                                 ${l.title}
                                             </div>
@@ -276,31 +244,32 @@ function miniSliders(url) {
                                             </a>
                                         `
 
-                            }
-                            openAllBlock += `
+                                }
+                                openAllBlock += `
                                         <div class="swiper__tips-drop-about">
                                             ${contentDescription}
                                         </div>
                                     `
-                            contentDescription = ``
-                        }
-                        // акции в советах
-                        for (let k in result.advices_for_services_catalog[0].discount) {
-                            adviceContent += `
+                                contentDescription = ``
+                            }
+                            // акции в советах
+                            for (let k in result.advices_for_services_catalog[0].discount) {
+                                adviceContent += `
                                         <div class="swiper__tips-drop-stock-block" style="display: ${result.advices_for_services_catalog[0].discount[k] === undefined ? 'none' : 'flex'}">
                                             ${result.advices_for_services_catalog[0].discount[k]}
                                         </div>
                                     `
-                        }
-                        // якоря
-                        for (let y of result.advices_for_services_catalog[0].advices_url) {
-                            anchorsLi += `
+                            }
+                            // якоря
+                            for (let y of result.advices_for_services_catalog[0].advices_url) {
+                                anchorsLi += `
                                     <li class="swiper__tips-anchors-item">
                                         <a href="#${y.url}">
                                             ${y.title}
                                         </a>
                                     </li>  
                                 `
+                            }
                         }
                         adviceContent += `
                                 <div class="swiper__tips-content">
@@ -343,7 +312,7 @@ function miniSliders(url) {
                         // читать советы
                         const miniSwiperTips = document.querySelectorAll('.mini__swiper-tips');
                         const tipsText = document.getElementById('tipsText')
-                        miniSwiperTips[countTips].addEventListener('click', (e) => {
+                        miniSwiperTips[0].addEventListener('click', (e) => {
                             if (e.target.id === 'tipsText') {
                                 e.target.parentElement.children[1].classList.toggle('tips__active')
                                 e.target.parentElement.children[1].style.top = `13%`
@@ -360,7 +329,6 @@ function miniSliders(url) {
                                 tipsText.style.marginBottom = `20px`
                                 e.target.parentElement.parentElement.children[1].style.top = `13%`
                                 if (e.target.parentElement.parentElement.children[2].clientHeight >= 350) {
-                                    console.log(e.target.parentElement.parentElement.children[1])
                                     e.target.parentElement.parentElement.children[1].style.top = `18%`
                                 }
                             } else {
@@ -389,9 +357,42 @@ function miniSliders(url) {
                         // -----------------------
                     })
             }
+
+            // get_tips('https://developer.itec.by/api/content_tips/obrabotka-foto')
+            return res.timer
+        })
+        .then(timer => {
+            $(document).ready(function () {
+                $('.mini__swiper-container').slick({
+                    infinite: true,
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    speed: timer ? timer : 1000,
+                    autoplay: true,
+                    autoplaySpeed: 2000,
+                    responsive: [
+                        {
+                            breakpoint: 1024,
+                            settings: {
+                                slidesToShow: 2,
+                                slidesToScroll: 2,
+                            }
+                        },
+                        {
+                            breakpoint: 768,
+                            settings: {
+                                slidesToShow: 1,
+                                slidesToScroll: 1,
+                            }
+                        }
+                    ]
+                })
+            })
         })
 }
+
 miniSliders('https://developer.itec.by/api/small_slider/')
+
 function banners(url) {
     fetch(url)
         .then(resp => resp.json())
@@ -613,7 +614,9 @@ function banners(url) {
             })
         })
 }
+
 banners('https://developer.itec.by/api/banners/main_page/1/')
+
 function videoSlider(url) {
     fetch(url)
         .then(resp => resp.json())
@@ -636,43 +639,47 @@ function videoSlider(url) {
                                                     </div>
                                                 `
             }
-            let videoSwiper = new Swiper('.video__slider-block-slider', {
-                simulateTouch: false, loop: true,
-                autoplay: {
-                    delay: res.timer ? res.timer : 2000,
-                    disableOnInteraction: false,
-                    pauseOnMouseEnter: true,
-                },
-                navigation: {
-                    nextEl: '.mini__slider-next', prevEl: '.mini__slider-prev',
-                },
-                breakpoints: {
-                    1919: {
-                        slidesPerView: 2.5
-                    }, 1365: {
-                        slidesPerView: 2.3,
-                    }, 1023: {
-                        slidesPerView: 2,
-                    }, 767: {
-                        slidesPerView: 1.5,
-                    }, 480: {
-                        slidesPerView: 1.2,
-                    }, 319: {
-                        slidesPerView: 1,
-                    },
-                },
+            $(document).ready(function () {
+                $('.video__slider-block-slider-wrapper').slick({
+                    infinite: true,
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    speed: 1000,
+                    autoplay: true,
+                    autoplaySpeed: 2000,
+                    responsive: [
+                        {
+                            breakpoint: 1920,
+                            settings: {}
+                        },
+                        {
+                            breakpoint: 1024,
+                            settings: {
+                                slidesToShow: 2,
+                                slidesToScroll: 2,
+                            }
+                        },
+                        {
+                            breakpoint: 768,
+                            settings: {
+                                slidesToShow: 1,
+                                slidesToScroll: 1,
+                            }
+                        }
+                    ]
+                })
             })
         })
 }
+
 videoSlider('https://developer.itec.by/api/video_links/')
+
 function socialsSlider(url) {
     fetch(url)
         .then(resp => resp.json())
         .then(res => {
-            console.log(res[0])
             const socialSliderWrapper = document.querySelector('.social__block-slider-wrapper')
-            for (let i of res[0].social_networks){
-                console.log(i)
+            for (let i of res[0].social_networks) {
                 socialSliderWrapper.innerHTML += `
                                                     <div class="social__block-slider-item swiper-slide">
                                                         <div class="swiper__slide-wrapper">
@@ -691,32 +698,33 @@ function socialsSlider(url) {
                                                     </div>
                                                 `
             }
-            const socialSlider = new Swiper('.social__block-slider', {
-                simulateTouch: false, loop: true,
-                autoplay: {
-                    delay: res.timer ? res.timer : 2000,
-                    disableOnInteraction: false,
-                    pauseOnMouseEnter: true,
-                },
-                navigation: {
-                    nextEl: '.social__slider-next', prevEl: '.social__slider-prev',
-                },
-                breakpoints: {
-                    1919: {
-                        slidesPerView: 4
-                    }, 1365: {
-                        slidesPerView: 3.5,
-                    }, 1023: {
-                        slidesPerView: 3,
-                    }, 767: {
-                        slidesPerView: 2,
-                    }, 480: {
-                        slidesPerView: 1,
-                    }, 319: {
-                        slidesPerView: 1,
-                    },
-                },
+            $(document).ready(function () {
+                $('.social__block-slider-wrapper').slick({
+                    infinite: true,
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    speed: 1000,
+                    autoplay: true,
+                    autoplaySpeed: 2000,
+                    responsive: [
+                        {
+                            breakpoint: 1024,
+                            settings: {
+                                slidesToShow: 2,
+                                slidesToScroll: 2,
+                            }
+                        },
+                        {
+                            breakpoint: 768,
+                            settings: {
+                                slidesToShow: 1,
+                                slidesToScroll: 1,
+                            }
+                        }
+                    ]
+                })
             })
         })
 }
+
 socialsSlider('https://developer.itec.by/api/url_for_social_networks/')

@@ -33,7 +33,7 @@
   }
 }
 .main__slider-slide-link{
-  padding-left: 60px;
+  padding-left: 20px;
   max-width: 1030px;
   font-family: Verdana;
   font-style: normal;
@@ -42,7 +42,7 @@
   color: rgb(255, 255, 255);
   position: absolute;
   line-height: 1.55;
-  bottom: 43px;
+  bottom: 40px;
   display: flex;
   flex-direction: column;
   text-shadow: 2px 2px 2px rgba(0, 9, 0, 0.62);
@@ -116,10 +116,10 @@
   border-top: 1px solid #ffff00;
   text-align: center;
   & a {
-    font-family: Tahoma;
+    font-family: Verdana;
     font-style: normal;
     font-weight: 700;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 23.83px;
     color: #ffff00;
 
