@@ -7,9 +7,9 @@ class SubscribeSocialNetworksModel(models.Model):
     title = models.CharField("Название блока", max_length=255)
     title2 = models.CharField("Дополнительное название", max_length=255, blank=True, null=True)
     social_networks = models.ManyToManyField('AddSocialNetworks',
-                                        blank=True,
-                                        verbose_name='Какие социальные сети добавить',
-                                        related_name='networks')
+                                             blank=True,
+                                             verbose_name='Какие социальные сети добавить',
+                                             related_name='networks')
 
     class Meta:
         verbose_name = 'Блок социальных сетей'
@@ -24,12 +24,11 @@ class SubscribeSocialNetworksModel(models.Model):
         return super(SubscribeSocialNetworksModel, self).save(*args, **kwargs)
 
 
-
 class AddSocialNetworks(models.Model):
     """Модель для создания ссылок на социальную сеть"""
     name = models.CharField('Название соц.сети', max_length=128)
     url_social_network = models.CharField('Ссылка на социальную сеть', max_length=511)
-    icon_for_url = models.ImageField('Добавить иконку соц.сети', upload_to='social_networks/static/img/icon')
+    icon_for_url = models.FileField('Добавить иконку соц.сети', upload_to='social_networks/static/img/icon')
     image = models.ImageField('Добавить фотографию', upload_to='social_networks/static/img')
 
     class Meta:
@@ -38,5 +37,3 @@ class AddSocialNetworks(models.Model):
 
     def __str__(self):
         return f"Соц.сеть {self.name}"
-
-
