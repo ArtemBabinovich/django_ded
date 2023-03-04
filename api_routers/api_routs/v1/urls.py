@@ -27,6 +27,7 @@ router.register(r'discont/add', GetDiscountAdd, basename='discont_add')
 router.register(r'block_services', views.ServicesCatalogViewSet, basename='block_services')
 router.register(r'big_slider', views.BigSliderViewSet, basename='big_slider')
 router.register(r'small_slider', views.SmallSliderViewSet, basename='small_slider')
+router.register(r'small_slider_with_pagination', views.NewSmallSliderViewSet, basename='small_slider_with_pagination')
 # URL ссылок для видео
 router.register(r'video_links', VideoApiViewSets, basename='video_links')
 # URL для Читать советы(read_tips)
