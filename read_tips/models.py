@@ -58,7 +58,7 @@ class ContentTips(models.Model):
                                 null=True,
                                 blank=True,
                                 verbose_name='Ссылка на УСЛУГУ')
-    photo = models.ImageField('Фотография', upload_to='read_tips/static/img/photo_for_tips', null=True, blank=True)
+    photo = models.FileField('Фотография', upload_to='read_tips/static/img/photo_for_tips', null=True, blank=True)
     services_catalog = models.ForeignKey(ServicesCatalog,
                                          on_delete=models.SET_NULL,
                                          null=True,

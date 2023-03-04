@@ -29,7 +29,7 @@ class AddSocialNetworks(models.Model):
     name = models.CharField('Название соц.сети', max_length=128)
     url_social_network = models.CharField('Ссылка на социальную сеть', max_length=511)
     icon_for_url = models.FileField('Добавить иконку соц.сети', upload_to='social_networks/static/img/icon')
-    image = models.ImageField('Добавить фотографию', upload_to='social_networks/static/img')
+    image = models.FileField('Добавить фотографию', upload_to='social_networks/static/img')
 
     class Meta:
         verbose_name = 'Создать ссылку на социальную сеть'
