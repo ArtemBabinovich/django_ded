@@ -10,14 +10,14 @@ class ServicesCatalog(models.Model):
     title = models.CharField('Заголовок РАЗДЕЛА УСЛУГ', max_length=255)
     additional_title = models.CharField('Допоплнительный заголовок', max_length=128, blank=True, null=True)
     additional_title_2 = models.CharField('Дополнительное описание', max_length=128, blank=True, null=True)
-    image_for_big_slider = models.ImageField('Фотография большого слайдера',
+    image_for_big_slider = models.FileField('Фотография большого слайдера',
                                              upload_to='services/static/img/foto_big_slider')
     color_title = ColorField('Цвет заголовка', format='hexa', default='#FFFFFFFF')
     is_active = models.BooleanField('Активня', default=True)
     url = AutoSlugField(populate_from='title', unique=True, slugify=slugify)
-    # time_pause_for_mini_slider = models.PositiveIntegerField('Время для слайда "мини_слайдера',
-    #                                                          default=4000,
-    #                                                          blank=True)
+    time_pause_for_mini_slider = models.PositiveIntegerField('Время для слайда "мини_слайдера',
+                                                             default=4000,
+                                                             blank=True)
     position = models.OneToOneField('ServicesCatalogPosition',
                                     on_delete=models.CASCADE,
                                     verbose_name='Номер очереди',
@@ -70,7 +70,7 @@ class Services(models.Model):
     service_title = models.CharField('Название услуги', max_length=255)
     color_service_title = ColorField('Цвет названия услуги', format='hexa', default='#FFFFFFFF')
     marker = models.CharField('Маркер услуги', max_length=5, choices=MARKER_SERVICES, blank=True, null=True)
-    image_for_mini_slider = models.ImageField('Фотография для маленького слайдера',
+    image_for_mini_slider = models.FileField('Фотография для маленького слайдера',
                                               upload_to='services/static/img/foto_mini_slider',
                                               default='',
                                               null=True,
