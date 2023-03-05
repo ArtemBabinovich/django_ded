@@ -43,8 +43,6 @@ INSTALLED_APPS = [
     'tinymce',
     'ckeditor',
     'sortedm2m',
-    'sortedm2m_filter_horizontal_widget',
-
     'main',
     'contacts',
     'api_routers',
