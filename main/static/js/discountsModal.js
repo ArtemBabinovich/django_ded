@@ -51,7 +51,7 @@ if (window.innerWidth < 480) {
             if (window.innerWidth < 1920) {
                 presentWrapperHover.style.top = '66px';
             } else {
-                presentWrapperHover.style.top = '100px';
+                presentWrapperHover.style.top = '66px';
             }
             presentWrapperHover.style.right = '255px';
             presentWrapperHover.style.zIndex = '50'
@@ -92,7 +92,7 @@ if (window.innerWidth < 480) {
                 if (window.innerWidth < 1920) {
                     dropDownModalHover.style.top = '66px'
                 } else {
-                    dropDownModalHover.style.top = '100px'
+                    dropDownModalHover.style.top = '66px'
                 }
                 dropDownModalHover.style.right = '0px';
                 dropDownModalHover.style.zIndex = '50'
@@ -195,11 +195,11 @@ function get_presents(url) {
 get_presents('https://developer.itec.by/api/presents/get/')
 
 function getCookie(name) {
-    var cookieValue = null;
+    let cookieValue = null;
     if (document.cookie && document.cookie !== '') {
-        var cookies = document.cookie.split(';');
-        for (var i = 0; i < cookies.length; i++) {
-            var cookie = cookies[i].trim();
+        let cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            let cookie = cookies[i].trim();
             // Does this cookie string begin with the name we want?
             if (cookie.substring(0, name.length + 1) === (name + '=')) {
                 cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
@@ -214,7 +214,21 @@ const presentName = document.getElementById('#presentFormName');
 const presentEmail = document.getElementById('#presentFormEmail');
 const presentPhone = document.getElementById('#presentFormPhone');
 presentPhone.oninput = () => {
-    presentPhone.value = presentPhone.value.replace(/\s/g, '')
+    if(presentPhone.value.length === 2) {
+        presentPhone.value += ' /'
+    }
+    if(presentPhone.value.length === 7){
+        presentPhone.value += '/ '
+    }
+    if(presentPhone.value.length === 12){
+        presentPhone.value += ' '
+    }
+    if(presentPhone.value.length === 15){
+        presentPhone.value += ' '
+    }
+    console.log(presentPhone.value.length, presentPhone.value)
+
+    // presentPhone.value = presentPhone.value.replace(/\s/g, '')
 }
 presentEmail.oninput = () => {
     presentEmail.value = presentEmail.value.replace(/\s/g, '')

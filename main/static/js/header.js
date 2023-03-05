@@ -107,13 +107,6 @@ window.onload = function () {
     headerLogo.forEach(item => {
         item.addEventListener('mouseover', () => {
             logoAudio.play()
-            setTimeout(() => {
-                item.addEventListener('mouseover', () => {
-                    logoAudio.play()
-                })
-            },600000)
-            item.removeEventListener('mouseover')
-
         })
     })
 }
@@ -124,12 +117,13 @@ const windowDown = document.getElementById('#windowDown')
 const getWork = document.getElementById('#getWrok');
 const getWorkBlock = document.querySelector('.get__work-block');
 const remindPresents = document.getElementById('#remindPresents');
+const subscriptionBlock = document.querySelector('.subscription__block')
 
 remindPresents.addEventListener('click', () => {
-    scrollBy(0,header.getBoundingClientRect().top)
+    scrollBy(0,(subscriptionBlock.getBoundingClientRect().top - 75))
 })
 getWork.addEventListener('click', () => {
-    scrollBy(0, (getWorkBlock.getBoundingClientRect().top - 40))
+    scrollBy(0, (getWorkBlock.getBoundingClientRect().top - 75))
 })
 
 windowUp.addEventListener('click', () => {
