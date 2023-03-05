@@ -24,6 +24,9 @@ footer{
       font-style: normal;
       font-weight: 400;
     }
+    &:nth-child(7){
+      flex: 1 1 125px;
+    }
   }
 }
 .footer__rights{

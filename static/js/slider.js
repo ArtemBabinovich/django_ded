@@ -95,38 +95,39 @@ function getSwiperItem(url) {
                     pauseOnMouseEnter: true,
                 }
             });
-            const mainSliderWrapper = document.querySelector('.main__slider-wrapper');
-            const mainSliderImage = document.querySelectorAll('.main__slider-image');
-            const zoomWindow = document.querySelector('.main__slider-zoomWindow');
-            if (window.innerWidth <= 1024) {
-
-            } else {
-                mainSliderWrapper.addEventListener('mousemove', (e) => {
-                    let src = '';
-                    zoomWindow.style.display = 'block'
-                    zoomWindow.style.top = `${e.offsetY - 40}px`
-                    zoomWindow.style.left = `${e.offsetX + 100}px`
-                    mainSliderImage.forEach(slidesItem => {
-                        if (e.target === slidesItem) {
-                            src = slidesItem.getAttribute('src')
-                        }
-                    })
-                    let sliderWidth = document.querySelector('.main__slider').clientWidth;
-                    zoomWindow.style.background = `url(${src})`;
-                    zoomWindow.style.backgroundRepeat = 'no-repeat'
-                    zoomWindow.style.backgroundSize = `${sliderWidth}px`;
-                    zoomWindow.style.backgroundPositionX = `${-e.offsetX + 45}px`
-                    zoomWindow.style.backgroundPositionY = `${-e.offsetY + 40}px`
-                    zoomWindow.style.transform = `scale(2.3)`;
-                })
-                mainSliderWrapper.addEventListener('mouseout', () => {
-                    zoomWindow.style.display = 'none'
-                })
-            }
+            // const mainSliderWrapper = document.querySelector('.main__slider-wrapper');
+            // const mainSliderImage = document.querySelectorAll('.main__slider-image');
+            // const zoomWindow = document.querySelector('.main__slider-zoomWindow');
+            // if (window.innerWidth <= 1024) {
+            //
+            // } else {
+            //     mainSliderWrapper.addEventListener('mousemove', (e) => {
+            //         let src = '';
+            //         zoomWindow.style.display = 'block'
+            //         zoomWindow.style.top = `${e.offsetY - 40}px`
+            //         zoomWindow.style.left = `${e.offsetX + 100}px`
+            //         mainSliderImage.forEach(slidesItem => {
+            //             if (e.target === slidesItem) {
+            //                 src = slidesItem.getAttribute('src')
+            //             }
+            //         })
+            //         let sliderWidth = document.querySelector('.main__slider').clientWidth;
+            //         zoomWindow.style.background = `url(${src})`;
+            //         zoomWindow.style.backgroundRepeat = 'no-repeat'
+            //         zoomWindow.style.backgroundSize = `${sliderWidth}px`;
+            //         zoomWindow.style.backgroundPositionX = `${-e.offsetX + 45}px`
+            //         zoomWindow.style.backgroundPositionY = `${-e.offsetY + 40}px`
+            //         zoomWindow.style.transform = `scale(2.3)`;
+            //     })
+            //     mainSliderWrapper.addEventListener('mouseout', () => {
+            //         zoomWindow.style.display = 'none'
+            //     })
+            // }
         })
 }
 
 getSwiperItem('https://developer.itec.by/api/big_slider/')
+
 
 function miniSliders(url) {
     fetch(url)
@@ -291,7 +292,7 @@ function miniSliders(url) {
                                     </div>
                                     <div class="swiper__tips-backAll">
                                         <span id="swiperBackAll">
-                                            показать ВСЕ ...
+                                            Читать ВСЕ ...
                                         </span>
                                     </div>
                                     <div class="swiper__tips-openAllBlock">
@@ -299,21 +300,24 @@ function miniSliders(url) {
                                     </div>
                                 </div>
                             `
-                        blockMiniSlider[countTips].innerHTML += `
-                                                <div class="mini__swiper-tips">
-                                                    <span class="mini__swiper-tips-text" id="tipsText">Читать СОВЕТЫ ...</span>
-                                                    <div class="mini__swiper-tips-drop">
-                                                        <div class="swiper__tips-drop">
-                                                            ${adviceContent}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                `;
+                        let div = document.createElement('div')
+                        div.classList.add('mini__swiper-tips')
+                        div.innerHTML = `
+                                        <span class="mini__swiper-tips-text" id="tipsText">Читать СОВЕТЫ ...</span>
+                                        <div class="mini__swiper-tips-drop">
+                                            <div class="swiper__tips-drop">
+                                                ${adviceContent}
+                                            </div>
+                                        </div>
+                        `
+                        blockMiniSlider[countTips].append(div)
                         // читать советы
                         const miniSwiperTips = document.querySelectorAll('.mini__swiper-tips');
                         const tipsText = document.getElementById('tipsText')
+                        const slickArrow = document.querySelectorAll('.slick-arrow')
                         miniSwiperTips[0].addEventListener('click', (e) => {
                             if (e.target.id === 'tipsText') {
+                                slickArrow.forEach(item => item.style.top = '10%')
                                 e.target.parentElement.children[1].classList.toggle('tips__active')
                                 e.target.parentElement.children[1].style.top = `13%`
                                 e.target.parentElement.children[0].style.marginBottom = '20px'
@@ -325,7 +329,7 @@ function miniSliders(url) {
                                 e.target.parentElement.parentElement.children[1].style.display = 'none'
                             }
                             if (e.target.parentElement.children[1] === undefined ? false : e.target.parentElement.children[1].classList.contains('tips__active')) {
-                                e.target.parentElement.children[0].textContent = 'Свернуть СОВЕТЫ ...'
+                                e.target.parentElement.children[0].textContent = 'Свернуть СОВЕТЫ'
                                 tipsText.style.marginBottom = `20px`
                                 e.target.parentElement.parentElement.children[1].style.top = `13%`
                                 if (e.target.parentElement.parentElement.children[2].clientHeight >= 350) {
@@ -335,13 +339,12 @@ function miniSliders(url) {
                                 if (e.target.id === 'tipsText') {
                                     e.target.parentElement.children[0].textContent = 'Читать СОВЕТЫ ...'
                                     e.target.parentElement.children[0].style.marginBottom = '0px'
-                                    e.target.parentElement.parentElement.children[1].style.top = `38%`
+                                    slickArrow.forEach(item => item.style.top = '40%')
                                 }
                                 if (e.target.id === 'swiperBackAll') {
                                     e.target.parentElement.parentElement.children[3].classList.toggle('tips__active')
                                     if (e.target.parentElement.parentElement.children[3].classList.contains('tips__active')) {
                                         e.target.parentElement.parentElement.children[2].children[0].textContent = 'Свернуть ВСЕ ...'
-                                        console.log()
                                         if (e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.children[2].clientHeight >= 350) {
                                             e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.children[1].style.top = '2.7%'
                                         } else {
@@ -357,20 +360,27 @@ function miniSliders(url) {
                         // -----------------------
                     })
             }
-
-            // get_tips('https://developer.itec.by/api/content_tips/obrabotka-foto')
+            get_tips('https://developer.itec.by/api/content_tips/obrabotka-foto/')
             return res.timer
         })
         .then(timer => {
             $(document).ready(function () {
                 $('.mini__swiper-container').slick({
                     infinite: true,
-                    slidesToShow: 3,
+                    slidesToShow: 3.5,
                     slidesToScroll: 3,
-                    speed: timer ? timer : 1000,
+                    speed: 1000,
                     autoplay: true,
-                    autoplaySpeed: 2000,
+                    rtl:false,
+                    autoplaySpeed: 5000,
                     responsive: [
+                        {
+                            breakpoint:1920,
+                            settings: {
+                                slidesToShow: 3,
+                                slidesToScroll: 3,
+                            }
+                        },
                         {
                             breakpoint: 1024,
                             settings: {
@@ -642,15 +652,18 @@ function videoSlider(url) {
             $(document).ready(function () {
                 $('.video__slider-block-slider-wrapper').slick({
                     infinite: true,
-                    slidesToShow: 3,
+                    slidesToShow: 3.5,
                     slidesToScroll: 3,
                     speed: 1000,
                     autoplay: true,
-                    autoplaySpeed: 2000,
+                    autoplaySpeed: 5000,
                     responsive: [
                         {
                             breakpoint: 1920,
-                            settings: {}
+                            settings: {
+                                slidesToShow: 3,
+                                slidesToScroll: 3,
+                            }
                         },
                         {
                             breakpoint: 1024,
@@ -701,12 +714,19 @@ function socialsSlider(url) {
             $(document).ready(function () {
                 $('.social__block-slider-wrapper').slick({
                     infinite: true,
-                    slidesToShow: 3,
+                    slidesToShow: 3.5,
                     slidesToScroll: 3,
                     speed: 1000,
                     autoplay: true,
-                    autoplaySpeed: 2000,
+                    autoplaySpeed: 5000,
                     responsive: [
+                        {
+                            breakpoint:1920,
+                            settings: {
+                                slidesToShow: 3,
+                                slidesToScroll: 3,
+                            }
+                        },
                         {
                             breakpoint: 1024,
                             settings: {

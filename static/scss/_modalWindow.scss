@@ -6,7 +6,7 @@
   display: none;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 90%);
+  background: rgba(0, 0, 0, 95%);
   overflow-y: auto;
 
 }
@@ -907,7 +907,7 @@
 }
 
 .present__secondBlock-text {
-  padding: 0 20px;
+  padding: 0 0 0 20px;
   text-align: left;
   min-width: 290px;
   display: flex;
@@ -935,7 +935,7 @@
 
   & .secondBlock-text-filling {
     color: white;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 400;
     font-family: Verdana;
     line-height: 26px;

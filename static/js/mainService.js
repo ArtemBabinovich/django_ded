@@ -5,7 +5,6 @@ function get__services(url) {
     fetch(url)
         .then(resp => resp.json())
         .then(res => {
-            console.log(res)
             let serviceItem = ``;
             for (let i of res.data){
                 for (let j of i.services){

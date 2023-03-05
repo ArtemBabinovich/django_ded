@@ -18,7 +18,7 @@
         <div class="btn__drop-down-menu">
             <div class="drop-down-menu-wrapper">
                 <div class="close__modal">
-                    <img src="{% static 'img/icons/closeIcon.svg' %}" alt="">
+                    <img src="{% static 'img/icons/closeIcon.svg' %}" alt="{% static 'img/icons/closeIcon.svg' %}">
                 </div>
                 <div class="drop__down-menu-firstBlock">
                     <div class="firstBlock__title-Wrapper">
@@ -26,7 +26,7 @@
                             <p>ДАРИМ 300 РУБЛЕЙ</p> <span>за пост в соцсети!</span>
                         </div>
                         <div class="firstBlock__image">
-                            <img src="{% static 'img/modalSaleImage.png' %}" alt="">
+                            <img src="{% static 'img/modalSaleImage.png' %}" alt="{% static 'img/modalSaleImage.png' %}">
                         </div>
                     </div>
                     <div class="firstBlock__nav">
@@ -90,7 +90,7 @@
                             <div class="form-input-wrapper">
                                 <input type="text" name="name" id="#firstFormName" placeholder="ИМЯ *">
                                 <input type="email" name="email" id="#firstFormEmail" placeholder="E-mail *">
-                                <input type="tel" name="phone" id="#firstFormPhone" placeholder="Телефон *">
+                                <input type="tel" name="phone" id="#firstFormPhone" placeholder="Телефон *" maxlength="18">
                             </div>
                         </div>
                         <div class="secondBlock__second-form">
@@ -116,7 +116,7 @@
             <div class="drop__down-present-wrapper">
                 <div class="drop__down-present-firstBlock">
                     <div class="present__firstBlock-image">
-                        <img src="{% static 'img/dropDownImage.png' %}" alt="">
+                        <img src="{% static 'img/dropDownImage.png' %}" alt="{% static 'img/dropDownImage.png' %}">
                     </div>
                     <div class="present__secondBlock-text-wrapper">
                         <div class="present__secondBlock-title">
@@ -150,7 +150,7 @@
                         <div class="present__secondBlock-formFirstBlock">
                             <input type="text" name="name" id="#presentFormName" placeholder="ИМЯ *">
                             <input type="email" name="email" id="#presentFormEmail" placeholder="E-mail *">
-                            <input type="tel" name="phone" id="#presentFormPhone" placeholder="Телефон">
+                            <input type="tel" name="phone" id="#presentFormPhone" placeholder="Телефон" maxlength="18">
                         </div>
                         <div class="present__secondBlock-formSecondBlock">
                             <div class="form__date-wrap">
@@ -163,19 +163,19 @@
                                             <p>Дата 1</p>
                                             <p class="calendar__selected-date" id="#presentCalendarDate">00.00.0000</p>
                                             <div class="calendar__image-wrap">
-                                                <img src="{% static 'img/icons/calendarIcon.svg' %}" alt="calendarIcon"
+                                                <img src="{% static 'img/icons/calendarIcon.svg' %}" alt="{% static 'img/icons/calendarIcon.svg' %}"
                                                      id="#calendarIcon">
                                             </div>
                                         </div>
                                         <div class="calendar">
                                             <div class="calendar__month-wrap">
                                                 <div class="month__prev">
-                                                    <img src="{% static 'img/icons/miniSliderPrevArrow.svg' %}" alt="">
+                                                    <img src="{% static 'img/icons/miniSliderPrevArrow.svg' %}" alt="{% static 'img/icons/miniSliderPrevArrow.svg' %}">
                                                 </div>
                                                 <div class="current__date">
                                                 </div>
                                                 <div class="month__next">
-                                                    <img src="{% static 'img/icons/miniSliderNextArrow.svg' %}" alt="">
+                                                    <img src="{% static 'img/icons/miniSliderNextArrow.svg' %}" alt="{% static 'img/icons/miniSliderNextArrow.svg' %}">
                                                 </div>
                                             </div>
                                             <div class="calendar__days-name">
@@ -211,7 +211,7 @@
                                                 <p>Дата 2</p>
                                                 <p class="calendar__selected-date">00.00.0000</p>
                                                 <div class="calendar__image-wrap">
-                                                    <img src="{% static 'img/icons/calendarIcon.svg' %}" alt="">
+                                                    <img src="{% static 'img/icons/calendarIcon.svg' %}" alt="{% static 'img/icons/calendarIcon.svg' %}">
                                                 </div>
                                             </div>
                                         </div>
@@ -220,7 +220,7 @@
                                                 <p>Дата 3</p>
                                                 <p class="calendar__selected-date">00.00.0000</p>
                                                 <div class="calendar__image-wrap">
-                                                    <img src="{% static 'img/icons/calendarIcon.svg' %}" alt="">
+                                                    <img src="{% static 'img/icons/calendarIcon.svg' %}" alt="{% static 'img/icons/calendarIcon.svg' %}">
                                                 </div>
                                             </div>
                                         </div>
@@ -229,7 +229,7 @@
                                                 <p>Дата 4</p>
                                                 <p class="calendar__selected-date">00.00.0000</p>
                                                 <div class="calendar__image-wrap">
-                                                    <img src="{% static 'img/icons/calendarIcon.svg' %}" alt="">
+                                                    <img src="{% static 'img/icons/calendarIcon.svg' %}" alt="{% static 'img/icons/calendarIcon.svg' %}">
                                                 </div>
                                             </div>
                                         </div>
@@ -238,7 +238,7 @@
                                                 <p>Дата 5</p>
                                                 <p class="calendar__selected-date">00.00.0000</p>
                                                 <div class="calendar__image-wrap">
-                                                    <img src="{% static 'img/icons/calendarIcon.svg' %}" alt="">
+                                                    <img src="{% static 'img/icons/calendarIcon.svg' %}" alt="{% static 'img/icons/calendarIcon.svg' %}">
                                                 </div>
                                             </div>
                                         </div>
@@ -247,7 +247,7 @@
                                                 <p>Дата 6</p>
                                                 <p class="calendar__selected-date">00.00.0000</p>
                                                 <div class="calendar__image-wrap">
-                                                    <img src="{% static 'img/icons/calendarIcon.svg' %}" alt="">
+                                                    <img src="{% static 'img/icons/calendarIcon.svg' %}" alt="{% static 'img/icons/calendarIcon.svg' %}">
                                                 </div>
                                             </div>
                                         </div>
@@ -256,7 +256,7 @@
                                                 <p>Дата 7</p>
                                                 <p class="calendar__selected-date">00.00.0000</p>
                                                 <div class="calendar__image-wrap">
-                                                    <img src="{% static 'img/icons/calendarIcon.svg' %}" alt="">
+                                                    <img src="{% static 'img/icons/calendarIcon.svg' %}" alt="{% static 'img/icons/calendarIcon.svg' %}">
                                                 </div>
                                             </div>
                                         </div>
@@ -265,7 +265,7 @@
                                                 <p>Дата 8</p>
                                                 <p class="calendar__selected-date">00.00.0000</p>
                                                 <div class="calendar__image-wrap">
-                                                    <img src="{% static 'img/icons/calendarIcon.svg' %}" alt="">
+                                                    <img src="{% static 'img/icons/calendarIcon.svg' %}" alt="{% static 'img/icons/calendarIcon.svg' %}">
                                                 </div>
                                             </div>
                                         </div>
@@ -274,7 +274,7 @@
                                                 <p>Дата 9</p>
                                                 <p class="calendar__selected-date">00.00.0000</p>
                                                 <div class="calendar__image-wrap">
-                                                    <img src="{% static 'img/icons/calendarIcon.svg' %}" alt="">
+                                                    <img src="{% static 'img/icons/calendarIcon.svg' %}" alt="{% static 'img/icons/calendarIcon.svg' %}">
                                                 </div>
                                             </div>
                                         </div>
@@ -347,7 +347,7 @@
                     </form>
                 </div>
                 <div class="present__close">
-                    <img src="{% static 'img/icons/closeIcon.svg' %}" alt="closeIcon">
+                    <img src="{% static 'img/icons/closeIcon.svg' %}" alt="{% static 'img/icons/closeIcon.svg' %}">
                 </div>
             </div>
         </div>
@@ -357,11 +357,11 @@
             <div class="header__wrapper">
                 <div class="header__about-wrapper">
                     <div class="header__logo">
-                        <img src="{% static 'img/logoSVG.svg' %}" alt="">
+                        <img src="{% static 'img/logoSVG.svg' %}" alt="{% static 'img/logoSVG.svg' %}">
                     </div>
                     <div class="header__about-works-wrapper">
                         <div class="header__logo">
-                            <img src="{% static 'img/logoSVG.svg' %}" alt="">
+                            <img src="{% static 'img/logoSVG.svg' %}" alt="{% static 'img/logoSVG.svg' %}">
                         </div>
                         <div class="header__about-work">
                             <div class="header__about-item">
@@ -380,7 +380,7 @@
                             <div class="drop__down-present-wrapper" id="#presentBtn">
                                 <div class="drop__down-present-firstBlock">
                                     <div class="present__firstBlock-image">
-                                        <img src="{% static 'img/dropDownImage.png' %}" alt="">
+                                        <img src="{% static 'img/dropDownImage.png' %}" alt="{% static 'img/dropDownImage.png' %}">
                                     </div>
                                     <div class="present__secondBlock-text-wrapper">
                                         <div class="present__secondBlock-title">
@@ -428,20 +428,20 @@
                                                             <p class="calendar__selected-date">00.00.0000</p>
                                                             <div class="calendar__image-wrap">
                                                                 <img src="{% static 'img/icons/calendarIcon.svg' %}"
-                                                                     alt="calendarIcon" id="#calendarIconMobile">
+                                                                     alt="{% static 'img/icons/calendarIcon.svg' %}" id="#calendarIconMobile">
                                                             </div>
                                                         </div>
                                                         <div class="calendar">
                                                             <div class="calendar__month-wrap">
                                                                 <div class="month__prev">
                                                                     <img src="{% static 'img/icons/calendarArrow.svg' %}"
-                                                                         alt="">
+                                                                         alt="{% static 'img/icons/calendarArrow.svg' %}">
                                                                 </div>
                                                                 <div class="current__date">
                                                                 </div>
                                                                 <div class="month__next">
                                                                     <img src="{% static 'img/icons/calendarArrow.svg' %}"
-                                                                         alt="">
+                                                                         alt="{% static 'img/icons/calendarArrow.svg' %}">
                                                                 </div>
                                                             </div>
                                                             <div class="calendar__days-name">
@@ -478,7 +478,7 @@
                                                                 <p class="calendar__selected-date">00.00.0000</p>
                                                                 <div class="calendar__image-wrap">
                                                                     <img src="{% static 'img/icons/calendarIcon.svg' %}"
-                                                                         alt="">
+                                                                         alt="{% static 'img/icons/calendarIcon.svg' %}">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -488,7 +488,7 @@
                                                                 <p class="calendar__selected-date">00.00.0000</p>
                                                                 <div class="calendar__image-wrap">
                                                                     <img src="{% static 'img/icons/calendarIcon.svg' %}"
-                                                                         alt="">
+                                                                         alt="{% static 'img/icons/calendarIcon.svg' %}">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -498,7 +498,7 @@
                                                                 <p class="calendar__selected-date">00.00.0000</p>
                                                                 <div class="calendar__image-wrap">
                                                                     <img src="{% static 'img/icons/calendarIcon.svg' %}"
-                                                                         alt="">
+                                                                         alt="{% static 'img/icons/calendarIcon.svg' %}">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -508,7 +508,7 @@
                                                                 <p class="calendar__selected-date">00.00.0000</p>
                                                                 <div class="calendar__image-wrap">
                                                                     <img src="{% static 'img/icons/calendarIcon.svg' %}"
-                                                                         alt="">
+                                                                         alt="{% static 'img/icons/calendarIcon.svg' %}">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -518,7 +518,7 @@
                                                                 <p class="calendar__selected-date">00.00.0000</p>
                                                                 <div class="calendar__image-wrap">
                                                                     <img src="{% static 'img/icons/calendarIcon.svg' %}"
-                                                                         alt="">
+                                                                         alt="{% static 'img/icons/calendarIcon.svg' %}">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -528,7 +528,7 @@
                                                                 <p class="calendar__selected-date">00.00.0000</p>
                                                                 <div class="calendar__image-wrap">
                                                                     <img src="{% static 'img/icons/calendarIcon.svg' %}"
-                                                                         alt="">
+                                                                         alt="{% static 'img/icons/calendarIcon.svg' %}">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -538,7 +538,7 @@
                                                                 <p class="calendar__selected-date">00.00.0000</p>
                                                                 <div class="calendar__image-wrap">
                                                                     <img src="{% static 'img/icons/calendarIcon.svg' %}"
-                                                                         alt="">
+                                                                         alt="{% static 'img/icons/calendarIcon.svg' %}">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -548,7 +548,7 @@
                                                                 <p class="calendar__selected-date">00.00.0000</p>
                                                                 <div class="calendar__image-wrap">
                                                                     <img src="{% static 'img/icons/calendarIcon.svg' %}"
-                                                                         alt="">
+                                                                         alt="{% static 'img/icons/calendarIcon.svg' %}">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -666,7 +666,7 @@
                                     </form>
                                 </div>
                                 <div class="present__close">
-                                    <img src="{% static 'img/icons/closeIcon.svg' %}" alt="">
+                                    <img src="{% static 'img/icons/closeIcon.svg' %}" alt="{% static 'img/icons/closeIcon.svg' %}">
                                 </div>
                             </div>
                             <div class="header__discounts-button">
@@ -674,7 +674,7 @@
                             </div>
                             <div class="drop-down-menu-wrapper" id="#salesBtn">
                                 <div class="close__modal">
-                                    <img src="{% static 'img/icons/closeIcon.svg' %}" alt="">
+                                    <img src="{% static 'img/icons/closeIcon.svg' %}" alt="{% static 'img/icons/closeIcon.svg' %}">
                                 </div>
                                 <div class="drop__down-menu-firstBlock">
                                     <div class="firstBlock__title-Wrapper">
@@ -682,7 +682,7 @@
                                             <p>ДАРИМ 300 РУБЛЕЙ</p> <span>за пост в соцсети!</span>
                                         </div>
                                         <div class="firstBlock__image">
-                                            <img src="{% static 'img/modalSaleImage.png' %}" alt="">
+                                            <img src="{% static 'img/modalSaleImage.png' %}" alt="{% static 'img/modalSaleImage.png' %}">
                                         </div>
                                     </div>
                                     <div class="firstBlock__nav">
@@ -773,7 +773,7 @@
                                 <div class="drop__down-present-wrapper">
                                     <div class="drop__down-present-firstBlock">
                                         <div class="present__firstBlock-image">
-                                            <img src="{% static 'img/dropDownImage.png' %}" alt="">
+                                            <img src="{% static 'img/dropDownImage.png' %}" alt="{% static 'img/dropDownImage.png' %}">
                                         </div>
                                         <div class="present__secondBlock-text-wrapper">
                                             <div class="present__secondBlock-title">
@@ -820,7 +820,7 @@
                                                             <p class="calendar__selected-date">00.00.0000</p>
                                                             <div class="calendar__image-wrap">
                                                                 <img src="{% static 'img/icons/calendarIcon.svg' %}"
-                                                                     alt="">
+                                                                     alt="{% static 'img/icons/calendarIcon.svg' %}">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -935,14 +935,14 @@
                                         </form>
                                     </div>
                                     <div class="present__close">
-                                        <img src="{% static 'img/icons/closeIcon.svg' %}" alt="">
+                                        <img src="{% static 'img/icons/closeIcon.svg' %}" alt="{% static 'img/icons/closeIcon.svg' %}">
                                     </div>
                                 </div>
                             </div>
                             <div class="btn__drop-down-menu-hover">
                                 <div class="drop-down-menu-wrapper">
                                     <div class="close__modal">
-                                        <img src="{% static 'img/icons/closeIcon.svg' %}" alt="">
+                                        <img src="{% static 'img/icons/closeIcon.svg' %}" alt="{% static 'img/icons/closeIcon.svg' %}">
                                     </div>
                                     <div class="drop__down-menu-firstBlock">
                                         <div class="firstBlock__title-Wrapper">
@@ -950,7 +950,7 @@
                                                 <p>ДАРИМ 300 РУБЛЕЙ</p> <span>за пост в соцсети!</span>
                                             </div>
                                             <div class="firstBlock__image">
-                                                <img src="{% static 'img/modalSaleImage.png' %}" alt="">
+                                                <img src="{% static 'img/modalSaleImage.png' %}" alt="{% static 'img/modalSaleImage.png' %}">
                                             </div>
                                         </div>
                                         <div class="firstBlock__nav">
@@ -1284,7 +1284,7 @@
                                 ВВЕРХ
                             </p>
                             <div class="navigation__list-item-img-wrapper">
-                                <img src="{% static 'img/icons/arrowUpIcon.svg' %}" alt="">
+                                <img src="{% static 'img/icons/arrowUpIcon.svg' %}" alt="{% static 'img/icons/arrowUpIcon.svg' %}">
                             </div>
                         </li>
                         <li class="main__down-navigation-list-item windowDown" id="#windowDown">
@@ -1292,7 +1292,7 @@
                                 ВНИЗ
                             </p>
                             <div class="navigation__list-item-img-wrapper">
-                                <img src="{% static 'img/icons/arrowDownIcon.svg' %}" alt="">
+                                <img src="{% static 'img/icons/arrowDownIcon.svg' %}" alt="{% static 'img/icons/arrowDownIcon.svg' %}">
                             </div>
                         </li>
                     </ul>
@@ -1321,10 +1321,10 @@
                 </div>
                 <div class="main__slider-action">
                     <div class="slider__action-prev">
-                        <img src="{% static 'img/leftArr.png' %}" alt="">
+                        <img src="{% static 'img/leftArr.png' %}" alt="{% static 'img/leftArr.png' %}">
                     </div>
                     <div class="slider__action-next">
-                        <img src="{% static 'img/rightArr.png' %}" alt="">
+                        <img src="{% static 'img/rightArr.png' %}" alt="{% static 'img/rightArr.png' %}">
                     </div>
                 </div>
                 <div class="main__slider-wrapper swiper">
@@ -1455,7 +1455,7 @@
                                                 </div>
                                                 <div class="download__phone-block-about-action">
                                                     <div class="download__phone-block-about-action-image">
-                                                        <img src="{% static 'img/subscribeBlockImage.png' %}" alt="">
+                                                        <img src="{% static 'img/subscribeBlockImage.png' %}" alt="{% static 'img/subscribeBlockImage.png' %}">
                                                     </div>
                                                     <div class="download__phone-block-about-action-text">
                                                         Андрей Лебедь <br>
@@ -1493,6 +1493,11 @@
                                         </div>
                                     </div>
                                 </div>
+                                <form method="POST" class="subscription__block-form">
+                                    <div class="subscription__block-form-wrapper">
+
+                                    </div>
+                                </form>
                                 <div class="get__work-block">
                                     <div class="get__work-block-wrapper">
                                         <div class="get__work-title">
@@ -1501,10 +1506,10 @@
                                         <div class="get__work-about">
                                             <div class="get__work-about-image">
                                                 <div class="get__work-about-image-first">
-                                                    <img src="{% static 'img/workImageFirst.png' %}" alt="workImage">
+                                                    <img src="{% static 'img/workImageFirst.png' %}" alt="{% static 'img/workImageFirst.png' %}">
                                                 </div>
                                                 <div class="get__work-about-image-second">
-                                                    <img src="{% static 'img/workImageSecond.png' %}" alt="workImage">
+                                                    <img src="{% static 'img/workImageSecond.png' %}" alt="{% static 'img/workImageSecond.png' %}">
                                                 </div>
                                             </div>
                                             <div class="get__work-about-text">
@@ -1609,7 +1614,7 @@
                     </ul>
                 </nav>
                 <a href="#" class="footer__rights">
-                    www.АНДРЕЙЛЕБЕДЬ.РФ © 2022 | ВСЕ ПРАВА ЗАЩИЩЕНЫ
+                    www.АНДРЕЙЛЕБЕДЬ.РФ © 2023 | ВСЕ ПРАВА ЗАЩИЩЕНЫ
                 </a>
             </div>
         </div>

@@ -7,7 +7,13 @@
   display: block;
 }
 
+.calendar__item{
+  position: relative;
+  z-index: 10;
+}
+
 .calendar__drop-down-wrap {
+  padding-top: 35px;
   position: absolute;
   width: 100%;
   display: none;
@@ -15,7 +21,7 @@
   gap: 10px;
   background: #390000;
   z-index: 3;
-  top: 40px;
+  top: 2px;
 }
 
 .calendar__selected {
