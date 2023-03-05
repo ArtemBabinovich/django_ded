@@ -13,7 +13,7 @@ class FotoForLowerBanner(models.Model):
     """Добовление фотографии,  и позиции для слайдера в нижнем баннере"""
     name = models.CharField(verbose_name='Название', max_length=50)
     item_number = models.IntegerField(verbose_name='Номер позиции в слайдере')
-    foto = models.ImageField(verbose_name='Изображение для баннера',
+    foto = models.FileField(verbose_name='Изображение для баннера',
                              upload_to='img/low_banners', null=True, blank=True)
 
     class Meta:
@@ -93,7 +93,7 @@ class LowerBanner3(models.Model):
 
 
 class AllLowerBanners(models.Model):
-    '''Модель списка всех нижних баннеров'''
+    """Модель списка всех нижних баннеров"""
     low_banner_1 = models.ForeignKey(LowerBanner1, on_delete=models.CASCADE, blank=True, null=True)
     low_banner_2 = models.ForeignKey(LowerBanner2, on_delete=models.CASCADE, blank=True, null=True)
     low_banner_3 = models.ForeignKey(LowerBanner3, on_delete=models.CASCADE, blank=True, null=True)
