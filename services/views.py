@@ -6,6 +6,7 @@ from rest_framework.response import Response
 from main.models import TimeSlideBase, TimeForMiniSlider
 from main.serializers import TimeSlideBaseSerializer, TimeForMiniSliderSerializer
 from services.models import ServicesCatalog, Services
+from services.paginations import SmallSliderPagination
 from services.serializers import ServicesCatalogSerializer, BigSliderSerializer, ServicesCatalogSerializerForSmallSlider
 
 
@@ -93,3 +94,21 @@ class SmallSliderViewSet(viewsets.ReadOnlyModelViewSet):
     #         return self.get_paginated_response(serializer.data)
     #     serializer = self.get_serializer(queryset, many=True)
     #     return Response({"catalog": serializer.data})
+
+
+class NewSmallSliderViewSet(viewsets.ReadOnlyModelViewSet):
+    """Представление маленького слайдера с пагинацией"""
+    serializer_class = ServicesCatalogSerializerForSmallSlider
+    pagination_class = SmallSliderPagination
+
+    # TODO: делается в 2 запроса, оптимизировать в один запрос, develop_han
+    def get_queryset(self):
+        queryset = ServicesCatalog.objects.filter(is_active=True) \
+            .prefetch_related(Prefetch('services', queryset=Services.objects
+                                       .filter(Q(is_active=True) & ~Q(image_for_mini_slider__exact=''))))
+        exclude_items = []
+        for item in queryset:
+            if item.services.count() == 0:
+                exclude_items.append(item.id)
+        return queryset.exclude(id__in=exclude_items)
+
