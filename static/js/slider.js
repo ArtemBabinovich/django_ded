@@ -58,7 +58,7 @@ function getSwiperItem(url) {
     fetch(url)
         .then(resp => resp.json())
         .then(item => {
-            for (let i of item.slides) {
+            for (let i of item.results) {
                 mainSwiperWrapper.innerHTML += `<div class="main__slider-slide swiper-slide">
                                                     <div class="main__slider-slide-image">
                                                         <img class="main__slider-image" src='${i.image_for_big_slider}' alt="">
@@ -89,8 +89,9 @@ function getSwiperItem(url) {
                     nextEl: '.slider__action-prev',
                     prevEl: '.slider__action-next',
                 },
-                slidesPerView: 1, autoplay: {
-                    delay: item.timer,
+                slidesPerView: 1,
+                autoplay: {
+                    delay: item.timer ? item.timer : 2000,
                     disableOnInteraction: false,
                     pauseOnMouseEnter: true,
                 }
