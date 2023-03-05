@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'tinymce',
     'ckeditor',
+    'sortedm2m',
+    'sortedm2m_filter_horizontal_widget',
 
     'main',
     'contacts',
@@ -54,6 +56,7 @@ INSTALLED_APPS = [
     'video_app',
     'read_tips',
     'social_networks',
+    'lower_banner',
 ]
 
 MIDDLEWARE = [
