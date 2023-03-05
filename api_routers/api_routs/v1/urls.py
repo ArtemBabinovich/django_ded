@@ -4,7 +4,7 @@ from rest_framework import routers
 from about_present.views import AboutPresentAdd, FullApiInfoViewSets
 from contacts import APIviews
 from get_discount.views import GetDiscountAdd
-from lower_banner.views import LowerBannerForMainPageViewSet
+# from lower_banner.views import LowerBannerForMainPageViewSet
 from main import viewsAPI
 from modules.APIviews import ModuleForMainPageViewSet
 from read_tips.views import ContentTips1ApiViewSets
@@ -35,7 +35,7 @@ router.register(r'video_links', VideoApiViewSets, basename='video_links')
 router.register(r'content_tips', ContentTips1ApiViewSets, basename='content_tips')
 # URL для Ссылок на социальные сети
 router.register(r'url_for_social_networks', SubscribeSocialNetworksApiView, basename='url_for_social_networks')
-router.register(r'lower_banners/main_page', LowerBannerForMainPageViewSet, basename='lower_banner_main_page')
+# router.register(r'lower_banners/main_page', LowerBannerForMainPageViewSet, basename='lower_banner_main_page')
 
 urlpatterns = [
     path('api/', include(router.urls)),
