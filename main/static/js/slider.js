@@ -129,11 +129,26 @@ function getSwiperItem(url) {
 
 getSwiperItem('https://developer.itec.by/api/big_slider/')
 
+let page = 1;
+let offset = 850;
+let prevPage = true;
+window.addEventListener('scroll', () => {
+    if (window.pageYOffset > offset) {
+        offset += 850
+        if (prevPage) {
+            page++
+            miniSliders(`https://developer.itec.by/api/small_slider_with_pagination/?page=${page}`)
+        }
+    }
+})
 
 function miniSliders(url) {
     fetch(url)
         .then(resp => resp.json())
         .then(res => {
+            if (!res.next) {
+                prevPage = false
+            }
             let services = ``;
             let count = 1;
             for (let i of res.slides) {
@@ -151,21 +166,23 @@ function miniSliders(url) {
                                 </a>
                                 `
                 }
-                miniSlidersWrapper.innerHTML += `
-                                                <div class="main__content-block-mini-slider-item" id="${i.url}">
-                                                    <div class="mini__slider-title-wrapper">
-                                                        <div class="mini__slider-item-title"">
-                                                            ${i.title} ${i.additional_title === null ? '' : i.additional_title}
-                                                        </div>
-                                                        <div class="main__slider-item-sub-title">
-                                                            ${i.additional_title_2 === null ? '' : i.additional_title_2}
-                                                        </div>
-                                                    </div>
-                                                    <div class="mini__swiper-container">
-                                                        ${services}
-                                                    </div>
-                                                </div>
-                                            `
+                let div = document.createElement('div')
+                div.innerHTML = `
+                                <div class="main__content-block-mini-slider-item" id="${i.url}">
+                                    <div class="mini__slider-title-wrapper">
+                                        <div class="mini__slider-item-title"">
+                                            ${i.title} ${i.additional_title === null ? '' : i.additional_title}
+                                    </div>
+                                    <div class="main__slider-item-sub-title">
+                                        ${i.additional_title_2 === null ? '' : i.additional_title_2}
+                                    </div>
+                                </div>
+                                <div class="mini__swiper-container${page}">
+                                    ${services}
+                                </div>
+                            </div>
+                        `
+                miniSlidersWrapper.append(div)
                 services = ``
                 count++
             }
@@ -179,6 +196,7 @@ function miniSliders(url) {
                 fetch(url)
                     .then(resp => resp.json())
                     .then(result => {
+                        console.log(result)
                         const blockMiniSlider = document.querySelectorAll('.main__content-block-mini-slider-item')
                         if (blockMiniSlider[0].children[3]) {
                             countTips++
@@ -361,22 +379,22 @@ function miniSliders(url) {
                         // -----------------------
                     })
             }
+
             get_tips('https://developer.itec.by/api/content_tips/obrabotka-foto/')
-            return res.timer
         })
         .then(timer => {
             $(document).ready(function () {
-                $('.mini__swiper-container').slick({
+                $(`.mini__swiper-container${page}`).slick({
                     infinite: true,
                     slidesToShow: 3.5,
                     slidesToScroll: 3,
                     speed: 1000,
                     autoplay: true,
-                    rtl:false,
-                    autoplaySpeed: 5000,
+                    rtl: false,
+                    autoplaySpeed: timer ? timer : 5000,
                     responsive: [
                         {
-                            breakpoint:1920,
+                            breakpoint: 1920,
                             settings: {
                                 slidesToShow: 3,
                                 slidesToScroll: 3,
@@ -402,7 +420,7 @@ function miniSliders(url) {
         })
 }
 
-miniSliders('https://developer.itec.by/api/small_slider/')
+miniSliders('https://developer.itec.by/api/small_slider_with_pagination/')
 
 function banners(url) {
     fetch(url)
@@ -507,8 +525,8 @@ function banners(url) {
                                                 </div>
                                                 <div class="main__content-sale-block-item-sub-time" style="display: ${m.calendar_date ? 'block' : 'none'}">
                                                     ${calendarDate.toLocaleString('default', {
-                            year: 'numeric', month: 'long', day: 'numeric'
-                        })}
+                                                        year: 'numeric', month: 'long', day: 'numeric'
+                                                    })}
                                                 </div>
                                                 <div class="main__content-sale-block-item-banner-title" style="display: ${m.banner_title ? 'block' : 'none'}">
                                                     ${m.banner_title}
@@ -633,7 +651,7 @@ function videoSlider(url) {
         .then(resp => resp.json())
         .then(res => {
             const videoSliderWrapper = document.querySelector('.video__slider-block-slider-wrapper')
-            for (let i of res) {
+            for (let i of res.results) {
                 videoSliderWrapper.innerHTML += `
                                                     <div class="video__slider-block-slider-slide swiper-slide">
                                                         <div class="video__slider-block-slider-slide-wrapper">
@@ -693,7 +711,14 @@ function socialsSlider(url) {
         .then(resp => resp.json())
         .then(res => {
             const socialSliderWrapper = document.querySelector('.social__block-slider-wrapper')
-            for (let i of res[0].social_networks) {
+            const socialSliderTitle = document.querySelector('.social__slider-title');
+            let firstParagraph = document.createElement('p');
+            let secondParagraph = document.createElement('p');
+            firstParagraph.textContent = res.results[0].title;
+            secondParagraph.textContent = res.results[0].title2;
+            socialSliderTitle.append(firstParagraph)
+            socialSliderTitle.append(secondParagraph)
+            for (let i of res.results[0].social_networks) {
                 socialSliderWrapper.innerHTML += `
                                                     <div class="social__block-slider-item swiper-slide">
                                                         <div class="swiper__slide-wrapper">
@@ -722,7 +747,7 @@ function socialsSlider(url) {
                     autoplaySpeed: 5000,
                     responsive: [
                         {
-                            breakpoint:1920,
+                            breakpoint: 1920,
                             settings: {
                                 slidesToShow: 3,
                                 slidesToScroll: 3,

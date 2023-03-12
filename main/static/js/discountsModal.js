@@ -8,6 +8,7 @@ const closeModal = document.querySelector('.close__modal')
 const presentClose = document.querySelector('.present__close');
 const salesBtn = document.getElementById('#salesBtn');
 const presentsBtn = document.getElementById('#presentBtn');
+const remindBtn = document.querySelector('.reminders__block-wrapper-btn');
 
 
 salesBtn.style.display = 'none';
@@ -25,7 +26,10 @@ closeModal.addEventListener('click', () => {
     document.body.style.overflowY = 'auto'
 })
 
-
+remindBtn.addEventListener('click', () => {
+    dropPresentModal.style.display = 'flex'
+    document.body.style.overflow = 'hidden'
+})
 if (window.innerWidth < 480) {
     const headerNavListMobile = document.querySelector('.header__nav-list-mobile');
     presentBtn.addEventListener('click', () => {
@@ -39,7 +43,6 @@ if (window.innerWidth < 480) {
 } else {
     presentBtn.addEventListener('click', () => {
         dropPresentModal.style.display = 'flex';
-        dropPresentModal.style.overflowY = 'auto';
         document.body.style.overflow = 'hidden';
     })
     if (window.innerWidth < 1024) {
@@ -130,7 +133,7 @@ function get_presents(url) {
     fetch(url)
         .then(resp => resp.json())
         .then(res => {
-            for (let i of res) {
+            for (let i of res.results) {
                 selectedChoiceActive.forEach(item => {
                     item.innerHTML = `
                                         ${i.reason_set[0].name}
@@ -214,20 +217,25 @@ const presentName = document.getElementById('#presentFormName');
 const presentEmail = document.getElementById('#presentFormEmail');
 const presentPhone = document.getElementById('#presentFormPhone');
 presentPhone.oninput = () => {
-    if(presentPhone.value.length === 2) {
-        presentPhone.value += ' /'
-    }
-    if(presentPhone.value.length === 7){
-        presentPhone.value += '/ '
-    }
-    if(presentPhone.value.length === 12){
-        presentPhone.value += ' '
-    }
-    if(presentPhone.value.length === 15){
-        presentPhone.value += ' '
-    }
-    console.log(presentPhone.value.length, presentPhone.value)
-
+    presentPhone.addEventListener('keydown', (e) => {
+        const key = e.key
+        if (key === 'Backspace' || key === 'Delete') {
+            presentPhone.value = presentPhone.value.slice(0, presentPhone.value.length)
+        } else {
+            if (presentPhone.value.length === 2) {
+                presentPhone.value += ' /'
+            }
+            if (presentPhone.value.length === 7) {
+                presentPhone.value += '/ '
+            }
+            if (presentPhone.value.length === 12) {
+                presentPhone.value += ' '
+            }
+            if (presentPhone.value.length === 15) {
+                presentPhone.value += ' '
+            }
+        }
+    })
     // presentPhone.value = presentPhone.value.replace(/\s/g, '')
 }
 presentEmail.oninput = () => {
@@ -287,7 +295,27 @@ firstFormName.oninput = () => {
     firstFormName.value = firstFormName.value.replace(/\s/g, '')
 }
 firstFormPhone.oninput = () => {
-    firstFormPhone.value = firstFormPhone.value.replace(/\s/g, '')
+    console.log(firstFormPhone.value)
+    firstFormPhone.addEventListener('keydown', (e) => {
+        const key = e.key
+        if (key === 'Backspace' || key === 'Delete') {
+            firstFormPhone.value = firstFormPhone.value.slice(0, firstFormPhone.value.length)
+        } else {
+            console.log(1111)
+            if (firstFormPhone.value.length === 2) {
+                firstFormPhone.value += ' /'
+            }
+            if (firstFormPhone.value.length === 7) {
+                firstFormPhone.value += '/ '
+            }
+            if (firstFormPhone.value.length === 12) {
+                firstFormPhone.value += ' '
+            }
+            if (firstFormPhone.value.length === 15) {
+                firstFormPhone.value += ' '
+            }
+        }
+    })
 }
 firstFormEmail.oninput = () => {
     firstFormEmail.value = firstFormEmail.value.replace(/\s/g, '')
@@ -296,7 +324,25 @@ secondFormName.oninput = () => {
     secondFormName.value = secondFormName.value.replace(/\s/g, '')
 }
 secondFormPhone.oninput = () => {
-    secondFormPhone.value = secondFormPhone.value.replace(/\s/g, '')
+    secondFormPhone.addEventListener('keydown', (e) => {
+        const key = e.key
+        if (key === 'Backspace' || key === 'Delete') {
+            secondFormPhone.value = secondFormPhone.value.slice(0, secondFormPhone.value.length)
+        } else {
+            if (secondFormPhone.value.length === 2) {
+                secondFormPhone.value += ' /'
+            }
+            if (secondFormPhone.value.length === 7) {
+                secondFormPhone.value += '/ '
+            }
+            if (secondFormPhone.value.length === 12) {
+                secondFormPhone.value += ' '
+            }
+            if (secondFormPhone.value.length === 15) {
+                secondFormPhone.value += ' '
+            }
+        }
+    })
 }
 secondFormEmail.oninput = () => {
     secondFormEmail.value = secondFormEmail.value.replace(/\s/g, '')

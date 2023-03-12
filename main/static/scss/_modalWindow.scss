@@ -178,10 +178,11 @@
 
   & span {
     color: #ffff00;
+    font-size: 16px;
   }
 
   & input {
-    border: 1px solid #fff0c8;
+    border: 1px solid #ffffff;
     background: rgba(0, 0, 0, .0);
     padding: 2px 10px 2px 10px;
     font-family: Verdana;
@@ -205,7 +206,7 @@
 
 .form__who-select {
   width: 100%;
-  border: 1px solid #fff0c8;
+  border: 1px solid #ffffff;
   background: rgba(0, 0, 0, .0);
   padding: 2px 10px 2px 10px;
   font-family: Verdana;
@@ -253,7 +254,7 @@
 
 .who__selected-choice {
   position: absolute;
-  height: 200px;
+  height: 95px;
   top: 30px;
   left: -1px;
   width: 101%;
@@ -293,7 +294,7 @@
 
 .form__occasion-select {
   width: 100%;
-  border: 1px solid #fff0c8;
+  border: 1px solid #ffffff;
   background: rgba(0, 0, 0, .0);
   padding: 2px 10px 2px 10px;
   position: relative;
@@ -347,6 +348,7 @@
 
 .occasion__selected-choice {
   position: absolute;
+  height: 95px;
   top: 30px;
   left: -1px;
   width: 101%;
@@ -354,7 +356,6 @@
   overflow-y: auto;
   display: none;
   z-index: 2;
-  height: 200px;
 
   &::-webkit-scrollbar {
     width: 10px;
@@ -367,7 +368,7 @@
 
 .form__order-select {
   width: 100%;
-  border: 1px solid #fff0c8;
+  border: 1px solid #ffffff;
   background: rgba(0, 0, 0, .0);
   padding: 2px 10px 2px 10px;
   position: relative;
@@ -403,7 +404,7 @@
 
 .form__remind-select {
   width: 60px;
-  border: 1px solid #fff0c8;
+  border: 1px solid #ffffff;
   background: rgba(0, 0, 0, .0);
   padding: 0 10px 0px 10px;
   position: relative;
@@ -493,6 +494,7 @@
 
 .order__selected-choice {
   position: absolute;
+  height: 95px;
   top: 30px;
   left: -1px;
   width: 101%;
@@ -500,7 +502,6 @@
   overflow-y: auto;
   display: none;
   z-index: 2;
-  height: 200px;
 
   &::-webkit-scrollbar {
     width: 10px;
@@ -661,6 +662,7 @@
   }
 
   & label {
+    cursor: pointer;
     display: inline-flex;
     align-items: center;
     user-select: none;
@@ -715,7 +717,7 @@
 
 .secondBlock__nav {
   margin-top: 24px;
-  padding: 0 20px;
+  padding: 0 0 0 20px;
 }
 
 .secondBlock__nav-list {
@@ -858,7 +860,7 @@
     padding: 2px 10px 2px 10px;
     font-family: Verdana;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 400;
     font-size: 14px;
     line-height: 23.83px;
     color: #fff0c8;

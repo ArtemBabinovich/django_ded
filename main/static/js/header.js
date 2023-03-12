@@ -69,7 +69,7 @@ function get__phone(url) {
     fetch(url)
         .then(resp => resp.json())
         .then(res => {
-            for (let i of res){
+            for (let i of res.results){
                 headerPhone.innerHTML += `
                                             <a href="#">${i.country_code} /${i.number_operator}/ <span style="color: ${i.color_number}">${i.number_phone}</span></a>
                                         `
@@ -83,7 +83,7 @@ function get__social(url) {
     fetch(url)
         .then(resp => resp.json())
         .then(res => {
-            for (let i of res){
+            for (let i of res.results){
                 socialNavList.forEach(socialNavListItem => {
                     socialNavListItem.innerHTML += `
                                                         <li class="secondBlock__list-item">
