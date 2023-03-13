@@ -28,7 +28,7 @@ class Banner2Serializer(serializers.ModelSerializer):
     class Meta:
         model = Banner2
         fields = ('calendar_title', 'calendar_date', 'text_1', 'slider_1', 'text_2',
-                  'slider_2', 'text_3', 'timer_title', 'timer', 'banner_position')
+                  'slider_2', 'text_3', 'timer_title', 'timer', 'banner_position', 'baner_type_2')
         depth = 1
 
 

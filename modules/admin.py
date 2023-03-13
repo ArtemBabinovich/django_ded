@@ -24,8 +24,9 @@ class Banner1Admin(admin.ModelAdmin):
 
 class Banner2Admin(admin.ModelAdmin):
 
-    # fields = '__all__'
+    # fields = ('calendar_title', 'calendar_date', 'text_1', 'text_2', 'text_3', 'timer_title', 'timer', 'banner_position')
     filter_horizontal = ('slider_1', 'slider_2',)
+    exclude = ['baner_type_2']
     # ordering = ('banner_position', )
 
 

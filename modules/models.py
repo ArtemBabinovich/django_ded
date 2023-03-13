@@ -46,6 +46,7 @@ class Banner2(models.Model):
     timer_title = models.CharField('Заголовок таймера', max_length=100)
     timer = models.DateTimeField('Дата и время окончания таймера')
     banner_position = models.IntegerField(verbose_name='Порядковый номер баннера')
+    baner_type_2 = models.BooleanField(default=True)
 
     class Meta:
         verbose_name = 'Баннер типа №2'
