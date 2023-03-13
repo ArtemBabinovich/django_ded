@@ -112,13 +112,17 @@ window.onload = function () {
 }
 const Footer = document.querySelector('footer')
 const Header = document.querySelector('header')
-const windowUp = document.getElementById('#windowUp')
-const windowDown = document.getElementById('#windowDown')
-const getWork = document.getElementById('#getWrok');
+const windowUp = document.getElementById('windowUp')
+const windowDown = document.getElementById('windowDown')
+const getWork = document.getElementById('getWork');
 const getWorkBlock = document.querySelector('.get__work-block');
-const remindPresents = document.getElementById('#remindPresents');
+const remindPresents = document.getElementById('remindPresents');
 const subscriptionBlock = document.querySelector('.subscription__block')
+const subscribe = document.getElementById('subscribe')
 
+subscribe.addEventListener('click', () => {
+    scrollBy(0,(subscriptionBlock.getBoundingClientRect().top - 75))
+})
 remindPresents.addEventListener('click', () => {
     scrollBy(0,(subscriptionBlock.getBoundingClientRect().top - 75))
 })
