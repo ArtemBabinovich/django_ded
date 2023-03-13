@@ -69,7 +69,7 @@ function get__phone(url) {
     fetch(url)
         .then(resp => resp.json())
         .then(res => {
-            for (let i of res){
+            for (let i of res.results){
                 headerPhone.innerHTML += `
                                             <a href="#">${i.country_code} /${i.number_operator}/ <span style="color: ${i.color_number}">${i.number_phone}</span></a>
                                         `
@@ -83,7 +83,7 @@ function get__social(url) {
     fetch(url)
         .then(resp => resp.json())
         .then(res => {
-            for (let i of res){
+            for (let i of res.results){
                 socialNavList.forEach(socialNavListItem => {
                     socialNavListItem.innerHTML += `
                                                         <li class="secondBlock__list-item">
@@ -112,13 +112,17 @@ window.onload = function () {
 }
 const Footer = document.querySelector('footer')
 const Header = document.querySelector('header')
-const windowUp = document.getElementById('#windowUp')
-const windowDown = document.getElementById('#windowDown')
-const getWork = document.getElementById('#getWrok');
+const windowUp = document.getElementById('windowUp')
+const windowDown = document.getElementById('windowDown')
+const getWork = document.getElementById('getWork');
 const getWorkBlock = document.querySelector('.get__work-block');
-const remindPresents = document.getElementById('#remindPresents');
+const remindPresents = document.getElementById('remindPresents');
 const subscriptionBlock = document.querySelector('.subscription__block')
+const subscribe = document.getElementById('subscribe')
 
+subscribe.addEventListener('click', () => {
+    scrollBy(0,(subscriptionBlock.getBoundingClientRect().top - 75))
+})
 remindPresents.addEventListener('click', () => {
     scrollBy(0,(subscriptionBlock.getBoundingClientRect().top - 75))
 })

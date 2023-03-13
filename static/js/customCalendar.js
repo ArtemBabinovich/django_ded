@@ -9,12 +9,39 @@ const currentDate = document.querySelectorAll('.current__date'),
     dateNow = document.querySelectorAll('.date__now'),
     dateNowBtn = document.querySelectorAll('.date__now-btn-now'),
     dateNowClearBtn = document.querySelectorAll('.date__clear-btn'),
-    calendarIconMobile = document.getElementById('#calendarIconMobile').id;
-
+    calendarIconMobile = document.getElementById('#calendarIconMobile').id,
+    dropDownWrapper = document.querySelector('.drop__down-present-wrapper'),
+    calendarItem = document.querySelector('.calendar__item')
 
 // give isActive class
 let selectedText;
 
+dropDownWrapper.addEventListener('click', (e) => {
+    // console.log(e.target.parentElement, 'parent')
+    // console.log(e.target.parentElement.parentElement, 'parent parent')
+    // console.log(e.target.parentElement.parentElement.parentElement, 'parent parent parent')
+    // console.log(e.target, 'target')
+    if (e.target.parentElement !== calendarItem) {
+        if (e.target.parentElement.parentElement !== calendarItem) {
+            if (e.target.parentElement.parentElement.parentElement !== calendarItem) {
+                if (e.target.parentElement.parentElement.parentElement.children[0] !== calendarItem) {
+                    if (!e.target.parentElement.classList.contains('calendar__selected')) {
+                        if (!e.target.parentElement.classList.contains('month__next')) {
+                            if (!e.target.parentElement.classList.contains('month__prev')) {
+                                calendar.forEach(calendarItem => {
+                                    calendarItem.classList.remove('calendarActive')
+                                })
+                            }
+                        }
+                        calendarDropDownWrap.forEach(item => {
+                            item.classList.remove('dropDownCalendar');
+                        })
+                    }
+                }
+            }
+        }
+    }
+})
 calendarSelected.forEach(selectedItem => {
     selectedItem.addEventListener('click', (e) => {
         if (e.target.id === calendarIcon || e.target.id === calendarIconMobile) {
@@ -23,7 +50,7 @@ calendarSelected.forEach(selectedItem => {
             })
             calendar.forEach(calendarItem => {
                 if (calendarItem.classList.contains('calendarActive')) {
-                    if(e.target.parentElement === calendarSelected[0]){
+                    if (e.target.parentElement === calendarSelected[0]) {
                         calendarItem.classList.toggle('calendarActive')
                     }
                 } else {
@@ -34,7 +61,7 @@ calendarSelected.forEach(selectedItem => {
         } else {
             calendar.forEach(calendarItem => {
                 if (calendarItem.classList.contains('calendarActive')) {
-                    if(e.target.parentElement === calendarSelected[0]){
+                    if (e.target.parentElement === calendarSelected[0] || e.target === calendarSelected[0]) {
                         calendarItem.classList.toggle('calendarActive')
                     }
                 } else {

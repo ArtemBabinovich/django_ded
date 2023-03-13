@@ -56,8 +56,12 @@ footer{
       & a {
         font-size: 18px;
       }
+      &:nth-child(7){
+        flex: 0 0;
+      }
     }
   }
+
 }
 @media (max-width: 1365px) {
   .footer__nav-list{

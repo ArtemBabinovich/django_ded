@@ -1176,9 +1176,10 @@ html {
 }
 .present__secondBlock-form span {
   color: #ffff00;
+  font-size: 16px;
 }
 .present__secondBlock-form input {
-  border: 1px solid #fff0c8;
+  border: 1px solid #ffffff;
   background: rgba(0, 0, 0, 0);
   padding: 2px 10px 2px 10px;
   font-family: Verdana;
@@ -1200,7 +1201,7 @@ html {
 
 .form__who-select {
   width: 100%;
-  border: 1px solid #fff0c8;
+  border: 1px solid #ffffff;
   background: rgba(0, 0, 0, 0);
   padding: 2px 10px 2px 10px;
   font-family: Verdana;
@@ -1246,7 +1247,7 @@ html {
 
 .who__selected-choice {
   position: absolute;
-  height: 200px;
+  height: 95px;
   top: 30px;
   left: -1px;
   width: 101%;
@@ -1283,7 +1284,7 @@ html {
 
 .form__occasion-select {
   width: 100%;
-  border: 1px solid #fff0c8;
+  border: 1px solid #ffffff;
   background: rgba(0, 0, 0, 0);
   padding: 2px 10px 2px 10px;
   position: relative;
@@ -1335,6 +1336,7 @@ html {
 
 .occasion__selected-choice {
   position: absolute;
+  height: 95px;
   top: 30px;
   left: -1px;
   width: 101%;
@@ -1342,7 +1344,6 @@ html {
   overflow-y: auto;
   display: none;
   z-index: 2;
-  height: 200px;
 }
 .occasion__selected-choice::-webkit-scrollbar {
   width: 10px;
@@ -1353,7 +1354,7 @@ html {
 
 .form__order-select {
   width: 100%;
-  border: 1px solid #fff0c8;
+  border: 1px solid #ffffff;
   background: rgba(0, 0, 0, 0);
   padding: 2px 10px 2px 10px;
   position: relative;
@@ -1387,7 +1388,7 @@ html {
 
 .form__remind-select {
   width: 60px;
-  border: 1px solid #fff0c8;
+  border: 1px solid #ffffff;
   background: rgba(0, 0, 0, 0);
   padding: 0 10px 0px 10px;
   position: relative;
@@ -1474,6 +1475,7 @@ html {
 
 .order__selected-choice {
   position: absolute;
+  height: 95px;
   top: 30px;
   left: -1px;
   width: 101%;
@@ -1481,7 +1483,6 @@ html {
   overflow-y: auto;
   display: none;
   z-index: 2;
-  height: 200px;
 }
 .order__selected-choice::-webkit-scrollbar {
   width: 10px;
@@ -1635,6 +1636,7 @@ html {
   opacity: 0;
 }
 .form__remind-everyYears label {
+  cursor: pointer;
   display: inline-flex;
   align-items: center;
   user-select: none;
@@ -1684,7 +1686,7 @@ html {
 
 .secondBlock__nav {
   margin-top: 24px;
-  padding: 0 20px;
+  padding: 0 0 0 20px;
 }
 
 .secondBlock__nav-list {
@@ -1820,7 +1822,7 @@ html {
   padding: 2px 10px 2px 10px;
   font-family: Verdana;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 400;
   font-size: 14px;
   line-height: 23.83px;
   color: #fff0c8;
@@ -1974,7 +1976,7 @@ html {
 }
 
 .calendar__selected {
-  border: 1px solid #fff0c8;
+  border: 1px solid #ffffff;
   background: rgba(0, 0, 0, 0);
   padding: 2px 10px 2px 10px;
   font-family: Verdana;
@@ -2545,7 +2547,7 @@ html {
 .social__slider-title {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 30px;
   margin-top: 50px;
   margin-bottom: 35px;
 }
@@ -3337,7 +3339,7 @@ html {
   margin: 0 auto;
   margin-top: 10px;
   padding: 0 15px;
-  height: 30px;
+  max-height: 30px;
   display: flex;
   align-items: center;
   border-radius: 5px;
@@ -3850,6 +3852,9 @@ footer {
   }
   .footer__nav-list li a {
     font-size: 18px;
+  }
+  .footer__nav-list li:nth-child(7) {
+    flex: 0 0;
   }
 }
 @media (max-width: 1365px) {

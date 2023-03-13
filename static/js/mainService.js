@@ -6,7 +6,7 @@ function get__services(url) {
         .then(resp => resp.json())
         .then(res => {
             let serviceItem = ``;
-            for (let i of res.data){
+            for (let i of res.results){
                 for (let j of i.services){
                     serviceItem += `<li class="service__block-list-item">
                                         <div class="service__block-list-item-hit" style="display: ${j.marker === null ? 'none' : 'flex'}">
