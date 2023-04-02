@@ -67,7 +67,7 @@ class GeneralModelSerializer(serializers.ModelSerializer):
 
     # функция фильтрует все урлы и названия в собраном блоке
     def get_advices_url(self, obj):
-        queryset = ContentTips.objects.filter(modeltips__general__title=obj)
+        queryset = ContentTips.objects.filter(modeltips__general=obj)
         serializer = ContentTipsServSer1(queryset, many=True)
         return serializer.data
 
