@@ -125,7 +125,7 @@
   font-size: 20px;
   line-height: 23.83px;
   cursor: pointer;
-  background: linear-gradient(0deg, rgb(125, 2, 2) 34%, rgb(223, 3, 0) 73%);
+  background: linear-gradient(0deg, rgba(70,1,1,1) 0%, rgba(135,1,1,1) 51%, rgba(181,1,1,1) 100%);
   &:hover{
     background: #3d0000;
   }
@@ -579,5 +579,8 @@
   .header__phone{
     width: 100%;
     justify-content: space-between;
+    & a {
+      font-size: 13px;
+    }
   }
 }

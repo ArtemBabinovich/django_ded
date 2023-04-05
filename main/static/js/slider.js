@@ -141,6 +141,7 @@ window.addEventListener('scroll', () => {
         }
     }
 })
+let stateTips = true;
 
 function miniSliders(url) {
     fetch(url)
@@ -151,6 +152,7 @@ function miniSliders(url) {
             }
             let services = ``;
             let count = 1;
+            console.log(res)
             for (let i of res.slides) {
                 for (let j of i.services) {
                     services += `
@@ -204,14 +206,14 @@ function miniSliders(url) {
                         // циклы для заголовка и контента советов adviceContent
                         adviceContent += `
                                     <div class="swiper__tips-drop-title">
-                                        ${result.advices_for_services_catalog[0] ? result.advices_for_services_catalog[0].advices[0].title : ''}
+                                        ${result.results[0] ? result.results[0].advices[0].title : ''}
                                     </div>
                                     <div class="swiper__tips-drop-sub-title">
-                                        ${result.advices_for_services_catalog[0] ? result.advices_for_services_catalog[0].advices[0].title2 : ''}
+                                        ${result.results[0] ? result.results[0].advices[0].title2 : ''}
                                     </div>
                                 `
-                        if (result.advices_for_services_catalog[0]) {
-                            for (let l of result.advices_for_services_catalog[0].advices[0].content) {
+                        if (result.results[0]) {
+                            for (let l of result.results[0].advices[0].content) {
                                 contentDescription += `
                                             <div class="swiper__tips-drop-about-head" id="${l.url}">
                                                 ${l.title}
@@ -236,9 +238,9 @@ function miniSliders(url) {
                                     `
                         contentDescription = ``
                         // циклы для заголовков и контента советов openAllBlock
-                        if (result.advices_for_services_catalog[0]) {
-                            result.advices_for_services_catalog[0].advices.shift()
-                            for (let i of result.advices_for_services_catalog[0].advices) {
+                        if (result.results[0]) {
+                            result.results[0].advices.shift()
+                            for (let i of result.results[0].advices) {
                                 openAllBlock += `
                                     <div class="swiper__tips-drop-title">
                                         ${i.title}
@@ -273,15 +275,15 @@ function miniSliders(url) {
                                 contentDescription = ``
                             }
                             // акции в советах
-                            for (let k in result.advices_for_services_catalog[0].discount) {
+                            for (let k in result.results[0].discount) {
                                 adviceContent += `
-                                        <div class="swiper__tips-drop-stock-block" style="display: ${result.advices_for_services_catalog[0].discount[k] === undefined ? 'none' : 'flex'}">
-                                            ${result.advices_for_services_catalog[0].discount[k]}
+                                        <div class="swiper__tips-drop-stock-block" style="display: ${result.results[0].discount[k] === undefined ? 'none' : 'flex'}">
+                                            ${result.results[0].discount[k]}
                                         </div>
                                     `
                             }
                             // якоря
-                            for (let y of result.advices_for_services_catalog[0].advices_url) {
+                            for (let y of result.results[0].advices_url) {
                                 anchorsLi += `
                                     <li class="swiper__tips-anchors-item">
                                         <a href="#${y.url}">
@@ -322,7 +324,7 @@ function miniSliders(url) {
                         let div = document.createElement('div')
                         div.classList.add('mini__swiper-tips')
                         div.innerHTML = `
-                                        <span class="mini__swiper-tips-text" id="tipsText">Читать СОВЕТЫ ...</span>
+                                        <span class="mini__swiper-tips-text" id="tipsText">Читать СОВЕТЫ...</span>
                                         <div class="mini__swiper-tips-drop">
                                             <div class="swiper__tips-drop">
                                                 ${adviceContent}
@@ -356,21 +358,21 @@ function miniSliders(url) {
                                 }
                             } else {
                                 if (e.target.id === 'tipsText') {
-                                    e.target.parentElement.children[0].textContent = 'Читать СОВЕТЫ ...'
+                                    e.target.parentElement.children[0].textContent = 'Читать СОВЕТЫ...'
                                     e.target.parentElement.children[0].style.marginBottom = '0px'
                                     slickArrow.forEach(item => item.style.top = '40%')
                                 }
                                 if (e.target.id === 'swiperBackAll') {
                                     e.target.parentElement.parentElement.children[3].classList.toggle('tips__active')
                                     if (e.target.parentElement.parentElement.children[3].classList.contains('tips__active')) {
-                                        e.target.parentElement.parentElement.children[2].children[0].textContent = 'Свернуть ВСЕ ...'
+                                        e.target.parentElement.parentElement.children[2].children[0].textContent = 'Свернуть ВСЕ'
                                         if (e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.children[2].clientHeight >= 350) {
                                             e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.children[1].style.top = '2.7%'
                                         } else {
                                             e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.children[1].style.top = '1.7%'
                                         }
                                     } else {
-                                        e.target.parentElement.parentElement.children[2].children[0].textContent = 'Показать ВСЕ ...'
+                                        e.target.parentElement.parentElement.children[2].children[0].textContent = 'Показать ВСЕ...'
                                         e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.children[1].style.top = '13%'
                                     }
                                 }
@@ -380,7 +382,10 @@ function miniSliders(url) {
                     })
             }
 
-            get_tips('https://developer.itec.by/api/content_tips/obrabotka-foto/')
+            if (stateTips){
+                get_tips('https://developer.itec.by/api/content_tips')
+            }
+            stateTips = false
         })
         .then(timer => {
             $(document).ready(function () {
@@ -437,23 +442,32 @@ function banners(url) {
                     if (m.slider_1 || m.slider_2) {
                         for (let j of m.slider_1) {
                             sliderItems1 += `
-                                        <div class="main__content-sale-block-swiper-item swiper-slide">
+                                        <div class="main__content-sale-block-swiper-item">
                                             <img src="https://developer.itec.by${j.foto}" alt="">
+                                            <div class="main__content-sale-block-swiper-item-title">
+                                                <p>${j.name}</p>
+                                            </div>
                                         </div>
                                         `
                         }
                         for (let k of m.slider_2) {
                             sliderItems2 += `
-                                        <div class="main__content-sale-block-swiper-item swiper-slide">
+                                        <div class="main__content-sale-block-swiper-item">
                                             <img src="https://developer.itec.by${k.foto}" alt="">
+                                            <div class="main__content-sale-block-swiper-item-title">
+                                                <p>${k.name}</p>
+                                            </div>
                                         </div>
                                         `
                         }
                     } else {
                         for (let j of m.slider) {
                             sliderItems += `
-                                            <div class="main__content-sale-block-swiper-item swiper-slide">
+                                            <div class="main__content-sale-block-swiper-item">
                                                 <img src="https://developer.itec.by${j.foto}" alt="">
+                                                <div class="main__content-sale-block-swiper-item-title">
+                                                    <p>${j.name}</p>
+                                                </div>
                                             </div>
                                             `
                         }
@@ -525,8 +539,8 @@ function banners(url) {
                                                 </div>
                                                 <div class="main__content-sale-block-item-sub-time" style="display: ${m.calendar_date ? 'block' : 'none'}">
                                                     ${calendarDate.toLocaleString('default', {
-                                                        year: 'numeric', month: 'long', day: 'numeric'
-                                                    })}
+                            year: 'numeric', month: 'long', day: 'numeric'
+                        })}
                                                 </div>
                                                 <div class="main__content-sale-block-item-banner-title" style="display: ${m.banner_title ? 'block' : 'none'}">
                                                     ${m.banner_title}
@@ -535,26 +549,20 @@ function banners(url) {
                                             <div class="main__content-sale-block-item-main-text">
                                                 ${m.text_1}
                                             </div>
-                                            <div class="main__content-sale-block-item-swiper swiper">
-                                                <div class="main__content-sale-block-item-swiper-wrapper swiper-wrapper">
-                                                    ${sliderItems}
-                                                </div>
+                                            <div class="main__content-sale-block-item-swiper ${m.baner_type_2 ? "bannerT2" : 'banner'}">
+                                                ${sliderItems}
                                             </div>
                                             ${m.slider_1 ? `
-                                            <div class="main__content-sale-block-item-swiper swiper">
-                                                <div class="main__content-sale-block-item-swiper-wrapper swiper-wrapper">
-                                                    ${sliderItems1}
-                                                </div>
+                                            <div class="main__content-sale-block-item-swiper ${m.baner_type_2 ? "bannerT2" : 'banner'}">
+                                                ${sliderItems1}
                                             </div>
                                             ` : ''}
                                             <div class="main__content-sale-block-item-main-text">
                                                 ${m.text_2}
                                             </div>
                                             ${m.slider_2 ? `
-                                            <div class="main__content-sale-block-item-swiper swiper">
-                                                <div class="main__content-sale-block-item-swiper-wrapper swiper-wrapper">
-                                                    ${sliderItems2}
-                                                </div>
+                                            <div class="main__content-sale-block-item-swiper ${m.baner_type_2 ? "bannerT2" : 'banner'}">
+                                                ${sliderItems2}
                                             </div>
                                             ` : ''}
                                             ${m.text_3 ? `
@@ -633,13 +641,26 @@ function banners(url) {
                     }
                 }
             }
-            const swiper = new Swiper('.main__content-sale-block-item-swiper', {
-                simulateTouch: false, autoplay: {
-                    delay: 2000,
-                    disableOnInteraction: false,
-                    pauseOnMouseEnter: true,
-                },
-                loop: true,
+            $(document).ready(function () {
+                $(`.banner`).slick({
+                    infinite: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    speed: 1000,
+                    autoplay: true,
+                    autoplaySpeed: 2000,
+                })
+            })
+            $(document).ready(function () {
+                $(`.bannerT2`).slick({
+                    infinite: true,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    speed: 1000,
+                    autoplay: true,
+                    autoplaySpeed: 2000,
+                    vertical: true,
+                })
             })
         })
 }
@@ -720,20 +741,20 @@ function socialsSlider(url) {
             socialSliderTitle.append(secondParagraph)
             for (let i of res.results[0].social_networks) {
                 socialSliderWrapper.innerHTML += `
-                                                    <div class="social__block-slider-item swiper-slide">
-                                                        <div class="swiper__slide-wrapper">
-                                                            <a href="" class="social__block-slider-item-btn">
-                                                            <div class="social__block-slider-item-btn-image">
-                                                                <img src="${i.icon_for_url}" alt="">
+                                                    <div class="social__block-slider-item">
+                                                        <a href="#" class="swiper__slide-wrapper">
+                                                            <div class="social__block-slider-item-btn">
+                                                                <div class="social__block-slider-item-btn-image">
+                                                                    <img src="${i.icon_for_url}" alt="">
+                                                                </div>
+                                                                <div class="social__block-slider-item-btn-text">
+                                                                    Подписаться
+                                                                </div>
                                                             </div>
-                                                            <div class="social__block-slider-item-btn-text">
-                                                                Подписаться
-                                                            </div>
-                                                            </a>
                                                             <div class="social__block-slider-item-img">
                                                                 <img src="${i.image}" alt="">
                                                             </div>
-                                                        </div>
+                                                        </a>
                                                     </div>
                                                 `
             }
@@ -774,3 +795,19 @@ function socialsSlider(url) {
 }
 
 socialsSlider('https://developer.itec.by/api/url_for_social_networks/')
+
+function workSlider() {
+    $(document).ready(function () {
+        $(`.get__work-slider`).slick({
+            infinite: true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            speed: 2000,
+            autoplay: true,
+            rtl: false,
+            autoplaySpeed: 2000,
+        })
+    })
+}
+
+workSlider()

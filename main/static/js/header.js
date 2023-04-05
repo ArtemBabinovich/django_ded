@@ -118,13 +118,23 @@ const getWork = document.getElementById('getWork');
 const getWorkBlock = document.querySelector('.get__work-block');
 const remindPresents = document.getElementById('remindPresents');
 const subscriptionBlock = document.querySelector('.subscription__block')
-const subscribe = document.getElementById('subscribe')
+const subscribe = document.getElementById('subscribe');
+const videoBlock = document.querySelector('.video__slider-block')
+const watchVideo = document.getElementById('watchVideo');
+const getDiscount = document.getElementById('getDiscount')
+
+watchVideo.addEventListener('click', () => {
+    scrollBy(0, (videoBlock.getBoundingClientRect().top - 100))
+})
+getDiscount.addEventListener('click', () => {
+    scrollBy(0,(subscriptionBlock.getBoundingClientRect().top - 40))
+})
 
 subscribe.addEventListener('click', () => {
-    scrollBy(0,(subscriptionBlock.getBoundingClientRect().top - 75))
+    scrollBy(0,(subscriptionBlock.getBoundingClientRect().top - 40))
 })
 remindPresents.addEventListener('click', () => {
-    scrollBy(0,(subscriptionBlock.getBoundingClientRect().top - 75))
+    scrollBy(0,(subscriptionBlock.getBoundingClientRect().top - 40))
 })
 getWork.addEventListener('click', () => {
     scrollBy(0, (getWorkBlock.getBoundingClientRect().top - 75))
