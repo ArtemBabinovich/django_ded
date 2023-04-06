@@ -220,7 +220,7 @@ html {
   font-size: 20px;
   line-height: 23.83px;
   cursor: pointer;
-  background: linear-gradient(0deg, rgb(125, 2, 2) 34%, rgb(223, 3, 0) 73%);
+  background: linear-gradient(0deg, rgb(70, 1, 1) 0%, rgb(135, 1, 1) 51%, rgb(181, 1, 1) 100%);
 }
 .header__nav-list-item-mobile:hover {
   background: #3d0000;
@@ -656,6 +656,9 @@ html {
   .header__phone {
     width: 100%;
     justify-content: space-between;
+  }
+  .header__phone a {
+    font-size: 13px;
   }
 }
 .main__wrapper {
@@ -1752,7 +1755,7 @@ html {
 }
 
 .secondBlock__instruction {
-  margin-top: 21px;
+  margin-top: 20px;
   padding: 0 20px;
   margin-bottom: 15px;
 }
@@ -1891,6 +1894,7 @@ html {
   margin-bottom: 25px;
 }
 .present__secondBlock-text .secondBlock-text-filling {
+  display: block;
   color: white;
   font-size: 14px;
   font-weight: 400;
@@ -1901,18 +1905,44 @@ html {
   color: yellow;
 }
 
+.secondBlock-text-filling {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .drop-down-menu-wrapper {
     flex-direction: column;
     align-items: center;
     max-width: 290px;
   }
+  .btn__drop-down-menu {
+    padding: 5px 0;
+    align-items: initial;
+  }
+  .secondBlock-text-filling {
+    color: white;
+    font-size: 12px;
+    font-weight: 400;
+    font-family: Verdana;
+    line-height: 26px;
+    margin-top: 20px;
+  }
+  .present__secondBlock-text .secondBlock-text-filling {
+    display: none;
+  }
+  .present__secondBlock-form {
+    margin-top: 0;
+  }
   .btn__drop-down-present {
-    padding-top: 100px;
-    padding-bottom: 5px;
+    align-items: flex-start;
+    padding: 5px 0;
   }
   .firstBlock__title-Wrapper {
     border-radius: 55px 55px 0 0;
+  }
+  .secondBlock-sub-title {
+    padding-bottom: 0;
+    margin-top: 20px;
   }
   .firstBlock__nav {
     border-radius: 0;
@@ -2196,7 +2226,7 @@ html {
   flex-direction: column;
   gap: 5px;
   border: 1px solid #efe5bd;
-  background: linear-gradient(90deg, rgb(40, 0, 0) 0%, rgb(76, 0, 0) 64%, rgb(138, 3, 2) 100%);
+  background: linear-gradient(90deg, rgb(39, 0, 0) 0%, rgb(75, 0, 0) 51%, rgb(139, 3, 3) 100%);
 }
 
 .service__block-list-item {
@@ -2393,7 +2423,7 @@ html {
   flex-direction: column;
   align-items: center;
   gap: 20px;
-  padding: 0 20px;
+  padding: 0 12px;
   position: relative;
 }
 
@@ -2405,7 +2435,7 @@ html {
 .mini__swiper-item-text p {
   font-size: 14px;
   color: #ffff00;
-  font-family: "Verdana";
+  font-family: "Roboto";
   text-align: center;
   font-weight: 400;
   font-style: normal;
@@ -2420,11 +2450,6 @@ html {
   height: 100%;
   object-fit: contain;
 }
-.mini__swiper-item-image:hover {
-  width: 350px !important;
-  transition: 0.5s;
-}
-
 .main__content-block-mini-slider-item {
   padding-bottom: 30px;
   border-bottom: 1px solid #643c3c;
@@ -2547,7 +2572,7 @@ html {
 .social__slider-title {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 20px;
   margin-top: 50px;
   margin-bottom: 35px;
 }
@@ -2844,7 +2869,7 @@ html {
 .main__content-sale-block-item {
   border: 1px solid #f0e6be;
   position: relative;
-  background: linear-gradient(90deg, rgb(41, 0, 0) 20%, rgb(134, 3, 3) 73%);
+  background: linear-gradient(90deg, rgb(39, 0, 0) 0%, rgb(75, 0, 0) 51%, rgb(139, 3, 3) 100%);
 }
 
 .main__content-sale-block-item-main-title {
@@ -2881,6 +2906,7 @@ html {
 
 .main__content-sale-block-swiper-item {
   height: 300px;
+  position: relative;
 }
 .main__content-sale-block-swiper-item img {
   width: 100%;
@@ -3221,7 +3247,7 @@ html {
   display: grid;
   align-items: center;
   column-gap: 10px;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-auto-flow: column;
   align-content: flex-start;
 }
@@ -3230,7 +3256,7 @@ html {
   align-self: flex-start;
 }
 .swiper__tips-anchors-list a {
-  font-size: 18px;
+  font-size: 16px;
   color: #ff0000;
   font-family: "Verdana";
   font-weight: 400;
@@ -3285,7 +3311,7 @@ html {
 }
 
 .first__know-block-text {
-  max-width: 240px;
+  max-width: 245px;
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -3592,6 +3618,7 @@ html {
   font-weight: 700;
   font-style: normal;
   font-family: "Tahoma";
+  background: linear-gradient(90deg, rgb(40, 0, 0) 0%, rgb(76, 0, 0) 64%, rgb(138, 3, 2) 100%);
 }
 .get__work-title span {
   font-weight: 400;
@@ -3609,6 +3636,12 @@ html {
 
 .get__work-about-image {
   display: flex;
+}
+
+.get__work-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .get__work-about-image-first img {
@@ -3931,7 +3964,7 @@ footer {
 .slick-arrow.slick-prev {
   width: 22px;
   height: 60px;
-  left: -30px;
+  left: -32px;
   background: url(../img/icons/miniSliderPrevArrow.svg) no-repeat;
   background-size: cover;
 }
@@ -3940,7 +3973,7 @@ footer {
 .slick-arrow.slick-next {
   width: 22px;
   height: 60px;
-  right: -30px;
+  right: -32px;
   background: url(../img/icons/miniSliderNextArrow.svg) no-repeat;
   background-size: 100%;
   background-size: cover;
@@ -3950,6 +3983,14 @@ footer {
 /* Точки (булиты) */
 /* Активная точка */
 /* Элемент точки */
+.main__content-sale-block-item-swiper button {
+  display: none !important;
+}
+
+.bannerT2 .slick-track {
+  flex-direction: column;
+}
+
 @media (max-width: 1919px) {
   .slick-arrow.slick-prev {
     left: -20px;

@@ -9,42 +9,50 @@ const currentDate = document.querySelectorAll('.current__date'),
     dateNow = document.querySelectorAll('.date__now'),
     dateNowBtn = document.querySelectorAll('.date__now-btn-now'),
     dateNowClearBtn = document.querySelectorAll('.date__clear-btn'),
-    calendarIconMobile = document.getElementById('#calendarIconMobile').id,
-    dropDownWrapper = document.querySelector('.drop__down-present-wrapper'),
+    // calendarIconMobile = document.getElementById('#calendarIconMobile').id,
+    dropDownWrapper = document.querySelectorAll('.drop__down-present-wrapper'),
     calendarItem = document.querySelector('.calendar__item')
 
 // give isActive class
 let selectedText;
 
-dropDownWrapper.addEventListener('click', (e) => {
-    // console.log(e.target.parentElement, 'parent')
-    // console.log(e.target.parentElement.parentElement, 'parent parent')
-    // console.log(e.target.parentElement.parentElement.parentElement, 'parent parent parent')
-    // console.log(e.target, 'target')
-    if (e.target.parentElement !== calendarItem) {
-        if (e.target.parentElement.parentElement !== calendarItem) {
-            if (e.target.parentElement.parentElement.parentElement !== calendarItem) {
-                if (e.target.parentElement.parentElement.parentElement.children[0] !== calendarItem) {
-                    if (!e.target.parentElement.classList.contains('calendar__selected')) {
-                        if (!e.target.parentElement.classList.contains('month__next')) {
-                            if (!e.target.parentElement.classList.contains('month__prev')) {
-                                calendar.forEach(calendarItem => {
-                                    calendarItem.classList.remove('calendarActive')
-                                })
+dropDownWrapper.forEach(item => {
+    item.addEventListener('click', (e) => {
+        // console.log(e.target.parentElement, 'parent')
+        // console.log(e.target.parentElement.parentElement, 'parent parent')
+        // console.log(e.target.parentElement.parentElement.parentElement, 'parent parent parent')
+        // console.log(e.target, 'target')
+        if (e.target.parentElement !== calendarItem) {
+            if (e.target.parentElement.parentElement !== calendarItem) {
+                if (e.target.parentElement.parentElement.parentElement !== calendarItem) {
+                    if (e.target.parentElement.parentElement.parentElement.children[0] !== calendarItem) {
+                        if (!e.target.parentElement.classList.contains('calendar__selected')) {
+                            if (!e.target.parentElement.classList.contains('month__next')) {
+                                if (!e.target.parentElement.classList.contains('month__prev')) {
+                                    calendar.forEach(calendarItem => {
+                                        calendarItem.classList.remove('calendarActive')
+                                    })
+                                }
+                            }
+                            if (!e.target.parentElement.parentElement.parentElement.classList.contains('calendar')) {
+                                if (!e.target.parentElement.parentElement.classList.contains('calendar__selected')) {
+                                    if (!e.target.parentElement.parentElement.classList.contains('calendar')) {
+                                        calendarDropDownWrap.forEach(item => {
+                                            item.classList.remove('dropDownCalendar');
+                                        })
+                                    }
+                                }
                             }
                         }
-                        calendarDropDownWrap.forEach(item => {
-                            item.classList.remove('dropDownCalendar');
-                        })
                     }
                 }
             }
         }
-    }
+    })
 })
 calendarSelected.forEach(selectedItem => {
     selectedItem.addEventListener('click', (e) => {
-        if (e.target.id === calendarIcon || e.target.id === calendarIconMobile) {
+        if (e.target.id === calendarIcon) {
             calendarDropDownWrap.forEach(item => {
                 item.classList.toggle('dropDownCalendar');
             })
@@ -157,7 +165,6 @@ dateNow.forEach(dateNowItem => {
 dateNowBtn.forEach(dateNowBtnItem => {
     dateNowBtnItem.addEventListener('click', () => {
         dateNow.forEach(item => {
-            console.log(calendarDateNow.getMonth())
             selectedText.innerHTML = `${calendarDateNow.getDate() < 10 ? ('0' + calendarDateNow.getDate()) : calendarDateNow.getDate()}.${calendarDateNow.getMonth() < 10 ? '0' + (calendarDateNow.getMonth() + 1) : calendarDateNow.getMonth() + 1}.${calendarDateNow.getFullYear()}`
         })
         calendar.forEach(calendarItem => {

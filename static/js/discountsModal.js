@@ -248,7 +248,8 @@ function post_presents(url) {
         whoSelected = document.querySelector('.who__selected'),
         occasionSelected = document.querySelector('.occasion__selected'),
         orderSelected = document.querySelector('.order__selected'),
-        remindSelected = document.querySelector('.remind__selected');
+        remindSelected = document.querySelector('.remind__selected'),
+        remindEveryYears = document.getElementById('#remindEverYears');
     let dateNewFormat = presentCalendarDate.textContent.trim()
     fetch(url, {
         method: 'POST',
@@ -271,7 +272,7 @@ function post_presents(url) {
                 "reason": occasionSelected.textContent.trim(),
                 "present": orderSelected.textContent.trim(),
                 "remind_for_days": remindSelected.textContent.trim(),
-                "remind_every_years": true
+                "remind_every_years": remindEveryYears.checked
             }
         ),
     })

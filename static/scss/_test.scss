@@ -130,7 +130,7 @@
 .slick-arrow.slick-prev {
   width: 22px;
   height: 60px;
-  left: -30px;
+  left: -32px;
   background: url(../img/icons/miniSliderPrevArrow.svg) no-repeat;
   background-size: cover;
 }
@@ -139,7 +139,7 @@
 .slick-arrow.slick-next {
   width: 22px;
   height: 60px;
-  right: -30px;
+  right: -32px;
   background: url(../img/icons/miniSliderNextArrow.svg) no-repeat;
   background-size: 100%;
   background-size: cover;
@@ -162,6 +162,16 @@
 
 /* Элемент точки */
 .slick-dots li button {
+}
+.main__content-sale-block-item-swiper{
+  & button{
+    display: none !important;
+  }
+}
+.bannerT2 {
+  & .slick-track{
+    flex-direction: column;
+  }
 }
 
 @media (max-width: 1919px) {
