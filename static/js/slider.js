@@ -78,22 +78,11 @@ function getSwiperItem(url) {
 
             const swiper = new Swiper('.main__slider-wrapper', {
                 pagination: {
-                    el: '.swiper-pagination',
-                    type: 'bullets',
-                    clickable: true,
-                },
-                loop:
-                    true,
-                simulateTouch: false,
-                navigation: {
-                    nextEl: '.slider__action-prev',
-                    prevEl: '.slider__action-next',
-                },
-                slidesPerView: 1,
-                autoplay: {
-                    delay: item.timer ? item.timer : 2000,
-                    disableOnInteraction: false,
-                    pauseOnMouseEnter: true,
+                    el: '.swiper-pagination', type: 'bullets', clickable: true,
+                }, loop: true, simulateTouch: false, navigation: {
+                    nextEl: '.slider__action-prev', prevEl: '.slider__action-next',
+                }, slidesPerView: 1, autoplay: {
+                    delay: item.timer ? item.timer : 2000, disableOnInteraction: false, pauseOnMouseEnter: true,
                 }
             });
             // const mainSliderWrapper = document.querySelector('.main__slider-wrapper');
@@ -156,7 +145,7 @@ function miniSliders(url) {
             for (let i of res.slides) {
                 for (let j of i.services) {
                     services += `
-                                <a href="#" class="mini__swiper-item swiper-slide">
+                                <a href="https://www.google.com/" class="mini__swiper-item swiper-slide">
                                     <div class="mini__swiper-item-image">
                                         <img data-lazy="${j.image_for_mini_slider}" alt="${j.image_for_mini_slider}">
                                     </div>
@@ -286,9 +275,9 @@ function miniSliders(url) {
                             for (let y of result.results[0].advices_url) {
                                 anchorsLi += `
                                     <li class="swiper__tips-anchors-item">
-                                        <a href="#${y.url}">
+                                        <p class="${y.url}">
                                             ${y.title}
-                                        </a>
+                                        </p>
                                     </li>  
                                 `
                             }
@@ -333,15 +322,20 @@ function miniSliders(url) {
                         `
                         blockMiniSlider[countTips].append(div)
                         // читать советы
-                        const miniSwiperTips = document.querySelectorAll('.mini__swiper-tips');
+                        const miniSwiperTips = document.querySelector('.mini__swiper-tips');
                         const tipsText = document.getElementById('tipsText')
                         const slickArrow = document.querySelectorAll('.slick-arrow')
-                        miniSwiperTips[0].addEventListener('click', (e) => {
+                        const allBlock = document.querySelector('.swiper__tips-openAllBlock')
+                        miniSwiperTips.addEventListener('click', (e) => {
                             if (e.target.id === 'tipsText') {
-                                slickArrow.forEach(item => item.style.top = '10%')
                                 e.target.parentElement.children[1].classList.toggle('tips__active')
+                                e.currentTarget.parentElement.children[1].children[0].style.top = '12%'
+                                e.currentTarget.parentElement.children[1].children[2].style.top = '12%'
                                 e.target.parentElement.children[1].style.top = `13%`
                                 e.target.parentElement.children[0].style.marginBottom = '20px'
+                            }
+                            if (allBlock.classList.contains('tips__active')) {
+
                             }
                             if (e.target.classList.contains('swiper__tips-action-show')) {
                                 e.target.parentElement.parentElement.children[1].style.display = 'block'
@@ -366,14 +360,12 @@ function miniSliders(url) {
                                     e.target.parentElement.parentElement.children[3].classList.toggle('tips__active')
                                     if (e.target.parentElement.parentElement.children[3].classList.contains('tips__active')) {
                                         e.target.parentElement.parentElement.children[2].children[0].textContent = 'Свернуть ВСЕ'
-                                        if (e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.children[2].clientHeight >= 350) {
-                                            e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.children[1].style.top = '2.7%'
-                                        } else {
-                                            e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.children[1].style.top = '1.7%'
-                                        }
+                                        e.currentTarget.parentElement.children[1].children[0].style.top = '1.4%'
+                                        e.currentTarget.parentElement.children[1].children[2].style.top = '1.4%'
                                     } else {
-                                        e.target.parentElement.parentElement.children[2].children[0].textContent = 'Показать ВСЕ...'
-                                        e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.children[1].style.top = '13%'
+                                        e.currentTarget.parentElement.children[1].children[0].style.top = '12%'
+                                        e.currentTarget.parentElement.children[1].children[2].style.top = '12%'
+                                        e.target.parentElement.parentElement.children[2].children[0].textContent = 'Читать ВСЕ'
                                     }
                                 }
                             }
@@ -382,9 +374,24 @@ function miniSliders(url) {
                     })
             }
 
-            if (stateTips){
+            if (stateTips) {
                 get_tips('https://developer.itec.by/api/content_tips')
             }
+            //----------------------------
+            // Anchors tips logic
+            const tipsAllBlock = document.querySelector('.swiper__tips-openAllBlock')
+            const navTips = document.querySelectorAll('.swiper__tips-anchors-item > p');
+            navTips.forEach(item => {
+                item.addEventListener('click', () => {
+                    tipsAllBlock.classList.add('tips__active');
+                    const idElem = item.getAttribute('class')
+                    const element = document.getElementById(idElem);
+                    if (tipsAllBlock.classList.contains('tips__active')) {
+                        scrollBy(0, element.getBoundingClientRect().top - 30)
+                    }
+                })
+            })
+            // ---------------------------
             stateTips = false
         })
         .then(timer => {
@@ -397,29 +404,19 @@ function miniSliders(url) {
                     autoplay: true,
                     rtl: false,
                     autoplaySpeed: timer ? timer : 5000,
-                    responsive: [
-                        {
-                            breakpoint: 1920,
-                            settings: {
-                                slidesToShow: 3,
-                                slidesToScroll: 3,
-                            }
-                        },
-                        {
-                            breakpoint: 1024,
-                            settings: {
-                                slidesToShow: 2,
-                                slidesToScroll: 2,
-                            }
-                        },
-                        {
-                            breakpoint: 768,
-                            settings: {
-                                slidesToShow: 1,
-                                slidesToScroll: 1,
-                            }
+                    responsive: [{
+                        breakpoint: 1920, settings: {
+                            slidesToShow: 3, slidesToScroll: 3,
                         }
-                    ]
+                    }, {
+                        breakpoint: 1024, settings: {
+                            slidesToShow: 2, slidesToScroll: 2,
+                        }
+                    }, {
+                        breakpoint: 768, settings: {
+                            slidesToShow: 1, slidesToScroll: 1,
+                        }
+                    }]
                 })
             })
         })
@@ -530,46 +527,53 @@ function banners(url) {
                                 `
                     }
                     let calendarDate = new Date(m.calendar_date)
+                    console.log(m.slider)
                     saleBlockWrapper.forEach(item => {
                         item.innerHTML += `
-                                        <div class="main__content-sale-block-item">
-                                            <div class="main__content-sale-block-item-time-wrapper">
-                                                <div class="main__content-sale-block-item-time" style="display: ${m.calendar_title ? 'block' : 'none'};">
-                                                    ${m.calendar_title}
-                                                </div>
-                                                <div class="main__content-sale-block-item-sub-time" style="display: ${m.calendar_date ? 'block' : 'none'}">
-                                                    ${calendarDate.toLocaleString('default', {
-                            year: 'numeric', month: 'long', day: 'numeric'
+                                        <div class="main__content-sale-block-item ${m.baner_type_2 ? "bannerT2" : 'banner'}">
+                                        <div class="main__content-sale-block-item-time-wrapper">
+                                            <div class="main__content-sale-block-item-time" style="display: ${m.calendar_title ? 'block' : 'none'};">
+                                                ${m.calendar_title}
+                                            </div>
+                                            <div class="main__content-sale-block-item-sub-time" style="display: ${m.calendar_date ? 'block' : 'none'}">
+                                                ${calendarDate.toLocaleString('default', {
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric'
                         })}
+                                            </div>
+                                            <div class="main__content-sale-block-item-banner-title" style="display: ${m.banner_title ? 'block' : 'none'}">
+                                                ${m.banner_title}
+                                            </div>
+                                            </div>
+                                            <div class="main__content-sale-block-item-wrap ${m.baner_type_2 ? 'translate' : ''}">
+                                                <div class="main__content-sale-block-item-main-text">
+                                                    ${m.text_1}
                                                 </div>
-                                                <div class="main__content-sale-block-item-banner-title" style="display: ${m.banner_title ? 'block' : 'none'}">
-                                                    ${m.banner_title}
-                                                </div>
-                                            </div>
-                                            <div class="main__content-sale-block-item-main-text">
-                                                ${m.text_1}
-                                            </div>
-                                            <div class="main__content-sale-block-item-swiper ${m.baner_type_2 ? "bannerT2" : 'banner'}">
-                                                ${sliderItems}
-                                            </div>
-                                            ${m.slider_1 ? `
-                                            <div class="main__content-sale-block-item-swiper ${m.baner_type_2 ? "bannerT2" : 'banner'}">
+                                                ${m.slider ? `
+                                                <div class="main__content-sale-block-item-swiper">
+                                                    ${sliderItems}
+                                                </div>`
+                            : ''}
+                                                ${m.slider_1 ? `
+                                            <div class="main__content-sale-block-item-swiper">
                                                 ${sliderItems1}
                                             </div>
                                             ` : ''}
-                                            <div class="main__content-sale-block-item-main-text">
-                                                ${m.text_2}
-                                            </div>
-                                            ${m.slider_2 ? `
-                                            <div class="main__content-sale-block-item-swiper ${m.baner_type_2 ? "bannerT2" : 'banner'}">
+                                                <div class="main__content-sale-block-item-main-text">
+                                                    ${m.text_2}
+                                                </div>
+                                                ${m.slider_2 ? `
+                                            <div class="main__content-sale-block-item-swiper">
                                                 ${sliderItems2}
                                             </div>
                                             ` : ''}
-                                            ${m.text_3 ? `
+                                                ${m.text_3 ? `
                                             <div class="main__content-sale-block-item-main-text">
                                                 ${m.text_3}
                                             </div>
                                             ` : ''}
+                                            </div>
                                             ${m.timer === undefined ? '' : `
                                             <div class="main__content-sale-block-item-main-end">
                                                 <p class="main__content-sale-block-item-main-end-title">
@@ -580,11 +584,11 @@ function banners(url) {
                                                 </div>
                                             </div>
                                             `}
-                                            <div class="main__content-sale-block-item-main-more">
-                                                <a href="#">
-                                                    Подробнее
-                                                </a>
-                                            </div>
+                                                <div class="main__content-sale-block-item-main-more">
+                                                    <a href="#">
+                                                        Подробнее
+                                                    </a>
+                                                </div>
                                         </div>
                                     `
                     })
@@ -642,7 +646,7 @@ function banners(url) {
                 }
             }
             $(document).ready(function () {
-                $(`.banner`).slick({
+                $(`.main__content-sale-block-item-swiper`).slick({
                     infinite: true,
                     slidesToShow: 1,
                     slidesToScroll: 1,
@@ -651,17 +655,33 @@ function banners(url) {
                     autoplaySpeed: 2000,
                 })
             })
-            $(document).ready(function () {
-                $(`.bannerT2`).slick({
-                    infinite: true,
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    speed: 1000,
-                    autoplay: true,
-                    autoplaySpeed: 2000,
-                    vertical: true,
+            const translateBlock = document.querySelectorAll('.translate');
+            console.log(translateBlock)
+            translateBlock.forEach(item => {
+                item.addEventListener('mouseover', (e) => {
+                    if (e.currentTarget === item) {
+                        clearInterval(interval)
+                    }
                 })
+                item.onmouseleave = () => {
+                    interval = setInterval(() => {
+                        item.scrollBy({
+                            behavior: 'smooth',
+                            top: 100,
+                            left: 0,
+                        })
+                    }, 1000)
+                }
             })
+            let interval = setInterval(() => {
+                translateBlock.forEach(item => {
+                    item.scrollBy({
+                        behavior: 'smooth',
+                        top: 100,
+                        left: 0,
+                    })
+                })
+            }, 1000)
         })
 }
 
@@ -697,29 +717,19 @@ function videoSlider(url) {
                     speed: 1000,
                     autoplay: true,
                     autoplaySpeed: 5000,
-                    responsive: [
-                        {
-                            breakpoint: 1920,
-                            settings: {
-                                slidesToShow: 3,
-                                slidesToScroll: 3,
-                            }
-                        },
-                        {
-                            breakpoint: 1024,
-                            settings: {
-                                slidesToShow: 2,
-                                slidesToScroll: 2,
-                            }
-                        },
-                        {
-                            breakpoint: 768,
-                            settings: {
-                                slidesToShow: 1,
-                                slidesToScroll: 1,
-                            }
+                    responsive: [{
+                        breakpoint: 1920, settings: {
+                            slidesToShow: 3, slidesToScroll: 3,
                         }
-                    ]
+                    }, {
+                        breakpoint: 1024, settings: {
+                            slidesToShow: 2, slidesToScroll: 2,
+                        }
+                    }, {
+                        breakpoint: 768, settings: {
+                            slidesToShow: 1, slidesToScroll: 1,
+                        }
+                    }]
                 })
             })
         })
@@ -766,29 +776,19 @@ function socialsSlider(url) {
                     speed: 1000,
                     autoplay: true,
                     autoplaySpeed: 5000,
-                    responsive: [
-                        {
-                            breakpoint: 1920,
-                            settings: {
-                                slidesToShow: 3,
-                                slidesToScroll: 3,
-                            }
-                        },
-                        {
-                            breakpoint: 1024,
-                            settings: {
-                                slidesToShow: 2,
-                                slidesToScroll: 2,
-                            }
-                        },
-                        {
-                            breakpoint: 768,
-                            settings: {
-                                slidesToShow: 1,
-                                slidesToScroll: 1,
-                            }
+                    responsive: [{
+                        breakpoint: 1920, settings: {
+                            slidesToShow: 3, slidesToScroll: 3,
                         }
-                    ]
+                    }, {
+                        breakpoint: 1024, settings: {
+                            slidesToShow: 2, slidesToScroll: 2,
+                        }
+                    }, {
+                        breakpoint: 768, settings: {
+                            slidesToShow: 1, slidesToScroll: 1,
+                        }
+                    }]
                 })
             })
         })
