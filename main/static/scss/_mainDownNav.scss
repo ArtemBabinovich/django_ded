@@ -103,4 +103,14 @@
 }
 .mainDownListActive{
   display: flex;
+  justify-content: flex-start;
+  padding-left: 10px;
+  font-size: 16px;
+  & div {
+    display: flex;
+    gap: 5px;
+  }
+  & p {
+    display: block;
+  }
 }

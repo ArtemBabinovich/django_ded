@@ -23,7 +23,6 @@
   background: #400000;
   margin-top: 20px;
   display: flex;
-  padding-right: 30px;
 }
 .get__work-about-image{
   display: flex;
@@ -33,7 +32,6 @@
   & img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
   }
 }
 .get__work-about-image-first{

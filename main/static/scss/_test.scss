@@ -163,14 +163,26 @@
 /* Элемент точки */
 .slick-dots li button {
 }
-.main__content-sale-block-item-swiper{
-  & button{
+
+.main__content-sale-block-item-swiper {
+  & button {
     display: none !important;
   }
 }
+
 .bannerT2 {
-  & .slick-track{
-    flex-direction: column;
+}
+
+.translate {
+  overflow: hidden;
+  max-height: 550px;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
   }
 }
 

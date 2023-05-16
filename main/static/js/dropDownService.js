@@ -5,6 +5,7 @@ const mainServiceBlock = document.querySelector('.main__content-block-service-bt
 mainServiceBlock.addEventListener('click', (e) => {
     if (e.target.tagName === 'P' || e.target === e.currentTarget){
         mainServiceBlockDrop.classList.toggle('mainBtnActive');
+        mainSaleBlockDrop.classList.remove('mainBtnActive')
     }
 })
 const mainSalesBlock = document.querySelector('.main__content-block-sale-btn'),
@@ -13,5 +14,6 @@ const mainSalesBlock = document.querySelector('.main__content-block-sale-btn'),
 mainSalesBlock.addEventListener('click', (e) => {
     if (e.target.tagName === 'P' || e.target === e.currentTarget){
         mainSaleBlockDrop.classList.toggle('mainBtnActive');
+        mainServiceBlockDrop.classList.remove('mainBtnActive')
     }
 })
